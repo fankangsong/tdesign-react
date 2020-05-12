@@ -23,11 +23,11 @@ export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 ```
  */
 export type Combine<A, B, C = {}, D = {}, E = {}, F = {}> = A &
-B &
-C &
-D &
-E &
-F;
+  B &
+  C &
+  D &
+  E &
+  F;
 
 /**
  * 获取类型中值类型是指定类型的属性名
