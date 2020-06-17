@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from '../base/Table';
+import { Table } from '@tdesign/react';
 
 const exampleList = [
   {
