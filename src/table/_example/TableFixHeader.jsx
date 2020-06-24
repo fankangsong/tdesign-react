@@ -29,13 +29,12 @@ const exampleList = [
   },
 ];
 
-export default function TableExample() {
+export default function TableFixHeader() {
   return (
     <Table
       records={exampleList}
-      // height={100}
-      // bordered={false}
-      // loading={true}
+      height={200}
+      bordered={false}
       columns={[
         {
           key: 'project',

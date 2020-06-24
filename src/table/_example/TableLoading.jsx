@@ -29,13 +29,11 @@ const exampleList = [
   },
 ];
 
-export default function TableExample() {
+export default function TableLoading() {
   return (
     <Table
       records={exampleList}
-      // height={100}
-      // bordered={false}
-      // loading={true}
+      loading={true}
       columns={[
         {
           key: 'project',
