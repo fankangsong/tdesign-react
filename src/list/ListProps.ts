@@ -18,13 +18,13 @@ export interface ListProps extends HTMLAttributes<HTMLDivElement> {
    * 列表是否正在加载
    * @default ''
    */
-  loading?: '' | 'loading' | 'load-more';
+  loading?: 'loading' | 'load-more';
 
   /**
    * 列表尺寸
-   * @default default
+   * @default 'middle'
    */
-  size?: 'default' | 'small' | 'large';
+  size?: 'middle' | 'small' | 'large';
 
   /**
    * 是否展示分割线
@@ -46,15 +46,16 @@ export interface ListProps extends HTMLAttributes<HTMLDivElement> {
 
   /**
    * 加载更多函数
-   * @default horizontal
    */
-  loadMore?: Function;
+  loadMore?: () => void;
 
   /**
    * 列表滚动时触发的函数
-   * @default horizontal
    */
-  scroll?: Function;
+  scroll?: (
+    event: React.UIEvent<HTMLElement>,
+    { scrollTop, scrollBottom }: { scrollTop: number; scrollBottom: number }
+  ) => void;
 }
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
@@ -73,15 +74,15 @@ export interface ListItemMetaProps {
   /**
    * 列表元素的图标
    */
-  avatar?: string | React.ReactNode;
+  avatar?: React.ReactNode;
 
   /**
    * 列表元素的标题
    */
-  title?: string | React.ReactNode;
+  title?: React.ReactNode;
 
   /**
    * 列表元素的描述内容
    */
-  description?: string | React.ReactNode;
+  description?: React.ReactNode;
 }
