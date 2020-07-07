@@ -52,7 +52,7 @@ export interface ListProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * 列表滚动时触发的函数
    */
-  scroll?: (
+  onScroll?: (
     event: React.UIEvent<HTMLElement>,
     { scrollTop, scrollBottom }: { scrollTop: number; scrollBottom: number }
   ) => void;
