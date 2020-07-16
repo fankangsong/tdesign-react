@@ -10,9 +10,7 @@ export default function ButtonExample() {
       <Button theme="warning">warning</Button>
       <Button theme="warning-line">warning-line</Button>
       <Button theme="link">link</Button>
-      <div
-        style={{ background: '#ddd', padding: '0 8px 8px 8px', marginTop: 8 }}
-      >
+      <div style={{ background: '#ddd', padding: '0 8px 8px 8px', marginTop: 8 }}>
         <Button theme="ghost">ghost</Button>
         <Button theme="ghost-line">ghost-line</Button>
       </div>
