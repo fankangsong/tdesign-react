@@ -21,7 +21,7 @@ const rCategory = /^- (.+)$/;
  * - `$3` 组件目录名
  * - `$4` 组件中文名
  */
-const rComponent = /^  - \[(x|\s)\] \[(\w+)\]\(\.\/src\/([\w\/]+)\) - (.+)$/;
+const rComponent = /^  - \[(x|\s)\] \[(\w+)\]\(\.\/src\/([\w-/]+)\) - (.+)$/;
 
 /**
  * Webpack Loader，把组件 README 中的 TOC 解析出来
