@@ -35,3 +35,8 @@
 ### 带状态图标
 
 [Example: 带状态图标](./_example/InputIcon.jsx)
+
+## 组件属性
+
+[Interface: InputProps](./Input.tsx)
+

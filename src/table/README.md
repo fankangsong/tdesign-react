@@ -19,3 +19,7 @@
 ### 表格样式
 
 [Example: 表格样式](./_example/TableBordered.jsx)
+
+## 组件属性
+
+[Interface: TableProps](./TableProps.tsx)
