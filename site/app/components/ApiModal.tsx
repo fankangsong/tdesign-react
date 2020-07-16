@@ -69,9 +69,10 @@ function ApiModal({ children, onClose, visible }) {
           transition: 'transform .3s ease',
         }}
       >
-        {children}
-        <hr />
-        <div style={{ textAlign: 'center' }}>
+        <div className="tdesign-page-doc">
+          <div className="tdesign-document">{children}</div>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: 16 }}>
           <Button onClick={onClose}>确定</Button>
         </div>
       </div>

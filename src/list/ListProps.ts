@@ -16,7 +16,6 @@ export interface ListProps extends HTMLAttributes<HTMLDivElement> {
 
   /**
    * 列表是否正在加载
-   * @default ''
    */
   loading?: 'loading' | 'load-more';
 
@@ -54,7 +53,7 @@ export interface ListProps extends HTMLAttributes<HTMLDivElement> {
    */
   onScroll?: (
     event: React.UIEvent<HTMLElement>,
-    { scrollTop, scrollBottom }: { scrollTop: number; scrollBottom: number },
+    context: { scrollTop: number; scrollBottom: number },
   ) => void;
 }
 
