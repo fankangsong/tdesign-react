@@ -159,7 +159,7 @@ function consumeDemo(
   return (
     <DemoLayout col={col}>
       {groups.map((group, idx) => (
-        <DemoLayout.Block key={idx}>
+        <DemoLayout.Block key={idx} className={`tdesign-demo-item--${componentKey}`}>
           {React.createElement(
             React.Fragment,
             {},

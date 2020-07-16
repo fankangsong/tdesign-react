@@ -77,7 +77,6 @@ const join = (array, mark) => {
   );
 };
 
-console.log(allDoc);
 export function TypeDisplay(props: { type: Type }): JSX.Element {
   const { type } = props;
   if (type.kind === 'array') {
