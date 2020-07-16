@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
-import { Button } from "@tdesign/react/button";
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
+import { Button } from '@tdesign/react';
 
 /**
  * API 的方式唤起一个对话框
  * @returns 异步返回布尔值，为 true 则表示用户确认，为 false 则表示用户取消
  */
 export function show({ content }) {
-  return new Promise<void>(resolve => {
-    const el = document.createElement("div");
+  return new Promise<void>((resolve) => {
+    const el = document.createElement('div');
     document.body.appendChild(el);
     ReactDOM.render(
       <ModalAlertAPI
@@ -18,7 +18,7 @@ export function show({ content }) {
           el.remove();
         }}
       />,
-      el
+      el,
     );
   });
 }
@@ -46,9 +46,9 @@ function ApiModal({ children, onClose, visible }) {
   return (
     <div
       style={{
-        position: "fixed",
+        position: 'fixed',
         zIndex: 1000,
-        background: "rgba(0, 0, 0, .5)",
+        background: 'rgba(0, 0, 0, .5)',
         left: 0,
         top: 0,
         bottom: 0,
@@ -56,25 +56,23 @@ function ApiModal({ children, onClose, visible }) {
         fontSize: '12px',
         overflow: 'auto',
         opacity: visible ? 1 : 0,
-        transition: 'opacity .3s ease'
+        transition: 'opacity .3s ease',
       }}
     >
       <div
         style={{
           padding: 24,
-          background: "white",
-          width: "80%",
-          margin: "48px auto",
+          background: 'white',
+          width: '80%',
+          margin: '48px auto',
           transform: visible ? 'translate3d(0, 0, 0)' : 'translate3d(0, 20px, 0)',
-          transition: 'transform .3s ease'
+          transition: 'transform .3s ease',
         }}
       >
         {children}
         <hr />
         <div style={{ textAlign: 'center' }}>
-          <Button type="primary" onClick={onClose}>
-            确定
-          </Button>
+          <Button onClick={onClose}>确定</Button>
         </div>
       </div>
     </div>

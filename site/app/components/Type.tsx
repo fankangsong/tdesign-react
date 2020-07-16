@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
-import { show } from "./ApiModal";
-import { ApiDoc } from "./ApiDoc";
-import allDoc from "!!props-loader!@tdesign/react/../tsconfig.json";
-import { type } from "os";
+import React, { Fragment } from 'react';
+import { show } from './ApiModal';
+import ApiDoc from './ApiDoc';
+import allDoc from '!!props-loader!@tdesign/react/../tsconfig.json';
+
 // import { Bubble } from '@app/../../tdesign-component/src';
 
 export interface TypeBase {
@@ -19,33 +19,33 @@ export type Type =
   | TupleType;
 
 interface ArrayType extends TypeBase {
-  kind: "array";
+  kind: 'array';
   arrayType: Type;
 }
 
 interface IntersectionType extends TypeBase {
-  kind: "intersection";
+  kind: 'intersection';
   intersectionTypes: Type[];
 }
 
 interface UnionType extends TypeBase {
-  kind: "union";
+  kind: 'union';
   unionTypes: Type[];
 }
 
 interface IntrinsicType extends TypeBase {
-  kind: "intrinsic";
+  kind: 'intrinsic';
 }
 
 interface InterfaceType extends TypeBase {
-  kind: "interface";
+  kind: 'interface';
   typeArguments: Type[];
   interfaceKey: string;
   template: string[];
 }
 
 interface CallSignaturesType extends TypeBase {
-  kind: "callSignatures";
+  kind: 'callSignatures';
   signatures: {
     parameters: {
       name: string;
@@ -56,7 +56,7 @@ interface CallSignaturesType extends TypeBase {
 }
 
 interface TupleType extends TypeBase {
-  kind: "tuple";
+  kind: 'tuple';
   elements: Type[];
 }
 
@@ -77,32 +77,29 @@ const join = (array, mark) => {
   );
 };
 
+console.log(allDoc);
 export function TypeDisplay(props: { type: Type }): JSX.Element {
-  const type = props.type;
-
-  if (type.kind === "array") {
+  const { type } = props;
+  if (type.kind === 'array') {
     const { arrayType } = type;
     const elementTypeElement = <TypeDisplay type={arrayType} />;
-    if (arrayType.kind === "union" || arrayType.kind === "intersection") {
+    if (arrayType.kind === 'union' || arrayType.kind === 'intersection') {
       return <>({elementTypeElement})[]</>;
-    } else {
-      return <>{elementTypeElement}[]</>;
     }
+    return <>{elementTypeElement}[]</>;
   }
 
-  if (type.kind === "intersection") {
+  if (type.kind === 'intersection') {
     const { intersectionTypes } = type;
-    const names = intersectionTypes.map((type, index) => (
-      <TypeDisplay key={index} type={type} />
-    ));
-    return join(names, " & ");
+    const names = intersectionTypes.map((type, index) => <TypeDisplay key={index} type={type} />);
+    return join(names, ' & ');
   }
 
-  if (type.kind === "intrinsic") {
+  if (type.kind === 'intrinsic') {
     return <>{name}</>;
   }
 
-  if (type.kind === "interface") {
+  if (type.kind === 'interface') {
     const { name, typeArguments, interfaceKey, template = [] } = type;
     let typeArgs = null;
     if (typeArguments.length) {
@@ -110,8 +107,8 @@ export function TypeDisplay(props: { type: Type }): JSX.Element {
         <>
           &lt;
           {join(
-            typeArguments.map(type => <TypeDisplay type={type} />),
-            ", "
+            typeArguments.map((type, index) => <TypeDisplay key={index} type={type} />),
+            ', ',
           )}
           &gt;
         </>
@@ -120,7 +117,7 @@ export function TypeDisplay(props: { type: Type }): JSX.Element {
     if (interfaceKey && allDoc[interfaceKey]) {
       return (
         <>
-          {template[0] || ""}
+          {template[0] || ''}
           <i
             className="detail"
             onClick={() =>
@@ -133,21 +130,21 @@ export function TypeDisplay(props: { type: Type }): JSX.Element {
             {name}
             {typeArgs}
           </i>
-          {template[1] || ""}
+          {template[1] || ''}
         </>
       );
     }
     return (
       <>
-        {template[0] || ""}
+        {template[0] || ''}
         {name}
         {typeArgs}
-        {template[1] || ""}
+        {template[1] || ''}
       </>
     );
   }
 
-  if (type.kind === "callSignatures") {
+  if (type.kind === 'callSignatures') {
     const { signatures, name } = type;
 
     let signatureElement: JSX.Element = null;
@@ -157,14 +154,12 @@ export function TypeDisplay(props: { type: Type }): JSX.Element {
       const { parameters, returnType } = signatures[0];
       const paramsStr = parameters
         ? join(
-            parameters.map(({ name, type }) => {
-              return (
-                <>
-                  {name}: {<TypeDisplay type={type} />}
-                </>
-              );
-            }),
-            ", "
+            parameters.map(({ name, type }) => (
+              <>
+                {name}: {<TypeDisplay type={type} />}
+              </>
+            )),
+            ', ',
           )
         : null;
       signatureElement = (
@@ -181,19 +176,19 @@ export function TypeDisplay(props: { type: Type }): JSX.Element {
     return signatureElement || <>{name}</>;
   }
 
-  if (type.kind === "tuple") {
+  if (type.kind === 'tuple') {
     const { elements } = type;
-    const names = elements.map(type => <TypeDisplay type={type} />);
-    return <>[{join(names, ", ")}]</>;
+    const names = elements.map((type, index) => <TypeDisplay key={index} type={type} />);
+    return <>[{join(names, ', ')}]</>;
   }
 
-  if (type.kind === "union") {
+  if (type.kind === 'union') {
     const { unionTypes } = type;
     return join(
-      unionTypes.map(type => <TypeDisplay type={type} />),
-      " | "
+      unionTypes.map((type, index) => <TypeDisplay key={index} type={type} />),
+      ' | ',
     );
   }
 
-  return <>{type["name"]}</>;
+  return <>{type.name}</>;
 }

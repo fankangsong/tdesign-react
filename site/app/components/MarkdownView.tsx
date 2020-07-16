@@ -1,8 +1,8 @@
-/// <reference types="@paperist/types-remark" />
-import React, { createContext, useContext } from "react";
-import { Link } from "react-router-dom";
-import PrismCode from "react-prism";
-import { ComponentDocument } from "!!toc-loader!@tdesign/react/../README.md";
+// / <reference types="@paperist/types-remark" />
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PrismCode from 'react-prism';
+import { ComponentDocument } from '!!toc-loader!@tdesign/react/../README.md';
 import {
   MarkdownNode,
   isHeading,
@@ -18,12 +18,12 @@ import {
   isText,
   isParent,
   isImage,
-} from "@app/utils/md-guard";
-import { FlowLayout } from "@app/components/FlowLayout";
-import { ExampleShowCase } from "./ExampleShowCase";
-import { ApiDoc } from "./ApiDoc";
-import { getHeadingText } from "./MarkdownToc";
-import { HeadingAnchor, HeadingAnchorProps } from "./HeadingAnchor";
+} from '@app/utils/md-guard';
+import DemoLayout from '@app/components/DemoLayout';
+import ExampleShowCase from './ExampleShowCase';
+import ApiDoc from './ApiDoc';
+import { getHeadingText } from './MarkdownToc';
+import  HeadingAnchor, { HeadingAnchorProps } from './HeadingAnchor';
 
 export interface MarkdownViewProps {
   componentKey?: string;
@@ -31,14 +31,8 @@ export interface MarkdownViewProps {
   variables?: object;
 }
 
-export function MarkdownView({
-  componentKey,
-  document,
-  variables = {},
-}: MarkdownViewProps) {
-  return createFragment(
-    documentToFragments({ componentKey, document, variables })
-  );
+export default function MarkdownView({ componentKey, document, variables = {} }: MarkdownViewProps) {
+  return createFragment(documentToFragments({ componentKey, document, variables }));
 }
 
 function createFragment(nodes: React.ReactNodeArray) {
@@ -47,10 +41,10 @@ function createFragment(nodes: React.ReactNodeArray) {
 
 function documentToFragments({
   document,
-  skipFlowResolution = false,
+  skipExampleResolution = false,
   componentKey,
   variables = {},
-}: MarkdownViewProps & { skipFlowResolution?: boolean }) {
+}: MarkdownViewProps & { skipExampleResolution?: boolean }) {
   const { blocks, exampleMap = {} } = document;
   const consuming = blocks.slice();
   const fragments: React.ReactNodeArray = [];
@@ -59,42 +53,45 @@ function documentToFragments({
     const block = consuming.shift();
     // 标题
     if (isHeading(block)) {
-      // 之前大于三级标题，开启流布局
-      if (block.depth === 3 && !skipFlowResolution) {
-        const flowBlocks: MarkdownNode[] = [block];
+      if (block.depth === 3 && !skipExampleResolution) {
+        const demoBlocks: MarkdownNode[] = [block];
         while (consuming.length) {
-          const flowBlock = consuming.shift();
-          if (isHeading(flowBlock) && flowBlock.depth < 3) {
-            // 结束三级标题，此 block 退回
-            consuming.unshift(flowBlock);
+          const demoBlock = consuming.shift();
+
+          if (
+            isHeading(demoBlock) && demoBlock.depth <= 3
+          ) {
+            // 结束一个示例，此 block 退回
+            consuming.unshift(demoBlock);
             break;
           }
-          flowBlocks.push(flowBlock);
+          demoBlocks.push(demoBlock);
         }
         fragments.push(
-          consumeFlow({ blocks: flowBlocks, exampleMap }, componentKey)
+          consumeDemo({ blocks: demoBlocks, exampleMap }, componentKey)
         );
       } else {
-        const level = [null, "h1", "h2", "h3", "h4", "h5", "h6"][
+      // 渲染标签适配样式后推一级
+        const level = [null, 'h2', 'h3', 'h4', 'h5', 'h6', 'div'][
           block.depth
-        ] as HeadingAnchorProps["level"];
+        ] as HeadingAnchorProps['level'];
         const text = getHeadingText(block);
         if (componentKey) {
           fragments.push(
             <HeadingAnchor
               componentKey={componentKey}
               level={level}
-              name={text.replace(/\s+/g, "")}
+              name={text.replace(/\s+/g, '')}
             >
               {childrenToFragment(block.children, variables)}
-            </HeadingAnchor>
+            </HeadingAnchor>,
           );
           fragments.push(<div className="heading-match-box"></div>);
         } else {
           fragments.push(
             React.createElement(level, {
               children: childrenToFragment(block.children, variables),
-            })
+            }),
           );
         }
       }
@@ -102,42 +99,33 @@ function documentToFragments({
     // 示例代码
     else if (isExample(block) && exampleMap[block.name]) {
       const { component: Example, code } = exampleMap[block.name];
-      fragments.push(
-        <ExampleShowCase example={<Example />} code={code}></ExampleShowCase>
-      );
+      fragments.push(<ExampleShowCase example={<Example />} code={code}></ExampleShowCase>);
     }
     // 接口文档
     else if (isInterface(block)) {
       fragments.push(
-        <ApiDoc
-          name={block.name}
-          path={block.path}
-          componentKey={componentKey}
-        ></ApiDoc>
+        <ApiDoc name={block.name} path={block.path} componentKey={componentKey}></ApiDoc>,,
       );
     }
     // 列表
     else if (isList(block)) {
-      const type = block.ordered ? "ol" : "ul";
+      const type = block.ordered ? 'ol' : 'ul';
       fragments.push(
         React.createElement(
           type,
           {},
           ...block.children.map((item, id) => (
             <li key={id}>{childrenToFragment([item], variables)}</li>
-          ))
-        )
+          )),
+        ),
       );
     }
     // 代码块
     else if (isCode(block)) {
       fragments.push(
-        <PrismCode
-          component="pre"
-          className={`prism-token token language-${block.lang}`}
-        >
+        <PrismCode component="pre" className={`prism-token token language-${block.lang}`}>
           {injectEnvVariables(block.value, variables)}
-        </PrismCode>
+        </PrismCode>,
       );
     }
     // HR
@@ -146,13 +134,16 @@ function documentToFragments({
     }
     // 无法识别的当做普通段落处理
     else {
-      fragments.push(<p>{childrenToFragment(block["children"], variables)}</p>);
+      fragments.push(<p>{childrenToFragment(block['children'], variables)}</p>);
     }
   }
   return fragments;
 }
-
-function consumeFlow(document: ComponentDocument, componentKey: string) {
+function consumeDemo(
+  document: ComponentDocument,
+  componentKey: string,
+  col: 1 | 2 = 1
+) {
   const { blocks } = document;
   let currentGroup = [blocks.shift()];
   const groups = [currentGroup];
@@ -166,43 +157,36 @@ function consumeFlow(document: ComponentDocument, componentKey: string) {
   }
 
   return (
-    <FlowLayout>
+    <DemoLayout col={col}>
       {groups.map((group, idx) => (
-        <FlowLayout.Block key={idx}>
+        <DemoLayout.Block key={idx}>
           {React.createElement(
             React.Fragment,
             {},
             ...documentToFragments({
               document: { ...document, blocks: group },
-              skipFlowResolution: true,
+              skipExampleResolution: true,
               componentKey,
             })
           )}
-        </FlowLayout.Block>
+        </DemoLayout.Block>
       ))}
-    </FlowLayout>
+    </DemoLayout>
   );
 }
 
-export function childrenToFragment(
-  children: import("unist").UNIST.Node[],
-  variables = {}
-) {
+export function childrenToFragment(children: import('unist').UNIST.Node[], variables = {}) {
   const fragments: React.ReactNodeArray = [];
 
-  for (let child of children || []) {
+  for (const child of children || []) {
     if (isLink(child)) {
-      let url = child.url;
-      let forceBlankLink = url.indexOf("!!") === 0;
-      if (url[0] === "/" && url[1] !== "/" && !forceBlankLink) {
+      const {url} = child;
+      const forceBlankLink = url.indexOf('!!') === 0;
+      if (url[0] === '/' && url[1] !== '/' && !forceBlankLink) {
         fragments.push(
-          <Link
-            title={child.title}
-            to={url}
-            style={{ verticalAlign: "inherit" }}
-          >
+          <Link title={child.title} to={url} style={{ verticalAlign: 'inherit' }}>
             {childrenToFragment(child.children, variables)}
-          </Link>
+          </Link>,
         );
       } else {
         fragments.push(
@@ -210,18 +194,16 @@ export function childrenToFragment(
             title={child.title}
             href={forceBlankLink ? url.slice(2) : url}
             target="_blank"
-            style={{ verticalAlign: "inherit" }}
+            style={{ verticalAlign: 'inherit' }}
           >
             {childrenToFragment(child.children, variables)}
-          </a>
+          </a>,
         );
       }
     } else if (isEmphasis(child)) {
       fragments.push(<em>{childrenToFragment(child.children, variables)}</em>);
     } else if (isStrong(child)) {
-      fragments.push(
-        <strong>{childrenToFragment(child.children, variables)}</strong>
-      );
+      fragments.push(<strong>{childrenToFragment(child.children, variables)}</strong>);
     } else if (isInlineCode(child)) {
       fragments.push(<code>{injectEnvVariables(child.value, variables)}</code>);
     } else if (isText(child)) {
@@ -230,8 +212,8 @@ export function childrenToFragment(
       fragments.push(childrenToFragment(child.children, variables));
     } else if (isImage(child)) {
       fragments.push(<img src={child.url} alt={child.title}></img>);
-    } else if (child["value"]) {
-      fragments.push(child["value"]);
+    } else if (child['value']) {
+      fragments.push(child['value']);
     }
   }
 
@@ -239,8 +221,5 @@ export function childrenToFragment(
 }
 
 function injectEnvVariables(content: string, variables = {}): string {
-  return content.replace(
-    /\${env:([a-zA-Z]+)}/g,
-    (match, $1) => variables[$1] || match
-  );
+  return content.replace(/\${env:([a-zA-Z]+)}/g, (match, $1) => variables[$1] || match);
 }
