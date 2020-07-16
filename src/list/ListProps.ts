@@ -54,7 +54,7 @@ export interface ListProps extends HTMLAttributes<HTMLDivElement> {
    */
   onScroll?: (
     event: React.UIEvent<HTMLElement>,
-    { scrollTop, scrollBottom }: { scrollTop: number; scrollBottom: number }
+    { scrollTop, scrollBottom }: { scrollTop: number; scrollBottom: number },
   ) => void;
 }
 
