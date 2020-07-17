@@ -1,10 +1,10 @@
-# Tag 按钮
+# Tag 标签
 
 ## 使用示例
 
 ### 标签主题
 
-我们提供3种样式模式，5 种样式主题，适用各种场景。
+提供 3 种样式模式，5 种样式主题，适用各种场景。
 
 [Example: 标签主题](./_example/ThemeTag.jsx)
 
@@ -34,7 +34,7 @@
 
 ### 可选择标签
 
-CheckTag的选中功能，通过checked设置标签的选中状态。
+CheckTag 的选中功能，通过 `checked` 设置标签的选中状态。
 
 [Example: 可选择标签](./_example/CheckTag.jsx)
 
