@@ -42,6 +42,10 @@
 
 [Interface: NotificationProps](./Notification.tsx)
 
+## 组件实例
+
+[Interface: NotificationInstance](./Notification.tsx)
+
 ## 组件方法
 
 [Interface: NotificationMethods](./Notification.tsx)
