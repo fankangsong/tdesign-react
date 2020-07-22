@@ -1,6 +1,6 @@
 # Input 输入框
 
-提供标准的输入框交互和样式。
+文本输入组件。
 
 ## 使用示例
 
@@ -35,3 +35,8 @@
 ### 带状态图标
 
 [Example: 带状态图标](./_example/InputIcon.jsx)
+
+## 组件属性
+
+[Interface: InputProps](./Input.tsx)
+
