@@ -1,12 +1,13 @@
+// eslint-disable-next-line spaced-comment
 /// <reference types="@paperist/types-remark" />
 
-declare module "*.md" {
+declare module '*.md' {
   const value: any;
   export default value;
 }
 
-declare module "!!toc-loader!@tdesign/react/../README.md" {
-  import { UNIST } from "unist";
+declare module '!!toc-loader!@tdesign/react/../README.md' {
+  import { UNIST } from 'unist';
 
   export interface Category {
     category: string;
@@ -33,14 +34,14 @@ declare module "!!toc-loader!@tdesign/react/../README.md" {
   }
 
   export interface ExampleNode {
-    type: "example";
+    type: 'example';
     name: string;
     desc: string;
     url: string;
   }
 
   export interface InterfaceNode {
-    type: "example";
+    type: 'example';
     name: string;
     url: string;
     path: string;
@@ -50,4 +51,4 @@ declare module "!!toc-loader!@tdesign/react/../README.md" {
   export default value;
 }
 
-declare module "!!props-loader!@tdesign/react/../tsconfig.json" {}
+declare module '!!props-loader!@tdesign/react/../tsconfig.json' {}

@@ -1,6 +1,6 @@
 # Table 表格
 
-提供标准的表格交互和样式
+表格可以清晰地展示二维数据。
 
 ## 使用示例
 
@@ -19,3 +19,7 @@
 ### 表格样式
 
 [Example: 表格样式](./_example/TableBordered.jsx)
+
+## 组件属性
+
+[Interface: TableProps](./TableProps.tsx)

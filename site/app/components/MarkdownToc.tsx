@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
-import classNames from "classnames";
-import { NavLink } from "react-router-dom";
-import { ComponentDocument } from "!!toc-loader!@tdesign/react/../README.md";
-import { isHeading, isText, isParent, isInterface } from "@app/utils/md-guard";
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import classNames from 'classnames';
+import { NavLink } from 'react-router-dom';
+import { ComponentDocument } from '!!toc-loader!@tdesign/react/../README.md';
+import { isHeading, isText, isParent, isInterface } from '@app/utils/md-guard';
 
 export interface MarkdownTocProps {
   componentKey: string;
   document: ComponentDocument;
 }
 
-export function MarkdownToc({ componentKey, document }: MarkdownTocProps) {
+export default function MarkdownToc({ componentKey, document }: MarkdownTocProps) {
   const [acticedIndexList, setActicedIndexList] = useState<number[]>([]);
   const bodyRef = useRef<HTMLDivElement>(null);
   const headingRefs = useRef<HTMLHeadingElement[]>(null);
@@ -18,17 +18,17 @@ export function MarkdownToc({ componentKey, document }: MarkdownTocProps) {
   const headings = useMemo(() => {
     const { blocks } = document;
     return blocks
-      .filter(x => isHeading(x) || isInterface(x))
-      .filter(x => (isHeading(x) ? x.children && x.children.length > 0 : true))
-      .map(x => ({ ...x, text: isHeading(x) ? getHeadingText(x) : x["name"] }));
+      .filter((x) => isHeading(x) || isInterface(x))
+      .filter((x) => (isHeading(x) ? x.children && x.children.length > 0 : true))
+      .map((x) => ({ ...x, text: isHeading(x) ? getHeadingText(x) : x.name }));
   }, [componentKey, document]);
 
   useEffect(() => {
-    headingRefs.current = headings.map(x => {
+    headingRefs.current = headings.map((x) => {
       try {
         // 部分 id 使用 querySelector 异常
         const heading: HTMLHeadingElement = window.document.querySelector(
-          `#${x.text.replace(/\s+/g, "")}`
+          `#${x.text.replace(/\s+/g, '')}`,
         );
         return heading || null;
       } catch (err) {
@@ -38,13 +38,13 @@ export function MarkdownToc({ componentKey, document }: MarkdownTocProps) {
   }, [componentKey, document]);
 
   useEffect(() => {
-    bodyRef.current = window.document.querySelector(".tdesign-site-body");
+    bodyRef.current = window.document.querySelector('.tdesign-site-body');
     if (!bodyRef.current) {
       return;
     }
-    bodyRef.current.addEventListener("scroll", handleScroll, { passive: true });
+    bodyRef.current.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => bodyRef.current.removeEventListener("scroll", handleScroll);
+    return () => bodyRef.current.removeEventListener('scroll', handleScroll);
   }, [componentKey, document]);
 
   function handleScroll() {
@@ -57,13 +57,11 @@ export function MarkdownToc({ componentKey, document }: MarkdownTocProps) {
     timerRef.current = window.setTimeout(() => {
       const top = bodyRef.current.scrollTop;
       const bottom = bodyRef.current.clientHeight + top;
-      const topList = headingRefs.current.map(heading =>
-        heading ? heading.getBoundingClientRect().top + top : -1
+      const topList = headingRefs.current.map((heading) =>
+        heading ? heading.getBoundingClientRect().top + top : -1,
       );
       const indexList = [];
-      topList.forEach(
-        (t, i) => (topList[i] = t >= 0 ? t : topList[i - 1] || t)
-      );
+      topList.forEach((t, i) => (topList[i] = t >= 0 ? t : topList[i - 1] || t));
       topList.forEach((t, i) => {
         if (t >= top && t <= bottom) {
           return indexList.push(i);
@@ -92,21 +90,16 @@ export function MarkdownToc({ componentKey, document }: MarkdownTocProps) {
         <li
           key={idx}
           className={classNames(
-            heading["depth"] && `heading-${heading["depth"]}`,
-            isInterface(heading) && `interface`,
-            acticedIndexList.includes(idx) ? "actived" : ""
+            heading.depth && `heading-${heading.depth}`,
+            isInterface(heading) && 'interface',
+            acticedIndexList.includes(idx) ? 'actived' : '',
           )}
         >
           <NavLink
             title={heading.text}
-            to={`/react/${componentKey}/${heading.text.replace(
-              /\s+/g,
-              ""
-            )}`}
+            to={`/react/${componentKey}/${heading.text.replace(/\s+/g, '')}`}
             style={{
-              marginLeft: isInterface(heading)
-                ? 20
-                : Math.max(0, heading["depth"] - 2) * 20,
+              marginLeft: isInterface(heading) ? 20 : Math.max(0, heading.depth - 2) * 20,
             }}
           >
             {heading.text}
@@ -117,7 +110,7 @@ export function MarkdownToc({ componentKey, document }: MarkdownTocProps) {
   );
 }
 
-export function getHeadingText(node: import("unist").UNIST.Parent) {
+export function getHeadingText(node: import('unist').UNIST.Parent) {
   return node.children.reduce((text, child) => {
     if (isText(child)) {
       return text + child.value;
@@ -126,5 +119,5 @@ export function getHeadingText(node: import("unist").UNIST.Parent) {
       return text + getHeadingText(child);
     }
     return text;
-  }, "");
+  }, '');
 }
