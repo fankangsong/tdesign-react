@@ -33,3 +33,7 @@
 ### 带折叠的警告
 
 [Example: 按钮样式](./_example/AlertCollasped.jsx)
+
+## 组件属性
+
+[Interface: AlertProps](./Alert.tsx)
