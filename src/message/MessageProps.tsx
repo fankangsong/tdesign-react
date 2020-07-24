@@ -1,8 +1,7 @@
 import { StyledProps } from '../_type';
+
 /**
  * Message 组件支持的属性。
- *
- * 除表格中列出的属性外，支持透传原生 `<Message>` 标签支持的属性。
  */
 export interface MessageProps extends StyledProps {
   /**
@@ -18,17 +17,18 @@ export interface MessageProps extends StyledProps {
    * @default "info"
    */
   theme?: 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading';
+
   /**
    * 显示时间 毫秒
    *
-   * @default "3000"
+   * @default 3000
    */
   duration?: number;
 
   /**
    * 图标 可为ReactNode， 为false时 不显示图标
    *
-   * @default "false"
+   * @default false
    */
   closeBtn?: boolean | React.ReactNode;
 
@@ -43,23 +43,30 @@ export interface MessageProps extends StyledProps {
    * 打开动画完成后的触发
    */
   onOpened?: () => void;
+
   /**
    * 关闭动画完成后的触发
    */
   onClosed?: () => void;
+
   /**
    * 内部仅触发事件，不处理关闭
    */
   onDurationEnd?: () => void;
+
   /**
    * 内部仅触发事件，不处理关闭
    */
   onClickCloseBtn?: () => void;
+
   /**
    * 默认子元素内容
    */
   children: React.ReactNode;
 }
+
+export type MessageMethod = (content: React.ReactNode | MessageConfig, duration?: number) => number;
+
 /**
  * Message 组件提供了一些静态方法，使用方式和参数如下
  *
@@ -77,7 +84,7 @@ export interface MessageProps extends StyledProps {
  *
  * Message.loading(config)
  */
-export interface ConfigProps {
+export interface MessageConfig {
   /**
    * 消息提醒的位置
    * @default "top"
@@ -91,29 +98,30 @@ export interface ConfigProps {
     | 'right-bottom'
     | 'bottom'
     | 'left-bottom';
+
   /**
    * 偏移量（结合属性placement）, 如： {left: '30px'}，值为String类型
-   *
-   * @default "{}"
    */
   offset?: OffsetProps;
+
   /**
    * 定义层级
    *
-   * @default "6000"
+   * @default 6000
    */
   zIndex?: number;
+
   /**
    * 显示时间 毫秒
    *
-   * @default "3000"
+   * @default 3000
    */
   duration?: number;
 
   /**
    * 图标 可为ReactNode， 为false时 不显示图标
    *
-   * @default "false"
+   * @default false
    */
   closeBtn?: boolean | React.ReactNode;
 
@@ -127,47 +135,69 @@ export interface ConfigProps {
   /**
    * 指定弹窗挂载节点，默认是document下
    *
-   * @default "document.body"
+   * @default document.body
    */
-  attach?: React.ReactNode;
+  attach?: HTMLElement;
 
   /**
    * 打开动画完成后的触发
    */
   onOpened?: () => void;
+
   /**
    * 关闭动画完成后的触发
    */
   onClosed?: () => void;
+
   /**
    * duration 到时间后执行的触发 内部仅触发事件，不处理关闭
    */
   onDurationEnd?: (visible: boolean) => void;
+
   /**
    * 默认子元素内容
    */
   content: React.ReactNode;
+
   /**
    * 点击关闭按钮触发，内部仅触发事件，不处理关闭
    */
   onClickCloseBtn?: () => void;
 }
 
-export interface OffsetProps {
+export interface MessageMethods {
   /**
-   * 向左偏移数量，如 30px
+   * info 主题全局提示
    */
-  left: string;
+  info?: MessageMethod;
   /**
-   * 向右偏移数量，如 30px
+   * success 主题全局提示
    */
-  right: string;
+  success?: MessageMethod;
   /**
-   * 向上偏移数量，如 30px
+   * warning 主题全局提示
    */
-  top: string;
+  warning?: MessageMethod;
   /**
-   * 向下偏移数量，如 30px
+   * error 主题全局提示
    */
-  bottom: string;
+  error?: MessageMethod;
+  /**
+   * question 主题全局提示
+   */
+  question?: MessageMethod;
+  /**
+   * loading 主题全局提示
+   */
+  loading?: MessageMethod;
+  /**
+   * 关闭指定的全局提示
+   */
+  close?: (key: number) => void;
+  /**
+   * 关闭所有全局提示
+   */
+  closeAll?: () => void;
 }
+
+export type OffsetProps = Pick<React.CSSProperties, 'left' | 'top' | 'right' | 'bottom'>;

@@ -1,16 +1,20 @@
-# Message 消息提醒
+# Message 全局提示
 
-全局消息提醒。
+全局消息提示。
 
 ## 使用示例
 
 ### 基本样式
 
-[Example: 默认基本样式](./_example/basic.jsx)
+[Example: 基本样式](./_example/MessageBase.jsx)
+
+### 可关闭
+
+[Example: 可关闭](./_example/MessageClose.jsx)
 
 ### API
 
-[Example: 调用方法](./_example/staticProps.jsx)
+[Example: 调用方法](./_example/MessageMethods.jsx)
 
 ## 组件属性
 
