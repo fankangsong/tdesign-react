@@ -51,15 +51,54 @@ export interface TabsProps extends Combine<StyledProps, {}> {
    * 切换页签回调
    *
    */
-  onChange?: (event, activeName) => any;
+  onChange?: (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    activeName: string
+  ) => any;
   /**
    * 增加页签回调
    *
    */
-  onAdd?: (event) => any;
+  onAdd?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => any;
   /**
    * 删除页签回调
    *
    */
-  onClose?: (event, activeName) => any;
+  onClose?: (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    activeName: string
+  ) => any;
+}
+
+export interface TabPanelProps {
+  /**
+   * 是否强制渲染
+   *
+   */
+  forceRender?: boolean;
+  /**
+   * tab 的 name
+   *
+   */
+  name: string | number;
+  /**
+   * tab 的标签
+   *
+   */
+  label: string | number | React.ReactNode;
+  /**
+   * tab 是否禁用
+   *
+   */
+  disabled?: boolean;
+  /**
+   * tab 是否可关闭
+   *
+   */
+  closable?: boolean;
+  /**
+   * tab 是否 active
+   *
+   */
+  active?: boolean;
 }
