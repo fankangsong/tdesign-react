@@ -18,28 +18,26 @@ export default function PositionTabs() {
           disabled={false}
           addable
         >
-          <TabPanel name={'123'} label={'12323122321112'} forceRender={true}>
-            <div>
-              123<div>234</div>
-            </div>
+          <TabPanel name={'1'} label={'1'} forceRender={true}>
+            <div>这是一个Tabs</div>
           </TabPanel>
-          <TabPanel name={'456'} label={<div>123</div>}>
-            <div>456</div>
+          <TabPanel name={'2'} label={<div>2</div>}>
+            <div>这是一个Tabs</div>
           </TabPanel>
-          <TabPanel name={'11111'} label={123}>
-            <div>456</div>
+          <TabPanel name={'3'} label={3}>
+            <div>这是一个Tabs</div>
           </TabPanel>
-          <TabPanel name={'1111111'} label={123}>
-            <div>456</div>
+          <TabPanel name={'4'} label={4}>
+            <div>这是一个Tabs</div>
           </TabPanel>
-          <TabPanel name={'11111111'} label={<div>123</div>}>
-            <div>456</div>
+          <TabPanel name={'5'} label={<div>5</div>}>
+            <div>这是一个Tabs</div>
           </TabPanel>
-          <TabPanel name={'11111111123123'} label={<div>123</div>}>
-            <div>456</div>
+          <TabPanel name={'6'} label={<div>6</div>}>
+            <div>这是一个Tabs</div>
           </TabPanel>
-          <TabPanel name={'1111111112312312321312'} label={<div>123</div>}>
-            <div>456</div>
+          <TabPanel name={'7'} label={<div>7</div>}>
+            <div>这是一个Tabs</div>
           </TabPanel>
         </Tabs>
       </div>

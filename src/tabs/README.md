@@ -1,6 +1,6 @@
-# Tabs 123
+# Tabs
 
-Tabs
+通过按钮快速切换多个视图。
 
 ## 使用示例
 
@@ -16,6 +16,10 @@ Tabs
 
 [Example: Theme Tabs](./_example/ThemeTabs.jsx)
 
+### 可调大小Tabs
+
+[Example: Sizeable Tabs](./_example/SizeTabs.jsx)
+
 ### 可切换方向Tabs
 
 [Example: Tabs](./_example/PositionExamples.jsx)
@@ -23,3 +27,9 @@ Tabs
 ### 可关闭Tabs
 
 [Example: Closeable Tabs](./_example/CloseableTabs.jsx)
+
+## 组件属性
+
+[Interface: TabsProps](./TabProps.ts)
+
+[Interface: TabPanelProps](./TabProps.ts)

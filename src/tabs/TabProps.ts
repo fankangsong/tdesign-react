@@ -8,7 +8,7 @@ export interface TabsProps extends Combine<StyledProps, {}> {
   /**
    * 当前激活 tab 面板的 name
    *
-   * @default:第一个TabPanel选项
+   * @default 第一个TabPanel选项
    */
   defaultActiveName?: string | number;
   /**
@@ -24,7 +24,7 @@ export interface TabsProps extends Combine<StyledProps, {}> {
    */
   disabled?: boolean;
   /**
-   * 基本形状样式，default，card （预留字段，具体看设计稿
+   * 基本形状样式，default，card
    *
    * @default default
    */
@@ -34,15 +34,15 @@ export interface TabsProps extends Combine<StyledProps, {}> {
    *
    * @default top
    */
-  tabPosition: string;
+  tabPosition: 'top' | 'bottom' | 'left' | 'right';
   /**
-   * 页签是否可移除
+   * 页签是否可移除 暂时只支持 card
    *
    * @default false
    */
   closable?: boolean;
   /**
-   * 标签是否可增加
+   * 标签是否可增加 暂时只支持 card
    *
    * @default false
    */
