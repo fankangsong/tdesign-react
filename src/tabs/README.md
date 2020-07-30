@@ -12,6 +12,14 @@ Tabs
 
 [Example: Addable Tabs](./_example/AddTabs.jsx)
 
+### 主题
+
+[Example: Theme Tabs](./_example/ThemeTabs.jsx)
+
 ### 可切换方向Tabs
 
 [Example: Tabs](./_example/PositionExamples.jsx)
+
+### 可关闭Tabs
+
+[Example: Closeable Tabs](./_example/CloseableTabs.jsx)

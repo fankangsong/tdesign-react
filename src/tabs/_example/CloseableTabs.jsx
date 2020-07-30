@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Tabs } from '@tdesign/react';
 import TabPanel from '../TabPanel';
 
-export default function AddTabs() {
+export default function CloseableTabs() {
   const [panels, setPanels] = useState([
     {
       name: 1,
@@ -23,6 +23,15 @@ export default function AddTabs() {
           theme={'card'}
           defaultActiveName={'2'}
           addable={true}
+          onClose={(event, activeName) => {
+            const targetPanelIndex = panels.findIndex(
+              (panel) => String(panel.name) === activeName
+            );
+            if (targetPanelIndex !== -1) {
+              panels.splice(targetPanelIndex, 1);
+              setPanels([...panels]);
+            }
+          }}
           onAdd={() => {
             setPanels((panels) => {
               panels.push({
@@ -34,7 +43,7 @@ export default function AddTabs() {
           }}
         >
           {panels.map(({ name, label }) => (
-            <TabPanel key={name} name={name} label={label}>
+            <TabPanel closable key={name} name={name} label={label}>
               {label}
             </TabPanel>
           ))}

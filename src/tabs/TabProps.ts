@@ -59,13 +59,13 @@ export interface TabsProps extends Combine<StyledProps, {}> {
    * 增加页签回调
    *
    */
-  onAdd?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => any;
+  onAdd?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => any;
   /**
    * 删除页签回调
    *
    */
   onClose?: (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    event: React.MouseEvent<SVGSVGElement, MouseEvent>,
     activeName: string
   ) => any;
 }
