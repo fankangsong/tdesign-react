@@ -5,7 +5,7 @@ export interface IconProps extends SVGAttributes<SVGSVGElement> {
    * 尺寸
    * @default 'middle'
    */
-  size?: 'small' | 'middle' | 'large';
+  size?: 'small' | 'middle' | 'large' | string | number;
 
   /**
    * 样式
