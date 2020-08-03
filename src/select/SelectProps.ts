@@ -1,6 +1,25 @@
 import React from 'react';
 
-export interface SelectProps {
+/**
+ * 表示组件支持通过 className 和 style 进行样式定制
+ */
+export interface StyledProps {
+  /**
+   * 组件自定义类名
+   */
+  className?: string;
+
+  /**
+   * 组件自定义样式
+   */
+  style?: React.CSSProperties;
+}
+
+export interface ReactProps {
+  children: React.ReactNode;
+}
+
+export interface SelectProps extends StyledProps, ReactProps {
   /**
    * 指定选中项目的 value 值，可以使用 v-model 双向绑定数据
    */
@@ -158,7 +177,7 @@ export interface LabeledValue {
   value: string;
 }
 
-export interface SelectOption {
+export interface SelectOption extends StyledProps {
   /**
    * 选项的值
    */
