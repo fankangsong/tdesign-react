@@ -177,7 +177,11 @@ export interface LabeledValue {
   value: string;
 }
 
-export interface SelectOption extends StyledProps {
+export interface OptionProps {
+  size?: 'large' | 'default' | 'small';
+}
+
+export interface SelectOption extends StyledProps, OptionProps {
   /**
    * 选项的值
    */
