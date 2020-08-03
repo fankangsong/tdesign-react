@@ -6,6 +6,7 @@
 [Example: 单选选择器](./_example/SingleSelect.jsx)
 
 ### 选择器大小
+[Example: 选择器大小](./_example/SelectSizes.jsx)
 
 ### 多选选择器
 
