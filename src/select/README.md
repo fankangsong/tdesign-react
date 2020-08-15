@@ -9,6 +9,7 @@
 [Example: 选择器大小](./_example/SelectSizes.jsx)
 
 ### 多选选择器
+[Example: 多选选择器](./_example/MultipleSelect.jsx)
 
 ### 分组选择器
 

@@ -177,8 +177,15 @@ export interface LabeledValue {
   value: string;
 }
 
+export interface OptionGroupProps {
+  label?: string;
+}
+
 export interface OptionProps {
   size?: 'large' | 'default' | 'small';
+  multiple?: boolean;
+  selectedValue?: string | number;
+  onSelect?: (value: string | number, label?: string | number, selected?: boolean) => void;
 }
 
 export interface SelectOption extends StyledProps, OptionProps {
