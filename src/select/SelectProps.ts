@@ -16,7 +16,7 @@ export interface StyledProps {
 }
 
 export interface ReactProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export interface SelectProps extends StyledProps, ReactProps {
@@ -140,6 +140,15 @@ export interface SelectProps extends StyledProps, ReactProps {
   suffixIcon?: () => void | string;
 
   /**
+   * 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能
+   */
+
+  /**
+   * Select 分组prop。API设计里没有。qinmu补充。
+   */
+  optionGroup?: OptionGroup[];
+
+  /**
    * 当选择项发生改变时触发
    */
   change?: (value: SelectValue | SelectValue[]) => void;
@@ -177,14 +186,18 @@ export interface LabeledValue {
   value: string;
 }
 
-export interface OptionGroupProps {
+export interface OptionGroup {
   label?: string;
+  options: {
+    label: string;
+    value: string | number;
+  }[];
 }
 
 export interface OptionProps {
   size?: 'large' | 'default' | 'small';
   multiple?: boolean;
-  selectedValue?: string | number;
+  selectedValue?: SelectValue | SelectValue[];
   onSelect?: (value: string | number, label?: string | number, selected?: boolean) => void;
 }
 
