@@ -12,6 +12,7 @@
 [Example: 多选选择器](./_example/MultipleSelect.jsx)
 
 ### 分组选择器
+[Example: 分组选择器](./_example/OptionGroupSelect.jsx)
 
 ### 可定制选择器
 
