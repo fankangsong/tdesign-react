@@ -14,6 +14,9 @@
 ### 分组选择器
 [Example: 分组选择器](./_example/OptionGroupSelect.jsx)
 
+### 自定义前缀图标
+[Example: 自定义前缀图标](./_example/PrefixIconSelect.jsx)
+
 ### 可定制选择器
 
 ### 文字选择器
