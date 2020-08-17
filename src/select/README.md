@@ -17,3 +17,9 @@
 ### 可定制选择器
 
 ### 文字选择器
+
+## 组件属性
+
+[Interface: SelectProps](./SelectProps.ts)
+
+[Interface: OptionProps](./SelectProps.ts)

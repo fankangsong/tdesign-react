@@ -19,6 +19,9 @@ export interface ReactProps {
   children?: React.ReactNode;
 }
 
+/**
+ * Select组件属性
+ */
 export interface SelectProps extends StyledProps, ReactProps {
   /**
    * 指定选中项目的 value 值，可以使用 v-model 双向绑定数据
@@ -142,6 +145,7 @@ export interface SelectProps extends StyledProps, ReactProps {
   /**
    * 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能
    */
+  options?: { label: string; value: string | number }[];
 
   /**
    * Select 分组prop。API设计里没有。qinmu补充。
@@ -194,14 +198,10 @@ export interface OptionGroup {
   }[];
 }
 
+/**
+ * Option 组件属性
+ */
 export interface OptionProps {
-  size?: 'large' | 'default' | 'small';
-  multiple?: boolean;
-  selectedValue?: SelectValue | SelectValue[];
-  onSelect?: (value: string | number, label?: string | number, selected?: boolean) => void;
-}
-
-export interface SelectOption extends StyledProps, OptionProps {
   /**
    * 选项的值
    */
@@ -214,4 +214,14 @@ export interface SelectOption extends StyledProps, OptionProps {
    * 是否禁用该选项
    */
   disabled?: boolean;
+}
+
+/**
+ * Option 组件属性 （内部）
+ */
+export interface SelectOption extends StyledProps, OptionProps {
+  size?: 'large' | 'default' | 'small';
+  multiple?: boolean;
+  selectedValue?: SelectValue | SelectValue[];
+  onSelect?: (value: string | number, label?: string | number, selected?: boolean) => void;
 }
