@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 /**
  * 表示组件支持通过 className 和 style 进行样式定制
@@ -128,19 +128,19 @@ export interface SelectProps extends StyledProps, ReactProps {
   popupProps?: any;
 
   /**
-   * border 为 false 时，支持的自定义文本
+   * border 为 false 时，支持的自定义文本. TODO
    */
   triggerText?: string;
 
   /**
    * Select 前置图标
    */
-  prefixIcon?: () => void | string;
+  prefixIcon?: () => ReactElement | string;
 
   /**
    * Select 后置图标
    */
-  suffixIcon?: () => void | string;
+  suffixIcon?: () => ReactElement | string;
 
   /**
    * 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能
