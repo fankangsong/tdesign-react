@@ -17,12 +17,10 @@
 ### 自定义前缀图标
 [Example: 自定义前缀图标](./_example/PrefixIconSelect.jsx)
 
-### 可定制选择器
-
-### 文字选择器
+### 带 options 属性的选择器：数据化配置选项内容
+[Example: 带 options 属性的选择器](./_example/SelectWithOptions.jsx)
 
 ## 组件属性
-
 [Interface: SelectProps](./SelectProps.ts)
 
 [Interface: OptionProps](./SelectProps.ts)

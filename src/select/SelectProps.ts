@@ -238,4 +238,5 @@ export interface PopupProps extends StyledProps, ReactProps {
   classPrefix?: string;
   showPopup: boolean;
   setShowPopup: (showPopup: boolean) => void;
+  options?: { label: string; value: string | number }[];
 }
