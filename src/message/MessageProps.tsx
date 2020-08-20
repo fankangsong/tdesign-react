@@ -100,9 +100,14 @@ export interface MessageConfig {
     | 'left-bottom';
 
   /**
-   * 偏移量（结合属性placement）, 如： {left: '30px'}，值为String类型
+   * 偏移量（结合属性 `placement`）
    */
-  offset?: OffsetProps;
+  offset?: {
+    left?: React.CSSProperties['left'];
+    top?: React.CSSProperties['top'];
+    bottom?: React.CSSProperties['bottom'];
+    right?: React.CSSProperties['right'];
+  };
 
   /**
    * 定义层级
@@ -199,5 +204,3 @@ export interface MessageMethods {
    */
   closeAll?: () => void;
 }
-
-export type OffsetProps = Pick<React.CSSProperties, 'left' | 'top' | 'right' | 'bottom'>;
