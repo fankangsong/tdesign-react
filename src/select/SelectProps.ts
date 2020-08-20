@@ -231,7 +231,7 @@ export interface SelectOption extends StyledProps, OptionProps {
  */
 export interface PopupProps extends StyledProps, ReactProps {
   value: SelectValue | SelectValue[];
-  change?: (value: SelectValue | SelectValue[]) => void;
+  change?: (value: SelectValue | SelectValue[], label?: string) => void;
   size?: 'large' | 'default' | 'small';
   multiple?: boolean;
   optionGroup?: OptionGroup[];
