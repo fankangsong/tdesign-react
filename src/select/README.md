@@ -26,6 +26,9 @@
 ### 带 options 属性的选择器：数据化配置选项内容
 [Example: 带 options 属性的选择器](./_example/SelectWithOptions.jsx)
 
+### 支持ref
+[Example: 支持ref](./_example/SelectWithRef.jsx)
+
 ## 组件属性
 [Interface: SelectProps](./SelectProps.ts)
 

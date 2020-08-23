@@ -19,6 +19,9 @@ export interface ReactProps {
   children?: React.ReactNode;
 }
 
+export interface SelectRef {
+  ref?: React.Ref<HTMLDivElement>;
+}
 /**
  * Select组件属性
  */
