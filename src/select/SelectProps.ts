@@ -86,7 +86,7 @@ export interface SelectProps extends StyledProps, ReactProps {
   loading?: boolean;
 
   /**
-   * 远程加载时显示的文字，支持自定义。如加上超链接
+   * 远程加载时显示的文字，支持自定义。如加上超链接 TODO
    */
   loadingText?: () => void | string;
 
@@ -106,7 +106,7 @@ export interface SelectProps extends StyledProps, ReactProps {
   reserveKeyword?: boolean;
 
   /**
-   * 是否有边框
+   * 是否有边框 TODO
    */
   bordered?: boolean;
 
@@ -116,12 +116,12 @@ export interface SelectProps extends StyledProps, ReactProps {
   multipleLimit?: number;
 
   /**
-   * 作为 value 唯一标识的键名，绑定值为对象类型时必填
+   * 作为 value 唯一标识的键名，绑定值为对象类型时必填 TODO
    */
   valueKey?: string;
 
   /**
-   * 作为 label 唯一标识的键名，绑定值为对象类型时必填
+   * 作为 label 唯一标识的键名，绑定值为对象类型时必填 TODO
    */
   labelKey?: string;
 
@@ -151,7 +151,7 @@ export interface SelectProps extends StyledProps, ReactProps {
   options?: { label: string; value: string | number }[];
 
   /**
-   * Select 分组prop。API设计里没有。qinmu补充。
+   * Select 分组prop
    */
   optionGroup?: OptionGroup[];
 
@@ -239,7 +239,8 @@ export interface PopupProps extends StyledProps, ReactProps {
   multiple?: boolean;
   optionGroup?: OptionGroup[];
   classPrefix?: string;
+  options?: { label: string; value: string | number }[];
+  notFoundContent?: () => void | string;
   showPopup: boolean;
   setShowPopup: (showPopup: boolean) => void;
-  options?: { label: string; value: string | number }[];
 }

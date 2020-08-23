@@ -26,6 +26,9 @@
 ### 带 options 属性的选择器：数据化配置选项内容
 [Example: 带 options 属性的选择器](./_example/SelectWithOptions.jsx)
 
+### labelInValue属性：value和label一起返回
+[Example: labelInValue属性：value和label一起返回](./_example/LabelInValueSelect.jsx)
+
 ### 支持ref
 [Example: 支持ref](./_example/SelectWithRef.jsx)
 
