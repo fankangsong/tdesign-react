@@ -76,7 +76,7 @@ export interface SelectProps extends StyledProps, ReactProps {
   /**
    * 远程搜索方法
    */
-  remoteMethod?: () => void;
+  remoteMethod?: (text?: string) => void;
   /**
    * 是否正在从远程获取数据
    */

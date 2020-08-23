@@ -17,6 +17,9 @@
 ### 可过滤的选择器
 [Example: 可过滤的选择器](./_example/FilterableSelect.jsx)
 
+### 远程搜索
+[Example: 远程搜索](./_example/RemoteSearchSelect.jsx)
+
 ### 自定义前缀图标
 [Example: 自定义前缀图标](./_example/PrefixIconSelect.jsx)
 
