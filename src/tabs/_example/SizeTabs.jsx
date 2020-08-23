@@ -10,13 +10,7 @@ export default function SizeTabs() {
         <Button onClick={() => setSize('small')}>small</Button>
         <Button onClick={() => setSize('middle')}>middle</Button>
         <Button onClick={() => setSize('large')}>large</Button>
-        <Tabs
-          tabPosition={'top'}
-          size={size}
-          theme={'default'}
-          disabled={false}
-          addable
-        >
+        <Tabs tabPosition={'top'} size={size} theme={'default'} disabled={false} addable>
           <TabPanel name={'1'} label={'1'} forceRender={true}>
             <div>这是一个Tabs</div>
           </TabPanel>

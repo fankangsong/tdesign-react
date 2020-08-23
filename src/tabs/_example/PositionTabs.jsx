@@ -11,13 +11,7 @@ export default function PositionTabs() {
         <Button onClick={() => setPosition('bottom')}>bottom</Button>
         <Button onClick={() => setPosition('left')}>left</Button>
         <Button onClick={() => setPosition('right')}>right</Button>
-        <Tabs
-          tabPosition={position}
-          size={'middle'}
-          theme={'default'}
-          disabled={false}
-          addable
-        >
+        <Tabs tabPosition={position} size={'middle'} theme={'default'} disabled={false} addable>
           <TabPanel name={'1'} label={'1'} forceRender={true}>
             <div>这是一个Tabs</div>
           </TabPanel>

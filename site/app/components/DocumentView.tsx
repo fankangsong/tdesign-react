@@ -1,7 +1,6 @@
-import React from "react";
-import { ComponentDocument } from "!!toc-loader!@tdesign/react/../README.md";
-import { MarkdownView } from "./MarkdownView";
-import { MarkdownToc } from "./MarkdownToc";
+import React from 'react';
+import MarkdownView from './MarkdownView';
+import { ComponentDocument } from '!!toc-loader!@tdesign/react/../README.md';
 
 export interface DocumnetViewProps {
   componentKey: string;
@@ -12,21 +11,6 @@ export interface DocumnetViewProps {
 /**
  * 用于显示文档
  */
-export function DocumentView({ componentKey, document }: DocumnetViewProps) {
-  return (
-    <div className="component-document">
-      <nav className="component-toc">
-        <MarkdownToc
-          componentKey={componentKey}
-          document={document}
-        ></MarkdownToc>
-      </nav>
-      <main className="component-markdown">
-        <MarkdownView
-          componentKey={componentKey}
-          document={document}
-        ></MarkdownView>
-      </main>
-    </div>
-  );
+export default function DocumentView({ componentKey, document }: DocumnetViewProps) {
+  return <MarkdownView componentKey={componentKey} document={document}></MarkdownView>;
 }

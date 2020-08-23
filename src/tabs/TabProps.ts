@@ -51,10 +51,7 @@ export interface TabsProps extends Combine<StyledProps, {}> {
    * 切换页签回调
    *
    */
-  onChange?: (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    activeName: string
-  ) => any;
+  onChange?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, activeName: string) => any;
   /**
    * 增加页签回调
    *
@@ -64,10 +61,7 @@ export interface TabsProps extends Combine<StyledProps, {}> {
    * 删除页签回调
    *
    */
-  onClose?: (
-    event: React.MouseEvent<SVGSVGElement, MouseEvent>,
-    activeName: string
-  ) => any;
+  onClose?: (event: React.MouseEvent<SVGSVGElement, MouseEvent>, activeName: string) => any;
 }
 
 export interface TabPanelProps {

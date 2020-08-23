@@ -1,63 +1,58 @@
-# TAG 按钮
-
-提供标准的标签交互和样式。
+# Tag 标签
 
 ## 使用示例
 
 ### 标签主题
 
-我们提供3种样式模式，5种样式主题，适用各种场景。
+提供 3 种样式模式，5 种样式主题，适用各种场景。
 
-[Example: 主要按钮](./_example/ThemeTag.jsx)
+[Example: 标签主题](./_example/ThemeTag.jsx)
 
 ### 标签大小
 
-提供3种尺寸，默认middle。
+提供 3 种尺寸，默认 `'middle'`。
 
-[Example: 主要按钮](./_example/SizeTag.jsx)
+[Example: 标签大小](./_example/SizeTag.jsx)
 
 ### 标签形状
 
-提供3种标签形状，默认square。
+提供 3 种标签形状，默认 `'square'`。
 
-[Example: 主要按钮](./_example/ShapeTag.jsx)
+[Example: 标签形状](./_example/ShapeTag.jsx)
 
 ### 可关闭标签
 
-CheckableTag标签基本用法，添加closable变为可关闭标签。 监听onClose事件。
+添加 `closable` 变为可关闭标签。 监听 `onClose` 事件。
 
-[Example: 主要按钮](./_example/ClosableTag.jsx)
-
-### 无效标签
-
-CheckableTag添加disabled使标签失效
-
-[Example: 主要按钮](./_example/DisableTag.jsx)
+[Example: 可关闭标签](./_example/ClosableTag.jsx)
 
 ### 文字超长截断
 
-用户可以设置标签的超长截断处理，支持px和%。
+用户可以设置标签的超长截断处理。
 
-[Example: 主要按钮](./_example/MaxWidthTag.jsx)
+[Example: 文字超长截断](./_example/MaxWidthTag.jsx)
 
 ### 可选择标签
 
-CheckTag的选中功能，通过checked设置标签的选中状态。
+CheckTag 的选中功能，通过 `checked` 设置标签的选中状态。
 
-[Example: 主要按钮](./_example/CheckTag.jsx)
+[Example: 可选择标签](./_example/CheckTag.jsx)
 
+### 无效标签
 
+添加 `disabled` 使标签失效
 
+[Example: 无效标签](./_example/DisableTag.jsx)
 
-## 注意 😰
+## 注意
 
-默认的Tag标签没有checked和disable属性，请使用可选择CheckedTag标签。
+默认的 Tag 标签没有 `checked` 和 `disable` 属性，请使用 CheckTag 组件。
 
-## Tag组件属性
+## Tag 组件属性
 
 [Interface: TagProps](./Tag.tsx)
 
-## CheckTag组件属性
+## CheckTag 组件属性
 
 [Interface: CheckTagProps](./CheckTag.tsx)
 

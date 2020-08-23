@@ -1,18 +1,4 @@
 /**
- * 排除类型中指定属性
-```ts
-  type A = {
-    foo: number;
-    bar: string;
-  };
-
-  // B is { bar: string }
-  type B = Omit<A, 'foo'>;
-```
- */
-export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-
-/**
  * TS 无法直接 extends Union Type，但是可以 extends 一个 TypeAlias
 ```ts
   // 示例用法
@@ -22,12 +8,7 @@ export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
   > {}
 ```
  */
-export type Combine<A, B, C = {}, D = {}, E = {}, F = {}> = A &
-  B &
-  C &
-  D &
-  E &
-  F;
+export type Combine<A, B, C = {}, D = {}, E = {}, F = {}> = A & B & C & D & E & F;
 
 /**
  * 获取类型中值类型是指定类型的属性名

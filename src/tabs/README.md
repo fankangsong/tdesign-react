@@ -22,7 +22,7 @@
 
 ### 可切换方向Tabs
 
-[Example: Tabs](./_example/PositionExamples.jsx)
+[Example: Tabs](./_example/PositionTabs.jsx)
 
 ### 可关闭Tabs
 

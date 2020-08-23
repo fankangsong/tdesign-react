@@ -24,9 +24,7 @@ export default function CloseableTabs() {
           defaultActiveName={'2'}
           addable={true}
           onClose={(event, activeName) => {
-            const targetPanelIndex = panels.findIndex(
-              (panel) => String(panel.name) === activeName
-            );
+            const targetPanelIndex = panels.findIndex((panel) => String(panel.name) === activeName);
             if (targetPanelIndex !== -1) {
               panels.splice(targetPanelIndex, 1);
               setPanels([...panels]);
