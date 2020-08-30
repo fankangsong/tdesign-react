@@ -151,11 +151,6 @@ export interface SelectProps extends StyledProps, ReactProps {
   options?: { label: string; value: string | number }[];
 
   /**
-   * Select 分组prop
-   */
-  optionGroup?: OptionGroup[];
-
-  /**
    * 当选择项发生改变时触发
    */
   change?: (value: SelectValue | SelectValue[]) => void;
@@ -195,10 +190,6 @@ export interface LabeledValue {
 
 export interface OptionGroup {
   label?: string;
-  options: {
-    label: string;
-    value: string | number;
-  }[];
 }
 
 /**
@@ -239,7 +230,6 @@ export interface PopupProps extends StyledProps, ReactProps {
   change?: (value: SelectValue | SelectValue[], label?: string) => void;
   size?: 'large' | 'default' | 'small';
   multiple?: boolean;
-  optionGroup?: OptionGroup[];
   classPrefix?: string;
   options?: { label: string; value: string | number }[];
   notFoundContent?: () => void | string;
