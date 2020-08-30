@@ -233,6 +233,8 @@ export interface SelectOption extends StyledProps, OptionProps {
  * Select Popup 组件属性（内部）
  */
 export interface PopupProps extends StyledProps, ReactProps {
+  width: number;
+  height: number;
   value: SelectValue | SelectValue[];
   change?: (value: SelectValue | SelectValue[], label?: string) => void;
   size?: 'large' | 'default' | 'small';
