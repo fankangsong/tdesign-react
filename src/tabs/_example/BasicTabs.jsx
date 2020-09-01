@@ -12,10 +12,10 @@ export default function BasicTabs() {
       >
         <Tabs tabPosition={'top'} size={'middle'}>
           <TabPanel name={'a'} label={'a'}>
-            <div>a</div>
+            <div style={{ margin: 20 }}>a</div>
           </TabPanel>
           <TabPanel name={'b'} label={'b'}>
-            <div>b</div>
+            <div style={{ margin: 20 }}>b</div>
           </TabPanel>
         </Tabs>
       </div>

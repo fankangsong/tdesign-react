@@ -35,7 +35,7 @@ export default function AddTabs() {
         >
           {panels.map(({ name, label }) => (
             <TabPanel key={name} name={name} label={label}>
-              {label}
+              <div style={{ margin: 20 }}>{label}</div>
             </TabPanel>
           ))}
         </Tabs>
