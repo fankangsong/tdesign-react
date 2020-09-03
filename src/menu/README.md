@@ -4,13 +4,21 @@
 
 ## 使用示例
 
-### 所有状态
+### 基本用法
 
-[Example: 基本用法 - 状态](./_example/BasicUsageExample.jsx)
+[Example: 基本用法 - 导航](./_example/BasicMenu.jsx)
 
-### 1111
+### 基本用法
 
-[Example: 基本用法 - 状态2](./_example/BasicUsageExample.jsx)
+[Example: 基本用法 - popup 导航](./_example/BasicMenuWithPopup.jsx)
+
+### 顶部导航 基本用法
+
+[Example: 基本用法 - 顶部导航](./_example/HeadMenu.jsx)
+
+### 平铺子导航
+
+[Example: 平铺子导航](./_example/HeadMenuWithTitle.jsx)
 
 ## 组件属性
 
