@@ -35,9 +35,14 @@
 [Example: 平铺式侧边导航](./_example/MenuWithAccordion.jsx)
 
 
-### 手风琴模式
+### 受控手风琴模式
 
 [Example: 手风琴模式](./_example/MenuWithMultiple.jsx)
+
+### 不受控手风琴模式
+
+[Example: 手风琴模式](./_example/MenuWithMultipleStateless.jsx)
+
 
 ### 弹层式
 
