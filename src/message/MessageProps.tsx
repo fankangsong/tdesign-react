@@ -89,15 +89,7 @@ export interface MessageConfig {
    * 消息提醒的位置
    * @default "top"
    */
-  placement?:
-    | 'left'
-    | 'left-top'
-    | 'top'
-    | 'right-top'
-    | 'right'
-    | 'right-bottom'
-    | 'bottom'
-    | 'left-bottom';
+  placement?: 'left' | 'left-top' | 'top' | 'right-top' | 'right' | 'right-bottom' | 'bottom' | 'left-bottom';
 
   /**
    * 偏移量（结合属性 `placement`）
