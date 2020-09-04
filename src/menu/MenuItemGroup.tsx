@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import useConfig from '../_util/useConfig';
 import { StyledProps } from 'src/_type';
+import useConfig from '../_util/useConfig';
 import { MenuStaticProps, MenuBlockType } from './_util/type';
 
 export interface MenuItemGroupProps extends StyledProps {
@@ -10,17 +10,14 @@ export interface MenuItemGroupProps extends StyledProps {
    */
   title?: string;
 }
-const MenuItemGroup: FunctionComponent<MenuItemGroupProps> & MenuStaticProps = (
-  props
-) => {
+const MenuItemGroup: FunctionComponent<MenuItemGroupProps> & MenuStaticProps = (props) => {
   const { title, children, className, style } = props;
   const { classPrefix } = useConfig();
   return (
-    <div
-      className={classNames(className, `${classPrefix}-menu-group`)}
-      style={style}
-    >
-      <div className={`${classPrefix}-menu-group-title`}>{title}</div>
+    <div className={classNames(className, `${classPrefix}-menu-group`)} style={style}>
+      <div className={`${classPrefix}-menu-group-title`}>
+        <span>{title}</span>
+      </div>
       {children}
     </div>
   );
