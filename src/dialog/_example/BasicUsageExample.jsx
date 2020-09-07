@@ -15,7 +15,7 @@ export default function BasicUsage() {
       <Button theme="primary" onClick={handleClick}>
         Open Modal
       </Button>
-      <Dialog header="Basic Modal" visible={visible} onClickCancel={handleClose}>
+      <Dialog header="Basic Modal" visible={visible} onClickCancel={handleClose} class="antd">
         <p>This is a dialog</p>
       </Dialog>
     </div>
