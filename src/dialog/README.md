@@ -26,4 +26,4 @@
 
 ## 组件属性
 
-[Interface: ModalProps](./Modal.tsx)
+[Interface: DialogProps](Dialog.tsx)

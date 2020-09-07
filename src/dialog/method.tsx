@@ -86,20 +86,5 @@ interface ModalMethodProps {
   ) => void;
 }
 
-export type ModalFunc = (
-  props: ModalMethodProps,
-) => {
-  destroy: () => void;
-  update: (newConfig: ModalMethodProps) => void;
-};
-
-export interface ModalStaticFunctions {
-  info: ModalFunc;
-  success: ModalFunc;
-  error: ModalFunc;
-  warn: ModalFunc;
-  warning: ModalFunc;
-  confirm: ModalFunc;
-}
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export default function method() {}
