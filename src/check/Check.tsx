@@ -18,10 +18,7 @@ import useRefAndForward from '../_util/useRefAndForward';
  * `CheckInput` 组件所接收的参数
  */
 export interface CheckProps
-  extends Combine<
-    Omit<LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'defaultValue'>,
-    ControlledProps<boolean>
-  > {
+  extends Combine<Omit<LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'defaultValue'>, ControlledProps<boolean>> {
   /**
    * 获取内部 `input` 的引用
    */
