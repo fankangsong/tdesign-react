@@ -10,7 +10,7 @@
 
 ### 双层子导航
 
-[Example: 双层子导航](./_example/HeadMenuWithDropDown.jsx)
+[Example: 双层子导航](./_example/HeadMenuWithDropdown.jsx)
 
 ### 双层收纳导航
 
