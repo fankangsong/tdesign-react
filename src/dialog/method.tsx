@@ -79,11 +79,7 @@ interface ModalMethodProps {
    * 关闭触发事件
    * @default () => void
    */
-  beforeClose?: (
-    confrim: boolean,
-    options: Omit<ModalMethodProps, 'beforeClose'>,
-    done: () => any,
-  ) => void;
+  beforeClose?: (confrim: boolean, options: Omit<ModalMethodProps, 'beforeClose'>, done: () => any) => void;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
