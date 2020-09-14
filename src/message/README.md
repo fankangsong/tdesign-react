@@ -18,9 +18,9 @@
 
 ## 组件属性
 
-[Interface: MessageProps](./Props.tsx)
+[Interface: MessageProps](./MessageProps.tsx)
 
 ## API 静态方法
 
-[Interface: ConfigProps](./Props.tsx)
+[Interface: MessageConfig](./MessageProps.tsx)
 
