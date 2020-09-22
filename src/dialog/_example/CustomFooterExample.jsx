@@ -41,9 +41,7 @@ export default function CustomFooterExample() {
         header="只显示确认按钮"
         visible={visibleConfirm}
         cancelContent={false}
-        onClickCancel={handleConfirmClose}
-        onClickConfirm={handleConfirmClose}
-        onClickCloseBtn={handleConfirmClose}
+        onClose={handleConfirmClose}
       >
         <p>This is a dialog</p>
       </Dialog>
@@ -52,9 +50,7 @@ export default function CustomFooterExample() {
         visible={visibleBtn}
         confirmContent="去意已决"
         cancelContent="我再想想"
-        onClickCancel={handleBtnClose}
-        onClickConfirm={handleBtnClose}
-        onClickCloseBtn={handleBtnClose}
+        onClose={handleBtnClose}
       >
         <p>This is a dialog</p>
       </Dialog>
@@ -69,9 +65,7 @@ export default function CustomFooterExample() {
             </Button>
           </>
         }
-        onClickCancel={handleFooterClose}
-        onClickConfirm={handleFooterClose}
-        onClickCloseBtn={handleFooterClose}
+        onClose={handleFooterClose}
       >
         <p>This is a dialog</p>
       </Dialog>

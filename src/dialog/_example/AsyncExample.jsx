@@ -27,9 +27,8 @@ export default function BasicUsage() {
         header="Basic Modal"
         visible={visible}
         loading={loading}
-        onClickCancel={handleClose}
+        onClose={handleClose}
         onClickConfirm={handleCloseAsync}
-        onClickCloseBtn={handleClose}
       >
         <p>This is a dialog</p>
       </Dialog>
