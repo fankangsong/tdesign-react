@@ -9,11 +9,11 @@
 ### 带描述的开关
 [Example: 带描述的开关](./_example/desc.jsx)
 
-### 加载状态
-[Example: 加载状态](./_example/loading.jsx)
-
 ### 禁用状态
 [Example: 禁用状态](./_example/disabled.jsx)
+
+### 加载状态
+[Example: 加载状态](./_example/loading.jsx)
 
 ### 组件大小
 开关提供大、中（默认）、小3种尺寸：
