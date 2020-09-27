@@ -1,9 +1,10 @@
 import React, { HTMLAttributes } from 'react';
+import { StyledProps } from '../_type';
 
 /**
  * List 组件支持的属性
  */
-export interface ListProps extends HTMLAttributes<HTMLDivElement> {
+export interface ListProps extends StyledProps {
   /**
    * 列表头部
    */
@@ -51,10 +52,9 @@ export interface ListProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * 列表滚动时触发的函数
    */
-  onScroll?: (
-    event: React.UIEvent<HTMLElement>,
-    context: { scrollTop: number; scrollBottom: number },
-  ) => void;
+  onScroll?: (event: React.UIEvent<HTMLElement>, context: { scrollTop: number; scrollBottom: number }) => void;
+
+  children?: React.ReactNode;
 }
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
