@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import { StyledProps } from 'src/_type';
+import { StyledProps } from '../_type';
 import useConfig from '../_util/useConfig';
 import { MenuStaticProps, MenuBlockType } from './_util/type';
 
