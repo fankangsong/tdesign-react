@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from '@tdesign/react';
+import { Button } from '@tencent/tdesign-react';
 
 /**
  * API 的方式唤起一个对话框

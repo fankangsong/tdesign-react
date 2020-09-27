@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dialog, Button } from '@tdesign/react';
+import { Dialog, Button } from '@tencent/tdesign-react';
 
 export default function CustomFooterExample() {
   const [visibleConfirm, setVisibleConfirm] = useState(false);
@@ -37,12 +37,7 @@ export default function CustomFooterExample() {
       <Button theme="primary" onClick={handleFooterClick} style={{ marginRight: 16 }}>
         自定义内容
       </Button>
-      <Dialog
-        header="只显示确认按钮"
-        visible={visibleConfirm}
-        cancelContent={false}
-        onClose={handleConfirmClose}
-      >
+      <Dialog header="只显示确认按钮" visible={visibleConfirm} cancelContent={false} onClose={handleConfirmClose}>
         <p>This is a dialog</p>
       </Dialog>
       <Dialog
