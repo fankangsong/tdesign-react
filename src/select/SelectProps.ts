@@ -19,9 +19,8 @@ export interface ReactProps {
   children?: React.ReactNode;
 }
 
-export interface SelectRef {
-  ref?: React.Ref<HTMLDivElement>;
-}
+export type SelectRef = React.Ref<HTMLDivElement>;
+
 /**
  * Select组件属性
  */
@@ -93,7 +92,7 @@ export interface SelectProps extends StyledProps, ReactProps {
   /**
    * 当下拉列表为空时显示的内容
    */
-  notFoundContent?: () => void | string;
+  notFoundContent?: () => React.ReactNode;
 
   /**
    * 在返回选项时，是否将 label 和 value 一并返回，默认只返回 value
@@ -225,14 +224,13 @@ export interface SelectOption extends StyledProps, OptionProps {
  */
 export interface PopupProps extends StyledProps, ReactProps {
   width: number;
-  height: number;
   value: SelectValue | SelectValue[];
   change?: (value: SelectValue | SelectValue[], label?: string) => void;
   size?: 'large' | 'default' | 'small';
   multiple?: boolean;
   classPrefix?: string;
   options?: { label: string; value: string | number }[];
-  notFoundContent?: () => void | string;
+  notFoundContent?: () => React.ReactNode;
   showPopup: boolean;
   setShowPopup: (showPopup: boolean) => void;
 }
