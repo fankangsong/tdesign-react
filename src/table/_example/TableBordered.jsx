@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table } from '@tdesign/react';
+import { Table } from '@tencent/tdesign-react';
 
 const exampleList = [
   {
@@ -35,17 +35,9 @@ export default function TableLoading() {
 
   return (
     <>
-      <input
-        type="checkbox"
-        checked={borderd}
-        onClick={() => setBordered((c) => !c)}
-      />
+      <input type="checkbox" checked={borderd} onClick={() => setBordered((c) => !c)} />
       边框
-      <input
-        type="checkbox"
-        checked={stripe}
-        onClick={() => setStripe((s) => !s)}
-      />
+      <input type="checkbox" checked={stripe} onClick={() => setStripe((s) => !s)} />
       斑马纹
       <Table
         records={exampleList}
