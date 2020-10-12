@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Header from '@app/components/Header';
 import Home from './Home';
 import Component from './Component';
-import Header from '@app/components/Header';
 
 export default function Index() {
   return (
