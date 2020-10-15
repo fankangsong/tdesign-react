@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Tabs, Button } from '@tencent/tdesign-react';
-import TabPanel from '../TabPanel';
+import { Tabs, TabPanel, Button } from '@tencent/tdesign-react';
 
 export default function SizeTabs() {
   const [size, setSize] = useState('middle');
