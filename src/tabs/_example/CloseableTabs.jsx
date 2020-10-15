@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Tabs } from '@tencent/tdesign-react';
-import TabPanel from '../TabPanel';
+import { Tabs, TabPanel } from '@tencent/tdesign-react';
 
 export default function CloseableTabs() {
   const [panels, setPanels] = useState([
