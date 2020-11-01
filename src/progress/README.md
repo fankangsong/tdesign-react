@@ -20,3 +20,5 @@
 [Example: 按钮样式](./_example/CircleProgress.jsx)
 
 
+## 组件属性
+[Interface: ProgressProps](./Progress.tsx)
