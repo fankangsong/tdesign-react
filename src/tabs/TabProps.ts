@@ -1,4 +1,4 @@
-import { Combine, StyledProps } from 'src/_type';
+import { Combine, StyledProps } from '../_type';
 export interface TabsProps extends Combine<StyledProps, {}> {
   /**
    * 当前激活 tab 面板的 name

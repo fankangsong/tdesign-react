@@ -51,6 +51,11 @@ interface ModalMethodProps {
    */
   showOverlay?: boolean;
   /**
+   * 是否防止滚动穿透
+   * @default true
+   */
+  preventScrollThrough?: boolean;
+  /**
    * 挂载点
    * @default body
    */

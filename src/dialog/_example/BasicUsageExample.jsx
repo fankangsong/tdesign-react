@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dialog, Button } from '@tdesign/react';
+import { Dialog, Button } from '@tencent/tdesign-react';
 
 export default function BasicUsage() {
   const [visible, setVisible] = useState(false);
@@ -15,7 +15,7 @@ export default function BasicUsage() {
       <Button theme="primary" onClick={handleClick}>
         Open Modal
       </Button>
-      <Dialog header="Basic Modal" visible={visible} onClickCancel={handleClose}>
+      <Dialog header="Basic Modal" visible={visible} onClose={handleClose}>
         <p>This is a dialog</p>
       </Dialog>
     </div>
