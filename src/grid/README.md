@@ -36,3 +36,9 @@
 ### 响应式布局
 
 [Example: Grid](./_example/ResponseGrid.jsx)
+
+## 组件属性
+
+[Interface: RowProps](./Row.ts)
+
+[Interface: ColProps](./Col.ts)
