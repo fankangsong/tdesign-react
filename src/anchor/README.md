@@ -1,39 +1,19 @@
-# Alert 告警
+# Anchor 锚点
 
-提供标准的告警交互和样式。
+锚点
 
 ## 使用示例
 
-### 基础警告
+### 基础
 
-[Example: 按钮样式](./_example/AlertBase.jsx)
+[Example: 默认样式](./_example/AnchorBase.jsx)
 
-### 带图标的警告
+### 多级锚点
 
-[Example: 按钮样式](./_example/AlertIcon.jsx)
-
-### 带操作的警告
-
-#### 带关闭操作
-
-[Example: 按钮样式](./_example/AlertClose.jsx)
-
-#### 可自定义关闭操作
-
-[Example: 按钮样式](./_example/AlertSelfClose.jsx)
-
-#### 带相关操作
-
-[Example: 按钮样式](./_example/AlertOperation.jsx)
-
-### 带相关描述文字的警告
-
-[Example: 按钮样式](./_example/AlertDescription.jsx)
-
-### 带折叠的警告
-
-[Example: 按钮样式](./_example/AlertCollasped.jsx)
+[Example: 默认样式](./_example/AnchorLevel.jsx)
 
 ## 组件属性
 
-[Interface: AlertProps](./Alert.tsx)
+[Interface: AnchorProps](./Anchor.tsx)
+
+[Interface: AnchorLink](./Anchor.tsx)
