@@ -19,6 +19,10 @@
 
 [Example: Grid](./_example/OrderGrid.jsx)
 
+通过 `pull` `push` 进行排序
+
+[Example: Grid](./_example/PullPushGrid.jsx)
+
 ### 排版
 子元素根据不同的值 start,center,end,space-between,space-around，分别定义其在父节点里面的排版方式。
 
