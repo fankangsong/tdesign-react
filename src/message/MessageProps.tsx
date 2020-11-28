@@ -1,5 +1,15 @@
 import { StyledProps } from '../_type';
 
+export interface MessageInstance {
+  key?: number;
+  close: () => void;
+}
+
+export interface MessageInstanceProps {
+  key?: number;
+  close: () => void;
+}
+
 /**
  * Message 组件支持的属性。
  */
@@ -65,31 +75,17 @@ export interface MessageProps extends StyledProps {
   children: React.ReactNode;
 }
 
-export type MessageMethod = (content: React.ReactNode | MessageConfig, duration?: number) => number;
-
+export type MessageMethod = (content: React.ReactNode | MessageConfig, duration?: number) => Promise<MessageInstance>;
 /**
  * Message 组件提供了一些静态方法，使用方式和参数如下
  *
- * Message.info(content, [duration])
- *
- * Message.info(config)
- *
- * Message.success(config)
- *
- * Message.warning(config)
- *
- * Message.error(config)
- *
- * Message.question(config)
- *
- * Message.loading(config)
  */
 export interface MessageConfig {
   /**
    * 消息提醒的位置
    * @default "top"
    */
-  placement?: 'left' | 'left-top' | 'top' | 'right-top' | 'right' | 'right-bottom' | 'bottom' | 'left-bottom';
+  placement?: 'center' | 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-righ';
 
   /**
    * 偏移量（结合属性 `placement`）
@@ -161,7 +157,21 @@ export interface MessageConfig {
    */
   onClickCloseBtn?: () => void;
 }
-
+/**
+ * Message.info(content, [duration])
+ *
+ * Message.info(config)
+ *
+ * Message.success(config)
+ *
+ * Message.warning(config)
+ *
+ * Message.error(config)
+ *
+ * Message.question(config)
+ *
+ * Message.loading(config)
+ */
 export interface MessageMethods {
   /**
    * info 主题全局提示
@@ -190,7 +200,7 @@ export interface MessageMethods {
   /**
    * 关闭指定的全局提示
    */
-  close?: (key: number) => void;
+  close?: (promise: Promise<MessageInstance>) => void;
   /**
    * 关闭所有全局提示
    */
