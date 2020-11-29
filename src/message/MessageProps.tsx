@@ -5,27 +5,13 @@ export interface MessageInstance {
   close: () => void;
 }
 
-export type MessageRef = React.RefObject<React.ElementRef<'div'>> & React.RefObject<MessageInstance>;
-export type MessageComponent = React.FunctionComponent<MessageProps & React.RefAttributes<HTMLDivElement>> &
-  MessageMethods;
-/**
- * Message 组件支持的属性。
- */
-export interface MessageProps extends StyledProps {
+interface BaseProps {
   /**
-   * 按钮类型
-   *
-   *   - `info` 信息按钮
-   *   - `warning` 警告类按钮
-   *   - `error` 错误类按钮
-   *   - `success` 成功类按钮
-   *   - `question` 问题类
-   *   - `loading` 加载类
+   * 图标 可为ReactNode， 为false时 不显示图标
    *
    * @default "info"
    */
-  theme?: 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading';
-
+  icon?: boolean | React.ReactNode;
   /**
    * 显示时间 毫秒
    *
@@ -41,13 +27,6 @@ export interface MessageProps extends StyledProps {
   closeBtn?: boolean | React.ReactNode;
 
   /**
-   * 图标 可为ReactNode， 为false时 不显示图标
-   *
-   * @default "info"
-   */
-  icon?: boolean | React.ReactNode;
-
-  /**
    * 打开动画完成后的触发
    */
   onOpened?: () => void;
@@ -58,14 +37,29 @@ export interface MessageProps extends StyledProps {
   onClosed?: () => void;
 
   /**
-   * 内部仅触发事件，不处理关闭
+   * duration 到时间后执行的触发 内部仅触发事件，不处理关闭
    */
-  onDurationEnd?: () => void;
+  onDurationEnd?: (instance: MessageInstance) => void;
 
   /**
-   * 内部仅触发事件，不处理关闭
+   * 点击关闭按钮触发，内部仅触发事件，不处理关闭
    */
   onClickCloseBtn?: () => void;
+}
+export interface MessageProps extends StyledProps, BaseProps {
+  /**
+   * 按钮类型
+   *
+   *   - `info` 信息按钮
+   *   - `warning` 警告类按钮
+   *   - `error` 错误类按钮
+   *   - `success` 成功类按钮
+   *   - `question` 问题类
+   *   - `loading` 加载类
+   *
+   * @default "info"
+   */
+  theme?: 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading';
 
   /**
    * 默认子元素内容
@@ -73,12 +67,25 @@ export interface MessageProps extends StyledProps {
   children: React.ReactNode;
 }
 
+export interface MessagePropsWithClose extends MessageProps {
+  close?: () => void;
+}
+
+export type MessageRef = React.RefObject<React.ElementRef<'div'>> & React.RefObject<MessageInstance>;
+export type MessageComponent = React.ForwardRefExoticComponent<
+  MessagePropsWithClose & React.RefAttributes<HTMLDivElement>
+> &
+  MessageMethods;
+/**
+ * Message 组件支持的属性。
+ */
+
 export type MessageMethod = (content: React.ReactNode | MessageConfig, duration?: number) => Promise<MessageInstance>;
 /**
  * Message 组件提供了一些静态方法，使用方式和参数如下
  *
  */
-export interface MessageConfig {
+export interface MessageConfig extends BaseProps {
   /**
    * 消息提醒的位置
    * @default "top"
@@ -103,27 +110,6 @@ export interface MessageConfig {
   zIndex?: number;
 
   /**
-   * 显示时间 毫秒
-   *
-   * @default 3000
-   */
-  duration?: number;
-
-  /**
-   * 图标 可为ReactNode， 为false时 不显示图标
-   *
-   * @default false
-   */
-  closeBtn?: boolean | React.ReactNode;
-
-  /**
-   * 图标 可为ReactNode， 为false时 不显示图标
-   *
-   * @default "info"
-   */
-  icon?: boolean | React.ReactNode;
-
-  /**
    * 指定弹窗挂载节点，默认是document下
    *
    * @default document.body
@@ -131,29 +117,9 @@ export interface MessageConfig {
   attach?: HTMLElement;
 
   /**
-   * 打开动画完成后的触发
-   */
-  onOpened?: () => void;
-
-  /**
-   * 关闭动画完成后的触发
-   */
-  onClosed?: () => void;
-
-  /**
-   * duration 到时间后执行的触发 内部仅触发事件，不处理关闭
-   */
-  onDurationEnd?: (visible: boolean) => void;
-
-  /**
    * 默认子元素内容
    */
   content: React.ReactNode;
-
-  /**
-   * 点击关闭按钮触发，内部仅触发事件，不处理关闭
-   */
-  onClickCloseBtn?: () => void;
 }
 /**
  * Message.info(content, [duration])
