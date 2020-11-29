@@ -5,11 +5,9 @@ export interface MessageInstance {
   close: () => void;
 }
 
-export interface MessageInstanceProps {
-  key?: number;
-  close: () => void;
-}
-
+export type MessageRef = React.RefObject<React.ElementRef<'div'>> & React.RefObject<MessageInstance>;
+export type MessageComponent = React.FunctionComponent<MessageProps & React.RefAttributes<HTMLDivElement>> &
+  MessageMethods;
 /**
  * Message 组件支持的属性。
  */
