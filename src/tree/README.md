@@ -14,7 +14,7 @@
 
 ### 异步数据加载
 
-<!-- [Example: 异步数据加载](./_example/TreeAsyncLoad.jsx) -->
+[Example: 异步数据加载](./_example/TreeAsyncLoad.jsx)
 
 ### 自定义数据映射字段
 
