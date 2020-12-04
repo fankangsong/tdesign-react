@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
-import { ComponentDocument } from '!!toc-loader!@tdesign/react/../README.md';
+import { ComponentDocument } from '!!toc-loader!@tencent/tdesign-react/../README.md';
 import { isHeading, isText, isParent, isInterface } from '@app/utils/md-guard';
 
 export interface MarkdownTocProps {
@@ -27,9 +27,7 @@ export default function MarkdownToc({ componentKey, document }: MarkdownTocProps
     headingRefs.current = headings.map((x) => {
       try {
         // 部分 id 使用 querySelector 异常
-        const heading: HTMLHeadingElement = window.document.querySelector(
-          `#${x.text.replace(/\s+/g, '')}`,
-        );
+        const heading: HTMLHeadingElement = window.document.querySelector(`#${x.text.replace(/\s+/g, '')}`);
         return heading || null;
       } catch (err) {
         return null;
@@ -57,9 +55,7 @@ export default function MarkdownToc({ componentKey, document }: MarkdownTocProps
     timerRef.current = window.setTimeout(() => {
       const top = bodyRef.current.scrollTop;
       const bottom = bodyRef.current.clientHeight + top;
-      const topList = headingRefs.current.map((heading) =>
-        heading ? heading.getBoundingClientRect().top + top : -1,
-      );
+      const topList = headingRefs.current.map((heading) => (heading ? heading.getBoundingClientRect().top + top : -1));
       const indexList = [];
       topList.forEach((t, i) => (topList[i] = t >= 0 ? t : topList[i - 1] || t));
       topList.forEach((t, i) => {

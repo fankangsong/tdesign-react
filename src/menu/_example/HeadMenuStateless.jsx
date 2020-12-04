@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeadMenu, MenuItem } from '@tdesign/react';
+import { HeadMenu, MenuItem } from '@tencent/tdesign-react';
 export default function BasicUsage() {
   return (
     <HeadMenu>

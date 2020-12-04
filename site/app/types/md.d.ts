@@ -6,7 +6,7 @@ declare module '*.md' {
   export default value;
 }
 
-declare module '!!toc-loader!@tdesign/react/../README.md' {
+declare module '!!toc-loader!@tencent/tdesign-react/../README.md' {
   import { UNIST } from 'unist';
 
   export interface Category {
@@ -51,4 +51,4 @@ declare module '!!toc-loader!@tdesign/react/../README.md' {
   export default value;
 }
 
-declare module '!!props-loader!@tdesign/react/../tsconfig.json' {}
+declare module '!!props-loader!@tencent/tdesign-react/../tsconfig.json' {}

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-import { Select, Button } from '@tdesign/react';
+import { Select, Button } from '@tencent/tdesign-react';
 
 const { Option } = Select;
 

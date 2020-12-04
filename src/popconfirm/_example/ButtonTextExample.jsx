@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@tdesign/react';
+import { Button } from '@tencent/tdesign-react';
 import PopConfirm from '../PopConfirm';
 
 export default function ButtonTextExample() {
@@ -13,11 +13,7 @@ export default function ButtonTextExample() {
   };
 
   return (
-    <PopConfirm
-      content={$content}
-      onConfirm={handleConfirm}
-      onCancel={handleCancel}
-    >
+    <PopConfirm content={$content} onConfirm={handleConfirm} onCancel={handleCancel}>
       <Button>Hover me</Button>
     </PopConfirm>
   );

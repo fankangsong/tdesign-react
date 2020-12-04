@@ -70,7 +70,7 @@ function tocLoader(source) {
         chineseName: chineseName.replace('[@deprecated]', ''),
         documentName,
       });
-      importStatements.push(`import ${documentName} from "@tdesign/react/${source}/README.md"`);
+      importStatements.push(`import ${documentName} from "@tencent/tdesign-react/${source}/README.md"`);
     }
   }
 
@@ -89,9 +89,7 @@ function tocLoader(source) {
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 if (module === require.main) {
-  console.log(
-    tocLoader(require('fs').readFileSync(path.resolve(__dirname, '../../README.md'), 'utf8')),
-  );
+  console.log(tocLoader(require('fs').readFileSync(path.resolve(__dirname, '../../README.md'), 'utf8')));
 } else {
   module.exports = tocLoader;
 }
