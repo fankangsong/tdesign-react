@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+require('babel-polyfill');
 
 // 整个项目的根目录
 const ROOT = path.resolve(__dirname, '..');
@@ -105,11 +106,7 @@ module.exports = {
     alias,
   },
   resolveLoader: {
-    modules: [
-      'node_modules',
-      path.resolve(ROOT, 'node_modules'),
-      path.resolve(SITE_ROOT, 'engineering'),
-    ],
+    modules: ['node_modules', path.resolve(ROOT, 'node_modules'), path.resolve(SITE_ROOT, 'engineering')],
   },
 
   performance: {
