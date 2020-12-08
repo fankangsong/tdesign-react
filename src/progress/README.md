@@ -21,4 +21,4 @@
 
 
 ## 组件属性
-[Interface: ProgressProps](./Progress.tsx)
+[Interface: ProgressProps](./ProgressProps.ts)
