@@ -1,6 +1,6 @@
 import React from 'react';
 import MarkdownView from './MarkdownView';
-import { ComponentDocument } from '!!toc-loader!@tdesign/react/../README.md';
+import { ComponentDocument } from '!!toc-loader!@tencent/tdesign-react/../README.md';
 
 export interface DocumnetViewProps {
   componentKey: string;

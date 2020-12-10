@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PrismCode from 'react-prism';
-import { ComponentDocument } from '!!toc-loader!@tdesign/react/../README.md';
+import { ComponentDocument } from '!!toc-loader!@tencent/tdesign-react/../README.md';
 import {
   MarkdownNode,
   isHeading,

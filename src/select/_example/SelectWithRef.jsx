@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-import { Select, Button } from '@tdesign/react';
+import { Select, Button } from '@tencent/tdesign-react';
 
 const { Option } = Select;
 
@@ -32,7 +32,7 @@ const SelectWithRef = () => {
 
   return (
     <div style={{ display: 'flex' }}>
-      <Select value={value} change={onChange} style={{ width: '40%' }} ref={ref}>
+      <Select value={value} onChange={onChange} style={{ width: '40%' }} ref={ref}>
         {options.map((item, index) => (
           <Option key={index} label={item.label} value={item.value} />
         ))}

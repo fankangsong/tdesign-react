@@ -15,9 +15,9 @@ const childrenToText = (children) =>
     (text, child) =>
       text +
       (child.type === 'link'
-        ? `<a title={${child.title ? '${child.title}' : null}} href="${
-            child.url
-          }">{"${childrenToText(child.children)}"}</a>`
+        ? `<a title={${child.title ? '${child.title}' : null}} href="${child.url}">{"${childrenToText(
+            child.children,
+          )}"}</a>`
         : child.type === 'text'
         ? child.value.replace(/</g, '&lt;').replace(/>/, '&gt;')
         : child.children
@@ -246,16 +246,14 @@ function markdownToFragment(source, directory, importStatements) {
       } else if (interface) {
         // [Interface: xxxProps](./path-to-componment/name-to-componment.tsx)
         addImport("import { ApiDoc } from '@app/components/ApiDoc';");
-        addImport("import propsDoc from '!!props-loader!@tdesign/react/../tsconfig.json';");
+        addImport("import propsDoc from '!!props-loader!@tencent/tdesign-react/../tsconfig.json';");
 
         const interfacePath = interface.path
           .replace(/\\/g, '/')
           .replace(/(.+tdesign-component\/src\/)/, '')
           .replace(/(.+tdesign-chart\/src\/)/, '')
           .replace(/(\.tsx?)$/, '');
-        fragments.push(
-          `<ApiDoc doc={propsDoc} path={"${interfacePath}"} name={"${interface.name}"} />`,
-        );
+        fragments.push(`<ApiDoc doc={propsDoc} path={"${interfacePath}"} name={"${interface.name}"} />`);
       } else {
         // 普通段落
         fragments.push(`<p>${childrenToText(block.children)}</p>`);

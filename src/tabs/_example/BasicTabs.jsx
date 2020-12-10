@@ -1,6 +1,5 @@
 import React from 'react';
-import { Tabs } from '@tdesign/react';
-import TabPanel from '../TabPanel';
+import { Tabs, TabPanel } from '@tencent/tdesign-react';
 
 export default function BasicTabs() {
   return (

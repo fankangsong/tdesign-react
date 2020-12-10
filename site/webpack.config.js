@@ -38,7 +38,7 @@ const appEntry = [path.resolve(SITE_ROOT, 'app')];
 
 const alias = {
   '@app': path.resolve(SITE_ROOT, 'app'),
-  '@tdesign/react': COMPONENT_ROOT,
+  '@tencent/tdesign-react': COMPONENT_ROOT,
 };
 
 /**

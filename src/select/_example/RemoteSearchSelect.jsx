@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Select } from '@tdesign/react';
+import { Select } from '@tencent/tdesign-react';
 
 const { Option } = Select;
 
@@ -60,7 +60,7 @@ const RemoteSearchSelect = () => {
       filterable
       remote
       value={value}
-      change={onChange}
+      onChange={onChange}
       style={{ width: '40%' }}
       loading={loading}
       remoteMethod={handleRemoteSearch}
