@@ -6,11 +6,11 @@
 
 ### 基础类型
 
-[Example: 基础类型](./_example/TreeBasic.jsx)
+<!-- [Example: 基础类型](./_example/TreeBasic.jsx) -->
 
 ### 带选择框
 
-<!-- [Example: 带选择框](./_example/TreeShowCheckbox.jsx) -->
+[Example: 带选择框](./_example/TreeShowCheckbox.jsx)
 
 ### 带操作功能
 
@@ -18,7 +18,7 @@
 
 ### 自定义图标
 
-<!-- [Example: 自定义图标](./_example/TreeCustomIcon.jsx) -->
+[Example: 自定义图标](./_example/TreeCustomIcon.jsx)
 
 ### 带连接线
 
