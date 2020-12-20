@@ -6,7 +6,7 @@
 
 ### 基础类型
 
-<!-- [Example: 基础类型](./_example/TreeBasic.jsx) -->
+[Example: 基础类型](./_example/TreeBasic.jsx)
 
 ### 带选择框
 
@@ -14,7 +14,7 @@
 
 ### 带操作功能
 
-<!-- [Example: 带操作功能](./_example/TreeShowOperations.jsx) -->
+[Example: 带操作功能](./_example/TreeShowOperations.jsx)
 
 ### 自定义图标
 
@@ -26,43 +26,47 @@
 
 ### 手风琴模式
 
-<!-- [Example: 手风琴模式](./_example/TreeExpandMutex.jsx) -->
+[Example: 手风琴模式](./_example/TreeExpandMutex.jsx)
 
+### 异步加载
+
+[Example: 异步加载](./_example/TreeAsyncLoad.jsx)
+
+### 自定义数据映射字段
+
+[Example: 自定义数据映射字段](./_example/TreeCustomMappingKeys.jsx)
+
+
+## 使用示例 —— 组件状态
+
+### hover态
+[Example: hover态](./_example/TreeHoverable.jsx)
+
+### 禁用态
+[Example: 禁用态](./_example/TreeDisabled.jsx)
 
 
 ## 使用示例 —— 组件使用
 
 ### 树节点过滤
 
-<!-- [Example: 树节点过滤](./_example/TreeFilter.jsx) -->
+[Example: 树节点过滤](./_example/TreeFilter.jsx)
 
 ### 输入框 - 单选
+[Example: 输入框 - 单选](./_example/TreeSelect.jsx)
 
 ### 输入框 - 多选
+[Example: 输入框 - 多选](./_example/TreeSelectMultiple.jsx)
 
-### 嵌入穿梭框
+### 输入框 - 单选+checkbox【待添加】
+<!-- [Example: 输入框 - 单选](./_example/TreeSelectWithCheckbox.jsx) -->
 
+### 输入框 - 多选+checkbox【待添加】
+<!-- [Example: 输入框 - 多选](./_example/TreeSelectMultipleWithCheckbox.jsx) -->
 
+### 输入框 - 单选+状态切换
+[Example: 输入框 - 单选+状态切换](./_example/TreeSelectAndStatus.jsx)
 
-## 使用示例 —— 组件状态
-
-### 异步加载
-
-<!-- [Example: 异步加载](./_example/TreeAsyncLoad.jsx) -->
-
-### 选择态
-
-<!-- [Example: 选择态](./_example/TreeActived.jsx) -->
-
-### 禁用态
-
-<!-- [Example: 禁用态](./_example/TreeDisabled.jsx) -->
-
-## 使用示例 —— 其他
-
-### 自定义数据映射字段
-
-<!-- [Example: 自定义数据映射字段](./_example/TreeCustomMappingKeys.jsx) -->
 
 
 ## 组件属性
