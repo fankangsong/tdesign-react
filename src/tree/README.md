@@ -58,11 +58,8 @@
 ### 输入框 - 多选
 [Example: 输入框 - 多选](./_example/TreeSelectMultiple.jsx)
 
-### 输入框 - 单选+checkbox【待添加】
-<!-- [Example: 输入框 - 单选](./_example/TreeSelectWithCheckbox.jsx) -->
-
-### 输入框 - 多选+checkbox【待添加】
-<!-- [Example: 输入框 - 多选](./_example/TreeSelectMultipleWithCheckbox.jsx) -->
+### 输入框 - 多选+checkbox【未完成】
+[Example: 输入框 - 多选](./_example/TreeSelectMultipleWithCheckbox.jsx)
 
 ### 输入框 - 单选+状态切换
 [Example: 输入框 - 单选+状态切换](./_example/TreeSelectAndStatus.jsx)
