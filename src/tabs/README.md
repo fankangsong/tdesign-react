@@ -1,8 +1,10 @@
-# Tabs
+:: BASE_DOC ::
 
-通过按钮快速切换多个视图。
+<!-- # Tabs
 
-## 使用示例
+通过按钮快速切换多个视图。 -->
+
+<!-- ## 使用示例
 
 ### 基础Tabs
 
@@ -26,7 +28,7 @@
 
 ### 可关闭Tabs
 
-[Example: Closeable Tabs](./_example/CloseableTabs.jsx)
+[Example: Closeable Tabs](./_example/CloseableTabs.jsx) -->
 
 ## 组件属性
 
