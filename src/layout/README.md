@@ -1,8 +1,16 @@
 :: BASE_DOC ::
 
-### 基础布局
+### 侧边栏导航布局
 
-[Example: Layout](./_example/BasicLayout.jsx)
+[Example: Layout](./_example/aside.jsx)
+
+### 组合导航布局
+
+[Example: Layout](./_example/combine.jsx)
+
+### 顶部导航布局
+
+[Example: Layout](./_example/top.jsx)
 
 ## 组件属性
 
