@@ -1,27 +1,13 @@
-# Notification 通知提醒框
-
-全局展示通知提醒信息。
-
-## 使用示例
-
-### 基础用法
-
-[Example: 默认](./_example/NotificationBase.jsx)
+:: BASE_DOC ::
 
 ### 类型
 [Example: 类型](./_example/NotificationType.jsx)
-
-### 自定义Icon
-[Example: 自定义Icon](./_example/NotificationIcon.jsx)
 
 ### 自定义关闭按钮
 [Example: 自定义关闭按钮](./_example/NotificationClose.jsx)
 
 ### 自定义内容
 [Example: 自定义内容](./_example/NotificationContent.jsx)
-
-### 自定义底部详情
-[Example: 自定义底部详情](./_example/NotificationFooter.jsx)
 
 ### 尺寸
 [Example: 尺寸](./_example/NotificationSize.jsx)

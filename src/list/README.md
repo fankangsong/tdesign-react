@@ -1,12 +1,4 @@
-# List 列表
-
-提供列表样式的组件。
-
-## 使用示例
-
-### 基础列表
-
-[Example: List](./_example/BasicList.jsx)
+:: BASE_DOC ::
 
 ### 斑马纹区分列表
 
@@ -16,17 +8,9 @@
 
 [Example: List](./_example/ListSizeable.jsx)
 
-### 带操作列表
-
-[Example: List](./_example/ListWithAction.jsx)
-
 ### 额外内容
 
 [Example: List](./_example/ListWithActionAndExtra.jsx)
-
-### 基础图文列表
-
-[Example: List](./_example/ListWithMeta.jsx)
 
 ### 滚动事件
 
