@@ -89,7 +89,7 @@ function documentToFragments({
     // 示例代码
     else if (isExample(block) && exampleMap[block.name]) {
       const { component: Example, code } = exampleMap[block.name];
-      fragments.push(<ExampleShowCase example={<Example />} code={code}></ExampleShowCase>);
+      fragments.push(<ExampleShowCase name={componentKey} example={<Example />} code={code}></ExampleShowCase>);
     }
     // 接口文档
     else if (isInterface(block)) {
