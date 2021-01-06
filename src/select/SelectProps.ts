@@ -193,6 +193,7 @@ export interface SelectOption extends StyledProps, SelectOptionProps {
   size?: 'large' | 'default' | 'small';
   multiple?: boolean;
   selectedValue?: SelectValue | SelectValue[];
+  children: React.ReactNode;
   onSelect?: (
     value: string | number,
     context: { label?: React.ReactNode; selected?: boolean; event: React.MouseEvent },
