@@ -2,7 +2,7 @@
 
 提供标准的按钮交互和样式。
 
-<!-- ## 使用示例 —— 组件类型
+## 使用示例 —— 组件类型
 
 ### 基础类型
 
@@ -51,16 +51,16 @@
 
 ### 树节点过滤
 
-[Example: 树节点过滤](./_example/TreeFilter.jsx) -->
+[Example: 树节点过滤](./_example/TreeFilter.jsx)
 
 ### 输入框 - 单选
 [Example: 输入框 - 单选](./_example/TreeSelect.jsx)
 
-<!-- ### 输入框 - 多选（待改为checkbox版）
+### 输入框 - 多选（待改为checkbox版）
 [Example: 输入框 - 多选](./_example/TreeSelectMultiple.jsx)
 
 ### 输入框 - 单选 + 树状态切换
-[Example: 输入框 - 单选 + 树状态切换](./_example/TreeSelectAndStatus.jsx) -->
+[Example: 输入框 - 单选 + 树状态切换](./_example/TreeSelectAndStatus.jsx)
 
 
 
