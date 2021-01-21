@@ -23,7 +23,7 @@ import DemoLayout from '@app/components/DemoLayout';
 import ExampleShowCase from './ExampleShowCase';
 import ApiDoc from './ApiDoc';
 import { getHeadingText } from './MarkdownToc';
-import  HeadingAnchor, { HeadingAnchorProps } from './HeadingAnchor';
+import HeadingAnchor, { HeadingAnchorProps } from './HeadingAnchor';
 
 export interface MarkdownViewProps {
   componentKey?: string;
@@ -58,31 +58,21 @@ function documentToFragments({
         while (consuming.length) {
           const demoBlock = consuming.shift();
 
-          if (
-            isHeading(demoBlock) && demoBlock.depth <= 3
-          ) {
+          if (isHeading(demoBlock) && demoBlock.depth <= 3) {
             // 结束一个示例，此 block 退回
             consuming.unshift(demoBlock);
             break;
           }
           demoBlocks.push(demoBlock);
         }
-        fragments.push(
-          consumeDemo({ blocks: demoBlocks, exampleMap }, componentKey)
-        );
+        fragments.push(consumeDemo({ blocks: demoBlocks, exampleMap }, componentKey));
       } else {
-      // 渲染标签适配样式后推一级
-        const level = [null, 'h2', 'h3', 'h4', 'h5', 'h6', 'div'][
-          block.depth
-        ] as HeadingAnchorProps['level'];
+        // 渲染标签适配样式
+        const level = `h${block.depth}` as HeadingAnchorProps['level'];
         const text = getHeadingText(block);
         if (componentKey) {
           fragments.push(
-            <HeadingAnchor
-              componentKey={componentKey}
-              level={level}
-              name={text.replace(/\s+/g, '')}
-            >
+            <HeadingAnchor componentKey={componentKey} level={level} name={text.replace(/\s+/g, '')}>
               {childrenToFragment(block.children, variables)}
             </HeadingAnchor>,
           );
@@ -99,13 +89,11 @@ function documentToFragments({
     // 示例代码
     else if (isExample(block) && exampleMap[block.name]) {
       const { component: Example, code } = exampleMap[block.name];
-      fragments.push(<ExampleShowCase example={<Example />} code={code}></ExampleShowCase>);
+      fragments.push(<ExampleShowCase name={componentKey} example={<Example />} code={code}></ExampleShowCase>);
     }
     // 接口文档
     else if (isInterface(block)) {
-      fragments.push(
-        <ApiDoc name={block.name} path={block.path} componentKey={componentKey}></ApiDoc>,,
-      );
+      fragments.push(<ApiDoc name={block.name} path={block.path} componentKey={componentKey}></ApiDoc>);
     }
     // 列表
     else if (isList(block)) {
@@ -114,9 +102,7 @@ function documentToFragments({
         React.createElement(
           type,
           {},
-          ...block.children.map((item, id) => (
-            <li key={id}>{childrenToFragment([item], variables)}</li>
-          )),
+          ...block.children.map((item, id) => <li key={id}>{childrenToFragment([item], variables)}</li>),
         ),
       );
     }
@@ -139,11 +125,7 @@ function documentToFragments({
   }
   return fragments;
 }
-function consumeDemo(
-  document: ComponentDocument,
-  componentKey: string,
-  col: 1 | 2 = 1
-) {
+function consumeDemo(document: ComponentDocument, componentKey: string, col: 1 | 2 = 1) {
   const { blocks } = document;
   let currentGroup = [blocks.shift()];
   const groups = [currentGroup];
@@ -159,7 +141,7 @@ function consumeDemo(
   return (
     <DemoLayout col={col}>
       {groups.map((group, idx) => (
-        <DemoLayout.Block key={idx} className={`tdesign-demo-item--${componentKey}`}>
+        <DemoLayout.Block key={idx} className={``}>
           {React.createElement(
             React.Fragment,
             {},
@@ -167,7 +149,7 @@ function consumeDemo(
               document: { ...document, blocks: group },
               skipExampleResolution: true,
               componentKey,
-            })
+            }),
           )}
         </DemoLayout.Block>
       ))}
@@ -180,7 +162,7 @@ export function childrenToFragment(children: import('unist').UNIST.Node[], varia
 
   for (const child of children || []) {
     if (isLink(child)) {
-      const {url} = child;
+      const { url } = child;
       const forceBlankLink = url.indexOf('!!') === 0;
       if (url[0] === '/' && url[1] !== '/' && !forceBlankLink) {
         fragments.push(

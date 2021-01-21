@@ -1,12 +1,4 @@
-# Message 全局提示
-
-全局消息提示。
-
-## 使用示例
-
-### 基本样式
-
-[Example: 基本样式](./_example/MessageBase.jsx)
+:: BASE_DOC ::
 
 ### 可关闭
 
