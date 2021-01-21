@@ -56,7 +56,7 @@
 ### 输入框 - 单选
 [Example: 输入框 - 单选](./_example/TreeSelect.jsx)
 
-### 输入框 - 多选（待改为checkbox版）
+### 输入框 - 多选
 [Example: 输入框 - 多选](./_example/TreeSelectMultiple.jsx)
 
 ### 输入框 - 单选 + 树状态切换
