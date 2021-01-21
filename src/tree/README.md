@@ -67,5 +67,3 @@
 ## 组件属性
 
 [Interface: TreeProps](./interface/TreeProps.ts)
-
-[Interface: TreeNodeProps](./interface/TreeNodeProps.ts)
