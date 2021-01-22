@@ -47,7 +47,7 @@ export interface CheckProps
   /**
    * 勾选状态发生变更时回调
    */
-  onChange?: (value: boolean, event: MouseEvent<HTMLInputElement>) => void;
+  onChange?: (value: boolean, context: { event: MouseEvent<HTMLInputElement> }) => void;
 
   /**
    * 是否半选状态（仅对 `checkbox` 生效）
@@ -134,7 +134,7 @@ const Check = forwardRef((_props: CheckProps, ref: Ref<HTMLLabelElement>) => {
         onClick,
         (event: MouseEvent<HTMLInputElement>) =>
           // eslint-disable-next-line implicit-arrow-linebreak
-          onChange(event.currentTarget.checked, event),
+          onChange(event.currentTarget.checked, { event }),
         // eslint-disable-next-line function-paren-newline
       )}
     />
