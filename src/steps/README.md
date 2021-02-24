@@ -1,3 +1,5 @@
+:: BASE_DOC ::
+<!-- 
 # Steps 步骤条
 
 引导流程的步骤条组件。
@@ -38,7 +40,7 @@
 
 ### 步骤切换
 
-[Example: 步骤切换](./_example/OperateSteps.jsx)
+[Example: 步骤切换](./_example/OperateSteps.jsx) -->
 
 ## 组件属性
 
