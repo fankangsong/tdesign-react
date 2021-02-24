@@ -1,35 +1,11 @@
 import React, { ReactElement } from 'react';
-
-/**
- * 表示组件支持通过 className 和 style 进行样式定制
- */
-export interface StyledProps {
-  /**
-   * 组件自定义类名
-   */
-  className?: string;
-
-  /**
-   * 组件自定义样式
-   */
-  style?: React.CSSProperties;
-}
-
-export interface ReactProps {
-  children?: React.ReactNode;
-}
-
-export type SelectRef = React.Ref<HTMLDivElement>;
+import { ControlledProps } from '../_type';
+import { StyledProps } from '../_type/StyledProps';
 
 /**
  * Select组件属性
  */
-export interface SelectProps extends StyledProps, ReactProps {
-  /**
-   * 指定选中项目的 value 值，可以使用 v-model 双向绑定数据
-   */
-  value: SelectValue | SelectValue[];
-
+export interface SelectProps extends StyledProps, ControlledProps<SelectValue | SelectValue[]> {
   /**
    * 尺寸，大、中（默认）、小，可选值为  large / default / small / 或者不填
    */
@@ -79,6 +55,7 @@ export interface SelectProps extends StyledProps, ReactProps {
    * 远程搜索方法
    */
   remoteMethod?: (text?: string) => void;
+
   /**
    * 是否正在从远程获取数据
    */
@@ -150,51 +127,51 @@ export interface SelectProps extends StyledProps, ReactProps {
   options?: { label: string; value: string | number }[];
 
   /**
-   * 当选择项发生改变时触发
-   */
-  change?: (value: SelectValue | SelectValue[]) => void;
-
-  /**
    * 当下拉框显示/隐藏时触发
    */
-  visibleChange?: (value: boolean) => void;
+  onVisibleChange?: (value: boolean) => void;
 
   /**
    * 多选模式下移除已选项时触发
    */
-  remove?: (value: SelectValue) => void;
+  onRemove?: (value: SelectValue) => void;
 
   /**
    * 点击清空按钮时触发
    */
-  clear?: () => void;
+  onClear?: () => void;
 
   /**
    * 当 input 获得焦点时触发
    */
-  focus?: (event?: React.MouseEvent) => void;
+  onFocus?: (event?: React.FocusEvent<HTMLInputElement>) => void;
 
   /**
    * 当 input 失去焦点时触发
    */
-  blur?: (event?: React.MouseEvent) => void;
+  onBlur?: (event?: React.FocusEvent<HTMLInputElement>) => void;
+
+  /**
+   * 选项内容
+   */
+  children?: React.ReactNode;
 }
 
-export type SelectValue = string | number | LabeledValue;
+export type SelectValue = string | number | SelectLabeledValue;
 
-export interface LabeledValue {
-  label: string;
-  value: string;
+export interface SelectLabeledValue {
+  value: string | number;
+  label: React.ReactNode;
 }
 
-export interface OptionGroup {
-  label?: string;
+export interface SelectOptionGroup {
+  label?: React.ReactNode;
 }
 
 /**
  * Option 组件属性
  */
-export interface OptionProps {
+export interface SelectOptionProps {
   /**
    * 选项的值
    */
@@ -202,7 +179,7 @@ export interface OptionProps {
   /**
    * 选项的标签，若不设置则默认与 value 相同，有 children 先渲染。
    */
-  label?: string | number;
+  label?: React.ReactNode;
   /**
    * 是否禁用该选项
    */
@@ -212,25 +189,33 @@ export interface OptionProps {
 /**
  * Option 组件属性 （内部）
  */
-export interface SelectOption extends StyledProps, OptionProps {
+export interface SelectOption extends StyledProps, SelectOptionProps {
   size?: 'large' | 'default' | 'small';
   multiple?: boolean;
   selectedValue?: SelectValue | SelectValue[];
-  onSelect?: (value: string | number, label?: string | number, selected?: boolean) => void;
+  children?: React.ReactNode;
+  onSelect?: (
+    value: string | number,
+    context: { label?: React.ReactNode; selected?: boolean; event: React.MouseEvent },
+  ) => void;
 }
 
 /**
  * Select Popup 组件属性（内部）
  */
-export interface PopupProps extends StyledProps, ReactProps {
+export interface SelectPopupProps extends StyledProps {
   width: number;
   value: SelectValue | SelectValue[];
-  change?: (value: SelectValue | SelectValue[], label?: string) => void;
+  onChange?: (
+    value: SelectValue | SelectValue[],
+    context?: { label?: React.ReactNode; event: React.SyntheticEvent },
+  ) => void;
   size?: 'large' | 'default' | 'small';
   multiple?: boolean;
   classPrefix?: string;
-  options?: { label: string; value: string | number }[];
+  options?: { label: React.ReactNode; value: string | number }[];
   notFoundContent?: () => React.ReactNode;
   showPopup: boolean;
   setShowPopup: (showPopup: boolean) => void;
+  children?: React.ReactNode;
 }

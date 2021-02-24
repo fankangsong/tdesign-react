@@ -60,7 +60,7 @@ const RemoteSearchSelect = () => {
       filterable
       remote
       value={value}
-      change={onChange}
+      onChange={onChange}
       style={{ width: '40%' }}
       loading={loading}
       remoteMethod={handleRemoteSearch}
