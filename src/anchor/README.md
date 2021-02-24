@@ -1,4 +1,11 @@
-# Anchor 锚点
+:: BASE_DOC ::
+
+
+## 组件属性
+
+[Interface: AnchorProps](./Anchor.tsx)
+
+<!-- # Anchor 锚点
 
 锚点
 
@@ -16,4 +23,4 @@
 
 [Interface: AnchorProps](./Anchor.tsx)
 
-[Interface: AnchorLink](./Anchor.tsx)
+[Interface: AnchorLink](./Anchor.tsx) -->
