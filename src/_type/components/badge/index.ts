@@ -44,4 +44,4 @@ export interface TdBadgeProps {
    * 设置状态点的位置偏移，格式为 [x, y]
    */
   offset?: Array<string | number>;
-};
+}
