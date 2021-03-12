@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-12 14:29:41
  * */
 
 import { TNode, SizeEnum } from '../../common';
@@ -16,7 +16,6 @@ export interface TdRadioProps {
   defaultChecked?: RadioValue;
   /**
    * 是否为禁用态
-   * @default false
    */
   disabled?: boolean;
   /**
