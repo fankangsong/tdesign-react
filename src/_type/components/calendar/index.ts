@@ -1,11 +1,12 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-15 23:07:35
  * */
 
 import { RadioGroupProps } from '../../../../src/Radio';
 import { SelectProps } from '../../../../src/Select';
 import { ButtonProps } from '../../../../src/Button';
+import { TNode } from '../../common';
 import { MouseEvent } from 'react';
 
 export interface TdCalendarProps {
@@ -45,15 +46,15 @@ export interface TdCalendarProps {
   /**
    * 头部插槽（左上角处，默认不显示任何内容）
    */
-  head?: T;
+  head?: string | TNode<ControllerOptions>;
   /**
    * 单元格插槽
    */
-  cell?: T;
+  cell?: string | TNode<CalendarCell>;
   /**
    * 单元格插槽，在原来的内容之后追加
    */
-  cellAppend?: T;
+  cellAppend?: string | TNode<CalendarCell>;
   /**
    * 右上角控制器配置。值为 false 则表示不显示控制器，值为 true 则显示控制器默认配置，值类型为 CalendarController 则显示为自定义控制器配置
    * @default true

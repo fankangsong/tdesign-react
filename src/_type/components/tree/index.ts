@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-15 23:07:35
  * */
 
 import { CheckboxProps } from '../../../../src/Checkbox';
@@ -55,7 +55,7 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    * 自定义节点内容
    * @default ''
    */
-  label?: T;
+  label?: string | TNode<TreeNodeModel<DataOption>>;
   /**
    * 展开子节点时是否自动展开父节点
    * @default false
@@ -143,7 +143,7 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
   /**
    * 自定义节点操作项
    */
-  operations?: T;
+  operations?: TNode<TreeNodeModel<DataOption>>;
   /**
    * 是否支持点击节点也能展开收起
    * @default false
