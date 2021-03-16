@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-16 15:57:09
  * */
 
 import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
@@ -14,7 +14,7 @@ export interface TdInputNumberProps {
   /**
    * 指定输入框展示值的格式
    */
-  formatter?: (value: number) => number;
+  formatter?: (value: number) => number | string;
   /**
    * 占位符
    * @default ''
@@ -56,7 +56,7 @@ export interface TdInputNumberProps {
   /**
    * 值变化时触发
    */
-  onChange?: (value: number, context: { type: 'add' | 'reduce' | 'input' | ''; e: FormEvent<HTMLDivElement> | MouseEvent<HTMLDivElement> }) => void;
+  onChange?: (value: number, context: ChangeContext) => void;
   /**
    * 获取焦点时触发
    */
@@ -82,3 +82,7 @@ export interface TdInputNumberProps {
    */
   onKeypress?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
 };
+
+export interface ChangeContext { type: ChangeSource; e: FormEvent<HTMLDivElement> | MouseEvent<HTMLDivElement> };
+
+export type ChangeSource = 'add' | 'reduce' | 'input' | '';

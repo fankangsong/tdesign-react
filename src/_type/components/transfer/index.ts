@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-15 23:07:35
  * */
 
 import { InputProps } from '../../../../src/Input';
@@ -49,7 +49,7 @@ export interface TdTransferProps {
    * 穿梭框标题，示例：['源列表', '目标列表']
    * @default []
    */
-  title?: A;
+  title?: Array<TitleType> | TNode<{ type: TransferListType }>;
   /**
    * 穿梭框可操作方向
    * @default both
@@ -59,12 +59,12 @@ export interface TdTransferProps {
    * 方向操作按钮，可自定义
    * @default ['>', '<']
    */
-  operation?: A;
+  operation?: Array<string | TNode> | TNode<{ direction: 'left' | 'right' }>;
   /**
    * 分页配置
    * @default false
    */
-  pagination?: P;
+  pagination?: Pagination | Array<Pagination> | TNode<{ type: TransferListType }>;
   /**
    * 分页配置
    * @default true
@@ -73,7 +73,7 @@ export interface TdTransferProps {
   /**
    * 穿梭框底部内容
    */
-  footer?: A;
+  footer?: Array<string | TNode> | TNode<{ type: TransferListType }>;
   /**
    * 列表为空时呈现的内容
    * @default '暂无数据'
@@ -92,11 +92,11 @@ export interface TdTransferProps {
   /**
    * 自定义渲染穿梭框节点
    */
-  transferItem?: T;
+  transferItem?: TNode<TransferItem>;
   /**
    * 用于完全自定义穿梭框列表，如：数据为树形结构时
    */
-  content?: T;
+  content?: TNode<ContentType>;
   /**
    * 用于控制复选框属性
    */

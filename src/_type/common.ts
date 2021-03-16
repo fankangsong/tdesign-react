@@ -5,7 +5,7 @@ import { ReactElement, ReactNode, CSSProperties } from 'react';
 // TElement 表示 API 只接受传入组件
 export type TElement = ReactElement;
 // TNode 表示 API 不仅接受传入组件，还接受传入其他的数据类型； TNode<T> 表示 API 会输出参数
-export type TNode<T = undefined> = T extends {} ? (props: T) => ReactNode : ReactNode;
+export type TNode<T = undefined> = T extends undefined ? ReactNode : (props: T) => ReactNode;
 
 export type AttachNodeReturnValue = HTMLDocument | HTMLElement | Element | Document;
 export type AttachNode = CSSSelector | (() => AttachNodeReturnValue);

@@ -12,7 +12,7 @@
 
 [Example: 四种触发方式](./_example/TriggersExample.jsx)
 
-### 四个方向
+### 支持的placement
 
 支持上下左右四个方向
 

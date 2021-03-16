@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-15 23:07:35
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -21,7 +21,7 @@ export interface TdFormProps {
   /**
    * 校验状态图标
    */
-  statusIcon?: T;
+  statusIcon?: boolean | TNode<TdFormItemProps>;
   /**
    * 表单实例对象
    */
