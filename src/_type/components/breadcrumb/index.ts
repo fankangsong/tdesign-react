@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-21 17:55:58
  * */
 
 import { TNode } from '../../common';
@@ -15,21 +15,17 @@ export interface TdBreadcrumbProps {
    */
   options?: Array<TdBreadcrumbItemProps>;
   /**
+   * 自定义分隔符
+   */
+  separator?: TNode;
+  /**
    * 组件风格
    * @default light
    */
   theme?: 'light';
-  /**
-   * 自定义分隔符
-   */
-  separator?: TNode;
 };
 
 export interface TdBreadcrumbItemProps {
-  /**
-   * 最大宽度，超出后会以省略号形式呈现。优先级高于 Breadcrum 中的 maxItemWidth
-   */
-  maxWidth?: string;
   /**
    * 是否禁用当前项点击
    */
@@ -40,6 +36,19 @@ export interface TdBreadcrumbItemProps {
    */
   href?: string;
   /**
+   * 最大宽度，超出后会以省略号形式呈现。优先级高于 Breadcrum 中的 maxItemWidth
+   */
+  maxWidth?: string;
+  /**
+   * 路由跳转是否采用覆盖的方式（覆盖后将没有浏览器历史记录）
+   * @default false
+   */
+  replace?: boolean;
+  /**
+   * 路由对象。如果项目存在 Router，则默认使用 Router。
+   */
+  router?: Record<string, any>;
+  /**
    * 链接或路由跳转方式
    * @default _self
    */
@@ -48,15 +57,6 @@ export interface TdBreadcrumbItemProps {
    * 路由跳转目标，当且仅当 Router 存在时，该 API 有效
    */
   to?: Route;
-  /**
-   * 路由对象。如果项目存在 Router，则默认使用 Router。
-   */
-  router?: Record<string, any>;
-  /**
-   * 路由跳转是否采用覆盖的方式（覆盖后将没有浏览器历史记录）
-   * @default false
-   */
-  replace?: boolean;
 };
 
 export interface Route { path?: string; name?: string; hash?: string; query?: Data; params?: Data };

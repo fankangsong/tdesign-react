@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-21 17:55:58
  * */
 
 import { PopupProps } from '../../../../src/Popup';
@@ -9,30 +9,25 @@ import { MouseEvent } from 'react';
 
 export interface TdDropdownProps {
   /**
-   * 下拉操作项
-   * @default []
+   * 多层级操作时，子层级展开方向（待设计师规划）
+   * @default right
    */
-  options?: Array<DropdownOption>;
-  /**
-   * 点击选项后是否自动隐藏弹窗
-   * @default true
-   */
-  hideAfterItemClick?: boolean;
+  direction?: 'left' | 'right';
   /**
    * 是否禁用组件
    * @default false
    */
   disabled?: boolean;
   /**
-   * 弹窗定位方式，可选值参考popup
-   * @default bottom-left
+   * 点击选项后是否自动隐藏弹窗
+   * @default true
    */
-  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
+  hideAfterItemClick?: boolean;
   /**
-   * 触发下拉显示的方式
-   * @default hover
+   * 选项最大宽度，内容超出时，显示为省略号，单位：px
+   * @default 100
    */
-  trigger?: 'hover' | 'click' | 'focus' | 'context-menu' | 'manual';
+  maxColumnWidth?: number;
   /**
    * 弹窗最大高度，单位：px 。统一控制每一列的高度
    * @default 300
@@ -44,19 +39,24 @@ export interface TdDropdownProps {
    */
   minColumnWidth?: number;
   /**
-   * 选项最大宽度，内容超出时，显示为省略号，单位：px
-   * @default 100
+   * 下拉操作项
+   * @default []
    */
-  maxColumnWidth?: number;
+  options?: Array<DropdownOption>;
   /**
-   * 多层级操作时，子层级展开方向（待设计师规划）
-   * @default right
+   * 弹窗定位方式，可选值参考popup
+   * @default bottom-left
    */
-  direction?: 'left' | 'right';
+  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
   /**
    * 透传 popup 组件属性，方便更加自由地控制
    */
   popupProps?: PopupProps;
+  /**
+   * 触发下拉显示的方式
+   * @default hover
+   */
+  trigger?: 'hover' | 'click' | 'focus' | 'context-menu' | 'manual';
   /**
    * 下拉操作项点击时触发
    */
@@ -65,25 +65,25 @@ export interface TdDropdownProps {
 
 export interface TdDropdownItemProps {
   /**
-   * 下拉操作项内容
-   * @default ''
-   */
-  content?: TNode;
-  /**
    * 是否高亮当前操作项
    * @default false
    */
   active?: boolean;
   /**
-   * 是否显示操作项之间的分隔线（分隔线默认在下方）
-   * @default false
+   * 下拉操作项内容
+   * @default ''
    */
-  divider?: boolean;
+  content?: TNode;
   /**
    * 是否禁用操作项
    * @default false
    */
   disabled?: boolean;
+  /**
+   * 是否显示操作项之间的分隔线（分隔线默认在下方）
+   * @default false
+   */
+  divider?: boolean;
   /**
    * 下拉操作项唯一标识
    */

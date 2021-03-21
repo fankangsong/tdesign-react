@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-21 17:55:58
  * */
 
 import { TNode } from '../../common';
@@ -40,6 +40,10 @@ export interface TdCheckboxProps {
 
 export interface TdCheckboxGroupProps {
   /**
+   * 全选复选框
+   */
+  checkAll?: CheckAll;
+  /**
    * 选中值
    * @default []
    */
@@ -71,6 +75,8 @@ export interface TdCheckboxGroupProps {
 };
 
 export type CheckedValue = boolean | Array<string | number>;
+
+export interface CheckAll { label: string | TNode; value: string | number };
 
 export type CheckboxOption = string | number | CheckboxOptionObj;
 

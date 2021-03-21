@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:29:41
+ * 2021-03-21 17:55:58
  * */
 
 import { TNode, SizeEnum } from '../../common';
@@ -35,6 +35,11 @@ export interface TdRadioProps {
 
 export interface TdRadioGroupProps {
   /**
+   * 单选组件按钮形式
+   * @default outline
+   */
+  buttonStyle?: 'outline' | 'solid';
+  /**
    * 选中的值
    */
   checked?: RadioValue;
@@ -43,29 +48,24 @@ export interface TdRadioGroupProps {
    */
   defaultChecked?: RadioValue;
   /**
-   * HTML 元素原生属性
-   * @default ''
-   */
-  name?: string;
-  /**
-   * 组件尺寸
-   * @default medium
-   */
-  size?: SizeEnum;
-  /**
    * 是否禁用全部子单选框
    * @default false
    */
   disabled?: boolean;
   /**
-   * 单选组件按钮形式
-   * @default outline
+   * HTML 元素原生属性
+   * @default ''
    */
-  buttonStyle?: 'outline' | 'solid';
+  name?: string;
   /**
    * 单选组件按钮形式。RadioOption 数据类型为 string 或 number 时，表示 label 和 value 值相同
    */
   options?: Array<RadioOption>;
+  /**
+   * 组件尺寸
+   * @default medium
+   */
+  size?: SizeEnum;
   /**
    * 选中值发生变化时触发
    */

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-21 17:55:58
  * */
 
 import { TNode, TElement } from '../../common';
@@ -37,19 +37,6 @@ export interface TdStepsProps {
 
 export interface TdStepItemProps {
   /**
-   * 当前步骤的状态
-   * @default default
-   */
-  status?: StepStatus;
-  /**
-   * 图标
-   */
-  icon?: TElement;
-  /**
-   * 标题
-   */
-  title?: TNode;
-  /**
    * 步骤描述
    */
   content?: TNode;
@@ -57,6 +44,19 @@ export interface TdStepItemProps {
    * 显示在步骤描述下方的额外内容，比如：操作项
    */
   extra?: TNode;
+  /**
+   * 图标
+   */
+  icon?: TElement;
+  /**
+   * 当前步骤的状态
+   * @default default
+   */
+  status?: StepStatus;
+  /**
+   * 标题
+   */
+  title?: TNode;
   /**
    * 当前步骤值
    */

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-15 23:07:35
+ * 2021-03-21 17:55:58
  * */
 
 import { CheckboxProps } from '../../../../src/Checkbox';
@@ -9,29 +9,23 @@ import { MouseEvent } from 'react';
 
 export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData> {
   /**
-   * 树数据
-   * @default []
+   * 节点是否可高亮
+   * @default false
    */
-  data?: Array<DataOption>;
+  activable?: boolean;
   /**
-   * 用来定义 value / label / children 在 `options` 中对应的字段别名
+   * 高亮的节点值
    */
-  keys?: KeysType;
+  actived?: Array<TreeNodeValue>;
   /**
-   * 数据为空时展示的文本
-   * @default '暂无数据'
+   * 高亮的节点值，非受控属性
    */
-  empty?: TNode;
+  defaultActived?: Array<TreeNodeValue>;
   /**
-   * 选中值（组件为可选状态时）
-   * @default []
+   * 是否允许多个节点同时高亮
+   * @default false
    */
-  value?: Array<TreeNodeValue>;
-  /**
-   * 选中值（组件为可选状态时），非受控属性
-   * @default []
-   */
-  defaultValue?: Array<TreeNodeValue>;
+  activeMultiple?: boolean;
   /**
    * 树节点是否可选
    * @default false
@@ -47,20 +41,19 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    */
   checkStrictly?: boolean;
   /**
-   * 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点
-   * @default onlyLeaf
+   * 树数据
+   * @default []
    */
-  valueMode?: 'onlyLeaf' | 'parentFirst' | 'all';
+  data?: Array<DataOption>;
   /**
-   * 自定义节点内容
-   * @default ''
+   * 是否禁用树操作
    */
-  label?: string | TNode<TreeNodeModel<DataOption>>;
+  disabled?: boolean;
   /**
-   * 展开子节点时是否自动展开父节点
-   * @default false
+   * 数据为空时展示的文本
+   * @default '暂无数据'
    */
-  expandParent?: boolean;
+  empty?: TNode;
   /**
    * 是否展开全部节点
    * @default false
@@ -87,32 +80,19 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    */
   expandMutex?: boolean;
   /**
-   * 节点展开折叠时是否使用过渡动画
+   * 是否支持点击节点也能展开收起
    * @default false
    */
-  transition?: boolean;
+  expandOnClickNode?: boolean;
   /**
-   * 节点是否可高亮
+   * 展开子节点时是否自动展开父节点
    * @default false
    */
-  activable?: boolean;
+  expandParent?: boolean;
   /**
-   * 是否允许多个节点同时高亮
-   * @default false
+   * 节点过滤方法，只呈现返回值为 true 的节点
    */
-  activeMultiple?: boolean;
-  /**
-   * 高亮的节点值
-   */
-  actived?: Array<TreeNodeValue>;
-  /**
-   * 高亮的节点值，非受控属性
-   */
-  defaultActived?: Array<TreeNodeValue>;
-  /**
-   * 是否禁用树操作
-   */
-  disabled?: boolean;
+  filter?: (node: TreeNodeModel<DataOption>) => boolean;
   /**
    * 节点是否有悬浮状态
    */
@@ -123,6 +103,20 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    */
   icon?: TNode;
   /**
+   * 用来定义 value / label / children 在 `options` 中对应的字段别名
+   */
+  keys?: KeysType;
+  /**
+   * 自定义节点内容，值为 false 不显示，值为 true 显示默认 label，值为字符串直接输出该字符串
+   * @default true
+   */
+  label?: string | boolean | TNode<TreeNodeModel<DataOption>>;
+  /**
+   * 延迟加载 children 为 true 的节点的子节点数据，即使 expandAll 被设置为 true，也同样延迟加载
+   * @default true
+   */
+  lazy?: boolean;
+  /**
    * 连接线
    * @default false
    */
@@ -132,23 +126,29 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    */
   load?: (node: TreeNodeModel<DataOption>) => Promise<Array<DataOption>>;
   /**
-   * 延迟加载 children 为 true 的节点的子节点数据，即使 expandAll 被设置为 true，也同样延迟加载
-   * @default true
-   */
-  lazy?: boolean;
-  /**
-   * 节点过滤方法，只呈现返回值为 true 的节点
-   */
-  filter?: (node: TreeNodeModel<DataOption>) => boolean;
-  /**
    * 自定义节点操作项
    */
   operations?: TNode<TreeNodeModel<DataOption>>;
   /**
-   * 是否支持点击节点也能展开收起
-   * @default false
+   * 节点展开折叠时是否使用过渡动画
+   * @default true
    */
-  expandOnClickNode?: boolean;
+  transition?: boolean;
+  /**
+   * 选中值（组件为可选状态时）
+   * @default []
+   */
+  value?: Array<TreeNodeValue>;
+  /**
+   * 选中值（组件为可选状态时），非受控属性
+   * @default []
+   */
+  defaultValue?: Array<TreeNodeValue>;
+  /**
+   * 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点
+   * @default onlyLeaf
+   */
+  valueMode?: 'onlyLeaf' | 'parentFirst' | 'all';
   /**
    * 节点激活时触发
    */
@@ -162,45 +162,29 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    */
   onClick?: (context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
   /**
-   * 异步加载后触发
-   */
-  onLoad?: (context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
-  /**
    * 节点展开或收起时触发
    */
   onExpand?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
+  /**
+   * 异步加载后触发
+   */
+  onLoad?: (context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
 };
 
 /** 组件实例方法 */
 export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeOptionData> {
   /**
-   * 设置节点状态
-   */
-  setItem?: (value: TreeNodeValue, options: TreeNodeState) => void;
-  /**
-   * 获取指定节点所有信息
-   */
-  getItem?: (value: TreeNodeValue) => TreeNodeModel<DataOption>;
-  /**
    * 为指定节点添加子节点，默认添加到根节点
    */
   appendTo?: (value: TreeNodeValue, newData: DataOption) => void;
   /**
-   * 插入新节点到指定节点前面
-   */
-  insertBefore?: (value: TreeNodeValue, newData: DataOption) => void;
-  /**
-   * 插入新节点到指定节点后面
-   */
-  insertAfter?: (value: TreeNodeValue, newData: DataOption) => void;
-  /**
-   * 移除指定节点
-   */
-  remove?: (value: TreeNodeValue) => void;
-  /**
    * 获取指定节点下标
    */
   getIndex?: (value: TreeNodeValue) => number;
+  /**
+   * 获取指定节点所有信息
+   */
+  getItem?: (value: TreeNodeValue) => TreeNodeModel<DataOption>;
   /**
    * 获取指定节点的直属父节点
    */
@@ -213,9 +197,35 @@ export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeO
    * 自下而上获取全路径数据
    */
   getPath?: (value: TreeNodeValue) => TreeNodeModel<DataOption>[];
+  /**
+   * 插入新节点到指定节点后面
+   */
+  insertAfter?: (value: TreeNodeValue, newData: DataOption) => void;
+  /**
+   * 插入新节点到指定节点前面
+   */
+  insertBefore?: (value: TreeNodeValue, newData: DataOption) => void;
+  /**
+   * 移除指定节点
+   */
+  remove?: (value: TreeNodeValue) => void;
+  /**
+   * 设置节点状态
+   */
+  setItem?: (value: TreeNodeValue, options: TreeNodeState) => void;
 }
 
 export interface TreeNodeState {
+  /**
+   * 节点是否允许被激活
+   * @default false
+   */
+  activable?: boolean;
+  /**
+   * 节点是否被激活
+   * @default false
+   */
+  actived?: boolean;
   /**
    * 节点是否允许被选中
    * @default false
@@ -227,34 +237,10 @@ export interface TreeNodeState {
    */
   checked?: boolean;
   /**
-   * 节点是否为半选中状态
-   * @default false
-   */
-  indeterminate?: boolean;
-  /**
    * 节点是否被禁用
    * @default false
    */
   disabled?: boolean;
-  /**
-   * 节点是否可视
-   * @default false
-   */
-  visible?: boolean;
-  /**
-   * 子节点数据是否在加载中
-   * @default false
-   */
-  loading?: boolean;
-  /**
-   * 节点值
-   */
-  value?: string | number;
-  /**
-   * 节点标签文案
-   * @default ''
-   */
-  label?: string;
   /**
    * 节点是否已展开
    * @default false
@@ -266,34 +252,48 @@ export interface TreeNodeState {
    */
   expandMutex?: boolean;
   /**
-   * 节点是否被激活
+   * 节点是否为半选中状态
    * @default false
    */
-  actived?: boolean;
+  indeterminate?: boolean;
   /**
-   * 节点是否允许被激活
+   * 节点标签文案
+   * @default ''
+   */
+  label?: string;
+  /**
+   * 子节点数据是否在加载中
    * @default false
    */
-  activable?: boolean;
+  loading?: boolean;
+  /**
+   * 节点值
+   */
+  value?: string | number;
+  /**
+   * 节点是否可视
+   * @default false
+   */
+  visible?: boolean;
 };
 
 export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionData> extends TreeNodeState {
-  /**
-   * 节点数据
-   */
-  data: DataOption;
   /**
    * 当前节点是否处于高亮激活态
    */
   actived: boolean;
   /**
-   * 当前节点是否展开
-   */
-  expanded: boolean;
-  /**
    * 当前节点是否被选中
    */
   checked: boolean;
+  /**
+   * 节点数据
+   */
+  data: DataOption;
+  /**
+   * 当前节点是否展开
+   */
+  expanded: boolean;
   /**
    * 当前节点是否处于半选状态
    */
@@ -302,10 +302,6 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
    * 当前节点是否处于加载中状态
    */
   loading: boolean;
-  /**
-   * 获取节点全路径
-   */
-  getPathData: () => Array<DataOption>;
   /**
    * 追加子节点数据
    */
@@ -327,6 +323,10 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
    */
   getParentsData: () => Array<DataOption>;
   /**
+   * 获取节点全路径
+   */
+  getPathData: () => Array<DataOption>;
+  /**
    * 获取根节点
    */
   getRootData: () => DataOption;
@@ -337,11 +337,11 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
   /**
    * 在当前节点前插入新节点
    */
-  insertBefore: (newData: DataOption) => void;
+  insertAfter: (newData: DataOption) => void;
   /**
    * 在当前节点前插入新节点
    */
-  insertAfter: (newData: DataOption) => void;
+  insertBefore: (newData: DataOption) => void;
   /**
    * 是否为兄弟节点中的第一个节点
    */

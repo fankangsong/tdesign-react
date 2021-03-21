@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * 2021-03-21 17:55:58
  * */
 
 import { ButtonProps } from '../../../../src/Button';
@@ -9,11 +9,6 @@ import { TNode, TElement } from '../../common';
 import { MouseEvent } from 'react';
 
 export interface TdPopconfirmProps {
-  /**
-   * 文字提示风格
-   * @default default
-   */
-  theme?: 'default' | 'warning' | 'danger';
   /**
    * 取消按钮
    * @default '取消'
@@ -36,6 +31,11 @@ export interface TdPopconfirmProps {
    * 透传 Popup 组件属性
    */
   popupProps?: PopupProps;
+  /**
+   * 文字提示风格
+   * @default default
+   */
+  theme?: 'default' | 'warning' | 'danger';
   /**
    * 点击取消按钮时触发
    */
