@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-21 17:55:58
+ * updated at 2021-03-22 22:21:01
  * */
 
 import { CheckboxProps } from '../../../../src/Checkbox';
@@ -176,7 +176,7 @@ export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeO
   /**
    * 为指定节点添加子节点，默认添加到根节点
    */
-  appendTo?: (value: TreeNodeValue, newData: DataOption) => void;
+  appendTo?: (value: TreeNodeValue, newData: DataOption | Array<DataOption>) => void;
   /**
    * 获取指定节点下标
    */
@@ -185,6 +185,10 @@ export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeO
    * 获取指定节点所有信息
    */
   getItem?: (value: TreeNodeValue) => TreeNodeModel<DataOption>;
+  /**
+   * 获取全部节点
+   */
+  getItems?: () => Array<TreeNodeModel<DataOption>>;
   /**
    * 获取指定节点的直属父节点
    */

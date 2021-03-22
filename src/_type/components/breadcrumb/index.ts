@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-21 17:55:58
+ * updated at 2021-03-22 22:15:40
  * */
 
 import { TNode } from '../../common';
@@ -26,6 +26,14 @@ export interface TdBreadcrumbProps {
 };
 
 export interface TdBreadcrumbItemProps {
+  /**
+   * 子元素
+   */
+  content?: TNode;
+  /**
+   * 子元素，同 content
+   */
+  default?: TNode;
   /**
    * 是否禁用当前项点击
    */

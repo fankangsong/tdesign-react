@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-21 17:55:58
+ * updated at 2021-03-22 22:15:40
  * */
 
 import { TNode, TElement, AttachNode } from '../../common';
@@ -77,7 +77,7 @@ export type PlacementList = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-r
 
 export interface NotificationInstance { close: () => void };
 
-export type NotificationMethod = (options: NotificationOptions, theme: ThemeList) => Promise<NotificationInstance>;
+export type NotificationMethod = (theme: ThemeList, options: NotificationOptions) => Promise<NotificationInstance>;
 
 export type NotificationInfoOptions = Omit<NotificationOptions, 'theme'>;
 

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-21 17:55:58
+ * updated at 2021-03-22 22:15:40
  * */
 
 import { TNode, AttachNode } from '../../common';
@@ -69,20 +69,20 @@ export type PlacementList = 'center' | 'top' | 'left' | 'right' | 'bottom' | 'to
 
 export interface MessageInstance { close: () => void };
 
-export type MessageMethod = (duration: number, message: string | MessageOptions, theme: ThemeList) => Promise<MessageInstance>;
+export type MessageMethod = (theme: ThemeList, message: string | MessageOptions, duration: number) => Promise<MessageInstance>;
 
 export type MessageInfoOptions = Omit<MessageOptions, 'theme'>;
 
-export type MessageInfoMethod = (duration: number, message: string | MessageInfoOptions) => Promise<MessageInstance>;
+export type MessageInfoMethod = (message: string | MessageInfoOptions, duration: number) => Promise<MessageInstance>;
 
-export type MessageErrorMethod = (duration: number, message: string | MessageInfoOptions) => Promise<MessageInstance>;
+export type MessageErrorMethod = (message: string | MessageInfoOptions, duration: number) => Promise<MessageInstance>;
 
-export type MessageWarningMethod = (duration: number, message: string | MessageInfoOptions) => Promise<MessageInstance>;
+export type MessageWarningMethod = (message: string | MessageInfoOptions, duration: number) => Promise<MessageInstance>;
 
-export type MessageSuccessMethod = (duration: number, message: string | MessageInfoOptions) => Promise<MessageInstance>;
+export type MessageSuccessMethod = (message: string | MessageInfoOptions, duration: number) => Promise<MessageInstance>;
 
-export type MessageLoadingMethod = (duration: number, message: string | MessageInfoOptions) => Promise<MessageInstance>;
+export type MessageLoadingMethod = (message: string | MessageInfoOptions, duration: number) => Promise<MessageInstance>;
 
-export type MessageQuestionMethod = (duration: number, message: string | MessageInfoOptions) => Promise<MessageInstance>;
+export type MessageQuestionMethod = (message: string | MessageInfoOptions, duration: number) => Promise<MessageInstance>;
 
 export type MessageCloseAllMethod = () => void;

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-21 17:55:58
+ * updated at 2021-03-22 22:15:40
  * */
 
 import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
@@ -83,6 +83,6 @@ export interface TdInputNumberProps {
   onKeyup?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
 };
 
-export interface ChangeContext { type: ChangeSource; e: FormEvent<HTMLDivElement> | MouseEvent<HTMLDivElement> };
+export interface ChangeContext { type: ChangeSource; e: FormEvent<HTMLDivElement> | MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement> };
 
 export type ChangeSource = 'add' | 'reduce' | 'input' | '';
