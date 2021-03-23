@@ -1,9 +1,14 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-22 22:15:40
  * */
 
 export interface TdIconSVGProps {
+  /**
+   * 是否加载组件库内置图标
+   * @default true
+   */
+  loadDefaultIcons?: boolean;
   /**
    * 图标名称
    * @default ''
@@ -17,9 +22,4 @@ export interface TdIconSVGProps {
    * 图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.js)
    */
   url?: string | Array<string>;
-  /**
-   * 是否加载组件库内置图标
-   * @default true
-   */
-  loadDefaultIcons?: boolean;
 };

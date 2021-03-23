@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-22 22:15:40
  * */
 
 import { TNode } from '../../common';
@@ -17,20 +17,20 @@ export interface TdPaginationProps {
    */
   defaultCurrent?: number;
   /**
-   * 分页组件风格
-   * @default default
+   * 是否禁用分页组件
+   * @default false
    */
-  theme?: 'default' | 'simple';
+  disabled?: boolean;
   /**
-   * 分页组件尺寸
-   * @default medium
+   * 折叠时最多显示页码按钮数
+   * @default 5
    */
-  size?: 'small' | 'medium';
+  foldedMaxPageBtn?: number;
   /**
-   * 数据总条数
-   * @default 0
+   * 最多显示页码按钮数
+   * @default 10
    */
-  total?: number;
+  maxPageBtn?: number;
   /**
    * 分页总页数
    * @default 10
@@ -42,35 +42,35 @@ export interface TdPaginationProps {
    */
   defaultPageSize?: number;
   /**
-   * 用于自定义总条数呈现内容。默认显示总条数，值为 false 则不显示
-   * @default true
+   * 分页大小控制器，值为 [] 则不显示
+   * @default () => [5, 10, 20, 50]
    */
-  totalContent?: TNode;
+  pageSizeOption?: Array<number | { label: string; value: number }>;
   /**
    * 是否显示跳转页码控制器
    * @default false
    */
   showJumper?: boolean;
   /**
-   * 是否禁用分页组件
-   * @default false
+   * 分页组件尺寸
+   * @default medium
    */
-  disabled?: boolean;
+  size?: 'small' | 'medium';
   /**
-   * 分页大小控制器，值为 [] 则不显示
-   * @default () => [5, 10, 20, 50]
+   * 分页组件风格
+   * @default default
    */
-  pageSizeOption?: Array<number | { label: string; value: number }>;
+  theme?: 'default' | 'simple';
   /**
-   * 最多显示页码按钮数
-   * @default 10
+   * 数据总条数
+   * @default 0
    */
-  maxPageBtn?: number;
+  total?: number;
   /**
-   * 折叠时最多显示页码按钮数
-   * @default 5
+   * 用于自定义总条数呈现内容。默认显示总条数，值为 false 则不显示
+   * @default true
    */
-  foldedMaxPageBtn?: number;
+  totalContent?: TNode;
   /**
    * 当前页发生变化时触发
    */

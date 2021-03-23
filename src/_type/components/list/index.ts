@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-22 22:15:40
  * */
 
 import { TNode } from '../../common';
@@ -8,14 +8,27 @@ import { MouseEvent, WheelEvent } from 'react';
 
 export interface TdListProps {
   /**
+   * 定义加载中。值为空不显示加载中，值为 'loading' 显示加载中状态，值为 'loading-more' 显示加载更多状态。值类型为函数，则表示自定义加载状态呈现内容
+   */
+  asyncLoading?: TNode;
+  /**
+   * 底部
+   */
+  footer?: TNode;
+  /**
+   * 头部
+   */
+  header?: TNode;
+  /**
+   * 排列方式（待设计稿输出）
+   * @default horizontal
+   */
+  layout?: 'horizontal' | 'vertical';
+  /**
    * 尺寸
    * @default medium
    */
   size?: 'small' | 'medium' | 'large';
-  /**
-   * 定义加载中。值为空不显示加载中，值为 'loading' 显示加载中状态，值为 'loading-more' 显示加载更多状态。值类型为函数，则表示自定义加载状态呈现内容
-   */
-  asyncLoading?: TNode;
   /**
    * 是否展示分割线
    * @default false
@@ -26,19 +39,6 @@ export interface TdListProps {
    * @default false
    */
   stripe?: boolean;
-  /**
-   * 排列方式（待设计稿输出）
-   * @default horizontal
-   */
-  layout?: 'horizontal' | 'vertical';
-  /**
-   * 头部
-   */
-  header?: TNode;
-  /**
-   * 底部
-   */
-  footer?: TNode;
   /**
    * 点击加载更多时触发
    */
@@ -51,11 +51,11 @@ export interface TdListProps {
 
 export interface TdListItemProps {
   /**
-   * 内容
-   */
-  content?: TNode;
-  /**
    * 操作栏
    */
   action?: TNode;
+  /**
+   * 内容
+   */
+  content?: TNode;
 };
