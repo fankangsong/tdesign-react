@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-22 22:15:40
  * */
 
 import { TNode, TElement, AttachNode } from '../../common';
@@ -8,37 +8,37 @@ import { MouseEvent } from 'react';
 
 export interface TdNotificationProps {
   /**
-   * 标题
-   * @default ''
+   * 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例
+   * @default false
    */
-  title?: string;
+  closeBtn?: TNode;
   /**
    * 自定义内容
    */
   content?: TNode;
+  /**
+   * 消息显示时长，单位：毫秒。值为 0 表示永久显示
+   * @default 3000
+   */
+  duration?: number;
+  /**
+   * 用于自定义底部内容
+   */
+  footer?: TNode;
+  /**
+   * 自定义图标
+   */
+  icon?: TElement;
   /**
    * 消息类型
    * @default info
    */
   theme?: ThemeList;
   /**
-   * 自定义图标
+   * 标题
+   * @default ''
    */
-  icon?: TElement;
-  /**
-   * 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例
-   * @default false
-   */
-  closeBtn?: TNode;
-  /**
-   * 用于自定义底部内容
-   */
-  footer?: TNode;
-  /**
-   * 消息显示时长，单位：毫秒。值为 0 表示永久显示
-   * @default 3000
-   */
-  duration?: number;
+  title?: string;
   /**
    * 点击关闭按钮时触发
    */
@@ -51,19 +51,19 @@ export interface TdNotificationProps {
 
 export interface NotificationOptions extends TdNotificationProps {
   /**
-   * 消息弹出位置
-   * @default top-right
+   * 指定消息通知挂载的父节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
+   * @default 'body'
    */
-  placement?: PlacementList;
+  attach?: AttachNode;
   /**
    * 相对于 placement 的偏移量
    */
   offset?: { left: string; right: string; bottom: string; top: string };
   /**
-   * 指定消息通知挂载的父节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
-   * @default 'body'
+   * 消息弹出位置
+   * @default top-right
    */
-  attach?: AttachNode;
+  placement?: PlacementList;
   /**
    * 自定义层级
    * @default 6000
