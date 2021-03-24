@@ -1,7 +1,9 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-23 21:32:28
+ * updated at 2021-03-24 12:08:13
  * */
+
+import { FocusEvent, FormEvent } from 'react';
 
 export interface TdDatePickerProps {
   /**
@@ -44,9 +46,9 @@ export interface TdDatePickerProps {
    */
   placeholder?: string;
   /**
-   * 预设快捷日期选择，示例：{ '本月': [dayjs().startOf('month'), dayjs().endOf('month')] }
+   * 预设快捷日期选择，示例：{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }
    */
-  presets?: PresetRange;
+  presets?: PresetDate;
   /**
    * 尺寸
    * @default medium
@@ -61,15 +63,27 @@ export interface TdDatePickerProps {
    */
   defaultValue?: DateValue;
   /**
+   * 当输入框失去焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   */
+  onBlur?: (context: { input: string; value: DateValue; e: FocusEvent<HTMLDivElement> }) => void;
+  /**
    * 选中值发生变化时触发
    */
   onChange?: (value: DateValue) => void;
+  /**
+   * 输入框获得焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   */
+  onFocus?: (context: { input: string; value: DateValue; e: FocusEvent<HTMLDivElement> }) => void;
+  /**
+   * 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
+   */
+  onInput?: (context: { input: string; value: DateValue; e: FormEvent<HTMLDivElement> }) => void;
 };
 
 export type DisableDate = Array<DateValue> | DisableDateObj | ((date: string) => boolean);
 
 export interface DisableDateObj { from?: string; to?: string; before?: string; after?: string };
 
-export interface PresetRange { [range: string]: [string, string] };
+export interface PresetDate { [name: string]: DateValue | (() => DateValue) };
 
 export type DateValue = string | Date;
