@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-03-24 15:02:10
  * */
 
 import { TNode, AttachNode } from '../../common';
@@ -99,7 +99,7 @@ export interface TdDrawerProps {
    */
   onClickOverlay?: (e: MouseEvent<HTMLDivElement>) => void;
   /**
-   * 关闭事件，抽屉关闭时触发
+   * 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发
    */
   onClose?: (context: CloseContext) => void;
   /**
