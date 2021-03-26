@@ -4,3 +4,5 @@
 ## 组件属性
 
 [Interface: AnchorProps](./Anchor.tsx)
+
+[Interface: AnchorItemProps](./AnchorItem.tsx)
