@@ -1,19 +1,19 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-03-26 12:06:54
  * */
 
 import { TNode, SizeEnum } from '../../common';
 
 export interface TdRadioProps {
   /**
-   * 选中值
+   * 是否选中
    */
-  checked?: RadioValue;
+  checked?: boolean;
   /**
-   * 选中值，非受控属性
+   * 是否选中，非受控属性
    */
-  defaultChecked?: RadioValue;
+  defaultChecked?: boolean;
   /**
    * 是否为禁用态
    */
@@ -24,13 +24,13 @@ export interface TdRadioProps {
    */
   name?: string;
   /**
-   * 单选按钮的值，当该值等于 checked 时，单选按钮呈现选中状态
+   * 单选按钮的值
    */
   value?: RadioValue;
   /**
    * 选中状态变化时触发
    */
-  onChange?: (value: RadioValue, context: { e: Event }) => void;
+  onChange?: (checked: boolean, context: { e: Event }) => void;
 };
 
 export interface TdRadioGroupProps {
@@ -39,14 +39,6 @@ export interface TdRadioGroupProps {
    * @default outline
    */
   buttonStyle?: 'outline' | 'solid';
-  /**
-   * 选中的值
-   */
-  checked?: RadioValue;
-  /**
-   * 选中的值，非受控属性
-   */
-  defaultChecked?: RadioValue;
   /**
    * 是否禁用全部子单选框
    * @default false
@@ -67,12 +59,20 @@ export interface TdRadioGroupProps {
    */
   size?: SizeEnum;
   /**
+   * 选中的值
+   */
+  value?: RadioValue;
+  /**
+   * 选中的值，非受控属性
+   */
+  defaultValue?: RadioValue;
+  /**
    * 选中值发生变化时触发
    */
   onChange?: (value: RadioValue, context: { e: Event }) => void;
 };
 
-export type RadioValue = string | number | boolean;
+export type RadioValue = string | number;
 
 export type RadioOption = string | number | RadioOptionObj;
 
