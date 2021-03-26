@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-03-26 11:52:56
  * */
 
 import { CheckboxProps } from '../../../../src/Checkbox';
@@ -64,7 +64,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   options?: Array<CascaderOption>;
   /**
    * 占位符
-   * @default 请选择
+   * @default ''
    */
   placeholder?: string;
   /**

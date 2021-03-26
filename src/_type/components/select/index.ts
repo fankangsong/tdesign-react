@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-03-26 11:52:56
  * */
 
 import { PopupProps } from '../../../../src/Popup';
@@ -73,7 +73,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   options?: Array<SelectOption>;
   /**
    * 占位符
-   * @default '请选择'
+   * @default ''
    */
   placeholder?: string;
   /**

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-03-26 11:52:56
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -178,6 +178,13 @@ export interface FormRule {
    * 自定义校验规则
    */
   validator?: CustomValidator;
+};
+
+export interface FormInstance {
+  /**
+   * 校验（FormInstance 由 React 自行扩展）
+   */
+  validate?: () => void;
 };
 
 export type FormValidateResult<T> = boolean | ValidateResult<T>;
