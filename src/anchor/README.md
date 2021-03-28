@@ -6,3 +6,5 @@
 [Interface: AnchorProps](./Anchor.tsx)
 
 [Interface: AnchorItemProps](./AnchorItem.tsx)
+
+[Interface: AnchorTargetProps](./AnchorTarget.tsx)
