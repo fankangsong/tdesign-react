@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-23 11:15:31
+ * updated at 2021-03-29 15:09:18
  * */
 
 import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
@@ -8,7 +8,6 @@ import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
 export interface TdInputNumberProps {
   /**
    * [小数位数](https://en.wiktionary.org/wiki/decimal_place)
-   * @default 0
    */
   decimalPlaces?: number;
   /**
