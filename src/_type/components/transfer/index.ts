@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-03-29 15:09:18
  * */
 
-import { CheckboxProps } from '../../../../src/Checkbox';
-import { PaginationProps, PageInfo } from '../../../../src/Pagination';
-import { InputProps } from '../../../../src/Input';
+import { CheckboxProps } from '../../../../src/checkbox';
+import { PaginationProps, PageInfo } from '../../../../src/pagination';
+import { InputProps } from '../../../../src/input';
 import { TNode } from '../../common';
 import { FormEvent } from 'react';
 

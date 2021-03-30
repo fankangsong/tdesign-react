@@ -1,11 +1,16 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-03-29 15:09:18
  * */
 
 import { KeyboardEvent, FocusEvent, FormEvent } from 'react';
 
 export interface TdTextareaProps {
+  /**
+   * 自动聚焦
+   * @default false
+   */
+  autofocus?: boolean;
   /**
    * 是否禁用文本框
    * @default false
