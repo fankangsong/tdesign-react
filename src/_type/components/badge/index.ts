@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-29 15:09:18
  * */
 
 import { TNode } from '../../common';
@@ -26,10 +26,9 @@ export interface TdBadgeProps {
    */
   maxCount?: number;
   /**
-   * 尺寸
-   * @default medium
+   * 设置状态点的位置偏移，格式为 [x, y]
    */
-  size?: 'small' | 'medium';
+  offset?: Array<string | number>;
   /**
    * 形状
    * @default circle
@@ -41,7 +40,8 @@ export interface TdBadgeProps {
    */
   showZero?: boolean;
   /**
-   * 设置状态点的位置偏移，格式为 [x, y]
+   * 尺寸
+   * @default medium
    */
-  offset?: Array<string | number>;
+  size?: 'small' | 'medium';
 };

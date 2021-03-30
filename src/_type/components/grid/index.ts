@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-29 15:09:18
  * */
 
 export interface TdRowProps {
@@ -32,6 +32,14 @@ export interface TdColProps {
    */
   flex?: string | number;
   /**
+   * ≥1200px 响应式栅格，可为栅格数或一个包含其他属性的对象（小尺寸电脑）
+   */
+  lg?: number | BaseColProps;
+  /**
+   * ≥992px 响应式栅格，可为栅格数或一个包含其他属性的对象（超小尺寸电脑）
+   */
+  md?: number | BaseColProps;
+  /**
    * 栅格左侧的间隔格数，间隔内不可以有栅格
    * @default 0
    */
@@ -52,6 +60,10 @@ export interface TdColProps {
    */
   push?: number;
   /**
+   * ≥768px 响应式栅格，可为栅格数或一个包含其他属性的对象（平板）
+   */
+  sm?: number | BaseColProps;
+  /**
    * 栅格占位格数，为 0 时相当于 display: none
    * @default 12
    */
@@ -62,25 +74,13 @@ export interface TdColProps {
    */
   tag?: string;
   /**
-   * <768px 响应式栅格，可为栅格数或一个包含其他属性的对象（手机）
-   */
-  xs?: number | BaseColProps;
-  /**
-   * ≥768px 响应式栅格，可为栅格数或一个包含其他属性的对象（平板）
-   */
-  sm?: number | BaseColProps;
-  /**
-   * ≥992px 响应式栅格，可为栅格数或一个包含其他属性的对象（超小尺寸电脑）
-   */
-  md?: number | BaseColProps;
-  /**
-   * ≥1200px 响应式栅格，可为栅格数或一个包含其他属性的对象（小尺寸电脑）
-   */
-  lg?: number | BaseColProps;
-  /**
    * ≥1400px 响应式栅格，可为栅格数或一个包含其他属性的对象（中尺寸电脑）
    */
   xl?: number | BaseColProps;
+  /**
+   * <768px 响应式栅格，可为栅格数或一个包含其他属性的对象（手机）
+   */
+  xs?: number | BaseColProps;
   /**
    * ≥1880px 响应式栅格，可为栅格数或一个包含其他属性的对象（大尺寸电脑）
    */

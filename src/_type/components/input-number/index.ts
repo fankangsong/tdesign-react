@@ -1,11 +1,15 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-16 15:57:09
+ * updated at 2021-03-29 15:09:18
  * */
 
 import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
 
 export interface TdInputNumberProps {
+  /**
+   * [小数位数](https://en.wiktionary.org/wiki/decimal_place)
+   */
+  decimalPlaces?: number;
   /**
    * 禁用组件
    * @default false
@@ -15,24 +19,6 @@ export interface TdInputNumberProps {
    * 指定输入框展示值的格式
    */
   formatter?: (value: number) => number | string;
-  /**
-   * 占位符
-   * @default ''
-   */
-  placeholder?: string;
-  /**
-   * 值
-   */
-  value?: number;
-  /**
-   * 值，非受控属性
-   */
-  defaultValue?: number;
-  /**
-   * 按钮布局
-   * @default row
-   */
-  theme?: 'column' | 'row' | 'normal';
   /**
    * 最大值
    * @default Infinity
@@ -44,15 +30,37 @@ export interface TdInputNumberProps {
    */
   min?: number;
   /**
-   * 数值改变步数，可以是小数
-   * @default 1
+   * 占位符
+   * @default ''
    */
-  step?: number;
+  placeholder?: string;
   /**
    * 组件尺寸
    * @default medium
    */
   size?: 'small' | 'medium' | 'large';
+  /**
+   * 数值改变步数，可以是小数
+   * @default 1
+   */
+  step?: number;
+  /**
+   * 按钮布局
+   * @default row
+   */
+  theme?: 'column' | 'row' | 'normal';
+  /**
+   * 值
+   */
+  value?: number;
+  /**
+   * 值，非受控属性
+   */
+  defaultValue?: number;
+  /**
+   * 失去焦点时触发
+   */
+  onBlur?: (value: number, context: { e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 值变化时触发
    */
@@ -62,27 +70,23 @@ export interface TdInputNumberProps {
    */
   onFocus?: (value: number, context: { e: FocusEvent<HTMLDivElement> }) => void;
   /**
-   * 失去焦点时触发
+   * 键盘按下时触发
    */
-  onBlur?: (value: number, context: { e: FocusEvent<HTMLDivElement> }) => void;
+  onKeydown?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
   /**
    * 回车键按下时触发
    */
   onKeydownEnter?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
   /**
-   * 键盘按下时触发
+   * 按下字符键时触发（keydown -> keypress -> keyup）
    */
-  onKeydown?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
+  onKeypress?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
   /**
    * 释放键盘时触发
    */
   onKeyup?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
-  /**
-   * 按下字符键时触发（keydown -> keypress -> keyup）
-   */
-  onKeypress?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
 };
 
-export interface ChangeContext { type: ChangeSource; e: FormEvent<HTMLDivElement> | MouseEvent<HTMLDivElement> };
+export interface ChangeContext { type: ChangeSource; e: FormEvent<HTMLDivElement> | MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement> };
 
 export type ChangeSource = 'add' | 'reduce' | 'input' | '';

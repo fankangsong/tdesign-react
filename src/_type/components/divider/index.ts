@@ -1,22 +1,22 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-29 15:09:18
  * */
 
 export interface TdDividerProps {
   /**
-   * 分隔线类型有两种：水平和垂直
-   * @default horizontal
+   * 文本位置（仅在水平分割线有效）
+   * @default center
    */
-  theme?: 'horizontal' | 'vertical';
+  align?: 'left' | 'right' | 'center';
   /**
    * 是否虚线（仅在水平分割线有效）
    * @default false
    */
   dashed?: boolean;
   /**
-   * 文本位置（仅在水平分割线有效）
-   * @default center
+   * 分隔线类型有两种：水平和垂直
+   * @default horizontal
    */
-  align?: 'left' | 'right' | 'center';
+  theme?: 'horizontal' | 'vertical';
 };

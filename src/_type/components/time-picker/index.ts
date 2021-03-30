@@ -1,11 +1,60 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-29 15:09:18
  * */
 
-import { MouseEvent, FocusEvent } from 'react';
+import { MouseEvent, FocusEvent, FormEvent } from 'react';
 
 export interface TdTimePickerProps {
+  /**
+   * 是否允许直接输入时间
+   * @default false
+   */
+  allowInput?: boolean;
+  /**
+   * 是否允许清除选中值
+   * @default false
+   */
+  clearable?: boolean;
+  /**
+   * 是否禁用组件
+   * @default false
+   */
+  disabled?: boolean;
+  /**
+   * 禁用时间项
+   */
+  disableTime?: (h: number, m: number, s: number) => boolean;
+  /**
+   * 用于格式化 value，获取格式化后的时间。[详细文档](https://day.js.org/docs/en/display/format)
+   * @default 'HH:mm:ss'
+   */
+  format?: string;
+  /**
+   * 是否隐藏禁用状态的时间项
+   * @default true
+   */
+  hideDisabledTime?: boolean;
+  /**
+   * 是否允许多选
+   * @default false
+   */
+  multiple?: boolean;
+  /**
+   * 占位符
+   * @default ''
+   */
+  placeholder?: string;
+  /**
+   * 尺寸
+   * @default medium
+   */
+  size?: 'small' | 'medium' | 'large';
+  /**
+   * 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']
+   * @default [1, 1, 1]
+   */
+  steps?: Array<string | number>;
   /**
    * 选中值
    */
@@ -15,62 +64,108 @@ export interface TdTimePickerProps {
    */
   defaultValue?: TimePickerValue;
   /**
-   * 用于格式化 value，获取格式化后的时间。[详细文档](https://day.js.org/docs/en/display/format)
-   * @default 'hh:mm:ss'
+   * 当输入框失去焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
    */
-  format?: string;
+  onBlur?: (context: { input: string; value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
-   * 是否允许清除选中值
+   * 选中值发生变化时触发
    */
-  clearable?: boolean;
+  onChange?: (value: TimePickerValue) => void;
+  /**
+   * 面板关闭时触发
+   */
+  onClose?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  /**
+   * 输入框获得焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   */
+  onFocus?: (context: { input: string; value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
+  /**
+   * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
+   */
+  onInput?: (context: { input: string; value: TimePickerValue; e: FormEvent<HTMLDivElement> }) => void;
+  /**
+   * 面板打开时触发
+   */
+  onOpen?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+};
+
+export interface TdTimeRangePickerProps {
   /**
    * 是否允许直接输入时间
    * @default false
    */
   allowInput?: boolean;
   /**
-   * 占位符
-   * @default ''
+   * 是否允许清除选中值
+   * @default false
    */
-  placeholder?: string;
+  clearable?: boolean;
   /**
-   * 是否禁用组件
+   * 是否禁用组件，值为数组表示可分别控制开始日期和结束日期是否禁用
+   * @default false
    */
-  disabled?: boolean;
+  disabled?: boolean | Array<boolean>;
   /**
-   * 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']
-   * @default [1, 1, 1]
+   * 禁用时间项
    */
-  steps?: Array<string | number>;
+  disableTime?: (h: number, m: number, s: number, context: { partial: Partial }) => boolean;
+  /**
+   * 用于格式化 value，获取格式化后的时间。[详细文档](https://day.js.org/docs/en/display/format)
+   * @default 'HH:mm:ss'
+   */
+  format?: string;
   /**
    * 是否隐藏禁用状态的时间项
    * @default true
    */
   hideDisabledTime?: boolean;
   /**
-   * 禁用时间项
+   * 是否允许多选
+   * @default false
    */
-  disableTime?: (h?: number, m?: number, s?: number) => boolean;
+  multiple?: boolean;
   /**
-   * 输入框获得焦点时触发
+   * 占位符，值为数组表示可分别为开始日期和结束日期设置占位符
    */
-  onFocus?: (e: FocusEvent<HTMLDivElement>) => void;
+  placeholder?: string | Array<string>;
   /**
-   * 当输入框失去焦点时触发
+   * 尺寸
+   * @default medium
    */
-  onBlur?: (e: FocusEvent<HTMLDivElement>) => void;
+  size?: 'small' | 'medium' | 'large';
   /**
-   * 面板打开时触发
+   * 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']
+   * @default [1, 1, 1]
    */
-  onOpen?: (e: MouseEvent<HTMLDivElement>) => void;
+  steps?: Array<string | number>;
   /**
-   * 面板关闭时触发
+   * 选中值
    */
-  onClose?: (e: MouseEvent<HTMLDivElement>) => void;
+  value?: TimeRangeValue;
+  /**
+   * 选中值，非受控属性
+   */
+  defaultValue?: TimeRangeValue;
+  /**
+   * 当输入框失去焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   */
+  onBlur?: (context: { input: string; value: TimeRangeValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发
    */
-  onChange?: (value: TimePickerValue) => void;
+  onChange?: (value: TimeRangeValue) => void;
+  /**
+   * 输入框获得焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   */
+  onFocus?: (context: { input: string; value: TimeRangeValue; e: FocusEvent<HTMLDivElement> }) => void;
+  /**
+   * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
+   */
+  onInput?: (context: { input: string; value: TimeRangeValue; e: FormEvent<HTMLDivElement> }) => void;
 };
 
 export type TimePickerValue = string | Date;
+
+export type Partial = 'start' | 'end';
+
+export type TimeRangeValue = Array<string | Date> | Array<TimeRangeValue>;

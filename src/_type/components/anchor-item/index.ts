@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-29 15:09:18
  * */
 
 import { TNode } from '../../common';
@@ -13,12 +13,12 @@ export interface TdAnchorItemProps {
   href: string;
   /**
    * 锚点文本
-   * @default ''
-   */
-  title?: TNode;
-  /**
-   * 锚点文本
    * @default _self
    */
   target?: '_self' | '_blank' | '_parent' | '_top';
+  /**
+   * 锚点文本
+   * @default ''
+   */
+  title?: TNode;
 };

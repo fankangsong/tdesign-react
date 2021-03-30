@@ -1,36 +1,16 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-29 15:09:18
  * */
 
 import { TNode, ClassName, Styles, AttachNode } from '../../common';
 
 export interface TdPopupProps {
   /**
-   * 是否禁用组件
-   * @default false
+   * 制定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
+   * @default 'body'
    */
-  disabled?: boolean;
-  /**
-   * 浮层出现位置
-   * @default top
-   */
-  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
-  /**
-   * 是否显示浮层
-   * @default false
-   */
-  visible?: boolean;
-  /**
-   * 是否显示浮层，非受控属性
-   * @default false
-   */
-  defaultVisible?: boolean;
-  /**
-   * 触发浮层出现的方式
-   * @default hover
-   */
-  trigger?: 'hover' | 'click' | 'focus' | 'context-menu' | 'manual';
+  attach?: AttachNode;
   /**
    * 浮层里面的内容
    */
@@ -41,23 +21,43 @@ export interface TdPopupProps {
    */
   destroyOnHide?: boolean;
   /**
-   * 是否显示浮层箭头
+   * 是否禁用组件
    * @default false
    */
-  showArrow?: boolean;
-  /**
-   * 浮层样式
-   */
-  overlayStyle?: Styles;
+  disabled?: boolean;
   /**
    * 浮层类名，示例：'name1 name2 name3' 或 ['name1', 'name2'] 或 [{ 'name1': true }]
    */
   overlayClassName?: ClassName;
   /**
-   * 制定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
-   * @default 'body'
+   * 浮层样式
    */
-  attach?: AttachNode;
+  overlayStyle?: Styles;
+  /**
+   * 浮层出现位置
+   * @default top
+   */
+  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
+  /**
+   * 是否显示浮层箭头
+   * @default false
+   */
+  showArrow?: boolean;
+  /**
+   * 触发浮层出现的方式
+   * @default hover
+   */
+  trigger?: 'hover' | 'click' | 'focus' | 'context-menu' | 'manual';
+  /**
+   * 是否显示浮层
+   * @default false
+   */
+  visible?: boolean;
+  /**
+   * 是否显示浮层，非受控属性
+   * @default false
+   */
+  defaultVisible?: boolean;
   /**
    * 当浮层隐藏或显示时触发
    */

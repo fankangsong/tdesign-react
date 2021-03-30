@@ -1,12 +1,37 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * 2021-03-12 14:14:24
+ * updated at 2021-03-29 15:09:18
  * */
 
 import { TNode, TElement } from '../../common';
 import { MouseEvent } from 'react';
 
 export interface TdTabsProps {
+  /**
+   * 选项卡是否可增加
+   * @default false
+   */
+  addable?: boolean;
+  /**
+   * 是否禁用选项卡
+   * @default false
+   */
+  disabled?: boolean;
+  /**
+   * 选项卡位置
+   * @default top
+   */
+  placement?: 'left' | 'top' | 'bottom' | 'right';
+  /**
+   * 组件尺寸
+   * @default medium
+   */
+  size?: 'medium' | 'large';
+  /**
+   * 选项卡风格，包含 默认风格 和 卡片风格两种
+   * @default normal
+   */
+  theme?: 'normal' | 'card';
   /**
    * 激活的选项卡值
    */
@@ -16,38 +41,13 @@ export interface TdTabsProps {
    */
   defaultValue?: TabValue;
   /**
-   * 组件尺寸
-   * @default medium
+   * 添加选项卡时触发
    */
-  size?: 'medium' | 'large';
-  /**
-   * 是否禁用选项卡
-   * @default false
-   */
-  disabled?: boolean;
-  /**
-   * 选项卡风格，包含 默认风格 和 卡片风格两种
-   * @default normal
-   */
-  theme?: 'normal' | 'card';
-  /**
-   * 选项卡位置
-   * @default top
-   */
-  placement?: 'left' | 'top' | 'bottom' | 'right';
-  /**
-   * 选项卡是否可增加
-   * @default false
-   */
-  addable?: boolean;
+  onAdd?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
   /**
    * 激活的选项卡发生变化时触发
    */
   onChange?: (value: TabValue) => void;
-  /**
-   * 添加选项卡时触发
-   */
-  onAdd?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
   /**
    * 删除选项卡时触发
    */
@@ -56,18 +56,22 @@ export interface TdTabsProps {
 
 export interface TdTabPanelProps {
   /**
-   * 选项卡的值，唯一标识
+   * 用于自定义选项卡导航，同 panel
    */
-  value?: TabValue;
-  /**
-   * 选项卡名称，可自定义选项卡导航内容
-   */
-  label?: TNode;
+  default?: TElement;
   /**
    * 是否禁用当前选项卡
    * @default false
    */
   disabled?: boolean;
+  /**
+   * 选项卡名称，可自定义选项卡导航内容
+   */
+  label?: TNode;
+  /**
+   * 用于自定义选项卡面板内容
+   */
+  panel?: TElement;
   /**
    * 当前选项卡是否允许移除
    * @default false
@@ -79,13 +83,9 @@ export interface TdTabPanelProps {
    */
   renderOnHide?: boolean;
   /**
-   * 用于自定义选项卡导航，同 panel
+   * 选项卡的值，唯一标识
    */
-  default?: TElement;
-  /**
-   * 用于自定义选项卡面板内容
-   */
-  panel?: TElement;
+  value?: TabValue;
   /**
    * 点击删除按钮时触发
    */
