@@ -1,6 +1,4 @@
-# Popup 弹出层
-
-用于处理将某些元素渲染到 `<body>` 上，并定位到目标元素旁边的场景。
+:: BASE_DOC ::
 
 ## 使用示例
 
@@ -14,7 +12,7 @@
 
 [Example: 四种触发方式](./_example/TriggersExample.jsx)
 
-### 四个方向
+### 支持的placement
 
 支持上下左右四个方向
 
