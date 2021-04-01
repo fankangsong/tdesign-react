@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-29 15:09:18
+ * updated at 2021-04-01 10:51:41
  * */
 
 import { TNode, TElement } from '../../common';
@@ -30,7 +30,7 @@ export interface TdStepsProps {
    */
   theme?: 'default' | 'dot';
   /**
-   * null
+   * 当前步骤发生变化时触发
    */
   onChange?: (current: number, previous: number) => void;
 };
