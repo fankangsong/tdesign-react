@@ -1,8 +1,9 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-29 15:09:18
+ * updated at 2021-04-01 10:51:41
  * */
 
+import { ButtonProps } from '../../../../src/button';
 import { TNode, AttachNode } from '../../common';
 import { MouseEvent, KeyboardEvent } from 'react';
 
@@ -12,6 +13,11 @@ export interface TdDrawerProps {
    * @default ''
    */
   attach?: AttachNode;
+  /**
+   * 对话框“取消”按钮，可自定义。值为 '' 或 null 则不显示取消按钮
+   * @default '取消'
+   */
+  cancelBtn?: ButtonProps | TNode;
   /**
    * 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例
    * @default false
@@ -27,6 +33,11 @@ export interface TdDrawerProps {
    * @default true
    */
   closeOnKeydownEsc?: boolean;
+  /**
+   * 对话框“确认”按钮，可自定义。值为 '' 或 null 则不显示确认按钮
+   * @default '确认'
+   */
+  confirmBtn?: ButtonProps | TNode;
   /**
    * 抽屉关闭时是否销毁节点
    * @default false

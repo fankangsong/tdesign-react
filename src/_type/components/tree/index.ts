@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-29 15:09:18
+ * updated at 2021-04-01 11:29:38
  * */
 
 import { CheckboxProps } from '../../../../src/checkbox';
@@ -186,9 +186,9 @@ export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeO
    */
   getItem?: (value: TreeNodeValue) => TreeNodeModel<DataOption>;
   /**
-   * 获取全部节点
+   * 获取某节点的全部子孙节点；参数为空，则表示获取整棵树的全部节点
    */
-  getItems?: () => Array<TreeNodeModel<DataOption>>;
+  getItems?: (value?: TreeNodeValue) => Array<TreeNodeModel<DataOption>>;
   /**
    * 获取指定节点的直属父节点
    */
@@ -311,6 +311,10 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
    */
   appendData: (data: DataOption | Array<DataOption>) => void;
   /**
+   * 默认获取当前节点的全部子节点，deep 值为 true 则表示获取全部子孙节点
+   */
+  getChildren: (deep: boolean) => Array<TreeNodeModel>;
+  /**
    * 获取节点在父节点的子节点列表中的位置，如果没有父节点，则获取节点在根节点列表的位置
    */
   getIndex: () => number;
@@ -321,23 +325,23 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
   /**
    * 获取单个父节点
    */
-  getParentData: () => DataOption;
+  getParent: () => TreeNodeModel;
   /**
    * 获取所有父节点
    */
-  getParentsData: () => Array<DataOption>;
+  getParents: () => Array<TreeNodeModel>;
   /**
    * 获取节点全路径
    */
-  getPathData: () => Array<DataOption>;
+  getPath: () => Array<TreeNodeModel>;
   /**
    * 获取根节点
    */
-  getRootData: () => DataOption;
+  getRoot: () => TreeNodeModel;
   /**
    * 获取兄弟节点，包含自己在内
    */
-  getSiblingsData: () => Array<DataOption>;
+  getSiblings: () => Array<TreeNodeModel>;
   /**
    * 在当前节点前插入新节点
    */

@@ -1,12 +1,12 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-29 15:09:18
+ * updated at 2021-04-01 11:27:31
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
 import { IsURLOptions } from 'validator/es/lib/isURL';
 import { TNode } from '../../common';
-import { MouseEvent } from 'react';
+import { FormEvent } from 'react';
 
 export interface TdFormProps {
   /**
@@ -18,6 +18,11 @@ export interface TdFormProps {
    * 表单实例对象
    */
   form?: FormInstance;
+  /**
+   * 表单初始数据，重置时所需初始数据
+   * @default {}
+   */
+  initialData?: FormData;
   /**
    * 表单字段标签对齐方式：左对齐、右对齐、顶部对齐
    * @default right
@@ -67,11 +72,11 @@ export interface TdFormProps {
   /**
    * 表单重置时触发
    */
-  onReset?: (params: { e: MouseEvent<HTMLDivElement> }) => void;
+  onReset?: (params: { e: FormEvent<HTMLFormElement> }) => void;
   /**
    * 表单提交时触发
    */
-  onSubmit?: (params: { e: MouseEvent<HTMLDivElement>; validateResult: FormValidateResult<FormData> }) => void;
+  onSubmit?: (params: { e: FormEvent<HTMLFormElement>; validateResult: FormValidateResult<FormData> }) => void;
 };
 
 export interface TdFormItemProps {
