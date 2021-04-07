@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-01 11:29:38
+ * updated at 2021-04-07 17:13:11
  * */
 
 import { CheckboxProps } from '../../../../src/checkbox';
@@ -168,7 +168,7 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
   /**
    * 异步加载后触发
    */
-  onLoad?: (context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
+  onLoad?: (context: { node: TreeNodeModel<DataOption> }) => void;
 };
 
 /** 组件实例方法 */

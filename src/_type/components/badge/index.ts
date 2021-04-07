@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-29 15:09:18
+ * updated at 2021-04-07 17:13:11
  * */
 
 import { TNode } from '../../common';
@@ -8,13 +8,13 @@ import { TNode } from '../../common';
 export interface TdBadgeProps {
   /**
    * 颜色
-   * @default 'red'
+   * @default ''
    */
   color?: string;
   /**
    * 徽标内容，可以是数字，也可以是文字。如：'new'/3/99+
    */
-  content?: TNode;
+  count?: TNode;
   /**
    * 是否为红点
    * @default false

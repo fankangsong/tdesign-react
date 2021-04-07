@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-01 11:27:31
+ * updated at 2021-04-07 17:13:11
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -8,7 +8,7 @@ import { IsURLOptions } from 'validator/es/lib/isURL';
 import { TNode } from '../../common';
 import { FormEvent } from 'react';
 
-export interface TdFormProps {
+export interface TdFormProps<FormData extends Data = Data> {
   /**
    * 是否在表单标签字段右侧显示冒号
    * @default false
@@ -18,11 +18,6 @@ export interface TdFormProps {
    * 表单实例对象
    */
   form?: FormInstance;
-  /**
-   * 表单初始数据，重置时所需初始数据
-   * @default {}
-   */
-  initialData?: FormData;
   /**
    * 表单字段标签对齐方式：左对齐、右对齐、顶部对齐
    * @default right
@@ -37,6 +32,11 @@ export interface TdFormProps {
    * @default vertical
    */
   layout?: 'vertical' | 'inline';
+  /**
+   * 是否阻止表单提交默认事件，即提交后会刷新页面
+   * @default true
+   */
+  preventSubmitDefault?: boolean;
   /**
    * 是否显示必填符号
    * @default true
@@ -90,6 +90,10 @@ export interface TdFormItemProps {
    * @default ''
    */
   help?: string;
+  /**
+   * 表单初始数据，重置时所需初始数据
+   */
+  initialData?: string | boolean;
   /**
    * 字段标签名称
    * @default ''
@@ -189,6 +193,14 @@ export interface FormInstance {
   /**
    * 校验（FormInstance 由 React 自行扩展）
    */
+  getFieldValue?: () => void;
+  /**
+   * 校验（FormInstance 由 React 自行扩展）
+   */
+  setFieldsValue?: () => void;
+  /**
+   * 校验（FormInstance 由 React 自行扩展）
+   */
   validate?: () => void;
 };
 
@@ -199,6 +211,8 @@ export type ValidateResult<T> = { [key in keyof T]: boolean | ErrorList};
 export type ErrorList = Array<FormRule>;
 
 export type ValueType = any;
+
+export type Data = { [key: string]: any };
 
 export interface IsDateOptions { format: string; strictMode: boolean; delimiters: string[] };
 
