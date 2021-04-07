@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-29 15:09:18
+ * updated at 2021-04-07 17:13:11
  * */
 
 import { CheckboxProps } from '../../../../src/checkbox';
@@ -59,12 +59,11 @@ export interface TdTransferProps {
   footer?: Array<string | TNode> | TNode<{ type: TransferListType }>;
   /**
    * 用来定义 value / label 在 `data` 中对应的字段别名
-   * @default { value: 'value', label: 'label' }
    */
   keys?: KeysType;
   /**
-   * 方向操作按钮，可自定义
-   * @default ['>', '<']
+   * 方向操作按钮。值为 true 表示显示组件内置操作图标。自定义操作图标示例：['向左', '向右']
+   * @default true
    */
   operation?: Array<string | TNode> | TNode<{ direction: 'left' | 'right' }>;
   /**
