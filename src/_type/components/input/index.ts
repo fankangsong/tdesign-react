@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
-import { TElement, SizeEnum } from '../../common';
 import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
+import { TElement, SizeEnum } from '../../common';
 
 export interface TdInputProps {
   /**
@@ -12,6 +12,11 @@ export interface TdInputProps {
    * @default false
    */
   autocomplete?: boolean;
+  /**
+   * 自动聚焦
+   * @default false
+   */
+  autofocus?: boolean;
   /**
    * 是否可清空
    * @default false
@@ -103,6 +108,6 @@ export interface TdInputProps {
    * 释放键盘时触发
    */
   onKeyup?: (value: InputValue, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
-};
+}
 
 export type InputValue = string | number;

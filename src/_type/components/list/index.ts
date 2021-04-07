@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
-import { TNode } from '../../common';
 import { MouseEvent, WheelEvent } from 'react';
+import { TNode } from '../../common';
 
 export interface TdListProps {
   /**
@@ -47,7 +47,7 @@ export interface TdListProps {
    * 列表滚动时触发，scrollTop 表示顶部滚动距离，scrollBottom 表示底部滚动距离
    */
   onScroll?: (options: { e: Event | WheelEvent<HTMLDivElement>; scrollTop: number; scrollBottom: number }) => void;
-};
+}
 
 export interface TdListItemProps {
   /**
@@ -58,4 +58,4 @@ export interface TdListItemProps {
    * 内容
    */
   content?: TNode;
-};
+}

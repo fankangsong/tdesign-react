@@ -1,14 +1,14 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
 import { IsURLOptions } from 'validator/es/lib/isURL';
+import { FormEvent } from 'react';
 import { TNode } from '../../common';
-import { MouseEvent } from 'react';
 
-export interface TdFormProps {
+export interface TdFormProps<FormData extends Data = Data> {
   /**
    * 是否在表单标签字段右侧显示冒号
    * @default false
@@ -32,6 +32,11 @@ export interface TdFormProps {
    * @default vertical
    */
   layout?: 'vertical' | 'inline';
+  /**
+   * 是否阻止表单提交默认事件，即提交后会刷新页面
+   * @default true
+   */
+  preventSubmitDefault?: boolean;
   /**
    * 是否显示必填符号
    * @default true
@@ -67,12 +72,12 @@ export interface TdFormProps {
   /**
    * 表单重置时触发
    */
-  onReset?: (params: { e: MouseEvent<HTMLDivElement> }) => void;
+  onReset?: (params: { e: FormEvent<HTMLFormElement> }) => void;
   /**
    * 表单提交时触发
    */
-  onSubmit?: (params: { e: MouseEvent<HTMLDivElement>; validateResult: FormValidateResult<FormData> }) => void;
-};
+  onSubmit?: (params: { e: FormEvent<HTMLFormElement>; validateResult: FormValidateResult<FormData> }) => void;
+}
 
 export interface TdFormItemProps {
   /**
@@ -85,6 +90,10 @@ export interface TdFormItemProps {
    * @default ''
    */
   help?: string;
+  /**
+   * 表单初始数据，重置时所需初始数据
+   */
+  initialData?: string | boolean;
   /**
    * 字段标签名称
    * @default ''
@@ -104,7 +113,7 @@ export interface TdFormItemProps {
    * 校验状态图标。优先级高级 Form 的 statusIcon
    */
   statusIcon?: TNode;
-};
+}
 
 export interface FormRule {
   /**
@@ -178,16 +187,37 @@ export interface FormRule {
    * 自定义校验规则
    */
   validator?: CustomValidator;
-};
+}
+
+export interface FormInstance {
+  /**
+   * 校验（FormInstance 由 React 自行扩展）
+   */
+  getFieldValue?: () => void;
+  /**
+   * 校验（FormInstance 由 React 自行扩展）
+   */
+  setFieldsValue?: () => void;
+  /**
+   * 校验（FormInstance 由 React 自行扩展）
+   */
+  validate?: () => void;
+}
 
 export type FormValidateResult<T> = boolean | ValidateResult<T>;
 
-export type ValidateResult<T> = { [key in keyof T]: boolean | ErrorList};
+export type ValidateResult<T> = { [key in keyof T]: boolean | ErrorList };
 
 export type ErrorList = Array<FormRule>;
 
 export type ValueType = any;
 
-export interface IsDateOptions { format: string; strictMode: boolean; delimiters: string[] };
+export type Data = { [key: string]: any };
+
+export interface IsDateOptions {
+  format: string;
+  strictMode: boolean;
+  delimiters: string[];
+}
 
 export type CustomValidator = (val: ValueType) => boolean | Promise<boolean>;

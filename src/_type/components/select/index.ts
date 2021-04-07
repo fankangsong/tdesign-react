@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
-import { PopupProps } from '../../../../src/Popup';
-import { TNode, TElement, SizeEnum } from '../../common';
 import { MouseEvent, FocusEvent } from 'react';
+import { PopupProps } from '../../../../src/popup';
+import { TNode, TElement, SizeEnum } from '../../common';
 
 export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
@@ -73,7 +73,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   options?: Array<SelectOption>;
   /**
    * 占位符
-   * @default '请选择'
+   * @default ''
    */
   placeholder?: string;
   /**
@@ -135,7 +135,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    * 输入值变化时，触发搜索事件。主要用于远程搜索新数据
    */
   onSearch?: (filterWords: string) => void;
-};
+}
 
 export interface TdOptionProps {
   /**
@@ -152,7 +152,7 @@ export interface TdOptionProps {
    * 选项值
    */
   value?: string | number;
-};
+}
 
 export interface TdOptionGroupProps {
   /**
@@ -160,10 +160,16 @@ export interface TdOptionGroupProps {
    * @default ''
    */
   label?: string;
-};
+}
 
-export interface KeysType { value?: string; label?: string };
+export interface KeysType {
+  value?: string;
+  label?: string;
+}
 
 export type SelectValue = string | number;
 
-export interface Options { label?: string; value?: string | number };
+export interface Options {
+  label?: string;
+  value?: string | number;
+}

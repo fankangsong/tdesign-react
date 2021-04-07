@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
-import { TNode, TElement, AttachNode } from '../../common';
 import { MouseEvent } from 'react';
+import { TNode, TElement, AttachNode } from '../../common';
 
 export interface TdNotificationProps {
   /**
@@ -47,7 +47,7 @@ export interface TdNotificationProps {
    * 计时结束时触发
    */
   onDurationEnd?: () => void;
-};
+}
 
 export interface NotificationOptions extends TdNotificationProps {
   /**
@@ -69,13 +69,15 @@ export interface NotificationOptions extends TdNotificationProps {
    * @default 6000
    */
   zIndex?: number;
-};
+}
 
 export type ThemeList = 'info' | 'success' | 'warning' | 'error';
 
 export type PlacementList = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
-export interface NotificationInstance { close: () => void };
+export interface NotificationInstance {
+  close: () => void;
+}
 
 export type NotificationMethod = (theme: ThemeList, options: NotificationOptions) => Promise<NotificationInstance>;
 

@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
-import { TNode, TElement, SizeEnum } from '../../common';
 import { CSSProperties, MouseEvent } from 'react';
+import { TNode, TElement, SizeEnum } from '../../common';
 
 export interface TdTagProps {
   /**
@@ -51,8 +51,8 @@ export interface TdTagProps {
   /**
    * 如果关闭按钮存在，点击关闭按钮时触发
    */
-  onClose?: (e: MouseEvent<HTMLDivElement>) => void;
-};
+  onClose?: (e: MouseEvent<SVGElement>) => void;
+}
 
 export interface TdCheckTagProps {
   /**
@@ -82,4 +82,4 @@ export interface TdCheckTagProps {
    * 点击标签时触发
    */
   onClick?: (e: MouseEvent<HTMLDivElement>) => void;
-};
+}

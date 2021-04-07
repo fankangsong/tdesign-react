@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:21:01
+ * updated at 2021-04-07 17:13:11
  * */
 
-import { CheckboxProps } from '../../../../src/Checkbox';
-import { TNode, TreeOptionData } from '../../common';
 import { MouseEvent } from 'react';
+import { CheckboxProps } from '../../../../src/checkbox';
+import { TNode, TreeOptionData } from '../../common';
 
 export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData> {
   /**
@@ -164,12 +164,15 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
   /**
    * 节点展开或收起时触发
    */
-  onExpand?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
+  onExpand?: (
+    value: Array<TreeNodeValue>,
+    context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> },
+  ) => void;
   /**
    * 异步加载后触发
    */
-  onLoad?: (context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
-};
+  onLoad?: (context: { node: TreeNodeModel<DataOption> }) => void;
+}
 
 /** 组件实例方法 */
 export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeOptionData> {
@@ -186,9 +189,9 @@ export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeO
    */
   getItem?: (value: TreeNodeValue) => TreeNodeModel<DataOption>;
   /**
-   * 获取全部节点
+   * 获取某节点的全部子孙节点；参数为空，则表示获取整棵树的全部节点
    */
-  getItems?: () => Array<TreeNodeModel<DataOption>>;
+  getItems?: (value?: TreeNodeValue) => Array<TreeNodeModel<DataOption>>;
   /**
    * 获取指定节点的直属父节点
    */
@@ -279,7 +282,7 @@ export interface TreeNodeState {
    * @default false
    */
   visible?: boolean;
-};
+}
 
 export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionData> extends TreeNodeState {
   /**
@@ -311,6 +314,10 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
    */
   appendData: (data: DataOption | Array<DataOption>) => void;
   /**
+   * 默认获取当前节点的全部子节点，deep 值为 true 则表示获取全部子孙节点
+   */
+  getChildren: (deep: boolean) => Array<TreeNodeModel>;
+  /**
    * 获取节点在父节点的子节点列表中的位置，如果没有父节点，则获取节点在根节点列表的位置
    */
   getIndex: () => number;
@@ -321,23 +328,23 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
   /**
    * 获取单个父节点
    */
-  getParentData: () => DataOption;
+  getParent: () => TreeNodeModel;
   /**
    * 获取所有父节点
    */
-  getParentsData: () => Array<DataOption>;
+  getParents: () => Array<TreeNodeModel>;
   /**
    * 获取节点全路径
    */
-  getPathData: () => Array<DataOption>;
+  getPath: () => Array<TreeNodeModel>;
   /**
    * 获取根节点
    */
-  getRootData: () => DataOption;
+  getRoot: () => TreeNodeModel;
   /**
    * 获取兄弟节点，包含自己在内
    */
-  getSiblingsData: () => Array<DataOption>;
+  getSiblings: () => Array<TreeNodeModel>;
   /**
    * 在当前节点前插入新节点
    */
@@ -358,8 +365,12 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
    * 是否为叶子节点
    */
   isLeaf: () => boolean;
-};
+}
 
-export interface KeysType { value?: string; label?: string; children?: string };
+export interface KeysType {
+  value?: string;
+  label?: string;
+  children?: string;
+}
 
 export type TreeNodeValue = string | number;

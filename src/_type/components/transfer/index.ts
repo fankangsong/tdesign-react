@@ -1,13 +1,13 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
-import { CheckboxProps } from '../../../../src/Checkbox';
-import { PaginationProps, PageInfo } from '../../../../src/Pagination';
-import { InputProps } from '../../../../src/Input';
-import { TNode } from '../../common';
 import { FormEvent } from 'react';
+import { CheckboxProps } from '../../../../src/checkbox';
+import { PaginationProps, PageInfo } from '../../../../src/pagination';
+import { InputProps } from '../../../../src/input';
+import { TNode } from '../../common';
 
 export interface TdTransferProps {
   /**
@@ -52,19 +52,18 @@ export interface TdTransferProps {
    * 列表为空时呈现的内容
    * @default '暂无数据'
    */
-  empty?: EmptyType | Array<EmptyType> | TNode ;
+  empty?: EmptyType | Array<EmptyType> | TNode;
   /**
    * 穿梭框底部内容
    */
   footer?: Array<string | TNode> | TNode<{ type: TransferListType }>;
   /**
    * 用来定义 value / label 在 `data` 中对应的字段别名
-   * @default { value: 'value', label: 'label' }
    */
   keys?: KeysType;
   /**
-   * 方向操作按钮，可自定义
-   * @default ['>', '<']
+   * 方向操作按钮。值为 true 表示显示组件内置操作图标。自定义操作图标示例：['向左', '向右']
+   * @default true
    */
   operation?: Array<string | TNode> | TNode<{ direction: 'left' | 'right' }>;
   /**
@@ -120,10 +119,17 @@ export interface TdTransferProps {
   /**
    * 搜索时触发
    */
-  onSearch?: (options: { query: string; type: TransferListType; trigger: 'input' | 'enter';  e: FormEvent<HTMLDivElement> }) => void;
-};
+  onSearch?: (options: {
+    query: string;
+    type: TransferListType;
+    trigger: 'input' | 'enter';
+    e: FormEvent<HTMLDivElement>;
+  }) => void;
+}
 
-export interface ContentType { direction: 'left' | 'right' };
+export interface ContentType {
+  direction: 'left' | 'right';
+}
 
 export type DataOption = { label?: string; value?: TransferValue; disabled?: boolean } & Record<string, any>;
 
@@ -131,7 +137,10 @@ export type TransferValue = string | number;
 
 export type EmptyType = string | TNode;
 
-export interface KeysType { value?: string; label?: string };
+export interface KeysType {
+  value?: string;
+  label?: string;
+}
 
 export type Pagination = boolean | PaginationProps;
 
@@ -141,8 +150,20 @@ export type TitleType = string | TNode;
 
 export type TransferListType = 'source' | 'target';
 
-export interface TransferItem { data: DataOption; index: number; type: TransferListType};
+export interface TransferItem {
+  data: DataOption;
+  index: number;
+  type: TransferListType;
+}
 
-export interface TargetParams { type: TransferListType; movedValue: Array<TransferValue> };
+export interface TargetParams {
+  type: TransferListType;
+  movedValue: Array<TransferValue>;
+}
 
-export interface CheckedOptions { checked: Array<TransferValue>; sourceChecked: Array<TransferValue>; targetChecked: Array<TransferValue>; type: TransferListType };
+export interface CheckedOptions {
+  checked: Array<TransferValue>;
+  sourceChecked: Array<TransferValue>;
+  targetChecked: Array<TransferValue>;
+  type: TransferListType;
+}

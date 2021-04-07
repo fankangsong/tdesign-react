@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
 import { TNode } from '../../common';
@@ -79,6 +79,10 @@ export interface TdPaginationProps {
    * 当每页显示的数据条数发生变化时触发
    */
   onPageSizeChange?: (pageSize: number, pageInfo: PageInfo) => void;
-};
+}
 
-export interface PageInfo { curr: number; prev: number; pageSize: number };
+export interface PageInfo {
+  curr: number;
+  prev: number;
+  pageSize: number;
+}

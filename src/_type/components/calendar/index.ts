@@ -1,13 +1,13 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
-import { RadioGroupProps } from '../../../../src/Radio';
-import { ButtonProps } from '../../../../src/Button';
-import { SelectProps } from '../../../../src/Select';
-import { TNode } from '../../common';
 import { MouseEvent } from 'react';
+import { RadioGroupProps } from '../../../../src/radio';
+import { ButtonProps } from '../../../../src/button';
+import { SelectProps } from '../../../../src/select';
+import { TNode } from '../../common';
 
 export interface TdCalendarProps {
   /**
@@ -81,7 +81,7 @@ export interface TdCalendarProps {
    * 日历单元格右击时触发
    */
   onRightClickCell?: (options: { cell: CalendarCell; e: MouseEvent<HTMLDivElement> }) => void;
-};
+}
 
 export interface CalendarController {
   /**
@@ -109,7 +109,7 @@ export interface CalendarController {
    * 日历年份控制器
    */
   year?: { visible?: boolean; selectProps?: SelectProps };
-};
+}
 
 export interface CalendarCell extends ControllerOptions {
   /**
@@ -137,8 +137,13 @@ export interface CalendarCell extends ControllerOptions {
    * 日期在本月的第几周（日历展示维度是“月”时有值）
    */
   weekOrder?: number;
-};
+}
 
 export type CalendarValue = string | Date;
 
-export interface ControllerOptions { filterDate: Date; formattedFilterDate: string; mode: string; isShowWeekend: boolean };
+export interface ControllerOptions {
+  filterDate: Date;
+  formattedFilterDate: string;
+  mode: string;
+  isShowWeekend: boolean;
+}

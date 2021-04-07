@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-03-22 22:15:40
+ * updated at 2021-04-07 17:13:11
  * */
 
-import { PopupProps } from '../../../../src/Popup';
-import { TNode } from '../../common';
 import { MouseEvent } from 'react';
+import { PopupProps } from '../../../../src/popup';
+import { TNode } from '../../common';
 
 export interface TdDropdownProps {
   /**
@@ -47,7 +47,19 @@ export interface TdDropdownProps {
    * 弹窗定位方式，可选值参考popup
    * @default bottom-left
    */
-  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
+  placement?:
+    | 'top'
+    | 'left'
+    | 'right'
+    | 'bottom'
+    | 'top-left'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-right'
+    | 'left-top'
+    | 'left-bottom'
+    | 'right-top'
+    | 'right-bottom';
   /**
    * 透传 popup 组件属性，方便更加自由地控制
    */
@@ -61,7 +73,7 @@ export interface TdDropdownProps {
    * 下拉操作项点击时触发
    */
   onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent<HTMLDivElement> }) => void;
-};
+}
 
 export interface TdDropdownItemProps {
   /**
@@ -92,6 +104,6 @@ export interface TdDropdownItemProps {
    * 点击时触发
    */
   onClick?: (e: MouseEvent<HTMLDivElement>) => void;
-};
+}
 
 export type DropdownOption = { children?: Array<TdDropdownItemProps> } & TdDropdownItemProps & Record<string, any>;
