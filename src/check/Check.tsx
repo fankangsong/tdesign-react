@@ -148,14 +148,7 @@ const Check = forwardRef((_props: CheckProps, ref: Ref<HTMLLabelElement>) => {
       {...htmlProps}
       onClick={(event) => event.stopPropagation()}
     >
-      {type === 'radio' ? (
-        <span className={`${classPrefix}-${type}-wrap`}>
-          {input}
-          <i className={`${classPrefix}-${type}__dot`} />
-        </span>
-      ) : (
-        input
-      )}
+      {input}
       <span className={`${classPrefix}-${type}__input`} />
       <span key="label" className={`${classPrefix}-${type}__label`}>
         {children}
