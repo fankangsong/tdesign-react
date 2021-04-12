@@ -46,7 +46,7 @@ function documentToFragments({
   variables = {},
 }: MarkdownViewProps & { skipExampleResolution?: boolean }) {
   const { blocks, exampleMap = {} } = document;
-  const contentIndex = blocks.findIndex((block) => block.type === 'heading' && block.depth !== 1);
+  const contentIndex = componentKey ? blocks.findIndex((block) => block.type === 'heading' && block.depth !== 1) : 0;
   const consuming = blocks.slice(contentIndex);
   const fragments: React.ReactNodeArray = [];
 
@@ -54,7 +54,6 @@ function documentToFragments({
     const block = consuming.shift();
     // 标题
     if (isHeading(block)) {
-      if (block.depth === 1) continue;
       if (block.depth === 3 && !skipExampleResolution) {
         const demoBlocks: MarkdownNode[] = [block];
         while (consuming.length) {
