@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { CheckboxProps } from '../../../../src/checkbox';
@@ -35,7 +35,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   empty?: TNode;
   /**
-   * 是否可搜索，对现有数据进行搜索过滤
+   * 是否可搜索
    * @default false
    */
   filterable?: boolean;
@@ -53,7 +53,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   load?: (node: TreeNodeModel<CascaderOption>) => Promise<Array<CascaderOption>>;
   /**
-   * 是否支持多选
+   * 是否允许多选
    * @default false
    */
   multiple?: boolean;
@@ -104,7 +104,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: (e: FocusEvent<HTMLDivElement>) => void;
+  onBlur?: context: { value: CascaderValue; e: FocusEvent<HTMLDivElement> } => void;
   /**
    * 选中值发生变化时触发。TreeNodeModel 从树组件中导出
    */
@@ -112,7 +112,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 获得焦点时触发
    */
-  onFocus?: (e: FocusEvent<HTMLDivElement>) => void;
+  onFocus?: (context: { value: CascaderValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 在多选模式下，移除选中值时触发
    */

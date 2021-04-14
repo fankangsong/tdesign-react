@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { TNode, TElement, AttachNode } from '../../common';
@@ -56,9 +56,9 @@ export interface NotificationOptions extends TdNotificationProps {
    */
   attach?: AttachNode;
   /**
-   * 相对于 placement 的偏移量
+   * 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10%', '8rem']
    */
-  offset?: { left: string; right: string; bottom: string; top: string };
+  offset?: Array<string | number>;
   /**
    * 消息弹出位置
    * @default top-right

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { PopupProps } from '../../../../src/popup';
@@ -10,7 +10,7 @@ import { MouseEvent, FocusEvent } from 'react';
 export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 是否有边框
-   * @default false
+   * @default true
    */
   bordered?: boolean;
   /**
@@ -34,7 +34,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    */
   empty?: TNode;
   /**
-   * 自定义搜索方法，用于判断是否过滤某一项数据
+   * 过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据
    */
   filter?: (filterWords: string, option: SelectOption) => boolean | Promise<boolean>;
   /**
@@ -108,9 +108,9 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    */
   valueType?: 'value' | 'object';
   /**
-   * 当 input 失去焦点时触发
+   * 输入框失去焦点时触发
    */
-  onBlur?: (e: FocusEvent<HTMLDivElement>) => void;
+  onBlur?: (context: { value: SelectValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值变化时触发
    */
@@ -118,7 +118,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 点击清除按钮时触发
    */
-  onClear?: (e: MouseEvent<HTMLDivElement>) => void;
+  onClear?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
   /**
    * 当选择新创建的条目时触发
    */
@@ -126,7 +126,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 输入框获得焦点时触发
    */
-  onFocus?: (e: FocusEvent<HTMLDivElement>) => void;
+  onFocus?: (context: { value: SelectValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 多选模式下，选中数据被移除时触发
    */
