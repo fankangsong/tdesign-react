@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:00:30
  * */
 
 import { TNode, TElement } from '../../common';
@@ -25,6 +25,11 @@ export interface TdStepsProps {
    */
   sequence?: 'positive' | 'reverse';
   /**
+   * 步骤状态
+   * @default process
+   */
+  status?: 'wait' | 'process' | 'finish' | 'error';
+  /**
    * 步骤条风格
    * @default default
    */
@@ -32,7 +37,7 @@ export interface TdStepsProps {
   /**
    * 当前步骤发生变化时触发
    */
-  onChange?: (current: number, previous: number) => void;
+  onChange?: (current: string | number, previous: number) => void;
 };
 
 export interface TdStepItemProps {
