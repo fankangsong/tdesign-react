@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { MouseEvent, FocusEvent, FormEvent } from 'react';
@@ -52,7 +52,7 @@ export interface TdTimePickerProps {
   size?: 'small' | 'medium' | 'large';
   /**
    * 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']
-   * @default [1, 1, 1]
+   * @default () => [1, 1, 1]
    */
   steps?: Array<string | number>;
   /**
@@ -64,9 +64,9 @@ export interface TdTimePickerProps {
    */
   defaultValue?: TimePickerValue;
   /**
-   * 当输入框失去焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { input: string; value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (context: { value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发
    */
@@ -76,9 +76,9 @@ export interface TdTimePickerProps {
    */
   onClose?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
   /**
-   * 输入框获得焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   * 输入框获得焦点时触发
    */
-  onFocus?: (context: { input: string; value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (context: { value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
@@ -147,17 +147,17 @@ export interface TdTimeRangePickerProps {
    */
   defaultValue?: TimeRangeValue;
   /**
-   * 当输入框失去焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { input: string; value: TimeRangeValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (context: { value: TimeRangeValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发
    */
   onChange?: (value: TimeRangeValue) => void;
   /**
-   * 输入框获得焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   * 输入框获得焦点时触发
    */
-  onFocus?: (context: { input: string; value: TimeRangeValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (context: { value: TimeRangeValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */

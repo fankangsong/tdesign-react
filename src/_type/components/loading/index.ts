@@ -1,11 +1,19 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
-import { TNode, TElement, SizeEnum } from '../../common';
+import { TNode, SizeEnum } from '../../common';
 
 export interface TdLoadingProps {
+  /**
+   * 子元素，同 content
+   */
+  children?: TNode;
+  /**
+   * 子元素
+   */
+  content?: TNode;
   /**
    * 延迟显示加载效果的时间，用于防止请求速度过快引起的加载闪烁，单位：毫秒
    * @default 0
@@ -17,12 +25,12 @@ export interface TdLoadingProps {
    */
   fullscreen?: boolean;
   /**
-   * 加载指示符
+   * 加载指示符，值为 true 显示默认指示符，值为 false 则不显示，也可以自定义指示符
+   * @default true
    */
-  indicator?: TElement;
+  indicator?: TNode;
   /**
-   * 是否为加载中状态
-   * @default false
+   * 是否处于加载状态，作为包裹元素时有效
    */
   loading?: boolean;
   /**

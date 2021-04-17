@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { MouseEvent } from 'react';
@@ -154,7 +154,7 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    */
   onActive?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<DataOption> }) => void;
   /**
-   * 节点选中时触发
+   * 节点选中状态变化时触发，context.node 表示当前变化的选项
    */
   onChange?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<DataOption> }) => void;
   /**
@@ -316,7 +316,7 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
   /**
    * 默认获取当前节点的全部子节点，deep 值为 true 则表示获取全部子孙节点
    */
-  getChildren: (deep: boolean) => Array<TreeNodeModel>;
+  getChildren: (deep: boolean) => Array<TreeNodeModel> | boolean;
   /**
    * 获取节点在父节点的子节点列表中的位置，如果没有父节点，则获取节点在根节点列表的位置
    */

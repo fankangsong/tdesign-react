@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { MouseEvent } from 'react';
@@ -48,9 +48,9 @@ export interface MessageOptions extends TdMessageProps {
    */
   attach?: AttachNode;
   /**
-   * 弹出消息相对于 placement 偏移的位置，示例：{left: '30px'}
+   * 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10%', '8rem']
    */
-  offset?: { left: string; right: string; bottom: string; top: string };
+  offset?: Array<string | number>;
   /**
    * 弹出消息位置
    * @default top

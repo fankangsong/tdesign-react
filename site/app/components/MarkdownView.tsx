@@ -2,7 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PrismCode from 'react-prism';
-import { ComponentDocument } from '!!toc-loader!@tencent/tdesign-react/../README.md';
 import {
   MarkdownNode,
   isHeading,
@@ -24,6 +23,7 @@ import ExampleShowCase from './ExampleShowCase';
 import ApiDoc from './ApiDoc';
 import { getHeadingText } from './MarkdownToc';
 import HeadingAnchor, { HeadingAnchorProps } from './HeadingAnchor';
+import { ComponentDocument } from '!!toc-loader!@tencent/tdesign-react/../README.md';
 
 export interface MarkdownViewProps {
   componentKey?: string;
@@ -46,7 +46,8 @@ function documentToFragments({
   variables = {},
 }: MarkdownViewProps & { skipExampleResolution?: boolean }) {
   const { blocks, exampleMap = {} } = document;
-  const consuming = blocks.slice();
+  const contentIndex = componentKey ? blocks.findIndex((block) => block.type === 'heading' && block.depth !== 1) : 0;
+  const consuming = blocks.slice(contentIndex);
   const fragments: React.ReactNodeArray = [];
 
   while (consuming.length) {
@@ -120,7 +121,7 @@ function documentToFragments({
     }
     // 无法识别的当做普通段落处理
     else {
-      fragments.push(<p>{childrenToFragment(block['children'], variables)}</p>);
+      fragments.push(<p>{childrenToFragment(block.children, variables)}</p>);
     }
   }
   return fragments;
@@ -130,7 +131,7 @@ function consumeDemo(document: ComponentDocument, componentKey: string, col: 1 |
   let currentGroup = [blocks.shift()];
   const groups = [currentGroup];
 
-  for (let block of blocks) {
+  for (const block of blocks) {
     if (isHeading(block) && block.depth === 3) {
       groups.push((currentGroup = [block]));
     } else {
@@ -141,7 +142,7 @@ function consumeDemo(document: ComponentDocument, componentKey: string, col: 1 |
   return (
     <DemoLayout col={col}>
       {groups.map((group, idx) => (
-        <DemoLayout.Block key={idx} className={``}>
+        <DemoLayout.Block key={idx} className={''}>
           {React.createElement(
             React.Fragment,
             {},
@@ -194,8 +195,8 @@ export function childrenToFragment(children: import('unist').UNIST.Node[], varia
       fragments.push(childrenToFragment(child.children, variables));
     } else if (isImage(child)) {
       fragments.push(<img src={child.url} alt={child.title}></img>);
-    } else if (child['value']) {
-      fragments.push(child['value']);
+    } else if (child.value) {
+      fragments.push(child.value);
     }
   }
 

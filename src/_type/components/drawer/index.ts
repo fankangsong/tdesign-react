@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { MouseEvent, KeyboardEvent } from 'react';
@@ -14,10 +14,18 @@ export interface TdDrawerProps {
    */
   attach?: AttachNode;
   /**
+   * 抽屉内容
+   */
+  body?: TNode;
+  /**
    * 对话框“取消”按钮，可自定义。值为 '' 或 null 则不显示取消按钮
    * @default '取消'
    */
-  cancelBtn?: ButtonProps | TNode;
+  cancelBtn?: FooterButton;
+  /**
+   * 抽屉内容，同 body
+   */
+  children?: TNode;
   /**
    * 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例
    * @default false
@@ -37,30 +45,19 @@ export interface TdDrawerProps {
    * 对话框“确认”按钮，可自定义。值为 '' 或 null 则不显示确认按钮
    * @default '确认'
    */
-  confirmBtn?: ButtonProps | TNode;
+  confirmBtn?: FooterButton;
   /**
    * 抽屉关闭时是否销毁节点
    * @default false
    */
   destroyOnClose?: boolean;
   /**
-   * 模态抽屉弹出时长，单位：毫秒
-   * @default 3000
-   */
-  duration?: number;
-  /**
    * 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 TNode 表示自定义底部内容
    * @default true
    */
   footer?: TNode;
   /**
-   * 是否预渲染抽屉内容
-   * @default false
-   */
-  forceRender?: boolean;
-  /**
-   * 头部内容。值为 true 显示默认头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容
-   * @default true
+   * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容
    */
   header?: TNode;
   /**
@@ -73,6 +70,11 @@ export interface TdDrawerProps {
    * @default right
    */
   placement?: 'left' | 'right' | 'top' | 'bottom';
+  /**
+   * 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示
+   * @default false
+   */
+  showInAttachedElement?: boolean;
   /**
    * 是否显示遮罩层
    * @default true
@@ -88,6 +90,11 @@ export interface TdDrawerProps {
    * @default false
    */
   visible?: boolean;
+  /**
+   * 组件是否可见，非受控属性
+   * @default false
+   */
+  defaultVisible?: boolean;
   /**
    * 抽屉层级
    * @default 1500
@@ -118,6 +125,8 @@ export interface TdDrawerProps {
    */
   onKeydownEsc?: (e: KeyboardEvent<HTMLDivElement>) => void;
 }
+
+export type FooterButton = string | ButtonProps | TNode;
 
 export type EventSource = 'keydownEsc' | 'clickCloseBtn' | 'clickCancel' | 'clickOverlay';
 

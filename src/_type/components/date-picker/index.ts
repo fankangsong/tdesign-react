@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { FocusEvent, FormEvent } from 'react';
@@ -36,7 +36,7 @@ export interface TdDatePickerProps {
    */
   mode?: 'year' | 'month' | 'date';
   /**
-   * 是否支持多选
+   * 是否允许多选
    * @default false
    */
   multiple?: boolean;
@@ -63,22 +63,22 @@ export interface TdDatePickerProps {
    */
   defaultValue?: DateValue;
   /**
-   * 当输入框失去焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { input: string; value: DateValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (context: { value: DateValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发
    */
   onChange?: (value: DateValue) => void;
   /**
-   * 输入框获得焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   * 输入框获得焦点时触发
    */
-  onFocus?: (context: { input: string; value: DateValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (context: { value: DateValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
   onInput?: (context: { input: string; value: DateValue; e: FormEvent<HTMLDivElement> }) => void;
-}
+};
 
 export interface TdDateRangePickerProps {
   /**
@@ -111,7 +111,7 @@ export interface TdDateRangePickerProps {
    */
   mode?: 'year' | 'month' | 'date';
   /**
-   * 是否支持多选
+   * 是否允许多选
    * @default false
    */
   multiple?: boolean;
@@ -137,53 +137,36 @@ export interface TdDateRangePickerProps {
    */
   defaultValue?: DateRangeValue;
   /**
-   * 当输入框失去焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { input: string; value: DateRangeValue; partial: Partial; e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (context: { value: DateRangeValue; partial: Partial; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发
    */
   onChange?: (value: DateRangeValue) => void;
   /**
-   * 输入框获得焦点时触发，参数 input 表示输入框的内容，value 表示组件当前有效值
+   * 输入框获得焦点时触发
    */
-  onFocus?: (context: {
-    input: string;
-    value: DateRangeValue;
-    partial: Partial;
-    e: FocusEvent<HTMLDivElement>;
-  }) => void;
+  onFocus?: (context: { value: DateRangeValue; partial: Partial; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
   onInput?: (context: { input: string; value: DateRangeValue; partial: Partial; e: FormEvent<HTMLDivElement> }) => void;
-}
+};
 
 export type DisableDate = Array<DateValue> | DisableDateObj | ((date: string) => boolean);
 
-export interface DisableDateObj {
-  from?: string;
-  to?: string;
-  before?: string;
-  after?: string;
-}
+export interface DisableDateObj { from?: string; to?: string; before?: string; after?: string };
 
-export interface PresetDate {
-  [name: string]: DateValue | (() => DateValue);
-}
+export interface PresetDate { [name: string]: DateValue | (() => DateValue) };
 
 export type DateValue = string | Date;
 
-export type DisableRangeDate =
-  | Array<DateValue>
-  | DisableDateObj
-  | ((context: { date: string; partial: Partial }) => boolean);
+export type DisableRangeDate = Array<DateValue> | DisableDateObj | ((context: { date: string; partial: Partial }) => boolean);
 
-export type Partial = 'start' | 'end';
+export type Partial =  'start' | 'end';
 
-export interface PresetRange {
-  [range: string]: DateRange | (() => DateRange);
-}
+export interface PresetRange { [range: string]: DateRange | (() => DateRange)};
 
 export type DateRange = [DateValue, DateValue];
 

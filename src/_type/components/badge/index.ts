@@ -1,18 +1,26 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { TNode } from '../../common';
 
 export interface TdBadgeProps {
   /**
+   * 徽标内容，同 content
+   */
+  children?: TNode;
+  /**
    * 颜色
    * @default ''
    */
   color?: string;
   /**
-   * 徽标内容，可以是数字，也可以是文字。如：'new'/3/99+
+   * 徽标内容
+   */
+  content?: TNode;
+  /**
+   * 徽标右上角内容。可以是数字，也可以是文字。如：'new'/3/99+
    */
   count?: TNode;
   /**
@@ -26,7 +34,7 @@ export interface TdBadgeProps {
    */
   maxCount?: number;
   /**
-   * 设置状态点的位置偏移，格式为 [x, y]
+   * 设置状态点的位置偏移，示例：[-10, 20] 或 ['10%', '8rem']
    */
   offset?: Array<string | number>;
   /**
@@ -35,7 +43,7 @@ export interface TdBadgeProps {
    */
   shape?: 'circle' | 'round';
   /**
-   * 当数值为 0 时，是否展示 Badge
+   * 当数值为 0 时，是否展示徽标数字
    * @default false
    */
   showZero?: boolean;

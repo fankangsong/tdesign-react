@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-14 16:02:35
  * */
 
 import { TNode, SizeEnum } from '../../common';
@@ -41,7 +41,6 @@ export interface TdRadioGroupProps {
   buttonStyle?: 'outline' | 'solid';
   /**
    * 是否禁用全部子单选框
-   * @default false
    */
   disabled?: boolean;
   /**
