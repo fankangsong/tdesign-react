@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-22 19:47:40
  * */
 
 import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
@@ -18,7 +18,7 @@ export interface TdInputNumberProps {
   /**
    * 指定输入框展示值的格式
    */
-  formatter?: (value: number) => number | string;
+  format?: (value: number) => number | string;
   /**
    * 最大值
    * @default Infinity

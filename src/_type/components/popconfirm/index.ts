@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-22 19:47:40
  * */
 
 import { ButtonProps } from '../../../../src/button';
@@ -14,6 +14,10 @@ export interface TdPopconfirmProps {
    * @default '取消'
    */
   cancelBtn?: ButtonProps | TNode;
+  /**
+   * 确认框内容，同 content
+   */
+  children?: TNode;
   /**
    * 确认按钮
    * @default '确定'
@@ -36,6 +40,14 @@ export interface TdPopconfirmProps {
    * @default default
    */
   theme?: 'default' | 'warning' | 'danger';
+  /**
+   * 是否显示气泡确认框
+   */
+  visible?: boolean;
+  /**
+   * 是否显示气泡确认框，非受控属性
+   */
+  defaultVisible?: boolean;
   /**
    * 点击取消按钮时触发
    */

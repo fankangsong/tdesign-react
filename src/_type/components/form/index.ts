@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-22 19:47:40
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -14,10 +14,6 @@ export interface TdFormProps<FormData extends Data = Data> {
    * @default false
    */
   colon?: boolean;
-  /**
-   * 表单实例对象
-   */
-  form?: FormInstance;
   /**
    * 表单字段标签对齐方式：左对齐、右对齐、顶部对齐
    * @default right

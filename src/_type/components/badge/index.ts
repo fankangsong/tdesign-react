@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-14 16:02:35
+ * updated at 2021-04-22 19:47:40
  * */
 
 import { TNode } from '../../common';
@@ -34,7 +34,7 @@ export interface TdBadgeProps {
    */
   maxCount?: number;
   /**
-   * 设置状态点的位置偏移，示例：[-10, 20] 或 ['10%', '8rem']
+   * 设置状态点的位置偏移，示例：[-10, 20] 或 ['10em', '8rem']
    */
   offset?: Array<string | number>;
   /**

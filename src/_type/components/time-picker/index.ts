@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-14 16:02:35
+ * updated at 2021-04-22 19:47:40
  * */
 
 import { MouseEvent, FocusEvent, FormEvent } from 'react';
@@ -26,7 +26,7 @@ export interface TdTimePickerProps {
    */
   disableTime?: (h: number, m: number, s: number) => boolean;
   /**
-   * 用于格式化 value，获取格式化后的时间。[详细文档](https://day.js.org/docs/en/display/format)
+   * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default 'HH:mm:ss'
    */
   format?: string;
@@ -110,7 +110,7 @@ export interface TdTimeRangePickerProps {
    */
   disableTime?: (h: number, m: number, s: number, context: { partial: Partial }) => boolean;
   /**
-   * 用于格式化 value，获取格式化后的时间。[详细文档](https://day.js.org/docs/en/display/format)
+   * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default 'HH:mm:ss'
    */
   format?: string;

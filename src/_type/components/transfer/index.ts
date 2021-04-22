@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-14 16:02:35
+ * updated at 2021-04-22 19:47:40
  * */
 
 import { CheckboxProps } from '../../../../src/checkbox';
@@ -106,7 +106,7 @@ export interface TdTransferProps {
   /**
    * 分页发生变化时触发
    */
-  onPageChange?: (options: { page: PageInfo; type: TransferListType }) => void;
+  onPageChange?: (page: PageInfo, context: { type: TransferListType }) => void;
   /**
    * 列表滚动时触发，bottomDistance 表示元素滚动到底部的距离
    */

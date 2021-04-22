@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-14 16:02:35
+ * updated at 2021-04-22 19:47:40
  * */
 
 import { PopupProps } from '../../../../src/popup';
@@ -30,7 +30,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   disabled?: boolean;
   /**
    * 当下拉列表为空时显示的内容
-   * @default '无数据'
+   * @default '暂无数据'
    */
   empty?: TNode;
   /**
