@@ -2,6 +2,6 @@
 
 ## 组件属性
 
-[Interface: StepsProps](./StepsProps.tsx)
+[Interface: StepsProps](./Steps.tsx)
 
-[Interface: StepProps](./StepsProps.tsx)
+[Interface: StepItemProps](./StepItem.tsx)
