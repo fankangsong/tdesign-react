@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-22 19:47:40
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { TNode } from '../../common';
@@ -61,9 +61,10 @@ export interface TdUploadProps {
    */
   headers?: {[key: string]: string};
   /**
-   * 最多允许上传的文件数
+   * 用于控制文件上传数量，值为 0 则不限制
+   * @default 0
    */
-  limit?: number;
+  max?: number;
   /**
    * 上传接口方法
    * @default POST

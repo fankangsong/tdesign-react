@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-22 19:47:40
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { ButtonProps } from '../../../../src/button';
@@ -147,7 +147,7 @@ export interface TdDialogProps {
    * 对话框弹出动画效果结束后触发
    */
   onOpened?: () => void;
-};
+}
 
 export interface DialogOptions extends Omit<TdDialogProps, 'attach'> {
   /**
@@ -163,7 +163,7 @@ export interface DialogOptions extends Omit<TdDialogProps, 'attach'> {
    * 弹框 style 属性
    */
   style?: Styles;
-};
+}
 
 export interface DialogInstance {
   /**
@@ -182,11 +182,14 @@ export interface DialogInstance {
    * 更新弹框内容
    */
   update?: (props: DialogOptions) => void;
-};
+}
 
 export type EventSource = 'keydownEsc' | 'clickCloseBtn' | 'clickCancel' | 'clickOverlay';
 
-export interface CloseContext { trigger: EventSource; e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement> };
+export interface CloseContext {
+  trigger: EventSource;
+  e: MouseEvent<HTMLDivElement | HTMLButtonElement> | KeyboardEvent<HTMLDivElement>;
+}
 
 export type DialogMethod = (options: DialogOptions) => DialogInstance;
 

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-22 19:47:40
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { FocusEvent, FormEvent } from 'react';
@@ -31,15 +31,15 @@ export interface TdDatePickerProps {
    */
   format?: string;
   /**
+   * 用于控制多选数量，值为 0 则不限制
+   * @default 0
+   */
+  max?: number;
+  /**
    * 选择器模式
    * @default month
    */
   mode?: 'year' | 'month' | 'date';
-  /**
-   * 是否允许多选
-   * @default false
-   */
-  multiple?: boolean;
   /**
    * 占位符
    * @default ''
@@ -105,6 +105,11 @@ export interface TdDateRangePickerProps {
    * @default 'YYYY-MM-DD'
    */
   format?: string;
+  /**
+   * 用于控制多选数量，值为 0 则不限制
+   * @default 0
+   */
+  max?: number;
   /**
    * 选择器模式
    * @default month

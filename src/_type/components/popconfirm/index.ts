@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-22 19:47:40
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { ButtonProps } from '../../../../src/button';
@@ -51,9 +51,9 @@ export interface TdPopconfirmProps {
   /**
    * 点击取消按钮时触发
    */
-  onCancel?: (options: { e: MouseEvent<HTMLDivElement> }) => void;
+  onCancel?: (options: { e: MouseEvent<HTMLDivElement | HTMLButtonElement> }) => void;
   /**
    * 点击确认按钮时触发
    */
-  onConfirm?: (options: { e: MouseEvent<HTMLDivElement> }) => void;
+  onConfirm?: (options: { e: MouseEvent<HTMLDivElement | HTMLButtonElement> }) => void;
 };

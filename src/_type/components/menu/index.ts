@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-22 19:47:40
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { TNode, TElement } from '../../common';
@@ -47,7 +47,7 @@ export interface TdMenuProps {
    * 菜单宽度。值类型为数组时，分别表示菜单展开和折叠的宽度。[ 展开时的宽度, 折叠时的宽度 ]，示例：['200px', '80px']
    * @default '232px'
    */
-  width?: string | number | array;
+  width?: string | number | Array<string | number>;
   /**
    * 激活菜单项发生变化时触发
    */
