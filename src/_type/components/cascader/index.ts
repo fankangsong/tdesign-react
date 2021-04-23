@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-14 16:02:35
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { FocusEvent } from 'react';
@@ -44,7 +44,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   keys?: KeysType;
   /**
-   * 延迟加载 children 为 true 的子节点
+   * 延迟加载 children 为 true 的子节点，即使 expandAll 被设置为 true，也同样延迟加载
    * @default true
    */
   lazy?: boolean;
@@ -52,6 +52,11 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 加载子树数据的方法（仅当节点 children 为 true 时生效）
    */
   load?: (node: TreeNodeModel<CascaderOption>) => Promise<Array<CascaderOption>>;
+  /**
+   * 用于控制多选数量，值为 0 则不限制
+   * @default 0
+   */
+  max?: number;
   /**
    * 是否允许多选
    * @default false
@@ -104,7 +109,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: context: { value: CascaderValue; e: FocusEvent<HTMLDivElement> } => void;
+  onBlur?: (context: { value: CascaderValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发。TreeNodeModel 从树组件中导出
    */

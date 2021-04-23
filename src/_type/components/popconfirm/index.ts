@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { MouseEvent } from 'react';
@@ -14,6 +14,10 @@ export interface TdPopconfirmProps {
    * @default '取消'
    */
   cancelBtn?: ButtonProps | TNode;
+  /**
+   * 确认框内容，同 content
+   */
+  children?: TNode;
   /**
    * 确认按钮
    * @default '确定'
@@ -37,11 +41,19 @@ export interface TdPopconfirmProps {
    */
   theme?: 'default' | 'warning' | 'danger';
   /**
+   * 是否显示气泡确认框
+   */
+  visible?: boolean;
+  /**
+   * 是否显示气泡确认框，非受控属性
+   */
+  defaultVisible?: boolean;
+  /**
    * 点击取消按钮时触发
    */
-  onCancel?: (options: { e: MouseEvent<HTMLDivElement> }) => void;
+  onCancel?: (options: { e: MouseEvent<HTMLDivElement | HTMLButtonElement> }) => void;
   /**
    * 点击确认按钮时触发
    */
-  onConfirm?: (options: { e: MouseEvent<HTMLDivElement> }) => void;
+  onConfirm?: (options: { e: MouseEvent<HTMLDivElement | HTMLButtonElement> }) => void;
 }

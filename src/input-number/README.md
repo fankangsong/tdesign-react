@@ -2,4 +2,4 @@
 
 ## 组件属性
 
-[Interface: InputNumberProps](./InputNumber.types.ts)
+[Interface: InputNumberProps](./InputNumberProps.ts)

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-14 16:02:35
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { MouseEvent, FocusEvent, FormEvent } from 'react';
@@ -26,7 +26,7 @@ export interface TdTimePickerProps {
    */
   disableTime?: (h: number, m: number, s: number) => boolean;
   /**
-   * 用于格式化 value，获取格式化后的时间。[详细文档](https://day.js.org/docs/en/display/format)
+   * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default 'HH:mm:ss'
    */
   format?: string;
@@ -35,6 +35,11 @@ export interface TdTimePickerProps {
    * @default true
    */
   hideDisabledTime?: boolean;
+  /**
+   * 用于控制多选数量，值为 0 则不限制
+   * @default 0
+   */
+  max?: number;
   /**
    * 是否允许多选
    * @default false
@@ -58,11 +63,11 @@ export interface TdTimePickerProps {
   /**
    * 选中值
    */
-  value?: TimePickerValue;
+  value?: TimePickerValue | Array<TimePickerValue>;
   /**
    * 选中值，非受控属性
    */
-  defaultValue?: TimePickerValue;
+  defaultValue?: TimePickerValue | Array<TimePickerValue>;
   /**
    * 当输入框失去焦点时触发
    */
@@ -110,7 +115,7 @@ export interface TdTimeRangePickerProps {
    */
   disableTime?: (h: number, m: number, s: number, context: { partial: Partial }) => boolean;
   /**
-   * 用于格式化 value，获取格式化后的时间。[详细文档](https://day.js.org/docs/en/display/format)
+   * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default 'HH:mm:ss'
    */
   format?: string;
@@ -119,6 +124,11 @@ export interface TdTimeRangePickerProps {
    * @default true
    */
   hideDisabledTime?: boolean;
+  /**
+   * 用于控制多选数量，值为 0 则不限制
+   * @default 0
+   */
+  max?: number;
   /**
    * 是否允许多选
    * @default false

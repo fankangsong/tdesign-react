@@ -18,12 +18,6 @@
 
 [Example: 不显示蒙层](./_example/NoMaskUsageExample.jsx)
 
-### 预渲染
-
-提前预渲染子元素，查看 forceRender。
-
-[Example: 预渲染](./_example/ForceRenderUsageExample.jsx)
-
 ### 关闭时销毁 Drawer 内的子元素
 
 关闭时销毁 Drawer 内的子元素，查看 destroyOnClose。

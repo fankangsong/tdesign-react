@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-14 16:02:35
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { MouseEvent, FocusEvent } from 'react';
@@ -30,7 +30,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   disabled?: boolean;
   /**
    * 当下拉列表为空时显示的内容
-   * @default '无数据'
+   * @default '暂无数据'
    */
   empty?: TNode;
   /**
@@ -57,15 +57,15 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    */
   loadingText?: TNode;
   /**
+   * 用于控制多选数量，值为 0 则不限制
+   * @default 0
+   */
+  max?: number;
+  /**
    * 是否允许多选
    * @default false
    */
   multiple?: boolean;
-  /**
-   * 多选时用户最多可以选择的项目数，值为 0 则不限制
-   * @default 0
-   */
-  multipleLimit?: number;
   /**
    * 数据化配置选项内容
    * @default []

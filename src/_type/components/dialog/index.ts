@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-07 17:13:11
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { MouseEvent, KeyboardEvent } from 'react';
@@ -24,8 +24,12 @@ export interface TdDialogProps {
    */
   cancelBtn?: ButtonProps | TNode;
   /**
+   * 抽屉内容，同 body
+   */
+  children?: TNode;
+  /**
    * 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例
-   * @default false
+   * @default true
    */
   closeBtn?: TNode;
   /**
@@ -87,7 +91,7 @@ export interface TdDialogProps {
    * 对话框风格
    * @default default
    */
-  theme?: 'default' | 'info' | 'warning' | 'error' | 'success';
+  theme?: 'default' | 'info' | 'warning' | 'danger' | 'success';
   /**
    * 用于弹框具体窗口顶部的距离，优先级大于 placement
    */
@@ -114,7 +118,7 @@ export interface TdDialogProps {
   /**
    * 如果“取消”按钮存在，则点击“取消”按钮时触发，同时触发关闭事件
    */
-  onClickCancel?: (e: MouseEvent<HTMLDivElement>) => void;
+  onClickCancel?: (e: MouseEvent<HTMLButtonElement>) => void;
   /**
    * 点击右上角关闭按钮时触发
    */
@@ -122,7 +126,7 @@ export interface TdDialogProps {
   /**
    * 如果“确认”按钮存在，则点击“确认”按钮时触发，同时触发关闭事件
    */
-  onClickConfirm?: (e: MouseEvent<HTMLDivElement>) => void;
+  onClickConfirm?: (e: MouseEvent<HTMLButtonElement>) => void;
   /**
    * 如果蒙层存在，点击蒙层时触发
    */
@@ -184,7 +188,7 @@ export type EventSource = 'keydownEsc' | 'clickCloseBtn' | 'clickCancel' | 'clic
 
 export interface CloseContext {
   trigger: EventSource;
-  e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>;
+  e: MouseEvent<HTMLDivElement | HTMLButtonElement> | KeyboardEvent<HTMLDivElement>;
 }
 
 export type DialogMethod = (options: DialogOptions) => DialogInstance;

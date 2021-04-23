@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-14 16:02:35
+ * updated at 2021-04-23 12:24:49
  * */
 
+import { TNode, TElement } from '../../common';
 import { MouseEvent } from 'react';
-import { TElement } from '../../common';
 
 export interface TdMenuProps {
   /**
@@ -44,10 +44,10 @@ export interface TdMenuProps {
    */
   theme?: 'light' | 'dark';
   /**
-   * 菜单宽度
+   * 菜单宽度。值类型为数组时，分别表示菜单展开和折叠的宽度。[ 展开时的宽度, 折叠时的宽度 ]，示例：['200px', '80px']
    * @default '232px'
    */
-  width?: string | number;
+  width?: string | number | Array<string | number>;
   /**
    * 激活菜单项发生变化时触发
    */
@@ -85,11 +85,6 @@ export interface TdHeadMenuProps {
    */
   expandType?: 'normal' | 'popup';
   /**
-   * 菜单高度
-   * @default '64px'
-   */
-  height?: string | number;
-  /**
    * null
    * @default light
    */
@@ -108,11 +103,11 @@ export interface TdSubmenuProps {
   /**
    * 菜单项内容，同 content
    */
-  children?: TElement;
+  children?: TNode;
   /**
-   * 菜单项内容，同 default
+   * 菜单项内容
    */
-  content?: TElement;
+  content?: TNode;
   /**
    * 是否禁用菜单项展开/收起/跳转等功能
    */

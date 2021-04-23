@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-14 16:02:35
+ * updated at 2021-04-23 12:24:49
  * */
 
 import { MouseEvent } from 'react';
@@ -9,7 +9,6 @@ import { TNode, AttachNode } from '../../common';
 export interface TdMessageProps {
   /**
    * 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例
-   * @default false
    */
   closeBtn?: TNode;
   /**
@@ -48,7 +47,7 @@ export interface MessageOptions extends TdMessageProps {
    */
   attach?: AttachNode;
   /**
-   * 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10%', '8rem']
+   * 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10em', '8rem']
    */
   offset?: Array<string | number>;
   /**
