@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
 import { TNode, ClassName, Styles, AttachNode } from '../../common';
@@ -37,19 +37,7 @@ export interface TdPopupProps {
    * 浮层出现位置
    * @default top
    */
-  placement?:
-    | 'top'
-    | 'left'
-    | 'right'
-    | 'bottom'
-    | 'top-left'
-    | 'top-right'
-    | 'bottom-left'
-    | 'bottom-right'
-    | 'left-top'
-    | 'left-bottom'
-    | 'right-top'
-    | 'right-bottom';
+  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
   /**
    * 是否显示浮层箭头
    * @default false
@@ -74,4 +62,4 @@ export interface TdPopupProps {
    * 当浮层隐藏或显示时触发
    */
   onVisibleChange?: (visible: boolean) => void;
-}
+};

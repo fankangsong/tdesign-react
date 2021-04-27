@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
-import { MouseEvent, KeyboardEvent } from 'react';
 import { ButtonProps } from '../../../../src/button';
 import { TNode, AttachNode } from '../../common';
+import { MouseEvent, KeyboardEvent } from 'react';
 
 export interface TdDrawerProps {
   /**
@@ -123,13 +123,10 @@ export interface TdDrawerProps {
    * 按下 ESC 键时触发
    */
   onKeydownEsc?: (e: KeyboardEvent<HTMLDivElement>) => void;
-}
+};
 
 export type FooterButton = string | ButtonProps | TNode;
 
 export type EventSource = 'keydownEsc' | 'clickCloseBtn' | 'clickCancel' | 'clickOverlay';
 
-export interface CloseContext {
-  trigger: EventSource;
-  e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>;
-}
+export interface CloseContext { trigger: EventSource; e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement> };

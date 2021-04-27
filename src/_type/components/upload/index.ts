@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
 import { TNode } from '../../common';
@@ -59,7 +59,7 @@ export interface TdUploadProps {
   /**
    * 设置上传的请求头部
    */
-  headers?: { [key: string]: string };
+  headers?: {[key: string]: string};
   /**
    * 用于控制文件上传数量，值为 0 则不限制
    * @default 0
@@ -136,7 +136,7 @@ export interface TdUploadProps {
    * 上传成功后触发
    */
   onSuccess?: (context: SuccessContext) => void;
-}
+};
 
 export interface UploadFile extends File {
   /**
@@ -168,7 +168,7 @@ export interface UploadFile extends File {
    * 文件上传状态：上传成功，上传失败，上传中，等待上传
    * @default ''
    */
-  status?: 'success' | 'fail' | 'progress' | 'waiting';
+  status?:  'success' | 'fail' | 'progress' | 'waiting';
   /**
    * 文件类型
    * @default ''
@@ -179,36 +179,14 @@ export interface UploadFile extends File {
    * @default ''
    */
   url?: string;
-}
+};
 
-export interface TriggerContext {
-  dragActive?: boolean;
-  uploadingFile?: UploadFile | Array<UploadFile>;
-}
+export interface TriggerContext { dragActive?: boolean; uploadingFile?: UploadFile | Array<UploadFile> };
 
-export interface ChangeContext {
-  e?: MouseEvent<HTMLDivElement> | ProgressEvent;
-  response?: any;
-  trigger: string;
-  index?: number;
-  file?: UploadFile;
-}
+export interface ChangeContext { e?: MouseEvent<HTMLDivElement> | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile };
 
-export interface ProgressContext {
-  e: ProgressEvent;
-  file: UploadFile;
-  percent: number;
-}
+export interface ProgressContext { e: ProgressEvent; file: UploadFile; percent: number };
 
-export interface RemoveContext {
-  index?: number;
-  file?: UploadFile;
-  e: MouseEvent<HTMLDivElement>;
-}
+export interface RemoveContext { index?: number; file?: UploadFile; e: MouseEvent<HTMLDivElement> };
 
-export interface SuccessContext {
-  e: ProgressEvent;
-  file: UploadFile;
-  fileList: UploadFile[];
-  response: any;
-}
+export interface SuccessContext { e: ProgressEvent; file: UploadFile; fileList: UploadFile[]; response: any };

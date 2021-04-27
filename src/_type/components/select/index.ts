@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
-import { MouseEvent, FocusEvent } from 'react';
 import { PopupProps } from '../../../../src/popup';
 import { TNode, TElement, SizeEnum } from '../../common';
+import { MouseEvent, FocusEvent } from 'react';
 
 export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
@@ -97,11 +97,11 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 选中值
    */
-  value?: SelectValue | Array<SelectValue>;
+  value?: SelectValue;
   /**
    * 选中值，非受控属性
    */
-  defaultValue?: SelectValue | Array<SelectValue>;
+  defaultValue?: SelectValue;
   /**
    * 用于控制选中值的类型。假设数据选项为：[{ label: '姓名', value: 'name' }]，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
    * @default value
@@ -114,7 +114,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 选中值变化时触发
    */
-  onChange?: () => void;
+  onChange?: (value: SelectValue) => void;
   /**
    * 点击清除按钮时触发
    */
@@ -130,12 +130,12 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 多选模式下，选中数据被移除时触发
    */
-  onRemove?: (options: { value: string | number; data: SelectOption; e: MouseEvent<HTMLDivElement> }) => void;
+  onRemove?: (options: RemoveContext<SelectOption>) => void;
   /**
    * 输入值变化时，触发搜索事件。主要用于远程搜索新数据
    */
   onSearch?: (filterWords: string) => void;
-}
+};
 
 export interface TdOptionProps {
   /**
@@ -152,7 +152,7 @@ export interface TdOptionProps {
    * 选项值
    */
   value?: string | number;
-}
+};
 
 export interface TdOptionGroupProps {
   /**
@@ -160,16 +160,12 @@ export interface TdOptionGroupProps {
    * @default ''
    */
   label?: string;
-}
+};
 
-export interface KeysType {
-  value?: string;
-  label?: string;
-}
+export interface KeysType { value?: string; label?: string };
 
-export type SelectValue = string | number;
+export type SelectValue<SelectOption extends Options = Options> = string | number | SelectOption | Array<SelectValue<SelectOption>>;
 
-export interface Options {
-  label?: string;
-  value?: string | number;
-}
+export interface RemoveContext<SelectOption> { value: string | number; data: SelectOption; e: MouseEvent<HTMLDivElement> };
+
+export interface Options { label?: string; value?: string | number; disabled?: boolean };

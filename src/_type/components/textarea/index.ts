@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
 import { KeyboardEvent, FocusEvent, FormEvent } from 'react';
@@ -46,7 +46,7 @@ export interface TdTextareaProps {
   /**
    * 失去焦点时触发
    */
-  onBlur?: (value: TextareaValue, context: { e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (value: TextareaValue, context: { e: FocusEvent<HTMLTextAreaElement> }) => void;
   /**
    * 输入内容变化时触发
    */
@@ -54,19 +54,23 @@ export interface TdTextareaProps {
   /**
    * 获得焦点时触发
    */
-  onFocus?: (value: TextareaValue, context: { e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (value: TextareaValue, context: { e: FocusEvent<HTMLTextAreaElement> }) => void;
+  /**
+   * 输入内容变化时触发
+   */
+  onInput?: (value: TextareaValue, context?: { e?: Event }) => void;
   /**
    * 键盘按下时触发
    */
-  onKeydown?: (value: TextareaValue, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
+  onKeydown?: (value: TextareaValue, context: { e: KeyboardEvent<HTMLTextAreaElement> }) => void;
   /**
    * 按下字符键时触发（keydown -> keypress -> keyup）
    */
-  onKeypress?: (value: TextareaValue, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
+  onKeypress?: (value: TextareaValue, context: { e: KeyboardEvent<HTMLTextAreaElement> }) => void;
   /**
    * 释放键盘时触发
    */
-  onKeyup?: (value: TextareaValue, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
-}
+  onKeyup?: (value: TextareaValue, context: { e: KeyboardEvent<HTMLTextAreaElement> }) => void;
+};
 
 export type TextareaValue = string | number;

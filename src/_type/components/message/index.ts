@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
-import { MouseEvent } from 'react';
 import { TNode, AttachNode } from '../../common';
+import { MouseEvent } from 'react';
 
 export interface TdMessageProps {
   /**
@@ -38,7 +38,7 @@ export interface TdMessageProps {
    * 计时结束后触发
    */
   onDurationEnd?: () => void;
-}
+};
 
 export interface MessageOptions extends TdMessageProps {
   /**
@@ -60,30 +60,15 @@ export interface MessageOptions extends TdMessageProps {
    * @default 5000
    */
   zIndex?: number;
-}
+};
 
 export type ThemeList = 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading';
 
-export type PlacementList =
-  | 'center'
-  | 'top'
-  | 'left'
-  | 'right'
-  | 'bottom'
-  | 'top-left'
-  | 'top-right'
-  | 'bottom-left'
-  | 'bottom-right';
+export type PlacementList = 'center' | 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
-export interface MessageInstance {
-  close: () => void;
-}
+export interface MessageInstance { close: () => void };
 
-export type MessageMethod = (
-  theme: ThemeList,
-  message: string | MessageOptions,
-  duration: number,
-) => Promise<MessageInstance>;
+export type MessageMethod = (theme: ThemeList, message: string | MessageOptions, duration: number) => Promise<MessageInstance>;
 
 export type MessageInfoOptions = Omit<MessageOptions, 'theme'>;
 
@@ -97,9 +82,6 @@ export type MessageSuccessMethod = (message: string | MessageInfoOptions, durati
 
 export type MessageLoadingMethod = (message: string | MessageInfoOptions, duration: number) => Promise<MessageInstance>;
 
-export type MessageQuestionMethod = (
-  message: string | MessageInfoOptions,
-  duration: number,
-) => Promise<MessageInstance>;
+export type MessageQuestionMethod = (message: string | MessageInfoOptions, duration: number) => Promise<MessageInstance>;
 
 export type MessageCloseAllMethod = () => void;

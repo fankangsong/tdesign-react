@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
 import { TNode, TElement } from '../../common';
@@ -60,7 +60,7 @@ export interface TdMenuProps {
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-}
+};
 
 export interface TdHeadMenuProps {
   /**
@@ -97,7 +97,7 @@ export interface TdHeadMenuProps {
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-}
+};
 
 export interface TdSubmenuProps {
   /**
@@ -125,7 +125,7 @@ export interface TdSubmenuProps {
    * @default ''
    */
   value?: string;
-}
+};
 
 export interface TdMenuItemProps {
   /**
@@ -167,16 +167,10 @@ export interface TdMenuItemProps {
    * @default ''
    */
   value?: string;
-}
+};
 
 export type MenuValue = string | number;
 
-export interface Route {
-  path?: string;
-  name?: string;
-  hash?: string;
-  query?: Data;
-  params?: Data;
-}
+export interface Route { path?: string; name?: string; hash?: string; query?: Data; params?: Data };
 
 export type Data = { [key: string]: string | string[] };

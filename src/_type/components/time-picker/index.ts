@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
 import { MouseEvent, FocusEvent, FormEvent } from 'react';
@@ -36,16 +36,6 @@ export interface TdTimePickerProps {
    */
   hideDisabledTime?: boolean;
   /**
-   * 用于控制多选数量，值为 0 则不限制
-   * @default 0
-   */
-  max?: number;
-  /**
-   * 是否允许多选
-   * @default false
-   */
-  multiple?: boolean;
-  /**
    * 占位符
    * @default ''
    */
@@ -63,15 +53,15 @@ export interface TdTimePickerProps {
   /**
    * 选中值
    */
-  value?: TimePickerValue | Array<TimePickerValue>;
+  value?: TimePickerValue;
   /**
    * 选中值，非受控属性
    */
-  defaultValue?: TimePickerValue | Array<TimePickerValue>;
+  defaultValue?: TimePickerValue;
   /**
-   * 当输入框失去焦点时触发
+   * 当输入框失去焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头
    */
-  onBlur?: (context: { value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (context: { trigger: 'hour' | 'minute' | 'second'; input: string; value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发
    */
@@ -81,18 +71,18 @@ export interface TdTimePickerProps {
    */
   onClose?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
   /**
-   * 输入框获得焦点时触发
+   * 输入框获得焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头
    */
-  onFocus?: (context: { value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (context: { trigger: 'hour' | 'minute' | 'second'; input: string; value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
-   * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
+   * 当输入框内容发生变化时触发，参数 input 表示输入框内容，value 表示组件当前有效值
    */
   onInput?: (context: { input: string; value: TimePickerValue; e: FormEvent<HTMLDivElement> }) => void;
   /**
    * 面板打开时触发
    */
   onOpen?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
-}
+};
 
 export interface TdTimeRangePickerProps {
   /**
@@ -124,16 +114,6 @@ export interface TdTimeRangePickerProps {
    * @default true
    */
   hideDisabledTime?: boolean;
-  /**
-   * 用于控制多选数量，值为 0 则不限制
-   * @default 0
-   */
-  max?: number;
-  /**
-   * 是否允许多选
-   * @default false
-   */
-  multiple?: boolean;
   /**
    * 占位符，值为数组表示可分别为开始日期和结束日期设置占位符
    */
@@ -172,10 +152,10 @@ export interface TdTimeRangePickerProps {
    * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
   onInput?: (context: { input: string; value: TimeRangeValue; e: FormEvent<HTMLDivElement> }) => void;
-}
+};
 
-export type TimePickerValue = string | Date;
+export type TimePickerValue = string;
 
 export type Partial = 'start' | 'end';
 
-export type TimeRangeValue = Array<string | Date> | Array<TimeRangeValue>;
+export type TimeRangeValue = Array<string>;

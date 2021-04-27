@@ -1,9 +1,9 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
-import { TNode, TElement } from '../../common';
+import { TNode } from '../../common';
 
 export interface TdStepsProps {
   /**
@@ -15,6 +15,11 @@ export interface TdStepsProps {
    * @default horizontal
    */
   direction?: 'horizontal' | 'vertical';
+  /**
+   * 是否禁用点击
+   * @default false
+   */
+  disabled?: boolean;
   /**
    * 步骤条数据列表（作用和 StepItem 效果一样）
    */
@@ -50,9 +55,10 @@ export interface TdStepItemProps {
    */
   extra?: TNode;
   /**
-   * 图标
+   * 图标，默认显示内置图标，也可以自定义图标
+   * @default true
    */
-  icon?: TElement;
+  icon?: TNode;
   /**
    * 当前步骤的状态
    * @default default

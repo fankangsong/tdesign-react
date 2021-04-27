@@ -1,8 +1,9 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
+import { TElement } from '../../common';
 import { FocusEvent, FormEvent } from 'react';
 
 export interface TdDatePickerProps {
@@ -26,15 +27,15 @@ export interface TdDatePickerProps {
    */
   disableDate?: DisableDate;
   /**
+   * 是否显示时间选择
+   * @default false
+   */
+  enableTimePicker?: boolean;
+  /**
    * 用于格式化日期，[详细文档](https://day.js.org/docs/en/display/format)
    * @default 'YYYY-MM-DD'
    */
   format?: string;
-  /**
-   * 用于控制多选数量，值为 0 则不限制
-   * @default 0
-   */
-  max?: number;
   /**
    * 选择器模式
    * @default month
@@ -46,14 +47,27 @@ export interface TdDatePickerProps {
    */
   placeholder?: string;
   /**
+   * 组件前置图标
+   */
+  prefixIcon?: TElement;
+  /**
    * 预设快捷日期选择，示例：{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }
    */
   presets?: PresetDate;
+  /**
+   * 是否呈现为日期范围选择器（临时 API，后期将调整为是 DateRangePicker 组件）
+   * @default false
+   */
+  range?: boolean;
   /**
    * 尺寸
    * @default medium
    */
   size?: 'small' | 'medium' | 'large';
+  /**
+   * 组件后置图标
+   */
+  suffixIcon?: TElement;
   /**
    * 选中值
    */
@@ -106,24 +120,18 @@ export interface TdDateRangePickerProps {
    */
   format?: string;
   /**
-   * 用于控制多选数量，值为 0 则不限制
-   * @default 0
-   */
-  max?: number;
-  /**
    * 选择器模式
    * @default month
    */
   mode?: 'year' | 'month' | 'date';
   /**
-   * 是否允许多选
-   * @default false
-   */
-  multiple?: boolean;
-  /**
    * 占位符，值为数组表示可分别为开始日期和结束日期设置占位符
    */
   placeholder?: string | Array<string>;
+  /**
+   * 组件前置图标
+   */
+  prefixIcon?: TElement;
   /**
    * 预设快捷日期选择，示例：{ '特定日期范围': ['2021-01-01', '2022-01-01'], '本月': [dayjs().startOf('month'), dayjs().endOf('month')] }
    */
@@ -133,6 +141,10 @@ export interface TdDateRangePickerProps {
    * @default medium
    */
   size?: 'small' | 'medium' | 'large';
+  /**
+   * 组件后置图标
+   */
+  suffixIcon?: TElement;
   /**
    * 选中值
    */
@@ -165,7 +177,7 @@ export interface DisableDateObj { from?: string; to?: string; before?: string; a
 
 export interface PresetDate { [name: string]: DateValue | (() => DateValue) };
 
-export type DateValue = string | Date;
+export type DateValue = string | Date | Array<DateValue>;
 
 export type DisableRangeDate = Array<DateValue> | DisableDateObj | ((context: { date: string; partial: Partial }) => boolean);
 

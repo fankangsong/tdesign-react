@@ -1,9 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
 import { TNode } from '../../common';
+import { ChangeEvent } from 'react';
 
 export interface TdCheckboxProps {
   /**
@@ -42,8 +43,8 @@ export interface TdCheckboxProps {
   /**
    * 值变化时触发
    */
-  onChange?: (checked: boolean, context: { e: Event }) => void;
-}
+  onChange?: (checked: boolean, context: { e: ChangeEvent<HTMLInputElement> }) => void;
+};
 
 export interface TdCheckboxGroupProps {
   /**
@@ -74,17 +75,11 @@ export interface TdCheckboxGroupProps {
   /**
    * 值变化时触发
    */
-  onChange?: (value: CheckboxGroupValue, context: { e: Event }) => void;
-}
+  onChange?: (value: CheckboxGroupValue, context: { e: ChangeEvent<HTMLInputElement> }) => void;
+};
 
 export type CheckboxOption = string | number | CheckboxOptionObj;
 
-export interface CheckboxOptionObj {
-  label?: string | TNode;
-  value?: string | number;
-  disabled?: boolean;
-  name?: string;
-  checkAll?: true;
-}
+export interface CheckboxOptionObj { label?: string | TNode; value?: string | number; disabled?: boolean; name?: string; checkAll?: true };
 
 export type CheckboxGroupValue = Array<string | number> | string | number;

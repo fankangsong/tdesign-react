@@ -1,13 +1,13 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
-import { FocusEvent } from 'react';
 import { CheckboxProps } from '../../../../src/checkbox';
 import { PopupProps } from '../../../../src/popup';
 import { TreeNodeModel } from '../tree/index';
 import { TNode, TreeOptionData, SizeEnum } from '../../common';
+import { FocusEvent } from 'react';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
   /**
@@ -109,7 +109,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { value: CascaderValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发。TreeNodeModel 从树组件中导出
    */
@@ -117,19 +117,13 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 获得焦点时触发
    */
-  onFocus?: (context: { value: CascaderValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 在多选模式下，移除选中值时触发
    */
   onRemove?: (value: CascaderValue<CascaderOption>, context: { node: TreeNodeModel<CascaderOption> }) => void;
-}
+};
 
-export interface KeysType {
-  value?: string;
-  label?: string;
-  children?: string;
-}
+export interface KeysType { value?: string; label?: string; children?: string };
 
-export type CascaderValue<CascaderOption extends TreeOptionData = TreeOptionData> = Array<
-  string | number | CascaderOption
->;
+export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;

@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
-import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
 import { TElement, SizeEnum } from '../../common';
+import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
 
 export interface TdInputProps {
   /**
@@ -42,7 +42,7 @@ export interface TdInputProps {
    */
   placeholder?: string;
   /**
-   * 前缀图标
+   * 组件前置图标
    */
   prefixIcon?: TElement;
   /**
@@ -60,7 +60,7 @@ export interface TdInputProps {
    */
   status?: 'success' | 'warning' | 'error';
   /**
-   * 后缀图标
+   * 组件后置图标
    */
   suffixIcon?: TElement;
   /**
@@ -93,6 +93,10 @@ export interface TdInputProps {
    */
   onFocus?: (value: InputValue, context: { e: FocusEvent<HTMLDivElement> }) => void;
   /**
+   * 输入内容变化时触发
+   */
+  onInput?: (value: InputValue, context?: { e?: Event }) => void;
+  /**
    * 键盘按下时触发
    */
   onKeydown?: (value: InputValue, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
@@ -108,6 +112,6 @@ export interface TdInputProps {
    * 释放键盘时触发
    */
   onKeyup?: (value: InputValue, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
-}
+};
 
 export type InputValue = string | number;

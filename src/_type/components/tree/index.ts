@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
-import { MouseEvent } from 'react';
 import { CheckboxProps } from '../../../../src/checkbox';
 import { TNode, TreeOptionData } from '../../common';
+import { MouseEvent } from 'react';
 
 export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData> {
   /**
@@ -117,7 +117,7 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    */
   lazy?: boolean;
   /**
-   * 连接线
+   * 连接线。值为 false 不显示连接线；值为 true 显示默认连接线；值类型为 Function 表示自定义连接线
    * @default false
    */
   line?: TNode;
@@ -164,15 +164,12 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
   /**
    * 节点展开或收起时触发
    */
-  onExpand?: (
-    value: Array<TreeNodeValue>,
-    context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> },
-  ) => void;
+  onExpand?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
   /**
    * 异步加载后触发
    */
   onLoad?: (context: { node: TreeNodeModel<DataOption> }) => void;
-}
+};
 
 /** 组件实例方法 */
 export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeOptionData> {
@@ -282,7 +279,7 @@ export interface TreeNodeState {
    * @default false
    */
   visible?: boolean;
-}
+};
 
 export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionData> extends TreeNodeState {
   /**
@@ -365,12 +362,8 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
    * 是否为叶子节点
    */
   isLeaf: () => boolean;
-}
+};
 
-export interface KeysType {
-  value?: string;
-  label?: string;
-  children?: string;
-}
+export interface KeysType { value?: string; label?: string; children?: string };
 
 export type TreeNodeValue = string | number;

@@ -1,15 +1,15 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-23 12:24:49
+ * updated at 2021-04-27 15:26:16
  * */
 
 import { CheckboxProps } from '../../../../src/checkbox';
 import { PaginationProps, PageInfo } from '../../../../src/pagination';
 import { InputProps } from '../../../../src/input';
 import { TNode } from '../../common';
-import { FormEvent } from 'react';
+import { KeyboardEvent, FormEvent } from 'react';
 
-export interface TdTransferProps {
+export interface TdTransferProps<T extends DataOption = DataOption> {
   /**
    * 用于控制复选框属性
    */
@@ -28,7 +28,7 @@ export interface TdTransferProps {
    * 全量数据
    * @default []
    */
-  data?: Array<DataOption>;
+  data?: Array<T>;
   /**
    * 穿梭框可操作方向
    * @default both
@@ -58,11 +58,10 @@ export interface TdTransferProps {
   operation?: Array<string | TNode> | TNode<{ direction: 'left' | 'right' }>;
   /**
    * 分页配置，值为空则不显示。具体 API 参考分页组件。值类型为数组，表示可分别控制源列表和目标列表分页组件
-   * @default false
    */
   pagination?: PaginationProps | Array<PaginationProps>;
   /**
-   * 搜索框配置，值为 false 表示不显示搜索框，值为 true 表示显示默认搜索框，值类型为对象，用于透传 Props 到 Input 组件
+   * 搜索框配置，值为 false 表示不显示搜索框；值为 true 表示显示默认搜索框；值类型为对象，用于透传 Props 到 Input 组件；值类型为数组，则分别表示控制两侧搜索框
    * @default false
    */
   search?: SearchOption | Array<SearchOption>;
@@ -84,7 +83,7 @@ export interface TdTransferProps {
   /**
    * 自定义渲染节点
    */
-  transferItem?: TNode<TransferItem>;
+  transferItem?: TNode<TransferItem<T>>;
   /**
    * 目标数据列表数据
    * @default []
@@ -114,12 +113,8 @@ export interface TdTransferProps {
   /**
    * 搜索时触发，options.query 表示用户输入的内容
    */
-  onSearch?: (options: { query: string; type: TransferListType; trigger: 'input' | 'enter';  e: FormEvent<HTMLDivElement> }) => void;
+  onSearch?: (options: SearchContext) => void;
 };
-
-export type DataOption = { label?: string; value?: TransferValue; disabled?: boolean } & Record<string, any>;
-
-export type TransferValue = string | number;
 
 export type EmptyType = string | TNode;
 
@@ -131,8 +126,14 @@ export type TitleType = string | TNode;
 
 export type TransferListType = 'source' | 'target';
 
-export interface TransferItem { data: DataOption; index: number; type: TransferListType};
+export interface TransferItem<T extends DataOption = DataOption> { data: T; index: number; type: TransferListType};
 
 export interface TargetParams { type: TransferListType; movedValue: Array<TransferValue> };
 
 export interface CheckedOptions { checked: Array<TransferValue>; sourceChecked: Array<TransferValue>; targetChecked: Array<TransferValue>; type: TransferListType };
+
+export interface SearchContext { query: string; type: TransferListType; trigger: 'input' | 'enter';  e: FormEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement> };
+
+export type DataOption = { label?: string; value?: TransferValue; disabled?: boolean } & Record<string, any>;
+
+export type TransferValue = string | number;
