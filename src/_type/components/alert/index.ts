@@ -3,8 +3,8 @@
  * updated at 2021-04-23 12:24:49
  * */
 
-import { TNode, TElement } from '../../common';
 import { MouseEvent, TransitionEvent } from 'react';
+import { TNode, TElement } from '../../common';
 
 export interface TdAlertProps {
   /**
@@ -46,4 +46,4 @@ export interface TdAlertProps {
    * 告警提示框关闭动画结束后触发
    */
   onClosed?: (context: { e: TransitionEvent<HTMLDivElement> }) => void;
-};
+}

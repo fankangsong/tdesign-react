@@ -92,7 +92,7 @@ export interface TdTimePickerProps {
    * 面板打开时触发
    */
   onOpen?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
-};
+}
 
 export interface TdTimeRangePickerProps {
   /**
@@ -172,7 +172,7 @@ export interface TdTimeRangePickerProps {
    * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
   onInput?: (context: { input: string; value: TimeRangeValue; e: FormEvent<HTMLDivElement> }) => void;
-};
+}
 
 export type TimePickerValue = string | Date;
 

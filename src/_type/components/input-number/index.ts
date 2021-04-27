@@ -85,8 +85,11 @@ export interface TdInputNumberProps {
    * 释放键盘时触发
    */
   onKeyup?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
-};
+}
 
-export interface ChangeContext { type: ChangeSource; e: FormEvent<HTMLDivElement> | MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement> };
+export interface ChangeContext {
+  type: ChangeSource;
+  e: FormEvent<HTMLDivElement> | MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement>;
+}
 
 export type ChangeSource = 'add' | 'reduce' | 'input' | '';

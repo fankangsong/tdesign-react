@@ -22,4 +22,4 @@ export interface TdIconSVGProps {
    * 图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.js)
    */
   url?: string | Array<string>;
-};
+}

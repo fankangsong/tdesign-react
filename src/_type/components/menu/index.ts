@@ -60,7 +60,7 @@ export interface TdMenuProps {
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-};
+}
 
 export interface TdHeadMenuProps {
   /**
@@ -97,7 +97,7 @@ export interface TdHeadMenuProps {
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-};
+}
 
 export interface TdSubmenuProps {
   /**
@@ -125,7 +125,7 @@ export interface TdSubmenuProps {
    * @default ''
    */
   value?: string;
-};
+}
 
 export interface TdMenuItemProps {
   /**
@@ -167,10 +167,16 @@ export interface TdMenuItemProps {
    * @default ''
    */
   value?: string;
-};
+}
 
 export type MenuValue = string | number;
 
-export interface Route { path?: string; name?: string; hash?: string; query?: Data; params?: Data };
+export interface Route {
+  path?: string;
+  name?: string;
+  hash?: string;
+  query?: Data;
+  params?: Data;
+}
 
 export type Data = { [key: string]: string | string[] };

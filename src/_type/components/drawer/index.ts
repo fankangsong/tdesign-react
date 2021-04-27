@@ -3,9 +3,9 @@
  * updated at 2021-04-23 12:24:49
  * */
 
+import { MouseEvent, KeyboardEvent } from 'react';
 import { ButtonProps } from '../../../../src/button';
 import { TNode, AttachNode } from '../../common';
-import { MouseEvent, KeyboardEvent } from 'react';
 
 export interface TdDrawerProps {
   /**
@@ -123,10 +123,13 @@ export interface TdDrawerProps {
    * 按下 ESC 键时触发
    */
   onKeydownEsc?: (e: KeyboardEvent<HTMLDivElement>) => void;
-};
+}
 
 export type FooterButton = string | ButtonProps | TNode;
 
 export type EventSource = 'keydownEsc' | 'clickCloseBtn' | 'clickCancel' | 'clickOverlay';
 
-export interface CloseContext { trigger: EventSource; e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement> };
+export interface CloseContext {
+  trigger: EventSource;
+  e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>;
+}

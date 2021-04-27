@@ -3,9 +3,9 @@
  * updated at 2021-04-23 12:24:49
  * */
 
+import { MouseEvent } from 'react';
 import { CheckboxProps } from '../../../../src/checkbox';
 import { TNode, TreeOptionData } from '../../common';
-import { MouseEvent } from 'react';
 
 export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData> {
   /**
@@ -164,12 +164,15 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
   /**
    * 节点展开或收起时触发
    */
-  onExpand?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
+  onExpand?: (
+    value: Array<TreeNodeValue>,
+    context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> },
+  ) => void;
   /**
    * 异步加载后触发
    */
   onLoad?: (context: { node: TreeNodeModel<DataOption> }) => void;
-};
+}
 
 /** 组件实例方法 */
 export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeOptionData> {
@@ -279,7 +282,7 @@ export interface TreeNodeState {
    * @default false
    */
   visible?: boolean;
-};
+}
 
 export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionData> extends TreeNodeState {
   /**
@@ -362,8 +365,12 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
    * 是否为叶子节点
    */
   isLeaf: () => boolean;
-};
+}
 
-export interface KeysType { value?: string; label?: string; children?: string };
+export interface KeysType {
+  value?: string;
+  label?: string;
+  children?: string;
+}
 
 export type TreeNodeValue = string | number;

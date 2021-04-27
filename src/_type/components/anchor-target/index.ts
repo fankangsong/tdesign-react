@@ -14,4 +14,4 @@ export interface TdAnchorTargetProps {
    * @default div
    */
   tag?: string;
-};
+}

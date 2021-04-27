@@ -27,4 +27,4 @@ export interface TdIconfontProps {
    * 图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.css)。也可以在 index.html 中引入图标地址
    */
   url?: string | Array<string>;
-};
+}

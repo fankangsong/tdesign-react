@@ -3,9 +3,9 @@
  * updated at 2021-04-23 12:24:49
  * */
 
+import { MouseEvent, FocusEvent } from 'react';
 import { PopupProps } from '../../../../src/popup';
 import { TNode, TElement, SizeEnum } from '../../common';
-import { MouseEvent, FocusEvent } from 'react';
 
 export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
@@ -135,7 +135,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    * 输入值变化时，触发搜索事件。主要用于远程搜索新数据
    */
   onSearch?: (filterWords: string) => void;
-};
+}
 
 export interface TdOptionProps {
   /**
@@ -152,7 +152,7 @@ export interface TdOptionProps {
    * 选项值
    */
   value?: string | number;
-};
+}
 
 export interface TdOptionGroupProps {
   /**
@@ -160,10 +160,16 @@ export interface TdOptionGroupProps {
    * @default ''
    */
   label?: string;
-};
+}
 
-export interface KeysType { value?: string; label?: string };
+export interface KeysType {
+  value?: string;
+  label?: string;
+}
 
 export type SelectValue = string | number;
 
-export interface Options { label?: string; value?: string | number };
+export interface Options {
+  label?: string;
+  value?: string | number;
+}

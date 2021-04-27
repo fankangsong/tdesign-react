@@ -3,8 +3,8 @@
  * updated at 2021-04-23 12:24:49
  * */
 
-import { TNode, TElement, AttachNode } from '../../common';
 import { MouseEvent } from 'react';
+import { TNode, TElement, AttachNode } from '../../common';
 
 export interface TdNotificationProps {
   /**
@@ -50,7 +50,7 @@ export interface TdNotificationProps {
    * 计时结束时触发
    */
   onDurationEnd?: () => void;
-};
+}
 
 export interface NotificationOptions extends TdNotificationProps {
   /**
@@ -72,13 +72,15 @@ export interface NotificationOptions extends TdNotificationProps {
    * @default 6000
    */
   zIndex?: number;
-};
+}
 
 export type ThemeList = 'info' | 'success' | 'warning' | 'error';
 
 export type PlacementList = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
-export interface NotificationInstance { close: () => void };
+export interface NotificationInstance {
+  close: () => void;
+}
 
 export type NotificationMethod = (theme: ThemeList, options: NotificationOptions) => Promise<NotificationInstance>;
 

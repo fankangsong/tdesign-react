@@ -3,8 +3,8 @@
  * updated at 2021-04-23 12:24:49
  * */
 
-import { TNode } from '../../common';
 import { MouseEvent, WheelEvent } from 'react';
+import { TNode } from '../../common';
 
 export interface TdListProps {
   /**
@@ -47,7 +47,7 @@ export interface TdListProps {
    * 列表滚动时触发，scrollTop 表示顶部滚动距离，scrollBottom 表示底部滚动距离
    */
   onScroll?: (options: { e: Event | WheelEvent<HTMLDivElement>; scrollTop: number; scrollBottom: number }) => void;
-};
+}
 
 export interface TdListItemProps {
   /**
@@ -58,4 +58,4 @@ export interface TdListItemProps {
    * 内容
    */
   content?: TNode;
-};
+}

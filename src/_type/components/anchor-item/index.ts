@@ -21,4 +21,4 @@ export interface TdAnchorItemProps {
    * @default ''
    */
   title?: TNode;
-};
+}

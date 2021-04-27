@@ -3,10 +3,10 @@
  * updated at 2021-04-23 12:24:49
  * */
 
+import { MouseEvent } from 'react';
 import { ButtonProps } from '../../../../src/button';
 import { PopupProps } from '../../../../src/popup';
 import { TNode, TElement } from '../../common';
-import { MouseEvent } from 'react';
 
 export interface TdPopconfirmProps {
   /**
@@ -56,4 +56,4 @@ export interface TdPopconfirmProps {
    * 点击确认按钮时触发
    */
   onConfirm?: (options: { e: MouseEvent<HTMLDivElement | HTMLButtonElement> }) => void;
-};
+}

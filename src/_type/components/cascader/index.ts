@@ -3,11 +3,11 @@
  * updated at 2021-04-23 12:24:49
  * */
 
+import { FocusEvent } from 'react';
 import { CheckboxProps } from '../../../../src/checkbox';
 import { PopupProps } from '../../../../src/popup';
 import { TreeNodeModel } from '../tree/index';
 import { TNode, TreeOptionData, SizeEnum } from '../../common';
-import { FocusEvent } from 'react';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
   /**
@@ -122,8 +122,14 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 在多选模式下，移除选中值时触发
    */
   onRemove?: (value: CascaderValue<CascaderOption>, context: { node: TreeNodeModel<CascaderOption> }) => void;
-};
+}
 
-export interface KeysType { value?: string; label?: string; children?: string };
+export interface KeysType {
+  value?: string;
+  label?: string;
+  children?: string;
+}
 
-export type CascaderValue<CascaderOption extends TreeOptionData = TreeOptionData> = Array<string | number | CascaderOption>;
+export type CascaderValue<CascaderOption extends TreeOptionData = TreeOptionData> = Array<
+  string | number | CascaderOption
+>;

@@ -3,8 +3,8 @@
  * updated at 2021-04-23 12:24:49
  * */
 
-import { SuperAttachNode } from '../../common';
 import { MouseEvent } from 'react';
+import { SuperAttachNode } from '../../common';
 
 export interface TdAnchorProps {
   /**
@@ -39,5 +39,5 @@ export interface TdAnchorProps {
   /**
    * 锚点被点击时触发
    */
-  onClick?: (link: { href: string; title: string },  e: MouseEvent<HTMLDivElement>) => void;
-};
+  onClick?: (link: { href: string; title: string }, e: MouseEvent<HTMLDivElement>) => void;
+}

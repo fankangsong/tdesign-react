@@ -3,8 +3,8 @@
  * updated at 2021-04-23 12:24:49
  * */
 
-import { TElement, SizeEnum } from '../../common';
 import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
+import { TElement, SizeEnum } from '../../common';
 
 export interface TdInputProps {
   /**
@@ -108,6 +108,6 @@ export interface TdInputProps {
    * 释放键盘时触发
    */
   onKeyup?: (value: InputValue, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
-};
+}
 
 export type InputValue = string | number;

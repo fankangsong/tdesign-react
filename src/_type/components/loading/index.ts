@@ -52,6 +52,6 @@ export interface TdLoadingProps {
    * 加载提示文案
    */
   text?: TNode;
-};
+}
 
 export type LoadingMethod = (options: boolean | TdLoadingProps) => void;
