@@ -1,5 +1,3 @@
 :: BASE_DOC ::
 
-## 组件属性
-
-[Interface: InputNumberProps](./InputNumberProps.ts)
+:: BASE_PROPS ::

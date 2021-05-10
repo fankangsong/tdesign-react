@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { PopupProps } from '../../../../src/popup';
 import { TNode } from '../../common';
-import { MouseEvent } from 'react';
+import { MouseEvent, KeyboardEvent } from 'react';
 
 export interface TdDropdownProps {
   /**
@@ -91,7 +91,7 @@ export interface TdDropdownItemProps {
   /**
    * 点击时触发
    */
-  onClick?: (e: MouseEvent<HTMLDivElement>) => void;
+  onClick?: (context: { e: KeyboardEvent<HTMLDivElement> }) => void;
 };
 
 export type DropdownOption = { children?: Array<TdDropdownItemProps> } & TdDropdownItemProps & Record<string, any>;

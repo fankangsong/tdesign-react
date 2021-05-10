@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 export interface TdRowProps {
@@ -10,7 +10,7 @@ export interface TdRowProps {
    */
   align?: 'top' | 'middle' | 'bottom';
   /**
-   * 栅格间隔，示例：{ xs: 8, sm: 16, md: 24}。当数据类型为 Number 和 Object 时，用于指定横向间隔。当数据类型为数组时，第一个参数为横向间隔，第二个参数为纵向间隔， [水平间隔, 垂直间隔]
+   * 栅格间隔，示例：`{ xs: 8, sm: 16, md: 24}`。当数据类型为 Number 和 Object 时，用于指定横向间隔。当数据类型为数组时，第一个参数为横向间隔，第二个参数为纵向间隔， [水平间隔, 垂直间隔]
    * @default 0
    */
   gutter?: number |  GutterObject | Array<GutterObject>;

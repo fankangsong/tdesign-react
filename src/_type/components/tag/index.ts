@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { TNode, TElement, SizeEnum } from '../../common';
@@ -47,21 +47,21 @@ export interface TdTagProps {
   /**
    * 点击时触发
    */
-  onClick?: (e: MouseEvent<HTMLDivElement>) => void;
+  onClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
   /**
    * 如果关闭按钮存在，点击关闭按钮时触发
    */
-  onClose?: (e: MouseEvent<SVGElement>) => void;
+  onClose?: (context: { e: MouseEvent<SVGElement> }) => void;
 };
 
 export interface TdCheckTagProps {
   /**
-   * 标签选中的状态（只针对于默认 theme 的风格才有选中态）
+   * 标签选中的状态，默认风格（theme=default）才有选中态
    * @default false
    */
   checked?: boolean;
   /**
-   * 标签选中的状态（只针对于默认 theme 的风格才有选中态），非受控属性
+   * 标签选中的状态，默认风格（theme=default）才有选中态，非受控属性
    * @default false
    */
   defaultChecked?: boolean;
@@ -70,7 +70,7 @@ export interface TdCheckTagProps {
    */
   content?: TNode;
   /**
-   * 标签失效的状态（只针对于默认 theme 的风格才有失效态），失效标签不能触发事件
+   * 标签禁用态，失效标签不能触发事件。默认风格（theme=default）才有禁用态
    * @default false
    */
   disabled?: boolean;
@@ -81,5 +81,5 @@ export interface TdCheckTagProps {
   /**
    * 点击标签时触发
    */
-  onClick?: (e: MouseEvent<HTMLDivElement>) => void;
+  onClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
 };

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { RadioGroupProps } from '../../../../src/radio';
@@ -68,19 +68,19 @@ export interface TdCalendarProps {
   /**
    * 日历单元格点击时触发
    */
-  onClickCell?: (options: { cell: CalendarCell; e: MouseEvent<HTMLDivElement> }) => void;
+  onCellClick?: (options: { cell: CalendarCell; e: MouseEvent<HTMLDivElement> }) => void;
+  /**
+   * 日历单元格双击时触发
+   */
+  onCellDoubleClick?: (options: { cell: CalendarCell; e: MouseEvent<HTMLDivElement> }) => void;
+  /**
+   * 日历单元格右击时触发
+   */
+  onCellRightClick?: (options: { cell: CalendarCell; e: MouseEvent<HTMLDivElement> }) => void;
   /**
    * 右上角控件组选中值有变化的时候触发
    */
   onControllerChange?: (options: ControllerOptions) => void;
-  /**
-   * 日历单元格双击时触发
-   */
-  onDoubleClickCell?: (options: { cell: CalendarCell; e: MouseEvent<HTMLDivElement> }) => void;
-  /**
-   * 日历单元格右击时触发
-   */
-  onRightClickCell?: (options: { cell: CalendarCell; e: MouseEvent<HTMLDivElement> }) => void;
 };
 
 export interface CalendarController {

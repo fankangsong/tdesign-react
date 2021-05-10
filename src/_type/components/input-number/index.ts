@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
@@ -66,6 +66,10 @@ export interface TdInputNumberProps {
    */
   onChange?: (value: number, context: ChangeContext) => void;
   /**
+   * 回车键按下时触发
+   */
+  onEnter?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
+  /**
    * 获取焦点时触发
    */
   onFocus?: (value: number, context: { e: FocusEvent<HTMLDivElement> }) => void;
@@ -73,10 +77,6 @@ export interface TdInputNumberProps {
    * 键盘按下时触发
    */
   onKeydown?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
-  /**
-   * 回车键按下时触发
-   */
-  onKeydownEnter?: (value: number, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
   /**
    * 按下字符键时触发（keydown -> keypress -> keyup）
    */

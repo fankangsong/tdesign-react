@@ -2,20 +2,18 @@
 
 ### 禁用状态
 
-[Example: 禁用状态](./_example/InputDisabled.jsx)
+{{ InputDisabled }}
 
 ### 焦点事件
 
-[Example: 焦点事件](./_example/InputFocus.jsx)
+{{ InputFocus }}
 ### 尺寸
 
-[Example: 尺寸](./_example/InputSize.jsx)
+{{ InputSize }}
 
 ### 状态
 
-[Example: 状态](./_example/InputStatus.jsx)
+{{ InputStatus }}
 
-## 组件属性
-
-[Interface: InputProps](./Input.tsx)
+:: BASE_PROPS ::
 

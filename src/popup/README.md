@@ -4,24 +4,22 @@
 
 ### 基本
 
-[Example: 基本使用](./_example/BasicUsageExample.jsx)
+{{ BasicUsageExample }}
 
 ### 四种触发方式
 
 支持鼠标移入、点击、聚焦和右键触发
 
-[Example: 四种触发方式](./_example/TriggersExample.jsx)
+{{ TriggersExample }}
 
 ### 支持的placement
 
 支持上下左右四个方向
 
-[Example: 四个方向](./_example/PlacementsExample.jsx)
+{{ PlacementsExample }}
 
 ### 受控组件
 
-[Example: 受控组件](./_example/ControlledExample.jsx)
+{{ ControlledExample }}
 
-## 组件属性
-
-[Interface: PopupProps](./Popup.tsx)
+:: BASE_PROPS ::

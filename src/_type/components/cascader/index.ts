@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { CheckboxProps } from '../../../../src/checkbox';
@@ -78,7 +78,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   popupProps?: PopupProps;
   /**
    * 输入框中是否显示选中值的完整路径
-   * @default false
+   * @default true
    */
   showAllLevels?: boolean;
   /**
@@ -119,11 +119,13 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   onFocus?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent<HTMLDivElement> }) => void;
   /**
-   * 在多选模式下，移除选中值时触发
+   * 多选模式下，选中数据被移除时触发
    */
-  onRemove?: (value: CascaderValue<CascaderOption>, context: { node: TreeNodeModel<CascaderOption> }) => void;
+  onRemove?: (context: RemoveContext<CascaderOption>) => void;
 };
 
 export interface KeysType { value?: string; label?: string; children?: string };
 
 export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
+
+export interface RemoveContext<T> { value: CascaderValue<T>; node: TreeNodeModel<T> };

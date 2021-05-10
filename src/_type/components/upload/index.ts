@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { TNode } from '../../common';
@@ -56,6 +56,10 @@ export interface TdUploadProps {
    * 文件上传前转换文件数据
    */
   format?: (file: File) => UploadFile;
+  /**
+   * 用于文件上传后格式化响应数据，error 用于显示错误提示；url 用于上传文件/图片地址
+   */
+  formatResponse?: (response: any) => ResponseType ;
   /**
    * 设置上传的请求头部
    */
@@ -180,6 +184,8 @@ export interface UploadFile extends File {
    */
   url?: string;
 };
+
+export type ResponseType = { error?: string; url?: string } & Record<string, any>;
 
 export interface TriggerContext { dragActive?: boolean; uploadingFile?: UploadFile | Array<UploadFile> };
 

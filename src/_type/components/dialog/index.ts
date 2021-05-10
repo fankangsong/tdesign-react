@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { ButtonProps } from '../../../../src/button';
@@ -33,15 +33,15 @@ export interface TdDialogProps {
    */
   closeBtn?: TNode;
   /**
-   * 点击蒙层时是否触发抽屉关闭事件
-   * @default true
-   */
-  closeOnClickOverlay?: boolean;
-  /**
    * 按下 ESC 时是否触发抽屉关闭事件
    * @default true
    */
-  closeOnKeydownEsc?: boolean;
+  closeOnEscKeydown?: boolean;
+  /**
+   * 点击蒙层时是否触发抽屉关闭事件
+   * @default true
+   */
+  closeOnOverlayClick?: boolean;
   /**
    * 对话框“确认”按钮，可自定义。值为 '' 或 null 则不显示确认按钮
    * @default '确认'
@@ -118,36 +118,36 @@ export interface TdDialogProps {
   /**
    * 如果“取消”按钮存在，则点击“取消”按钮时触发，同时触发关闭事件
    */
-  onClickCancel?: (e: MouseEvent<HTMLButtonElement>) => void;
-  /**
-   * 点击右上角关闭按钮时触发
-   */
-  onClickCloseBtn?: (e: MouseEvent<HTMLDivElement>) => void;
-  /**
-   * 如果“确认”按钮存在，则点击“确认”按钮时触发，同时触发关闭事件
-   */
-  onClickConfirm?: (e: MouseEvent<HTMLButtonElement>) => void;
-  /**
-   * 如果蒙层存在，点击蒙层时触发
-   */
-  onClickOverlay?: (e: MouseEvent<HTMLDivElement>) => void;
+  onCancel?: (context: { e: MouseEvent<HTMLButtonElement> }) => void;
   /**
    * 关闭事件，点击取消按钮、点击关闭按钮、点击蒙层、按下 ESC 等场景下触发
    */
   onClose?: (context: CloseContext) => void;
   /**
+   * 点击右上角关闭按钮时触发
+   */
+  onCloseBtnClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  /**
    * 对话框消失动画效果结束后触发
    */
   onClosed?: () => void;
   /**
+   * 如果“确认”按钮存在，则点击“确认”按钮时触发，同时触发关闭事件
+   */
+  onConfirm?: (context: { e: MouseEvent<HTMLButtonElement> }) => void;
+  /**
    * 按下 ESC 时触发事件
    */
-  onKeydownEsc?: (e: KeyboardEvent<HTMLDivElement>) => void;
+  onEscKeydown?: (context: { e: KeyboardEvent<HTMLDivElement> }) => void;
   /**
    * 对话框弹出动画效果结束后触发
    */
   onOpened?: () => void;
-}
+  /**
+   * 如果蒙层存在，点击蒙层时触发
+   */
+  onOverlayClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+};
 
 export interface DialogOptions extends Omit<TdDialogProps, 'attach'> {
   /**
@@ -163,7 +163,7 @@ export interface DialogOptions extends Omit<TdDialogProps, 'attach'> {
    * 弹框 style 属性
    */
   style?: Styles;
-}
+};
 
 export interface DialogInstance {
   /**
@@ -182,14 +182,11 @@ export interface DialogInstance {
    * 更新弹框内容
    */
   update?: (props: DialogOptions) => void;
-}
+};
 
-export type EventSource = 'keydownEsc' | 'clickCloseBtn' | 'clickCancel' | 'clickOverlay';
+export type EventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 
-export interface CloseContext {
-  trigger: EventSource;
-  e: MouseEvent<HTMLDivElement | HTMLButtonElement> | KeyboardEvent<HTMLDivElement>;
-}
+export interface CloseContext { trigger: EventSource; e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement> };
 
 export type DialogMethod = (options: DialogOptions) => DialogInstance;
 

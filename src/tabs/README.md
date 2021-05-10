@@ -2,10 +2,6 @@
 
 ### 尺寸
 
-[Example: base](./_example/size.jsx)
+{{ size }}
 
-## 组件属性
-
-[Interface: TabsProps](./Tabs.tsx)
-
-[Interface: TabPanelProps](./TabPanel.tsx)
+:: BASE_PROPS ::

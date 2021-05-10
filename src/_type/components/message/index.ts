@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { TNode, AttachNode } from '../../common';
@@ -33,7 +33,7 @@ export interface TdMessageProps {
   /**
    * 当关闭按钮存在时，用户点击关闭按钮触发
    */
-  onClickCloseBtn?: (e: MouseEvent<HTMLDivElement>) => void;
+  onCloseBtnClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
   /**
    * 计时结束后触发
    */

@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { TNode } from '../../common';
@@ -45,7 +45,7 @@ export interface TdPaginationProps {
    * 分页大小控制器，值为 [] 则不显示
    * @default () => [5, 10, 20, 50]
    */
-  pageSizeOption?: Array<number | { label: string; value: number }>;
+  pageSizeOptions?: Array<number | { label: string; value: number }>;
   /**
    * 是否显示跳转页码控制器
    * @default false

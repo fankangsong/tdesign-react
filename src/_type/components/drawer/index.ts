@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { ButtonProps } from '../../../../src/button';
@@ -31,15 +31,15 @@ export interface TdDrawerProps {
    */
   closeBtn?: TNode;
   /**
-   * 点击蒙层时是否触发抽屉关闭事件
-   * @default true
-   */
-  closeOnClickOverlay?: boolean;
-  /**
    * 按下 ESC 时是否触发抽屉关闭事件
    * @default true
    */
-  closeOnKeydownEsc?: boolean;
+  closeOnEscKeydown?: boolean;
+  /**
+   * 点击蒙层时是否触发抽屉关闭事件
+   * @default true
+   */
+  closeOnOverlayClick?: boolean;
   /**
    * 对话框“确认”按钮，可自定义。值为 '' 或 null 则不显示确认按钮
    * @default '确认'
@@ -102,31 +102,31 @@ export interface TdDrawerProps {
   /**
    * 如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件
    */
-  onClickCancel?: (e: MouseEvent<HTMLDivElement>) => void;
-  /**
-   * 如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件
-   */
-  onClickCloseBtn?: (e: MouseEvent<HTMLDivElement>) => void;
-  /**
-   * 如果“确认”按钮存在，则点击“确认”按钮时触发
-   */
-  onClickConfirm?: (e: MouseEvent<HTMLDivElement>) => void;
-  /**
-   * 如果蒙层存在，点击蒙层时触发
-   */
-  onClickOverlay?: (e: MouseEvent<HTMLDivElement>) => void;
+  onCancel?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
   /**
    * 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发
    */
   onClose?: (context: CloseContext) => void;
   /**
+   * 如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件
+   */
+  onCloseBtnClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  /**
+   * 如果“确认”按钮存在，则点击“确认”按钮时触发
+   */
+  onConfirm?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  /**
    * 按下 ESC 键时触发
    */
-  onKeydownEsc?: (e: KeyboardEvent<HTMLDivElement>) => void;
+  onEscKeydown?: (context: { e: KeyboardEvent<HTMLDivElement> }) => void;
+  /**
+   * 如果蒙层存在，点击蒙层时触发
+   */
+  onOverlayClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
 };
 
 export type FooterButton = string | ButtonProps | TNode;
 
-export type EventSource = 'keydownEsc' | 'clickCloseBtn' | 'clickCancel' | 'clickOverlay';
+export type EventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 
 export interface CloseContext { trigger: EventSource; e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement> };

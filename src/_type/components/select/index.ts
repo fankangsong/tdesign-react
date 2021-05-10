@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-27 15:26:16
+ * updated at 2021-05-06 16:40:12
  * */
 
 import { PopupProps } from '../../../../src/popup';
@@ -166,6 +166,6 @@ export interface KeysType { value?: string; label?: string };
 
 export type SelectValue<SelectOption extends Options = Options> = string | number | SelectOption | Array<SelectValue<SelectOption>>;
 
-export interface RemoveContext<SelectOption> { value: string | number; data: SelectOption; e: MouseEvent<HTMLDivElement> };
+export interface RemoveContext<T> { value: string | number; data: T; e: MouseEvent<HTMLDivElement> };
 
 export interface Options { label?: string; value?: string | number; disabled?: boolean };
