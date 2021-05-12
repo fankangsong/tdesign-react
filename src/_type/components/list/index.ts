@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-12 16:19:08
  * */
 
 import { TNode } from '../../common';
@@ -8,7 +8,7 @@ import { MouseEvent, WheelEvent } from 'react';
 
 export interface TdListProps {
   /**
-   * 自定义加载中。值为空不显示加载中，值为 'loading' 显示加载中状态，值为 'loading-more' 显示加载更多状态。值类型为函数，则表示自定义加载状态呈现内容
+   * 自定义加载中。值为空不显示加载中，值为 'loading' 显示加载中状态，值为 'load-more' 显示加载更多状态。值类型为函数，则表示自定义加载状态呈现内容
    */
   asyncLoading?: TNode;
   /**
@@ -54,6 +54,10 @@ export interface TdListItemProps {
    * 操作栏
    */
   action?: TNode;
+  /**
+   * 内容，同 content
+   */
+  children?: TNode;
   /**
    * 内容
    */
