@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-12 16:19:08
+ * updated at 2021-05-12 16:49:15
  * */
 
 import { TNode } from '../../common';
@@ -62,4 +62,19 @@ export interface TdListItemProps {
    * 内容
    */
   content?: TNode;
+};
+
+export interface TdListItemMetaProps {
+  /**
+   * 列表项图片
+   */
+  avatar?: TNode;
+  /**
+   * 列表项内容
+   */
+  description?: TNode;
+  /**
+   * 列表项标题
+   */
+  title?: TNode;
 };
