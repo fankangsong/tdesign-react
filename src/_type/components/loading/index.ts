@@ -1,15 +1,16 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-14 16:15:06
  * */
 
-import { TNode, SizeEnum } from '../../common';
+import { TNode, SizeEnum, AttachNode } from '../../common';
 
 export interface TdLoadingProps {
   /**
    * 挂载元素，默认挂载到组件本身所在的位置
+   * @default ''
    */
-  attach?: string | function;
+  attach?: AttachNode;
   /**
    * 子元素，同 content
    */

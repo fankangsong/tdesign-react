@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-14 16:36:20
  * */
 
 import { TNode, TElement, SizeEnum } from '../../common';
@@ -47,7 +47,7 @@ export interface TdTagProps {
   /**
    * 点击时触发
    */
-  onClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  onClick?: (context: { e: MouseEvent<HTMLSpanElement> }) => void;
   /**
    * 如果关闭按钮存在，点击关闭按钮时触发
    */
