@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-18 11:03:28
  * */
 
 import { TNode, AttachNode } from '../../common';
@@ -29,11 +29,11 @@ export interface TdMessageProps {
    * 消息组件风格
    * @default info
    */
-  theme?: ThemeList;
+  theme?: MessageThemeList;
   /**
    * 当关闭按钮存在时，用户点击关闭按钮触发
    */
-  onCloseBtnClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  onCloseBtnClick?: (context: { e: MouseEvent<SVGElement | HTMLElement> }) => void;
   /**
    * 计时结束后触发
    */
@@ -54,7 +54,7 @@ export interface MessageOptions extends TdMessageProps {
    * 弹出消息位置
    * @default top
    */
-  placement?: PlacementList;
+  placement?: MessagePlacementList;
   /**
    * 消息层级
    * @default 5000
@@ -62,13 +62,13 @@ export interface MessageOptions extends TdMessageProps {
   zIndex?: number;
 };
 
-export type ThemeList = 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading';
+export type MessageThemeList = 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading';
 
-export type PlacementList = 'center' | 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+export type MessagePlacementList = 'center' | 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 export interface MessageInstance { close: () => void };
 
-export type MessageMethod = (theme: ThemeList, message: string | MessageOptions, duration: number) => Promise<MessageInstance>;
+export type MessageMethod = (theme: MessageThemeList, message: string | MessageOptions, duration: number) => Promise<MessageInstance>;
 
 export type MessageInfoOptions = Omit<MessageOptions, 'theme'>;
 
