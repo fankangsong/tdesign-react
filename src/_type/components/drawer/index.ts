@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-26 11:16:52
  * */
 
 import { ButtonProps } from '../../../../src/button';
@@ -106,7 +106,7 @@ export interface TdDrawerProps {
   /**
    * 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发
    */
-  onClose?: (context: CloseContext) => void;
+  onClose?: (context: DrawerCloseContext) => void;
   /**
    * 如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件
    */
@@ -127,6 +127,6 @@ export interface TdDrawerProps {
 
 export type FooterButton = string | ButtonProps | TNode;
 
-export type EventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
+export type DrawerEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 
-export interface CloseContext { trigger: EventSource; e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement> };
+export interface DrawerCloseContext { trigger: DrawerEventSource; e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement> };

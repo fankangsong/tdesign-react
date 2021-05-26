@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-26 11:16:52
  * */
 
 import { TNode, ClassName, Styles, AttachNode } from '../../common';
@@ -11,6 +11,10 @@ export interface TdPopupProps {
    * @default 'body'
    */
   attach?: AttachNode;
+  /**
+   * 触发元素，同 triggerElement
+   */
+  children?: TNode;
   /**
    * 浮层里面的内容
    */
@@ -48,6 +52,10 @@ export interface TdPopupProps {
    * @default hover
    */
   trigger?: 'hover' | 'click' | 'focus' | 'context-menu' | 'manual';
+  /**
+   * 触发元素
+   */
+  triggerElement?: TNode;
   /**
    * 是否显示浮层
    * @default false

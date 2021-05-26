@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-26 11:16:52
  * */
 
 import { TNode } from '../../common';
@@ -67,6 +67,6 @@ export interface TdBreadcrumbItemProps {
   to?: Route;
 };
 
-export interface Route { path?: string; name?: string; hash?: string; query?: Data; params?: Data };
+export interface Route { path?: string; name?: string; hash?: string; query?: RouteData; params?: RouteData };
 
-export type Data = { [key: string]: string | string[] };
+export type RouteData = { [key: string]: string | string[] };

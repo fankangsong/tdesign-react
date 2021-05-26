@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-26 11:16:52
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -187,17 +187,21 @@ export interface FormRule {
 
 export interface FormInstance {
   /**
-   * 校验（FormInstance 由 React 自行扩展）
+   * 获取全部表单数据
    */
-  getFieldValue?: () => void;
+  getAllFieldsValue?: () => Record<string, unknown>;
+  /**
+   * 获取单个字段值
+   */
+  getFieldValue?: (field: string) => unknown;
+  /**
+   * 设置表单字段值
+   */
+  setFieldValue?: (FieldOption) => void;
   /**
    * 校验（FormInstance 由 React 自行扩展）
    */
-  setFieldsValue?: () => void;
-  /**
-   * 校验（FormInstance 由 React 自行扩展）
-   */
-  validate?: () => void;
+  validate?: () => ValidateResult;
 };
 
 export type FormValidateResult<T> = boolean | ValidateResult<T>;
@@ -213,3 +217,5 @@ export type Data = { [key: string]: any };
 export interface IsDateOptions { format: string; strictMode: boolean; delimiters: string[] };
 
 export type CustomValidator = (val: ValueType) => boolean | Promise<boolean>;
+
+export interface FieldOption { field: string; value: unknown };

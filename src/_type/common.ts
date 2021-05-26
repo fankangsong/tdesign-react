@@ -9,7 +9,10 @@ export type TNode<T = undefined> = T extends undefined ? ReactNode : (props: T) 
 
 export type AttachNodeReturnValue = HTMLDocument | HTMLElement | Element | Document;
 export type AttachNode = CSSSelector | (() => AttachNodeReturnValue);
-export type SuperAttachNode = (() => Window) | AttachNode;
+
+// 与滚动相关的容器类型，因为 document 上没有 scroll 相关属性, 因此排除document
+export type ScrollContainerElement = Window | HTMLElement
+export type ScrollContainer = (() => ScrollContainerElement) | CSSSelector;
 
 export type Styles = CSSProperties;
 

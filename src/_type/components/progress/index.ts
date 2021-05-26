@@ -1,9 +1,9 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-26 11:16:52
  * */
 
-import { TNode, SizeEnum } from '../../common';
+import { TNode } from '../../common';
 
 export interface TdProgressProps {
   /**
@@ -12,7 +12,7 @@ export interface TdProgressProps {
    */
   color?: string | Array<string> | Record<string, string>;
   /**
-   * 右侧显示进度文字
+   * 进度百分比，可自定义
    * @default true
    */
   label?: TNode;
@@ -22,16 +22,16 @@ export interface TdProgressProps {
    */
   percentage?: number;
   /**
-   * 进度条尺寸，示例：small/medium/large/240
+   * 进度条尺寸，示例：small/medium/large/240。small 值为 72； medium 值为 112；large 值为 160
    * @default 'medium'
    */
-  size?: SizeEnum;
+  size?: string | number;
   /**
    * 进度条状态
    */
   status?: StatusEnum;
   /**
-   * 进度条线宽
+   * 进度条线宽。宽度数值不能超过 size 的一半，否则不能输出环形进度
    */
   strokeWidth?: string | number;
   /**

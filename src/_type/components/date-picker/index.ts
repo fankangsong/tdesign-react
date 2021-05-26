@@ -1,8 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-26 11:16:52
  * */
 
+import { InputProps } from '../../../../src/input';
+import { PopupProps } from '../../../../src/popup';
 import { TElement } from '../../common';
 import { FocusEvent, FormEvent } from 'react';
 
@@ -37,6 +39,10 @@ export interface TdDatePickerProps {
    */
   format?: string;
   /**
+   * 透传给输入框（Input）组件的参数
+   */
+  inputProps?: InputProps;
+  /**
    * 选择器模式
    * @default month
    */
@@ -46,6 +52,10 @@ export interface TdDatePickerProps {
    * @default ''
    */
   placeholder?: string;
+  /**
+   * 透传给 popup 组件的参数
+   */
+  popupProps?: PopupProps;
   /**
    * 组件前置图标
    */
@@ -137,6 +147,11 @@ export interface TdDateRangePickerProps {
    */
   presets?: PresetRange;
   /**
+   * 日期分隔符
+   * @default ''
+   */
+  separator?: string;
+  /**
    * 尺寸
    * @default medium
    */
@@ -171,7 +186,7 @@ export interface TdDateRangePickerProps {
   onInput?: (context: { input: string; value: DateRangeValue; partial: Partial; e: FormEvent<HTMLDivElement> }) => void;
 };
 
-export type DisableDate = Array<DateValue> | DisableDateObj | ((date: string) => boolean);
+export type DisableDate = Array<DateValue> | DisableDateObj | ((date: DateValue) => boolean);
 
 export interface DisableDateObj { from?: string; to?: string; before?: string; after?: string };
 
@@ -179,9 +194,9 @@ export interface PresetDate { [name: string]: DateValue | (() => DateValue) };
 
 export type DateValue = string | Date | Array<DateValue>;
 
-export type DisableRangeDate = Array<DateValue> | DisableDateObj | ((context: { date: string; partial: Partial }) => boolean);
+export type DisableRangeDate = Array<DateValue> | DisableDateObj | ((context: { date: DateRangeValue; partial: Partial }) => boolean);
 
-export type Partial =  'start' | 'end';
+export type Partial = 'start' | 'end';
 
 export interface PresetRange { [range: string]: DateRange | (() => DateRange)};
 

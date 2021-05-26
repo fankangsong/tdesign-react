@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-06 16:40:12
+ * updated at 2021-05-26 11:16:52
  * */
 
 import { CheckboxProps } from '../../../../src/checkbox';
@@ -101,7 +101,7 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    * 节点图标，可自定义
    * @default true
    */
-  icon?: TNode;
+  icon?: boolean | TNode<TreeNodeModel>;
   /**
    * 用来定义 value / label / children 在 `options` 中对应的字段别名
    */
