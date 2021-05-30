@@ -1,7 +1,7 @@
 :: BASE_DOC ::
 
-## 组件属性
+### 尺寸
 
-[Interface: TabsProps](./TabProps.ts)
+{{ size }}
 
-[Interface: TabPanelProps](./TabProps.ts)
+:: BASE_PROPS ::

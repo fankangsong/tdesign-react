@@ -2,13 +2,11 @@
 
 ### 主题
 
-[Example: 主题](./_example/ThemeExample.jsx)
+{{ ThemeExample }}
 
 ### 继承自Popup的属性
 
-[Example: 默认](./_example/ExtendsExample.jsx)
+{{ ExtendsExample }}
 
-## 组件属性
-
-[Interface: PopConfirmProps](./PopConfirm.tsx)
+:: BASE_PROPS ::
 

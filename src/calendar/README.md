@@ -1,48 +1,77 @@
 # Calendar 日历
 
-# 功能示例
+定义：按照日历形式展示数据/日期的容器。
 
-## 通用日历面板（默认）
+### 何时使用
+- 用于展示所有关于日期的东西，包括以月份形式展现的日期、日程、课表、节日、价格日历、农历、节气和所标记的重要的日子 (如生日)等等，可聚合围绕"日期"这一对象的全部信息。
 
-最简单的实例，不需要做任何设置，直接使用。
+- 支持年/月切换。
 
-[Example: Example](./_example/CalendarFull.jsx)
+## 1. 组件类型
 
-## 初始化的时候指定高亮日期
+### 1.1. 通用日历面板
+定义 - 通用型日期显示容器。
 
-组件默认高亮“今天”\“当前月份”，使用 defaultValue 属性可以设置这个高亮的日期\月份。
+使用场景 - 该组件使用于web端查看当前日期、查看选择日期、查看特殊日子等信息。
 
-[Example: Example](./_example/CalendarDefaultValue.jsx)
+{{ base }}
 
-## 月历
+### 1.2. 卡片模式日历
+定义 - 嵌套在空间有限的容器内，用以展示日期等信息。
 
-组件默认以日历的形式展示，并提供了“月”（日历）\“年”（月历）两种模式切换按钮，在组件外开发者可以通过修改 mode 属性切换模式。
+使用场景 - 该组件使用于空间有限的容器中，如卡片、web端查看当前日期、查看选择日期、查看特殊日子等信息。
 
-[Example: Example](./_example/CalendarMonth.jsx)
+{{ card }}
 
-## 指定第一列的星期
+### 1.3.  仅显示工作日日历
+定义 - 以通用日历面板和卡片模式日历为基础，根据具体的工作日场景需求，只显示工作日，隐藏周末的日历面板。
 
-组件默认第一列为“周一”，可以通过 firstDayOfWeek 属性设置成其他星期。(只对mode为"month"有效。)
+使用场景 - 该组件使用于只显示工作日的情况，用以查看当前日期、查看选择日期、查看特殊日子等信息。
 
-[Example: Example](./_example/CalendarFirstDayOfWeek.jsx)
+{{ filter }}
 
-## 隐藏\显示周末
+### 1.4. 下滑翻阅月份浏览 （建设中）
+定义 - 以通用日历面板为基础，根据鼠标下滑，可以直接翻阅上一月份或下一月份的日期。
 
-组件默认是“显示周末”的，并提供了“隐藏周末”按钮，在组件外开发者可以通过 isShowWeekend 属性来设置是否显示周末。
+使用场景 - 该组件使用于只显示工作日的情况，用以查看当前日期、查看选择日期、查看特殊日子等信息。
 
-[Example: Example](./_example/CalendarIsShowWeekendDefault.jsx)
 
-## 卡片模式日历
+## 2. 功能示例
 
-组件默认以“全屏”风格展示，可以通过 theme 属性修改其风格。（卡片风格下部分功能UI不显示，但仍然可以在组件外取控制组件）
+### 2.1 指定高亮日期
+定义 - 通过组件属性自定义指定高亮日期。
 
-[Example: Example](./_example/CalendarCard.jsx)
+使用场景 - 组件默认高亮“今天”\“当前月份”，使用value属性可以设置这个高亮的日期\月份。
 
-## 控件相关配置
+{{ value }}
 
-通过 ```controllerConfig``` 属性，开发者可以对日历组件右上角的组件进行一些个性化的控制（该属性结构比较复杂，详见文档“Calendar Props”中该字段的说明）
+### 2.2 切换模式 日历\月历
+定义 - 通过组件属性指定组件的展示形式。
 
-[Example: Example](./_example/CalendarControllerConfig.jsx)
+使用场景 - 组件默认以日历的形式展示，并提供了“月”（日历）\“年”（月历）两种模式切换按钮，在组件外开发者可以通过修改mode属性切换模式。
+
+{{ mode }}
+
+### 2.3 指定第一列的星期
+定义 - 通过组件属性指定日历首列星期。
+
+使用场景 - 组件默认第一列为“周一”，可以通过firstDayOfWeek属性设置成其他星期(只对mode为"month"有效)。
+
+{{ firstDayOfWeek }}
+
+### 2.4 自定义日历范围
+定义 - 通过组件属性指定年月份选择框的值范围。
+
+使用场景 - 组件默认情况下，年份可以选择1970~∞，月份没有限制。可以通过range属性来设置日历的可选范围。
+
+{{ range }}
+
+### 2.5 控件相关配置
+定义 - 通过组件属性对组件右上角的控件做自定义配置。
+
+使用场景 - 某些业务场景下可能需要隐藏、disabled掉组件右上角的空间，甚至做更多的自定义配置，可以通过controllerConfig属性来实现
+
+{{ controllerConfig }}
 
 # 事件示例
 
@@ -50,26 +79,20 @@
 
 组件提供提供了一些事件，开发者可以使用这些事件去实现一些更加定制化的功能（详见文档“Calendar Events”的说明）
 
-[Example: Example](./_example/CalendarEvent.jsx)
+{{ CalendarEvent }}
 
 # 插槽示例
 
 ## 头部插槽（组件左上角）
 
-[Example: Example](./_example/CalendarHeader.jsx)
+{{ CalendarHeader }}
 
 ## 单元格插槽-自定义内容
 
-[Example: Example](./_example/CalendarCell.jsx)
+{{ CalendarCell }}
 
 ## 单元格插槽-追加内容
 
-[Example: Example](./_example/CalendarCellAppend.jsx)
+{{ CalendarCellAppend }}
 
-# 组件属性
-
-[Interface: CalendarProps](./Calendar.tsx)
-
-# 组件方法
-
-[Interface: CalendarMethods](./Calendar.tsx)
+:: BASE_PROPS ::

@@ -2,45 +2,41 @@
 
 ### 基本使用
 
-[Example: Grid](./_example/BasicGrid.jsx)
+{{ BasicGrid }}
 
 ### 区块间距
 
-[Example: Grid](./_example/SpaceGrid.jsx)
+{{ SpaceGrid }}
 
 ### 左右偏移
 
-[Example: Grid](./_example/OffsetGrid.jsx)
+{{ OffsetGrid }}
 
 ### 排序
 通过 `order` 来改变元素的排序。
 
-[Example: Grid](./_example/OrderGrid.jsx)
+{{ OrderGrid }}
 
 通过 `pull` `push` 进行排序
 
-[Example: Grid](./_example/PullPushGrid.jsx)
+{{ PullPushGrid }}
 
 ### 排版
 子元素根据不同的值 start,center,end,space-between,space-around，分别定义其在父节点里面的排版方式。
 
-[Example: Grid](./_example/DisplayGrid.jsx)
+{{ DisplayGrid }}
 
 ### 堆砌
 子元素垂直对齐。
 
-[Example: Grid](./_example/AlignGrid.jsx)
+{{ AlignGrid }}
 
 ### flex
 
-[Example: Grid](./_example/FlexGrid.jsx)
+{{ FlexGrid }}
 
 ### 响应式布局
 
-[Example: Grid](./_example/ResponseGrid.jsx)
+{{ ResponseGrid }}
 
-## 组件属性
-
-[Interface: RowProps](./Row.ts)
-
-[Interface: ColProps](./Col.ts)
+:: BASE_PROPS ::
