@@ -1,4 +1,8 @@
-# Tree 树
+:: BASE_DOC ::
+
+:: BASE_PROPS ::
+
+<!-- # Tree 树
 
 提供标准的按钮交互和样式。
 
@@ -11,7 +15,6 @@
 ### 带选择框
 
 [Example: 带选择框](./_example/TreeShowCheckbox.jsx)
-
 
 ### 带操作功能
 
@@ -37,15 +40,15 @@
 
 [Example: 自定义数据映射字段](./_example/TreeCustomMappingKeys.jsx)
 
-
 ## 使用示例 —— 组件状态
 
-### hover态
-[Example: hover态](./_example/TreeHoverable.jsx)
+### hover 态
+
+[Example: hover 态](./_example/TreeHoverable.jsx)
 
 ### 禁用态
-[Example: 禁用态](./_example/TreeDisabled.jsx)
 
+[Example: 禁用态](./_example/TreeDisabled.jsx)
 
 ## 使用示例 —— 组件使用
 
@@ -54,16 +57,17 @@
 [Example: 树节点过滤](./_example/TreeFilter.jsx)
 
 ### 输入框 - 单选
+
 [Example: 输入框 - 单选](./_example/TreeSelect.jsx)
 
 ### 输入框 - 多选
+
 [Example: 输入框 - 多选](./_example/TreeSelectMultiple.jsx)
 
 ### 输入框 - 单选 + 树状态切换
+
 [Example: 输入框 - 单选 + 树状态切换](./_example/TreeSelectAndStatus.jsx)
-
-
 
 ## 组件属性
 
-[Interface: TreeProps](./interface/TreeProps.ts)
+[Interface: TreeProps](./interface/TreeProps.ts) -->
