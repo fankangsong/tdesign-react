@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-31 14:23:12
+ * updated at 2021-06-02 17:34:44
  * */
 
-import { CheckboxProps } from '../../../../src/checkbox';
-import { PopupProps } from '../../../../src/popup';
+import { CheckboxProps } from '../../../checkbox';
+import { PopupProps } from '../../../popup';
 import { TreeNodeModel } from '../tree/index';
 import { TNode, TreeOptionData, SizeEnum } from '../../common';
 import { FocusEvent } from 'react';

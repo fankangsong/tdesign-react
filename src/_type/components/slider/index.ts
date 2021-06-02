@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-31 14:23:12
+ * updated at 2021-06-02 17:34:44
  * */
 
-import { InputNumberProps } from '../../../../src/input-number';
-import { TooltipProps } from '../../../../src/tooltip';
+import { InputNumberProps } from '../../../input-number';
+import { TooltipProps } from '../../../tooltip';
 import { TNode } from '../../common';
 
 export interface TdSliderProps {

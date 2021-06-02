@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-31 14:23:12
+ * updated at 2021-06-02 17:34:44
  * */
 
 import { TNode, TElement, AttachNode } from '../../common';
@@ -39,13 +39,12 @@ export interface TdNotificationProps {
   theme?: NotificationThemeList;
   /**
    * 标题
-   * @default ''
    */
-  title?: string;
+  title?: TNode;
   /**
    * 点击关闭按钮时触发
    */
-  onCloseBtnClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  onCloseBtnClick?: (context: { e: MouseEvent<SVGSVGElement | HTMLDivElement> }) => void;
   /**
    * 计时结束时触发
    */
