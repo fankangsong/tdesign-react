@@ -30,6 +30,8 @@ const exampleList = [
 ];
 
 export default function TableLoading() {
+  return null;
+
   const [borderd, setBordered] = useState(false);
   const [stripe, setStripe] = useState(false);
 
@@ -40,27 +42,27 @@ export default function TableLoading() {
       <input type="checkbox" checked={stripe} onClick={() => setStripe((s) => !s)} />
       斑马纹
       <Table
-        records={exampleList}
+        data={exampleList}
         bordered={borderd}
         stripe={stripe}
         columns={[
           {
-            key: 'project',
+            colKey: 'project',
             title: '项目名称',
             width: '150px',
-            render: (x) => x.projectName,
+            render: ({ row }) => row.projectName,
           },
           {
-            key: 'memeber',
+            colKey: 'memeber',
             title: '管理员',
             width: '300px',
-            render: (x) => x.manager.join(','),
+            render: ({ row }) => row.manager.join(','),
           },
           {
-            key: 'company',
+            colKey: 'company',
             title: '所属公司',
             width: '150px',
-            render: (x) => x.company,
+            render: ({ row }) => row.company,
           },
         ]}
         rowKey="projectName"
