@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-06-16 15:43:23
  * */
 
 import { TNode, TElement } from '../../common';
@@ -31,6 +31,10 @@ export interface TdMenuProps {
    */
   expandType?: 'normal' | 'popup';
   /**
+   * 站点 LOGO
+   */
+  logo?: TNode;
+  /**
    * 菜单风格
    * @default light
    */
@@ -60,7 +64,7 @@ export interface TdMenuProps {
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-};
+}
 
 export interface TdHeadMenuProps {
   /**
@@ -76,6 +80,14 @@ export interface TdHeadMenuProps {
    * @default normal
    */
   expandType?: 'normal' | 'popup';
+  /**
+   * 站点 LOGO
+   */
+  logo?: TNode;
+  /**
+   * 导航操作区域
+   */
+  operations?: TNode;
   /**
    * null
    * @default light
@@ -97,7 +109,7 @@ export interface TdHeadMenuProps {
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-};
+}
 
 export interface TdSubmenuProps {
   /**
@@ -124,17 +136,17 @@ export interface TdSubmenuProps {
    * 菜单项唯一标识
    */
   value?: MenuValue;
-};
+}
 
 export interface TdMenuItemProps {
   /**
    * 菜单项内容，同 content
    */
-  children?: TElement;
+  children?: TNode;
   /**
    * 菜单项内容
    */
-  content?: TElement;
+  content?: TNode;
   /**
    * 是否禁用菜单项展开/收起/跳转等功能
    */
@@ -152,6 +164,6 @@ export interface TdMenuItemProps {
    * 菜单项唯一标识
    */
   value?: MenuValue;
-};
+}
 
 export type MenuValue = string | number;
