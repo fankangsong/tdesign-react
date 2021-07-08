@@ -2,35 +2,23 @@
 
 ### 类型
 
-{{ NotificationType }}
+{{ type }}
 
 ### 自定义关闭按钮
 
-{{ NotificationClose }}
+{{ close }}
 
 ### 自定义内容
 
-{{ NotificationContent }}
+{{ content }}
 
 ### 尺寸
 
-{{ NotificationSize }}
-
-### 函数式调用-方位
-
-{{ NotificationPlacement }}
+{{ size }}
 
 ### 函数式调用-偏移
 
-{{ NotificationOffset }}
-
-### 函数式调用-类型
-
-{{ NotificationType4Fn }}
-
-### 函数式调用-开关
-
-{{ NotificationToggle }}
+{{ offset }}
 
 
 :: BASE_PROPS ::

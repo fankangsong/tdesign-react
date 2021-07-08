@@ -1,12 +1,15 @@
 :: BASE_DOC ::
 
+### 偏移
+
+{{ placement }}
 ### 主题
 
-{{ ThemeExample }}
+{{ theme }}
 
 ### 继承自Popup的属性
 
-{{ ExtendsExample }}
+{{ extends }}
 
 :: BASE_PROPS ::
 
