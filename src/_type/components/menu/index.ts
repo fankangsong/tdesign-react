@@ -1,6 +1,6 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-16 15:43:23
+ * updated at 2021-07-12 17:49:35
  * */
 
 import { TNode, TElement } from '../../common';
@@ -59,12 +59,12 @@ export interface TdMenuProps {
   /**
    * 侧边栏导航展开/收起发生变化时触发
    */
-  onCollapsed?: (options: { collapsed: boolean; e?: MouseEvent<HTMLDivElement> }) => void;
+  onCollapsed?: (options: { collapsed: boolean; e?: MouseEvent<SVGSVGElement> }) => void;
   /**
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-}
+};
 
 export interface TdHeadMenuProps {
   /**
@@ -109,7 +109,7 @@ export interface TdHeadMenuProps {
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-}
+};
 
 export interface TdSubmenuProps {
   /**
@@ -136,7 +136,7 @@ export interface TdSubmenuProps {
    * 菜单项唯一标识
    */
   value?: MenuValue;
-}
+};
 
 export interface TdMenuItemProps {
   /**
@@ -164,6 +164,6 @@ export interface TdMenuItemProps {
    * 菜单项唯一标识
    */
   value?: MenuValue;
-}
+};
 
 export type MenuValue = string | number;
