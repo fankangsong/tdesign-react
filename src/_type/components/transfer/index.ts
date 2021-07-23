@@ -3,11 +3,11 @@
  * updated at 2021-06-02 17:34:44
  * */
 
+import { KeyboardEvent, FormEvent } from 'react';
 import { CheckboxProps } from '../../../checkbox';
 import { PaginationProps, PageInfo } from '../../../pagination';
 import { InputProps } from '../../../input';
 import { TNode } from '../../common';
-import { KeyboardEvent, FormEvent } from 'react';
 
 export interface TdTransferProps<T extends DataOption = DataOption> {
   /**

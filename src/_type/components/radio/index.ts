@@ -3,8 +3,8 @@
  * updated at 2021-06-02 17:34:44
  * */
 
-import { TNode, SizeEnum } from '../../common';
 import { ChangeEvent } from 'react';
+import { TNode, SizeEnum } from '../../common';
 
 export interface TdRadioProps {
   /**

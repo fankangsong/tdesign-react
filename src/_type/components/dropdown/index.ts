@@ -3,9 +3,9 @@
  * updated at 2021-06-02 17:34:44
  * */
 
+import { MouseEvent, KeyboardEvent } from 'react';
 import { PopupProps } from '../../../popup';
 import { TNode } from '../../common';
-import { MouseEvent, KeyboardEvent } from 'react';
 
 export interface TdDropdownProps {
   /**

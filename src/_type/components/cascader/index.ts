@@ -3,11 +3,11 @@
  * updated at 2021-06-02 17:34:44
  * */
 
+import { FocusEvent } from 'react';
 import { CheckboxProps } from '../../../checkbox';
 import { PopupProps } from '../../../popup';
 import { TreeNodeModel } from '../tree/index';
 import { TNode, TreeOptionData, SizeEnum } from '../../common';
-import { FocusEvent } from 'react';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
   /**

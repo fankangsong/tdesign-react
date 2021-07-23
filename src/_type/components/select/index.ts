@@ -3,9 +3,9 @@
  * updated at 2021-06-02 17:34:44
  * */
 
+import { MouseEvent, FocusEvent } from 'react';
 import { PopupProps } from '../../../popup';
 import { TNode, TElement, SizeEnum } from '../../common';
-import { MouseEvent, FocusEvent } from 'react';
 
 export interface TdSelectProps<SelectOption extends Options = Options> {
   /**

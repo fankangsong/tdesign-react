@@ -3,9 +3,9 @@
  * updated at 2021-06-02 17:34:44
  * */
 
+import { MouseEvent } from 'react';
 import { CheckboxProps } from '../../../checkbox';
 import { TNode, TreeOptionData } from '../../common';
-import { MouseEvent } from 'react';
 
 export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData> {
   /**

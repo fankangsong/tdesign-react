@@ -3,8 +3,8 @@
  * updated at 2021-06-02 17:34:44
  * */
 
-import { TNode, TElement } from '../../common';
 import { MouseEvent } from 'react';
+import { TNode, TElement } from '../../common';
 
 export interface TdTabsProps {
   /**

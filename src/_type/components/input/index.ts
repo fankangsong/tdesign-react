@@ -3,8 +3,8 @@
  * updated at 2021-06-02 17:34:44
  * */
 
-import { TElement, SizeEnum } from '../../common';
 import { MouseEvent, KeyboardEvent, FocusEvent, FormEvent } from 'react';
+import { TElement, SizeEnum } from '../../common';
 
 export interface TdInputProps {
   /**

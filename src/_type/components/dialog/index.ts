@@ -3,9 +3,9 @@
  * updated at 2021-06-02 17:34:44
  * */
 
+import { MouseEvent, KeyboardEvent } from 'react';
 import { ButtonProps } from '../../../button';
 import { TNode, ClassName, Styles, AttachNode } from '../../common';
-import { MouseEvent, KeyboardEvent } from 'react';
 
 export interface TdDialogProps {
   /**

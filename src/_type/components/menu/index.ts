@@ -1,10 +1,9 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-07-15 19:38:08
+ * updated at 2021-07-23 16:10:45
  * */
 
 import { TNode, TElement } from '../../common';
-import { MouseEvent } from 'react';
 
 export interface TdMenuProps {
   /**
@@ -35,6 +34,10 @@ export interface TdMenuProps {
    */
   logo?: TElement;
   /**
+   * 导航操作区域
+   */
+  operations?: TElement;
+  /**
    * 菜单风格
    * @default light
    */
@@ -56,10 +59,6 @@ export interface TdMenuProps {
    * 激活菜单项发生变化时触发
    */
   onChange?: (value: MenuValue) => void;
-  /**
-   * 侧边栏导航展开/收起发生变化时触发
-   */
-  onCollapsed?: (options: { collapsed: boolean; e?: MouseEvent<SVGSVGElement> }) => void;
   /**
    * 展开的菜单项发生变化时触发
    */
@@ -157,6 +156,10 @@ export interface TdMenuItemProps {
    */
   href?: string;
   /**
+   * 图标
+   */
+  icon?: TElement;
+  /**
    * 链接或路由跳转方式
    */
   target?: '_blank' | '_self' | '_parent' | '_top';
@@ -164,6 +167,13 @@ export interface TdMenuItemProps {
    * 菜单项唯一标识
    */
   value?: MenuValue;
+};
+
+export interface TdMenuGroupProps {
+  /**
+   * 菜单组标题
+   */
+  title?: TNode;
 };
 
 export type MenuValue = string | number;

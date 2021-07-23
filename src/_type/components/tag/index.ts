@@ -5,8 +5,8 @@
  * updated at 2021-07-22 11:20:14
  * */
 
-import { TNode, TElement, SizeEnum } from '../../common';
 import { CSSProperties, MouseEvent } from 'react';
+import { TNode, TElement, SizeEnum } from '../../common';
 
 export interface TdTagProps {
   /**

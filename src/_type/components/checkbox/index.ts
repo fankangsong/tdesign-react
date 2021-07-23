@@ -3,8 +3,8 @@
  * updated at 2021-06-02 17:34:44
  * */
 
-import { TNode } from '../../common';
 import { ChangeEvent } from 'react';
+import { TNode } from '../../common';
 
 export interface TdCheckboxProps {
   /**
