@@ -2,7 +2,11 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
+<<<<<<< Updated upstream
  * updated at 2021-07-27 10:54:25
+=======
+ * updated at 2021-07-28 10:40:02
+>>>>>>> Stashed changes
  * */
 
 import { TNode, TElement } from '../../common';
