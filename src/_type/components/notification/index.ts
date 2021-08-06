@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-26 11:16:52
+ * updated at 2021-06-02 17:34:44
  * */
 
-import { TNode, TElement, AttachNode } from '../../common';
 import { MouseEvent } from 'react';
+import { TNode, TElement, AttachNode } from '../../common';
 
 export interface TdNotificationProps {
   /**
@@ -39,18 +39,17 @@ export interface TdNotificationProps {
   theme?: NotificationThemeList;
   /**
    * 标题
-   * @default ''
    */
-  title?: string;
+  title?: TNode;
   /**
    * 点击关闭按钮时触发
    */
-  onCloseBtnClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  onCloseBtnClick?: (context: { e: MouseEvent<SVGSVGElement | HTMLDivElement> }) => void;
   /**
    * 计时结束时触发
    */
   onDurationEnd?: () => void;
-};
+}
 
 export interface NotificationOptions extends TdNotificationProps {
   /**
@@ -72,15 +71,20 @@ export interface NotificationOptions extends TdNotificationProps {
    * @default 6000
    */
   zIndex?: number;
-};
+}
 
 export type NotificationThemeList = 'info' | 'success' | 'warning' | 'error';
 
 export type NotificationPlacementList = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
-export interface NotificationInstance { close: () => void };
+export interface NotificationInstance {
+  close: () => void;
+}
 
-export type NotificationMethod = (theme: NotificationThemeList, options: NotificationOptions) => Promise<NotificationInstance>;
+export type NotificationMethod = (
+  theme: NotificationThemeList,
+  options: NotificationOptions,
+) => Promise<NotificationInstance>;
 
 export type NotificationInfoOptions = Omit<NotificationOptions, 'theme'>;
 

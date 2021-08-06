@@ -1,10 +1,10 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-26 11:16:52
+ * updated at 2021-06-02 17:34:44
  * */
 
-import { TNode, SizeEnum } from '../../common';
 import { ChangeEvent } from 'react';
+import { TNode, SizeEnum } from '../../common';
 
 export interface TdRadioProps {
   /**
@@ -32,7 +32,7 @@ export interface TdRadioProps {
    * 选中状态变化时触发
    */
   onChange?: (checked: boolean, context: { e: ChangeEvent<HTMLDivElement> }) => void;
-};
+}
 
 export interface TdRadioGroupProps {
   /**
@@ -69,11 +69,15 @@ export interface TdRadioGroupProps {
   /**
    * 选中值发生变化时触发
    */
-  onChange?: (value: RadioValue, context: { e: ChangeEvent<HTMLInputElement> }) => void;
-};
+  onChange?: (value: RadioValue, context: { e: ChangeEvent<HTMLDivElement> }) => void;
+}
 
 export type RadioValue = string | number;
 
 export type RadioOption = string | number | RadioOptionObj;
 
-export interface RadioOptionObj { label: string | TNode; value: string | number; disabled?: boolean };
+export interface RadioOptionObj {
+  label: string | TNode;
+  value: string | number;
+  disabled?: boolean;
+}

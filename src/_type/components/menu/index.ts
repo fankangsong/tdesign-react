@@ -1,20 +1,13 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-26 11:16:52
+ * updated at 2021-07-28 10:40:02
  * */
 
 import { TNode, TElement } from '../../common';
-import { MouseEvent } from 'react';
 
 export interface TdMenuProps {
-  /**
-   * 激活菜单项
-   */
-  active?: MenuValue;
-  /**
-   * 激活菜单项，非受控属性
-   */
-  defaultActive?: MenuValue;
   /**
    * 是否收起菜单
    * @default false
@@ -39,10 +32,26 @@ export interface TdMenuProps {
    */
   expandType?: 'normal' | 'popup';
   /**
+   * 站点 LOGO
+   */
+  logo?: TElement;
+  /**
+   * 导航操作区域
+   */
+  operations?: TElement;
+  /**
    * 菜单风格
    * @default light
    */
   theme?: 'light' | 'dark';
+  /**
+   * 激活菜单项
+   */
+  value?: MenuValue;
+  /**
+   * 激活菜单项，非受控属性
+   */
+  defaultValue?: MenuValue;
   /**
    * 菜单宽度。值类型为数组时，分别表示菜单展开和折叠的宽度。[ 展开时的宽度, 折叠时的宽度 ]，示例：['200px', '80px']
    * @default '232px'
@@ -53,24 +62,12 @@ export interface TdMenuProps {
    */
   onChange?: (value: MenuValue) => void;
   /**
-   * 侧边栏导航展开/收起发生变化时触发
-   */
-  onCollapsed?: (options: { collapsed: boolean; e?: MouseEvent<HTMLDivElement> }) => void;
-  /**
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
 };
 
 export interface TdHeadMenuProps {
-  /**
-   * 激活菜单项
-   */
-  active?: MenuValue;
-  /**
-   * 激活菜单项，非受控属性
-   */
-  defaultActive?: MenuValue;
   /**
    * 展开的子菜单集合
    */
@@ -85,10 +82,26 @@ export interface TdHeadMenuProps {
    */
   expandType?: 'normal' | 'popup';
   /**
+   * 站点 LOGO
+   */
+  logo?: TElement;
+  /**
+   * 导航操作区域
+   */
+  operations?: TElement;
+  /**
    * null
    * @default light
    */
   theme?: 'light' | 'dark';
+  /**
+   * 激活菜单项
+   */
+  value?: MenuValue;
+  /**
+   * 激活菜单项，非受控属性
+   */
+  defaultValue?: MenuValue;
   /**
    * 激活菜单项发生变化时触发
    */
@@ -119,23 +132,22 @@ export interface TdSubmenuProps {
   /**
    * 二级菜单内容
    */
-  title?: TElement;
+  title?: TNode;
   /**
    * 菜单项唯一标识
-   * @default ''
    */
-  value?: string;
+  value?: MenuValue;
 };
 
 export interface TdMenuItemProps {
   /**
    * 菜单项内容，同 content
    */
-  children?: TElement;
+  children?: TNode;
   /**
    * 菜单项内容
    */
-  content?: TElement;
+  content?: TNode;
   /**
    * 是否禁用菜单项展开/收起/跳转等功能
    */
@@ -146,31 +158,24 @@ export interface TdMenuItemProps {
    */
   href?: string;
   /**
-   * 路由跳转是否采用覆盖的方式（覆盖后将没有浏览器历史记录）
-   * @default false
+   * 图标
    */
-  replace?: boolean;
-  /**
-   * 路由对象。如果项目存在 Router，则默认使用 Router。
-   */
-  router?: Record<string, any>;
+  icon?: TElement;
   /**
    * 链接或路由跳转方式
    */
   target?: '_blank' | '_self' | '_parent' | '_top';
   /**
-   * 路由跳转目标，当且仅当 Router 存在时，该 API 有效
-   */
-  to?: Route;
-  /**
    * 菜单项唯一标识
-   * @default ''
    */
-  value?: string;
+  value?: MenuValue;
+};
+
+export interface TdMenuGroupProps {
+  /**
+   * 菜单组标题
+   */
+  title?: TNode;
 };
 
 export type MenuValue = string | number;
-
-export interface Route { path?: string; name?: string; hash?: string; query?: Data; params?: Data };
-
-export type Data = { [key: string]: string | string[] };

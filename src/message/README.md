@@ -2,18 +2,18 @@
 
 ### 可关闭
 
-{{ MessageClose }}
+{{ close }}
 
 ### 不同类型的Message
 
-{{ MessageMethods }}
+{{ methods }}
 ### 带位置偏移 offset 的Message
 
-{{ MessageOffset }}
+{{ offset }}
 
 ### 带duration的Message 可关闭单个Message，可关闭所有Message
 
-{{ MessageDuration }}
+{{ duration }}
 
 :: BASE_PROPS ::
 

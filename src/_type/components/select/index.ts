@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-26 11:16:52
+ * updated at 2021-06-02 17:34:44
  * */
 
-import { PopupProps } from '../../../../src/popup';
-import { TNode, TElement, SizeEnum } from '../../common';
 import { MouseEvent, FocusEvent } from 'react';
+import { PopupProps } from '../../../popup';
+import { TNode, TElement, SizeEnum } from '../../common';
 
 export interface TdSelectProps<SelectOption extends Options = Options> {
   /**

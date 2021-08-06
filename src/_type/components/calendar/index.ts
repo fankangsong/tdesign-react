@@ -1,13 +1,13 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-26 11:16:52
+ * updated at 2021-06-02 17:34:44
  * */
 
-import { RadioGroupProps } from '../../../../src/radio';
-import { ButtonProps } from '../../../../src/button';
-import { SelectProps } from '../../../../src/select';
-import { TNode } from '../../common';
 import { MouseEvent } from 'react';
+import { RadioGroupProps } from '../../../radio';
+import { ButtonProps } from '../../../button';
+import { SelectProps } from '../../../select';
+import { TNode } from '../../common';
 
 export interface TdCalendarProps {
   /**

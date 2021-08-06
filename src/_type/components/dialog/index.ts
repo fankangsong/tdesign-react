@@ -1,11 +1,11 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-26 11:16:52
+ * updated at 2021-06-02 17:34:44
  * */
 
-import { ButtonProps } from '../../../../src/button';
-import { TNode, ClassName, Styles, AttachNode } from '../../common';
 import { MouseEvent, KeyboardEvent } from 'react';
+import { ButtonProps } from '../../../button';
+import { TNode, ClassName, Styles, AttachNode } from '../../common';
 
 export interface TdDialogProps {
   /**

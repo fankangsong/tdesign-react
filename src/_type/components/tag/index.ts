@@ -1,10 +1,12 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-05-26 11:16:52
+ * updated at 2021-07-22 11:20:14
  * */
 
-import { TNode, TElement, SizeEnum } from '../../common';
 import { CSSProperties, MouseEvent } from 'react';
+import { TNode, TElement, SizeEnum } from '../../common';
 
 export interface TdTagProps {
   /**
@@ -38,7 +40,7 @@ export interface TdTagProps {
    * 组件风格，用于描述组件不同的应用场景
    * @default default
    */
-  theme?: 'default' | 'primary' | 'info' | 'warning' | 'danger' | 'success';
+  theme?: 'default' | 'primary' | 'warning' | 'danger' | 'success';
   /**
    * 影响标签风格（theme）
    * @default dark

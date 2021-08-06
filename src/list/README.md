@@ -2,14 +2,14 @@
 
 ### 斑马纹区分列表
 
-{{ BasicListStripe }}
+{{ stripe }}
 
 ### 列表尺寸
 
-{{ ListSizeable }}
+{{ size }}
 
 ### 滚动事件
 
-{{ ListWithScroll }}
+{{ scroll }}
 
 :: BASE_PROPS ::
