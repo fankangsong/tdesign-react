@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-08-09 19:21:18
  * */
 
 import { TNode, TElement, SizeEnum } from '../../common';
@@ -16,7 +18,7 @@ export interface TdButtonProps {
    */
   children?: TNode;
   /**
-   * 按钮内容，同 default
+   * 按钮内容
    */
   content?: TNode;
   /**
@@ -25,7 +27,7 @@ export interface TdButtonProps {
    */
   disabled?: boolean;
   /**
-   * 是否为幽灵按钮
+   * 是否为幽灵按钮（镂空按钮）
    * @default false
    */
   ghost?: boolean;
@@ -49,10 +51,9 @@ export interface TdButtonProps {
    */
   size?: SizeEnum;
   /**
-   * 组件主题风格，默认、主色、危险
-   * @default default
+   * 组件风格，依次为默认色、品牌色、危险色、警告色、成功色
    */
-  theme?: 'default' | 'primary' | 'danger';
+  theme?: 'default' | 'primary' | 'danger' | 'warning' | 'success';
   /**
    * 按钮类型
    * @default button
