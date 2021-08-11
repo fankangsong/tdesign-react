@@ -64,8 +64,11 @@ export interface TdPopconfirmProps {
    * 点击确认按钮时触发
    */
   onConfirm?: (options: { e: MouseEvent<HTMLDivElement | HTMLButtonElement> }) => void;
-};
+}
 
-export interface ChangeContext { trigger: TriggerSource; e: MouseEvent<HTMLDivElement> };
+export interface ChangeContext {
+  trigger: TriggerSource;
+  e: MouseEvent<HTMLDivElement>;
+}
 
 export type TriggerSource = 'cancel' | 'confirm';

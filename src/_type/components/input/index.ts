@@ -112,6 +112,6 @@ export interface TdInputProps {
    * 释放键盘时触发
    */
   onKeyup?: (value: InputValue, context: { e: KeyboardEvent<HTMLDivElement> }) => void;
-};
+}
 
 export type InputValue = string | number;

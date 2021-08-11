@@ -43,7 +43,7 @@ export interface TdStepsProps {
    * 当前步骤发生变化时触发
    */
   onChange?: (current: string | number, previous: string | number) => void;
-};
+}
 
 export interface TdStepItemProps {
   /**
@@ -72,6 +72,6 @@ export interface TdStepItemProps {
    * 当前步骤值
    */
   value?: string | number;
-};
+}
 
 export type StepStatus = 'wait' | 'process' | 'finish' | 'error';

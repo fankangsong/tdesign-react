@@ -43,7 +43,7 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    * 列表为空时呈现的内容。值类型为数组，则表示分别控制源列表和目标列表数据为空的呈现内容
    * @default '暂无数据'
    */
-  empty?: EmptyType | Array<EmptyType> | TNode ;
+  empty?: EmptyType | Array<EmptyType> | TNode;
   /**
    * 穿梭框底部内容
    */
@@ -114,11 +114,14 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    * 搜索时触发，options.query 表示用户输入的内容
    */
   onSearch?: (options: SearchContext) => void;
-};
+}
 
 export type EmptyType = string | TNode;
 
-export interface KeysType { value?: string; label?: string };
+export interface KeysType {
+  value?: string;
+  label?: string;
+}
 
 export type SearchOption = boolean | InputProps;
 
@@ -126,13 +129,30 @@ export type TitleType = string | TNode;
 
 export type TransferListType = 'source' | 'target';
 
-export interface TransferItem<T extends DataOption = DataOption> { data: T; index: number; type: TransferListType};
+export interface TransferItem<T extends DataOption = DataOption> {
+  data: T;
+  index: number;
+  type: TransferListType;
+}
 
-export interface TargetParams { type: TransferListType; movedValue: Array<TransferValue> };
+export interface TargetParams {
+  type: TransferListType;
+  movedValue: Array<TransferValue>;
+}
 
-export interface CheckedOptions { checked: Array<TransferValue>; sourceChecked: Array<TransferValue>; targetChecked: Array<TransferValue>; type: TransferListType };
+export interface CheckedOptions {
+  checked: Array<TransferValue>;
+  sourceChecked: Array<TransferValue>;
+  targetChecked: Array<TransferValue>;
+  type: TransferListType;
+}
 
-export interface SearchContext { query: string; type: TransferListType; trigger: 'input' | 'enter';  e: FormEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement> };
+export interface SearchContext {
+  query: string;
+  type: TransferListType;
+  trigger: 'input' | 'enter';
+  e: FormEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>;
+}
 
 export type DataOption = { label?: string; value?: TransferValue; disabled?: boolean } & Record<string, any>;
 

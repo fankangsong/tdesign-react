@@ -9,7 +9,7 @@ import { SyntheticEvent } from 'react';
 export interface ControlledProps<
   V,
   E extends SyntheticEvent = SyntheticEvent,
-  C extends ChangeContext<E> = ChangeContext<E>
+  C extends ChangeContext<E> = ChangeContext<E>,
 > {
   /**
    * 未提供 `value` 的情况下，提供了 `defaultValue`，则可以当做是非受控组件使用
