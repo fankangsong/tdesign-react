@@ -1,9 +1,12 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-08-10 16:59:54
  * */
 
 import { TNode, ClassName, Styles, AttachNode } from '../../common';
+import { MouseEvent, KeyboardEvent, FocusEvent } from 'react';
 
 export interface TdPopupProps {
   /**
@@ -20,10 +23,10 @@ export interface TdPopupProps {
    */
   content?: TNode;
   /**
-   * 是否在隐藏的时候销毁浮层
+   * 是否在关闭浮层时销毁浮层
    * @default false
    */
-  destroyOnHide?: boolean;
+  destroyOnClose?: boolean;
   /**
    * 是否禁用组件
    * @default false
@@ -36,7 +39,7 @@ export interface TdPopupProps {
   /**
    * 浮层样式
    */
-  overlayStyle?: Styles;
+  overlayStyle?: Styles | ((trigger: HTMLElement) => Styles);
   /**
    * 浮层出现位置
    * @default top
@@ -79,7 +82,17 @@ export interface TdPopupProps {
    */
   defaultVisible?: boolean;
   /**
+   * 组件层级，Web 侧样式默认为 5500，移动端和小程序样式默认为 1500
+   */
+  zIndex?: number;
+  /**
    * 当浮层隐藏或显示时触发
    */
-  onVisibleChange?: (visible: boolean) => void;
-}
+  onVisibleChange?: (visible: boolean, context: PopupVisibleChangeContext) => void;
+};
+
+export interface PopupVisibleChangeContext { e?: PopupTriggerEvent; trigger?: PopupTriggerSource };
+
+export type PopupTriggerEvent = MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>;
+
+export type PopupTriggerSource = 'document' | 'trigger-element-click' | 'trigger-element-hover' | 'trigger-element-blur' | 'trigger-element-focus' | 'context-menu' | 'keydown-esc';

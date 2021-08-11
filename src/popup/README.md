@@ -6,18 +6,31 @@
 
 ### 四种触发方式
 
-支持鼠标移入、点击、聚焦和右键触发
-
 {{ triggers }}
 
-### 支持的 placement
-
-支持上下左右四个方向
+### 位置
 
 {{ placements }}
 
-### 受控组件
+### 自定义样式
+
+{{ overlay-style }}
+
+### 临时禁用
+
+{{ disabled }}
+
+### 显示控制
 
 {{ controlled }}
+
+### 指定挂载父节点
+
+{{ attach }}
+
+
+### 隐藏时销毁
+
+{{ destroy }}
 
 :: BASE_PROPS ::
