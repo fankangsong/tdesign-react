@@ -71,6 +71,6 @@ export interface TdTextareaProps {
    * 释放键盘时触发
    */
   onKeyup?: (value: TextareaValue, context: { e: KeyboardEvent<HTMLTextAreaElement> }) => void;
-};
+}
 
 export type TextareaValue = string | number;

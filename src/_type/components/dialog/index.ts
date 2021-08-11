@@ -147,7 +147,7 @@ export interface TdDialogProps {
    * 如果蒙层存在，点击蒙层时触发
    */
   onOverlayClick?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
-};
+}
 
 export interface DialogOptions extends Omit<TdDialogProps, 'attach'> {
   /**
@@ -163,7 +163,7 @@ export interface DialogOptions extends Omit<TdDialogProps, 'attach'> {
    * 弹框 style 属性
    */
   style?: Styles;
-};
+}
 
 export interface DialogInstance {
   /**
@@ -182,11 +182,14 @@ export interface DialogInstance {
    * 更新弹框内容
    */
   update?: (props: DialogOptions) => void;
-};
+}
 
 export type DialogEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 
-export interface DialogCloseContext { trigger: DialogEventSource; e: MouseEvent<HTMLElement> | KeyboardEvent };
+export interface DialogCloseContext {
+  trigger: DialogEventSource;
+  e: MouseEvent<HTMLElement> | KeyboardEvent;
+}
 
 export type DialogMethod = (options: DialogOptions) => DialogInstance;
 
