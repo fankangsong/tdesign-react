@@ -16,4 +16,4 @@ export interface TdTooltipProps extends PopupProps {
    * @default default
    */
   theme?: 'default' | 'primary' | 'success' | 'danger' | 'warning';
-};
+}

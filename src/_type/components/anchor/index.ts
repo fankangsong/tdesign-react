@@ -40,4 +40,4 @@ export interface TdAnchorProps {
    * 锚点被点击时触发
    */
   onClick?: (link: { href: string; title: string; e: MouseEvent<HTMLDivElement> }) => void;
-};
+}

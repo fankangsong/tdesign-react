@@ -61,4 +61,4 @@ export interface TdSliderProps {
    * 滑块值变化时触发
    */
   onChange?: () => void;
-};
+}
