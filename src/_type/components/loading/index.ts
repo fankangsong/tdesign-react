@@ -1,9 +1,11 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-08-12 09:30:17
  * */
 
-import { TNode, SizeEnum, AttachNode } from '../../common';
+import { TNode, AttachNode } from '../../common';
 
 export interface TdLoadingProps {
   /**
@@ -35,11 +37,12 @@ export interface TdLoadingProps {
    */
   indicator?: TNode;
   /**
-   * 是否处于加载状态，作为包裹元素时有效
+   * 是否处于加载状态
+   * @default true
    */
   loading?: boolean;
   /**
-   * 是否需要防止滚动穿透
+   * 防止滚动穿透
    * @default true
    */
   preventScrollThrough?: boolean;
@@ -52,11 +55,17 @@ export interface TdLoadingProps {
    * 尺寸
    * @default medium
    */
-  size?: SizeEnum;
+  size?: 'small' | 'medium' | 'large';
   /**
    * 加载提示文案
    */
   text?: TNode;
-}
+  /**
+   * 消息通知层级，样式默认为 3500
+   */
+  zIndex?: number;
+};
 
-export type LoadingMethod = (options: boolean | TdLoadingProps) => void;
+export interface LoadingInstance { hide: () => void };
+
+export type LoadingMethod = (options: boolean | TdLoadingProps) => LoadingInstance;
