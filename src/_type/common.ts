@@ -18,7 +18,6 @@ export type FormResetEvent = FormEvent<HTMLFormElement>;
 export type FormSubmitEvent = FormEvent<HTMLFormElement>;
 
 export type Styles = CSSProperties;
-
 /** 通用全局变量 */
 
 export type OptionData = {
