@@ -2,10 +2,11 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-07-28 10:40:02
+ * updated at 2021-08-13 16:57:43
  * */
 
 import { TNode, TElement } from '../../common';
+import { MouseEvent } from 'react';
 
 export interface TdMenuProps {
   /**
@@ -169,6 +170,10 @@ export interface TdMenuItemProps {
    * 菜单项唯一标识
    */
   value?: MenuValue;
+  /**
+   * 点击时触发
+   */
+  onClick?: (context: { e: MouseEvent<HTMLElement> }) => void;
 };
 
 export interface TdMenuGroupProps {

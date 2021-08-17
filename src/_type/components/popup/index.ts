@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 16:59:54
+ * updated at 2021-08-12 09:29:05
  * */
 
 import { TNode, ClassName, Styles, AttachNode } from '../../common';
@@ -44,19 +44,7 @@ export interface TdPopupProps {
    * 浮层出现位置
    * @default top
    */
-  placement?:
-    | 'top'
-    | 'left'
-    | 'right'
-    | 'bottom'
-    | 'top-left'
-    | 'top-right'
-    | 'bottom-left'
-    | 'bottom-right'
-    | 'left-top'
-    | 'left-bottom'
-    | 'right-top'
-    | 'right-bottom';
+  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
   /**
    * 是否显示浮层箭头
    * @default false
@@ -66,7 +54,7 @@ export interface TdPopupProps {
    * 触发浮层出现的方式
    * @default hover
    */
-  trigger?: 'hover' | 'click' | 'focus' | 'context-menu' | 'manual';
+  trigger?: 'hover' | 'click' | 'focus' | 'context-menu';
   /**
    * 触发元素
    */
