@@ -1,13 +1,15 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-08-17 20:26:38
  * */
 
-import { MouseEvent } from 'react';
 import { RadioGroupProps } from '../../../radio';
 import { ButtonProps } from '../../../button';
 import { SelectProps } from '../../../select';
 import { TNode } from '../../common';
+import { MouseEvent } from 'react';
 
 export interface TdCalendarProps {
   /**
@@ -66,6 +68,10 @@ export interface TdCalendarProps {
    */
   value?: CalendarValue;
   /**
+   * 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：({ day }) => '周' + day
+   */
+  week?: Array<string> | TNode<CalendarWeek>;
+  /**
    * 日历单元格点击时触发
    */
   onCellClick?: (options: { cell: CalendarCell; e: MouseEvent<HTMLDivElement> }) => void;
@@ -81,11 +87,11 @@ export interface TdCalendarProps {
    * 右上角控件组选中值有变化的时候触发
    */
   onControllerChange?: (options: ControllerOptions) => void;
-}
+};
 
 export interface CalendarController {
   /**
-   * “今天\本月”按钮控制器
+   * “今天(本月)”按钮控制器
    */
   current?: { visible?: boolean; currentDayButtonProps?: ButtonProps; currentMonthButtonProps?: ButtonProps };
   /**
@@ -109,7 +115,7 @@ export interface CalendarController {
    * 日历年份控制器
    */
   year?: { visible?: boolean; selectProps?: SelectProps };
-}
+};
 
 export interface CalendarCell extends ControllerOptions {
   /**
@@ -137,13 +143,12 @@ export interface CalendarCell extends ControllerOptions {
    * 日期在本月的第几周（日历展示维度是“月”时有值）
    */
   weekOrder?: number;
-}
+};
 
 export type CalendarValue = string | Date;
 
-export interface ControllerOptions {
-  filterDate: Date;
-  formattedFilterDate: string;
-  mode: string;
-  isShowWeekend: boolean;
-}
+export interface CalendarWeek { day: WeekDay };
+
+export type WeekDay = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
+export interface ControllerOptions { filterDate: Date; formattedFilterDate: string; mode: string; isShowWeekend: boolean };
