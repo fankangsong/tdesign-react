@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-17 20:01:50
+ * updated at 2021-08-25 20:05:32
  * */
 
 import { CheckboxProps } from '../../../checkbox';
@@ -170,7 +170,7 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
   /**
    * 节点展开或收起时触发
    */
-  onExpand?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
+  onExpand?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<DataOption> }) => void;
   /**
    * 异步加载后触发
    */
