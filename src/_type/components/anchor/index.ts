@@ -1,17 +1,19 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-08-25 16:21:28
  * */
 
+import { AffixProps } from '../../../affix';
+import { TNode, ScrollContainer } from '../../common';
 import { MouseEvent } from 'react';
-import { ScrollContainer } from '../../common';
 
 export interface TdAnchorProps {
   /**
-   * 固定模式
-   * @default false
+   * 透传 Affix 组件属性，即让 Anchor 组件支持所有 Affix 组件特性
    */
-  affix?: boolean;
+  affixProps?: AffixProps;
   /**
    * 锚点区域边界
    * @default 5
@@ -23,7 +25,7 @@ export interface TdAnchorProps {
    */
   container?: ScrollContainer;
   /**
-   * 组件尺寸
+   * 组件尺寸，small(120px)，medium(200px)，large(320px)
    * @default medium
    */
   size?: 'small' | 'medium' | 'large';
@@ -40,4 +42,35 @@ export interface TdAnchorProps {
    * 锚点被点击时触发
    */
   onClick?: (link: { href: string; title: string; e: MouseEvent<HTMLDivElement> }) => void;
-}
+};
+
+export interface TdAnchorTargetProps {
+  /**
+   * 目标内容 id
+   * @default ''
+   */
+  id: string;
+  /**
+   * 渲染的标签
+   * @default div
+   */
+  tag?: string;
+};
+
+export interface TdAnchorItemProps {
+  /**
+   * 锚点链接, 如果是 hash 模式需要加上当前 path
+   * @default ''
+   */
+  href: string;
+  /**
+   * 锚点文本
+   * @default _self
+   */
+  target?: '_self' | '_blank' | '_parent' | '_top';
+  /**
+   * 锚点文本
+   * @default ''
+   */
+  title?: TNode;
+};
