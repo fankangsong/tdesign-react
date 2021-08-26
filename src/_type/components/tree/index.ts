@@ -1,11 +1,13 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-08-25 20:05:32
  * */
 
-import { MouseEvent } from 'react';
 import { CheckboxProps } from '../../../checkbox';
 import { TNode, TreeOptionData } from '../../common';
+import { MouseEvent } from 'react';
 
 export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData> {
   /**
@@ -51,7 +53,7 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
   disabled?: boolean;
   /**
    * 数据为空时展示的文本
-   * @default '暂无数据'
+   * @default ''
    */
   empty?: TNode;
   /**
@@ -105,7 +107,7 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
   /**
    * 用来定义 value / label / children 在 `options` 中对应的字段别名
    */
-  keys?: KeysType;
+  keys?: TreeKeysType;
   /**
    * 自定义节点内容，值为 false 不显示，值为 true 显示默认 label，值为字符串直接输出该字符串
    * @default true
@@ -162,17 +164,18 @@ export interface TdTreeProps<DataOption extends TreeOptionData = TreeOptionData>
    */
   onClick?: (context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> }) => void;
   /**
+   * 数据变化时触发
+   */
+  onDataChange?: (data: DataOption) => void;
+  /**
    * 节点展开或收起时触发
    */
-  onExpand?: (
-    value: Array<TreeNodeValue>,
-    context: { node: TreeNodeModel<DataOption>; e: MouseEvent<HTMLDivElement> },
-  ) => void;
+  onExpand?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<DataOption> }) => void;
   /**
    * 异步加载后触发
    */
   onLoad?: (context: { node: TreeNodeModel<DataOption> }) => void;
-}
+};
 
 /** 组件实例方法 */
 export interface TreeInstanceFunctions<DataOption extends TreeOptionData = TreeOptionData> {
@@ -282,7 +285,7 @@ export interface TreeNodeState {
    * @default false
    */
   visible?: boolean;
-}
+};
 
 export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionData> extends TreeNodeState {
   /**
@@ -365,12 +368,8 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
    * 是否为叶子节点
    */
   isLeaf: () => boolean;
-}
+};
 
-export interface KeysType {
-  value?: string;
-  label?: string;
-  children?: string;
-}
+export interface TreeKeysType { value?: string; label?: string; children?: string };
 
 export type TreeNodeValue = string | number;
