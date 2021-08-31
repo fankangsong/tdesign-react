@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-30 16:17:39
+ * updated at 2021-08-31 16:25:23
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -75,7 +75,7 @@ export interface TdFormProps<FormData extends Data = Data> {
    * 表单提交时触发。其中 validateResult 表示校验结果，firstError 表示校验不通过的第一个规则提醒
    */
   onSubmit?: (context: SubmitContext<FormData>) => void;
-};
+}
 
 export interface TdFormItemProps {
   /**
@@ -111,7 +111,7 @@ export interface TdFormItemProps {
    * 校验状态图标。优先级高级 Form 的 statusIcon
    */
   statusIcon?: TNode;
-};
+}
 
 export interface FormRule {
   /**
@@ -185,7 +185,7 @@ export interface FormRule {
    * 自定义校验规则
    */
   validator?: CustomValidator;
-};
+}
 
 export interface FormInstance {
   /**
@@ -203,14 +203,18 @@ export interface FormInstance {
   /**
    * 设置表单字段值
    */
-  setFieldsValue?: (filed: FieldOption) => void;
+  setFieldsValue?: (field: FieldOption) => void;
   /**
    * 校验
    */
   validate?: () => ValidateResult<{ [key: string]: boolean | ErrorList }>;
-};
+}
 
-export interface SubmitContext<T extends Data = Data> { e?: FormSubmitEvent; validateResult: FormValidateResult<T>; firstError?: string };
+export interface SubmitContext<T extends Data = Data> {
+  e?: FormSubmitEvent;
+  validateResult: FormValidateResult<T>;
+  firstError?: string;
+}
 
 export type FormValidateResult<T> = boolean | ValidateResult<T>;
 
@@ -222,10 +226,18 @@ export type ValueType = any;
 
 export type Data = { [key: string]: any };
 
-export interface IsDateOptions { format: string; strictMode: boolean; delimiters: string[] };
+export interface IsDateOptions {
+  format: string;
+  strictMode: boolean;
+  delimiters: string[];
+}
 
 export type CustomValidator = (val: ValueType) => boolean | Promise<boolean>;
 
-export interface FieldData { name: string; value: unknown, status: string };
+export interface FieldData {
+  name: string;
+  value: unknown;
+  status: string;
+}
 
-export interface FieldOption { field: string; value: unknown };
+export type FieldOption = Record<string, unknown>;
