@@ -1,12 +1,12 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-09-02 18:32:40
  * */
 
-import { FocusEvent, FormEvent } from 'react';
 import { InputProps } from '../../../input';
 import { PopupProps } from '../../../popup';
 import { TElement } from '../../common';
+import { FocusEvent, FormEvent } from 'react';
 
 export interface TdDatePickerProps {
   /**
@@ -89,7 +89,7 @@ export interface TdDatePickerProps {
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { value: DateValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (context: { value: DateValue; e: FocusEvent<HTMLInputElement> }) => void;
   /**
    * 选中值发生变化时触发
    */
@@ -97,12 +97,12 @@ export interface TdDatePickerProps {
   /**
    * 输入框获得焦点时触发
    */
-  onFocus?: (context: { value: DateValue; e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (context: { value: DateValue; e: FocusEvent<HTMLInputElement> }) => void;
   /**
    * 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
-  onInput?: (context: { input: string; value: DateValue; e: FormEvent<HTMLDivElement> }) => void;
-}
+  onInput?: (context: { input: string; value: DateValue; e: FormEvent<HTMLInputElement> }) => void;
+};
 
 export interface TdDateRangePickerProps {
   /**
@@ -171,7 +171,7 @@ export interface TdDateRangePickerProps {
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { value: DateRangeValue; partial: Partial; e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发
    */
@@ -179,38 +179,26 @@ export interface TdDateRangePickerProps {
   /**
    * 输入框获得焦点时触发
    */
-  onFocus?: (context: { value: DateRangeValue; partial: Partial; e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
-  onInput?: (context: { input: string; value: DateRangeValue; partial: Partial; e: FormEvent<HTMLDivElement> }) => void;
-}
+  onInput?: (context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: FormEvent<HTMLDivElement> }) => void;
+};
 
 export type DisableDate = Array<DateValue> | DisableDateObj | ((date: DateValue) => boolean);
 
-export interface DisableDateObj {
-  from?: string;
-  to?: string;
-  before?: string;
-  after?: string;
-}
+export interface DisableDateObj { from?: string; to?: string; before?: string; after?: string };
 
-export interface PresetDate {
-  [name: string]: DateValue | (() => DateValue);
-}
+export interface PresetDate { [name: string]: DateValue | (() => DateValue) };
 
 export type DateValue = string | Date | Array<DateValue>;
 
-export type DisableRangeDate =
-  | Array<DateValue>
-  | DisableDateObj
-  | ((context: { date: DateRangeValue; partial: Partial }) => boolean);
+export type DisableRangeDate = Array<DateValue> | DisableDateObj | ((context: { date: DateRangeValue; partial: DateRangePickerPartial }) => boolean);
 
-export type Partial = 'start' | 'end';
+export type DateRangePickerPartial = 'start' | 'end';
 
-export interface PresetRange {
-  [range: string]: DateRange | (() => DateRange);
-}
+export interface PresetRange { [range: string]: DateRange | (() => DateRange)};
 
 export type DateRange = [DateValue, DateValue];
 
