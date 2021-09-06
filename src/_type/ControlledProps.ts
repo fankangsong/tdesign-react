@@ -1,4 +1,4 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, FormEvent, MouseEvent } from 'react';
 
 /**
  * 表单受控组件中，输入输出的统一规范
@@ -8,7 +8,7 @@ import { SyntheticEvent } from 'react';
  */
 export interface ControlledProps<
   V,
-  E extends SyntheticEvent = SyntheticEvent,
+  E extends SyntheticEvent = SyntheticEvent | FormEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
   C extends ChangeContext<E> = ChangeContext<E>,
 > {
   /**
@@ -36,5 +36,6 @@ export interface ChangeContext<E extends SyntheticEvent = SyntheticEvent> {
   /**
    * 触发 `onChange` 事件的事件对象
    */
-  event: E;
+  event?: E;
+  e?: E;
 }
