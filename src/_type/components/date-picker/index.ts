@@ -3,10 +3,10 @@
  * updated at 2021-09-02 18:32:40
  * */
 
+import { FocusEvent, FormEvent } from 'react';
 import { InputProps } from '../../../input';
 import { PopupProps } from '../../../popup';
 import { TElement } from '../../common';
-import { FocusEvent, FormEvent } from 'react';
 
 export interface TdDatePickerProps {
   /**
@@ -102,7 +102,7 @@ export interface TdDatePickerProps {
    * 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
   onInput?: (context: { input: string; value: DateValue; e: FormEvent<HTMLInputElement> }) => void;
-};
+}
 
 export interface TdDateRangePickerProps {
   /**
@@ -179,26 +179,47 @@ export interface TdDateRangePickerProps {
   /**
    * 输入框获得焦点时触发
    */
-  onFocus?: (context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (context: {
+    value: DateRangeValue;
+    partial: DateRangePickerPartial;
+    e: FocusEvent<HTMLDivElement>;
+  }) => void;
   /**
    * 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
-  onInput?: (context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: FormEvent<HTMLDivElement> }) => void;
-};
+  onInput?: (context: {
+    input: string;
+    value: DateRangeValue;
+    partial: DateRangePickerPartial;
+    e: FormEvent<HTMLDivElement>;
+  }) => void;
+}
 
 export type DisableDate = Array<DateValue> | DisableDateObj | ((date: DateValue) => boolean);
 
-export interface DisableDateObj { from?: string; to?: string; before?: string; after?: string };
+export interface DisableDateObj {
+  from?: string;
+  to?: string;
+  before?: string;
+  after?: string;
+}
 
-export interface PresetDate { [name: string]: DateValue | (() => DateValue) };
+export interface PresetDate {
+  [name: string]: DateValue | (() => DateValue);
+}
 
 export type DateValue = string | Date | Array<DateValue>;
 
-export type DisableRangeDate = Array<DateValue> | DisableDateObj | ((context: { date: DateRangeValue; partial: DateRangePickerPartial }) => boolean);
+export type DisableRangeDate =
+  | Array<DateValue>
+  | DisableDateObj
+  | ((context: { date: DateRangeValue; partial: DateRangePickerPartial }) => boolean);
 
 export type DateRangePickerPartial = 'start' | 'end';
 
-export interface PresetRange { [range: string]: DateRange | (() => DateRange)};
+export interface PresetRange {
+  [range: string]: DateRange | (() => DateRange);
+}
 
 export type DateRange = [DateValue, DateValue];
 
