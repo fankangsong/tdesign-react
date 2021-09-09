@@ -1,10 +1,12 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-09-09 11:44:25
  * */
 
-import { ChangeEvent } from 'react';
 import { TNode, SizeEnum } from '../../common';
+import { ChangeEvent } from 'react';
 
 export interface TdRadioProps {
   /**
@@ -16,9 +18,17 @@ export interface TdRadioProps {
    */
   defaultChecked?: boolean;
   /**
+   * 单选内容，同 label
+   */
+  children?: TNode;
+  /**
    * 是否为禁用态
    */
   disabled?: boolean;
+  /**
+   * 主文案
+   */
+  label?: TNode;
   /**
    * HTM 元素原生属性
    * @default ''
@@ -36,8 +46,9 @@ export interface TdRadioProps {
 
 export interface TdRadioGroupProps {
   /**
-   * 单选组件按钮形式
+   * 单选组件按钮形式（请使用 variant 代替）
    * @default outline
+   * @deprecated
    */
   buttonStyle?: 'outline' | 'solid';
   /**
@@ -67,9 +78,14 @@ export interface TdRadioGroupProps {
    */
   defaultValue?: RadioValue;
   /**
+   * 单选组件按钮形式
+   * @default outline
+   */
+  variant?: 'outline' | 'primary-filled' | 'default-filled';
+  /**
    * 选中值发生变化时触发
    */
-  onChange?: (value: RadioValue, context: { e: ChangeEvent<HTMLDivElement> }) => void;
+  onChange?: (value: RadioValue, context: { e: ChangeEvent<HTMLInputElement> }) => void;
 }
 
 export type RadioValue = string | number;
@@ -77,7 +93,7 @@ export type RadioValue = string | number;
 export type RadioOption = string | number | RadioOptionObj;
 
 export interface RadioOptionObj {
-  label: string | TNode;
-  value: string | number;
+  label?: string | TNode;
+  value?: string | number;
   disabled?: boolean;
 }

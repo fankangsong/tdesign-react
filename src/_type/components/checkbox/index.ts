@@ -1,12 +1,19 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-09-09 11:46:20
  * */
 
-import { ChangeEvent } from 'react';
 import { TNode } from '../../common';
+import { ChangeEvent } from 'react';
 
 export interface TdCheckboxProps {
+  /**
+   * 用于标识是否为「全选选项」
+   * @default false
+   */
+  checkAll?: boolean;
   /**
    * 是否选中
    * @default false
@@ -18,6 +25,10 @@ export interface TdCheckboxProps {
    */
   defaultChecked?: boolean;
   /**
+   * 复选框内容，同 label
+   */
+  children?: TNode;
+  /**
    * 是否禁用组件
    */
   disabled?: boolean;
@@ -26,6 +37,10 @@ export interface TdCheckboxProps {
    * @default false
    */
   indeterminate?: boolean;
+  /**
+   * 主文案
+   */
+  label?: TNode;
   /**
    * HTM 元素原生属性
    * @default ''
@@ -53,12 +68,16 @@ export interface TdCheckboxGroupProps {
    */
   disabled?: boolean;
   /**
+   * 支持最多选中的数量
+   */
+  max?: number;
+  /**
    * 统一设置内部复选框 HTML 属性
    * @default ''
    */
   name?: string;
   /**
-   * 以配置形式设置子元素。当 CheckboxOption 类型为 string 或 number 时，表示 label 和 value 值相同。checkAll 值为 true 表示当前选项为「全选选项」
+   * 以配置形式设置子元素。示例1：['北京', '上海'] ，示例2: [{ label: '全选', checkAll: true }, { label: '上海', value: 'shanghai' }]。checkAll 值为 true 表示当前选项为「全选选项」
    * @default []
    */
   options?: Array<CheckboxOption>;
