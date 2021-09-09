@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-09-08 10:57:50
  * */
 
 import { MouseEvent, FocusEvent, FormEvent } from 'react';
@@ -52,21 +54,18 @@ export interface TdTimePickerProps {
   steps?: Array<string | number>;
   /**
    * 选中值
+   * @default ''
    */
   value?: TimePickerValue;
   /**
    * 选中值，非受控属性
+   * @default ''
    */
   defaultValue?: TimePickerValue;
   /**
    * 当输入框失去焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头
    */
-  onBlur?: (context: {
-    trigger: 'hour' | 'minute' | 'second';
-    input: string;
-    value: TimePickerValue;
-    e: FocusEvent<HTMLDivElement>;
-  }) => void;
+  onBlur?: (context: { trigger: 'hour' | 'minute' | 'second'; input: string; value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发
    */
@@ -78,12 +77,7 @@ export interface TdTimePickerProps {
   /**
    * 输入框获得焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头
    */
-  onFocus?: (context: {
-    trigger: 'hour' | 'minute' | 'second';
-    input: string;
-    value: TimePickerValue;
-    e: FocusEvent<HTMLDivElement>;
-  }) => void;
+  onFocus?: (context: { trigger: 'hour' | 'minute' | 'second'; input: string; value: TimePickerValue; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 当输入框内容发生变化时触发，参数 input 表示输入框内容，value 表示组件当前有效值
    */
@@ -92,7 +86,7 @@ export interface TdTimePickerProps {
    * 面板打开时触发
    */
   onOpen?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
-}
+};
 
 export interface TdTimeRangePickerProps {
   /**
@@ -113,7 +107,7 @@ export interface TdTimeRangePickerProps {
   /**
    * 禁用时间项
    */
-  disableTime?: (h: number, m: number, s: number, context: { partial: Partial }) => boolean;
+  disableTime?: (h: number, m: number, s: number, context: { partial: TimeRangePickerPartial }) => boolean;
   /**
    * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default 'HH:mm:ss'
@@ -135,7 +129,7 @@ export interface TdTimeRangePickerProps {
   size?: 'small' | 'medium' | 'large';
   /**
    * 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']
-   * @default [1, 1, 1]
+   * @default () => [1, 1, 1]
    */
   steps?: Array<string | number>;
   /**
@@ -162,10 +156,10 @@ export interface TdTimeRangePickerProps {
    * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
   onInput?: (context: { input: string; value: TimeRangeValue; e: FormEvent<HTMLDivElement> }) => void;
-}
+};
 
 export type TimePickerValue = string;
 
-export type Partial = 'start' | 'end';
+export type TimeRangePickerPartial = 'start' | 'end';
 
 export type TimeRangeValue = Array<string>;
