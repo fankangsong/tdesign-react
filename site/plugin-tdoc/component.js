@@ -19,7 +19,9 @@ export default (mdSegment, demoDefsStr, demoCodesDefsStr) => {
       const tdDocHeader = useRef();
       const tdDocTabs = useRef();
       const tdContributors = useRef();
-      const { isComponent, contributors, docType } = props;
+      const { contributors, docType } = props;
+
+      const isComponent  = ${mdSegment.isComponent};
 
       const location = useLocation();
 
