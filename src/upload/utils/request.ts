@@ -22,6 +22,7 @@ export default function request({
   Object.keys(sendData).forEach((key) => {
     formData.append(key, data[key]);
   });
+
   formData.append(name, file.raw);
 
   xhr.open('post', action, true);
@@ -33,13 +34,15 @@ export default function request({
 
   xhr.onerror = (event: ProgressEvent) => onError({ event, file });
 
-  xhr.onprogress = function (event: ProgressEvent) {
-    let percent = 0;
-    if (event.total > 0) {
-      percent = Math.round((event.loaded / event.total) * 100);
-    }
-    onProgress({ event, percent, file });
-  };
+  if (xhr.upload) {
+    xhr.upload.onprogress = function (event: ProgressEvent) {
+      let percent = 0;
+      if (event.total > 0) {
+        percent = Math.round((event.loaded / event.total) * 100);
+      }
+      onProgress({ event, percent, file });
+    };
+  }
 
   xhr.onload = function (event: ProgressEvent) {
     let response;
