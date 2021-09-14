@@ -1,12 +1,13 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:38
+ * updated at 2021-08-31 16:25:23
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
 import { IsURLOptions } from 'validator/es/lib/isURL';
-import { FormEvent } from 'react';
-import { TNode } from '../../common';
+import { TNode, FormResetEvent, FormSubmitEvent } from '../../common';
 
 export interface TdFormProps<FormData extends Data = Data> {
   /**
@@ -20,7 +21,8 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   labelAlign?: 'left' | 'right' | 'top';
   /**
-   * 可以整体设置label标签宽度
+   * 可以整体设置label标签宽度，默认遵循一份栅格占比： calc(1 / 12 * 100%)
+   * @default 'calc(1 / 12 * 100%)'
    */
   labelWidth?: string | number;
   /**
@@ -68,11 +70,11 @@ export interface TdFormProps<FormData extends Data = Data> {
   /**
    * 表单重置时触发
    */
-  onReset?: (params: { e: FormEvent<HTMLFormElement> }) => void;
+  onReset?: (context: { e?: FormResetEvent }) => void;
   /**
-   * 表单提交时触发
+   * 表单提交时触发。其中 validateResult 表示校验结果，firstError 表示校验不通过的第一个规则提醒
    */
-  onSubmit?: (params: { e: FormEvent<HTMLFormElement>; validateResult: FormValidateResult<FormData> }) => void;
+  onSubmit?: (context: SubmitContext<FormData>) => void;
 }
 
 export interface TdFormItemProps {
@@ -117,11 +119,11 @@ export interface FormRule {
    */
   boolean?: boolean;
   /**
-   * 内置校验方法，校验值是否为日期格式
+   * 内置校验方法，校验值是否为日期格式，[参数文档](https://github.com/validatorjs/validator.js)
    */
   date?: boolean | IsDateOptions;
   /**
-   * 内置校验方法，校验值是否为邮件格式
+   * 内置校验方法，校验值是否为邮件格式，[参数文档](https://github.com/validatorjs/validator.js)
    */
   email?: boolean | IsEmailOptions;
   /**
@@ -176,7 +178,7 @@ export interface FormRule {
    */
   type?: 'error' | 'warning';
   /**
-   * 内置校验方法，校验值是否为网络链接地址
+   * 内置校验方法，校验值是否为网络链接地址，[参数文档](https://github.com/validatorjs/validator.js)
    */
   url?: boolean | IsURLOptions;
   /**
@@ -195,13 +197,23 @@ export interface FormInstance {
    */
   getFieldValue?: (field: string) => unknown;
   /**
+   * 设置多组字段状态
+   */
+  setFields?: (fields: FieldData[]) => void;
+  /**
    * 设置表单字段值
    */
-  setFieldValue?: (FieldOption) => void;
+  setFieldsValue?: (field: FieldOption) => void;
   /**
-   * 校验（FormInstance 由 React 自行扩展）
+   * 校验
    */
   validate?: () => ValidateResult<{ [key: string]: boolean | ErrorList }>;
+}
+
+export interface SubmitContext<T extends Data = Data> {
+  e?: FormSubmitEvent;
+  validateResult: FormValidateResult<T>;
+  firstError?: string;
 }
 
 export type FormValidateResult<T> = boolean | ValidateResult<T>;
@@ -222,7 +234,10 @@ export interface IsDateOptions {
 
 export type CustomValidator = (val: ValueType) => boolean | Promise<boolean>;
 
-export interface FieldOption {
-  field: string;
+export interface FieldData {
+  name: string;
   value: unknown;
+  status: string;
 }
+
+export type FieldOption = Record<string, unknown>;

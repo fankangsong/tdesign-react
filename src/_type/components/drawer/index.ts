@@ -1,11 +1,13 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-09-01 20:12:26
  * */
 
-import { MouseEvent, KeyboardEvent } from 'react';
 import { ButtonProps } from '../../../button';
 import { TNode, AttachNode } from '../../common';
+import { MouseEvent, KeyboardEvent } from 'react';
 
 export interface TdDrawerProps {
   /**
@@ -18,8 +20,8 @@ export interface TdDrawerProps {
    */
   body?: TNode;
   /**
-   * 对话框“取消”按钮，可自定义。值为 '' 或 null 则不显示取消按钮
-   * @default '取消'
+   * 取消按钮，可自定义。值为 undefined 或 null 则不显示取消按钮。值类型为 Object 则表示透传 Button 组件属性
+   * @default ''
    */
   cancelBtn?: FooterButton;
   /**
@@ -41,8 +43,8 @@ export interface TdDrawerProps {
    */
   closeOnOverlayClick?: boolean;
   /**
-   * 对话框“确认”按钮，可自定义。值为 '' 或 null 则不显示确认按钮
-   * @default '确认'
+   * 确认按钮，可自定义。值为 undefined 或 null 则不显示确认按钮
+   * @default ''
    */
   confirmBtn?: FooterButton;
   /**
@@ -70,7 +72,7 @@ export interface TdDrawerProps {
    */
   placement?: 'left' | 'right' | 'top' | 'bottom';
   /**
-   * 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示
+   * 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative
    * @default false
    */
   showInAttachedElement?: boolean;
@@ -95,14 +97,13 @@ export interface TdDrawerProps {
    */
   defaultVisible?: boolean;
   /**
-   * 抽屉层级
-   * @default 1500
+   * 抽屉层级，样式默认为 1500
    */
   zIndex?: number;
   /**
    * 如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件
    */
-  onCancel?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  onCancel?: (context: { e: MouseEvent<HTMLDivElement | HTMLButtonElement> }) => void;
   /**
    * 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发
    */
@@ -114,7 +115,7 @@ export interface TdDrawerProps {
   /**
    * 如果“确认”按钮存在，则点击“确认”按钮时触发
    */
-  onConfirm?: (context: { e: MouseEvent<HTMLDivElement> }) => void;
+  onConfirm?: (context: { e: MouseEvent<HTMLDivElement | HTMLButtonElement> }) => void;
   /**
    * 按下 ESC 键时触发
    */
@@ -131,5 +132,5 @@ export type DrawerEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 
 export interface DrawerCloseContext {
   trigger: DrawerEventSource;
-  e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>;
+  e: MouseEvent<HTMLDivElement | HTMLButtonElement> | KeyboardEvent<HTMLDivElement>;
 }
