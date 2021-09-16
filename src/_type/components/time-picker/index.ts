@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-09-08 10:57:50
  * */
 
 import { MouseEvent, FocusEvent, FormEvent } from 'react';
@@ -52,10 +54,12 @@ export interface TdTimePickerProps {
   steps?: Array<string | number>;
   /**
    * 选中值
+   * @default ''
    */
   value?: TimePickerValue;
   /**
    * 选中值，非受控属性
+   * @default ''
    */
   defaultValue?: TimePickerValue;
   /**
@@ -113,7 +117,7 @@ export interface TdTimeRangePickerProps {
   /**
    * 禁用时间项
    */
-  disableTime?: (h: number, m: number, s: number, context: { partial: Partial }) => boolean;
+  disableTime?: (h: number, m: number, s: number, context: { partial: TimeRangePickerPartial }) => boolean;
   /**
    * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default 'HH:mm:ss'
@@ -135,7 +139,7 @@ export interface TdTimeRangePickerProps {
   size?: 'small' | 'medium' | 'large';
   /**
    * 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']
-   * @default [1, 1, 1]
+   * @default () => [1, 1, 1]
    */
   steps?: Array<string | number>;
   /**
@@ -166,6 +170,6 @@ export interface TdTimeRangePickerProps {
 
 export type TimePickerValue = string;
 
-export type Partial = 'start' | 'end';
+export type TimeRangePickerPartial = 'start' | 'end';
 
 export type TimeRangeValue = Array<string>;
