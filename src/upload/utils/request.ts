@@ -40,7 +40,7 @@ export default function request({
       if (event.total > 0) {
         percent = Math.round((event.loaded / event.total) * 100);
       }
-      onProgress({ event, percent, file });
+      onProgress({ e: event, percent, file });
     };
   }
 
@@ -55,7 +55,7 @@ export default function request({
     } catch (e) {
       response = text;
     }
-    onSuccess({ event, file, response });
+    onSuccess({ e: event, file, response });
   };
 
   xhr.send(formData);
