@@ -2,11 +2,11 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-13 11:55:10
+ * updated at 2021-09-16 23:24:46
  * */
 
 import { TNode } from '../../common';
-import { MouseEvent } from 'react';
+import { MouseEvent, DragEvent } from 'react';
 
 export interface TdUploadProps {
   /**
@@ -61,11 +61,11 @@ export interface TdUploadProps {
   /**
    * 用于格式化文件上传后的响应数据。error 用于显示错误提示；url 用于上传文件/图片地址
    */
-  formatResponse?: (response: any) => ResponseType ;
+  formatResponse?: (response: any) => ResponseType;
   /**
    * 设置上传的请求头部
    */
-  headers?: {[key: string]: string};
+  headers?: { [key: string]: string };
   /**
    * 用于控制文件上传数量，值为 0 则不限制
    * @default 0
@@ -92,6 +92,10 @@ export interface TdUploadProps {
    */
   placeholder?: string;
   /**
+   * 图片文件大小限制，单位 Byte
+   */
+  sizeLimit?: number;
+  /**
    * 组件风格。custom 表示完全自定义风格；file 表示默认文件上传风格；file-input 表示输入框形式的文件上传；file-flow 表示文件批量上传；image 表示默认图片上传风格；image-flow 表示图片批量上传
    * @default file
    */
@@ -117,11 +121,11 @@ export interface TdUploadProps {
   /**
    * 进入拖拽区域时触发
    */
-  onDragenter?: (context: { e: DragEvent }) => void;
+  onDragenter?: (context: { e: DragEvent<Element> }) => void;
   /**
    * 拖拽结束时触发
    */
-  onDragleave?: (context: { e: DragEvent }) => void;
+  onDragleave?: (context: { e: DragEvent<Element> }) => void;
   /**
    * 上传失败后触发
    */
@@ -135,14 +139,14 @@ export interface TdUploadProps {
    */
   onProgress?: (options: ProgressContext) => void;
   /**
-   * 上传失败后触发
+   * 移除文件时触发
    */
   onRemove?: (context: UploadRemoveContext) => void;
   /**
    * 上传成功后触发
    */
   onSuccess?: (context: SuccessContext) => void;
-};
+}
 
 export interface UploadFile extends File {
   /**
@@ -174,7 +178,7 @@ export interface UploadFile extends File {
    * 文件上传状态：上传成功，上传失败，上传中，等待上传
    * @default ''
    */
-  status?:  'success' | 'fail' | 'progress' | 'waiting';
+  status?: 'success' | 'fail' | 'progress' | 'waiting';
   /**
    * 文件类型
    * @default ''
@@ -185,16 +189,38 @@ export interface UploadFile extends File {
    * @default ''
    */
   url?: string;
-};
+}
 
 export type ResponseType = { error?: string; url?: string } & Record<string, any>;
 
-export interface TriggerContext { dragActive?: boolean; uploadingFile?: UploadFile | Array<UploadFile> };
+export interface TriggerContext {
+  dragActive?: boolean;
+  uploadingFile?: UploadFile | Array<UploadFile>;
+}
 
-export interface UploadChangeContext { e?: MouseEvent<HTMLDivElement> | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile };
+export interface UploadChangeContext {
+  e?: MouseEvent<HTMLDivElement> | ProgressEvent;
+  response?: any;
+  trigger: string;
+  index?: number;
+  file?: UploadFile;
+}
 
-export interface ProgressContext { e: ProgressEvent; file: UploadFile; percent: number };
+export interface ProgressContext {
+  e: ProgressEvent;
+  file: UploadFile;
+  percent: number;
+}
 
-export interface UploadRemoveContext { index?: number; file?: UploadFile; e: MouseEvent<HTMLDivElement> };
+export interface UploadRemoveContext {
+  index?: number;
+  file?: UploadFile;
+  e: MouseEvent<HTMLDivElement | SVGElement>;
+}
 
-export interface SuccessContext { e: ProgressEvent; file: UploadFile; fileList: UploadFile[]; response: any };
+export interface SuccessContext {
+  e: ProgressEvent;
+  file: UploadFile;
+  fileList: UploadFile[];
+  response: any;
+}
