@@ -236,6 +236,10 @@ export interface ValidateResultType extends FormRule {
   result: boolean;
 }
 
+export type ValidateResult<T> = { [key in keyof T]: boolean | ErrorList };
+
+export type ErrorList = Array<FormRule>;
+
 export type Data = { [key: string]: any };
 
 export interface IsDateOptions {
