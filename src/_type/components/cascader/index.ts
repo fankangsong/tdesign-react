@@ -33,7 +33,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 无匹配选项时的内容
    * @default '暂无数据'
    */
-  empty?: TNode;
+  empty?: string | TNode;
   /**
    * 是否可搜索
    * @default false
@@ -109,7 +109,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent<HTMLDivElement> }) => void;
+  onBlur?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => void;
   /**
    * 选中值发生变化时触发。TreeNodeModel 从树组件中导出
    */
@@ -117,7 +117,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 获得焦点时触发
    */
-  onFocus?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent<HTMLDivElement> }) => void;
+  onFocus?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => void;
   /**
    * 多选模式下，选中数据被移除时触发
    */
