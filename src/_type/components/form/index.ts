@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-31 16:25:23
+ * updated at 2021-09-17 17:20:04
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -98,6 +98,14 @@ export interface TdFormItemProps {
    */
   label?: TNode;
   /**
+   * 表单字段标签对齐方式：左对齐、右对齐、顶部对齐。默认使用 Form 的对齐方式，优先级高于 Form.labelAlign
+   */
+  labelAlign?: 'left' | 'right' | 'top';
+  /**
+   * 可以整体设置标签宽度，优先级高于 Form.labelWidth
+   */
+  labelWidth?: string | number;
+  /**
    * 表单字段名称
    * @default ''
    */
@@ -127,7 +135,7 @@ export interface FormRule {
    */
   email?: boolean | IsEmailOptions;
   /**
-   * 内置校验方法，校验值只能为列出的数据。示例，enum: ['primary', 'info', 'warning']
+   * 内置校验方法，校验值是否属于枚举值中的值。示例，enum: ['primary', 'info', 'warning']
    */
   enum?: Array<string>;
   /**
@@ -173,7 +181,7 @@ export interface FormRule {
    */
   trigger?: 'change' | 'blur';
   /**
-   * 校验未通过时呈现的错误信息类型，有 告警信息提示 和 错误信息提示 两种
+   * 校验未通过时呈现的错误信息类型，有 告警信息提示 和 错误信息提示 等两种
    * @default error
    */
   type?: 'error' | 'warning';
@@ -216,13 +224,21 @@ export interface SubmitContext<T extends Data = Data> {
   firstError?: string;
 }
 
-export type FormValidateResult<T> = boolean | ValidateResult<T>;
+export type FormValidateResult<T> = boolean | ValidateResultObj<T>;
+
+export type ValidateResultObj<T> = { [key in keyof T]: boolean | ValidateResultList };
+
+export type ValidateResultList = Array<AllValidateResult>;
+
+export type AllValidateResult = CustomValidateObj | ValidateResultType;
+
+export interface ValidateResultType extends FormRule {
+  result: boolean;
+}
 
 export type ValidateResult<T> = { [key in keyof T]: boolean | ErrorList };
 
 export type ErrorList = Array<FormRule>;
-
-export type ValueType = any;
 
 export type Data = { [key: string]: any };
 
@@ -232,7 +248,17 @@ export interface IsDateOptions {
   delimiters: string[];
 }
 
-export type CustomValidator = (val: ValueType) => boolean | Promise<boolean>;
+export type CustomValidator = (val: ValueType) => CustomValidateResolveType | Promise<CustomValidateResolveType>;
+
+export type CustomValidateResolveType = boolean | CustomValidateObj;
+
+export interface CustomValidateObj {
+  result: boolean;
+  message: string;
+  type?: 'error' | 'warning' | 'success';
+}
+
+export type ValueType = any;
 
 export interface FieldData {
   name: string;
