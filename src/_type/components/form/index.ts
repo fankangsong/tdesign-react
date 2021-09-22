@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-17 17:20:04
+ * updated at 2021-09-22 16:15:06
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -21,8 +21,8 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   labelAlign?: 'left' | 'right' | 'top';
   /**
-   * 可以整体设置label标签宽度，默认遵循一份栅格占比： calc(1 / 12 * 100%)
-   * @default 'calc(1 / 12 * 100%)'
+   * 可以整体设置label标签宽度，默认为100px
+   * @default '100px'
    */
   labelWidth?: string | number;
   /**
