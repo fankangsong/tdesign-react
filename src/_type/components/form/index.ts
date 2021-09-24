@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-22 16:15:06
+ * updated at 2021-09-23 18:43:36
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
