@@ -1,11 +1,13 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-09-16 16:15:35
  * */
 
-import { MouseEvent, KeyboardEvent } from 'react';
 import { PopupProps } from '../../../popup';
 import { TNode } from '../../common';
+import { MouseEvent } from 'react';
 
 export interface TdDropdownProps {
   /**
@@ -44,7 +46,7 @@ export interface TdDropdownProps {
    */
   options?: Array<DropdownOption>;
   /**
-   * 弹窗定位方式，可选值参考popup
+   * 弹窗定位方式，可选值同 Popup 组件
    * @default bottom-left
    */
   placement?:
@@ -61,14 +63,14 @@ export interface TdDropdownProps {
     | 'right-top'
     | 'right-bottom';
   /**
-   * 透传 popup 组件属性，方便更加自由地控制
+   * 透传  Popup 组件属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式
    */
   popupProps?: PopupProps;
   /**
    * 触发下拉显示的方式
    * @default hover
    */
-  trigger?: 'hover' | 'click' | 'focus' | 'context-menu' | 'manual';
+  trigger?: 'hover' | 'click' | 'focus' | 'context-menu';
   /**
    * 下拉操作项点击时触发
    */
@@ -103,7 +105,7 @@ export interface TdDropdownItemProps {
   /**
    * 点击时触发
    */
-  onClick?: (context: { e: KeyboardEvent<HTMLDivElement> }) => void;
+  onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent<HTMLDivElement> }) => void;
 }
 
 export type DropdownOption = { children?: Array<TdDropdownItemProps> } & TdDropdownItemProps & Record<string, any>;
