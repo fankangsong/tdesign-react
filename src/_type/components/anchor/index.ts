@@ -2,11 +2,11 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-25 16:21:28
+ * updated at 2021-09-13 00:40:33
  * */
 
 import { AffixProps } from '../../../affix';
-import { TNode, ScrollContainer } from '../../common';
+import { TNode, TElement, ScrollContainer } from '../../common';
 import { MouseEvent } from 'react';
 
 export interface TdAnchorProps {
@@ -25,6 +25,10 @@ export interface TdAnchorProps {
    */
   container?: ScrollContainer;
   /**
+   * 用于自定义选中项左侧游标
+   */
+  cursor?: TElement;
+  /**
    * 组件尺寸，small(120px)，medium(200px)，large(320px)
    * @default medium
    */
@@ -42,7 +46,7 @@ export interface TdAnchorProps {
    * 锚点被点击时触发
    */
   onClick?: (link: { href: string; title: string; e: MouseEvent<HTMLDivElement> }) => void;
-};
+}
 
 export interface TdAnchorTargetProps {
   /**
@@ -55,7 +59,7 @@ export interface TdAnchorTargetProps {
    * @default div
    */
   tag?: string;
-};
+}
 
 export interface TdAnchorItemProps {
   /**
@@ -73,4 +77,4 @@ export interface TdAnchorItemProps {
    * @default ''
    */
   title?: TNode;
-};
+}

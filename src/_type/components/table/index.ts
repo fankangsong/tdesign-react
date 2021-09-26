@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-27 10:14:55
+ * updated at 2021-09-16 19:09:42
  * */
 
 import { PaginationProps, PageInfo } from '../../../pagination';
@@ -125,7 +125,7 @@ export interface TdBaseTableProps<T extends DataType = DataType> {
    * 表格内容纵向滚动时触发。当内容超出高度(height)或最大高度(max-height)时，会出现纵向滚动条
    */
   onScrollY?: (params: { e: WheelEvent<HTMLDivElement> }) => void;
-};
+}
 
 export interface BaseTableCol<T extends DataType = DataType> {
   /**
@@ -155,10 +155,10 @@ export interface BaseTableCol<T extends DataType = DataType> {
    */
   colKey?: string;
   /**
-   * 内容超出时，是否显示省略号
+   * 内容超出时，是否显示省略号。值为 true ，则浮层默认显示单元格内容；值类型为 Function 则显示自定义内容
    * @default false
    */
-  ellipsis?: boolean;
+  ellipsis?: boolean | TNode<{ row: T; col: BaseTableCol; rowIndex: number; colIndex: number }>;
   /**
    * 固定列显示位置
    * @default left
@@ -171,7 +171,7 @@ export interface BaseTableCol<T extends DataType = DataType> {
   /**
    * 自定义表头或单元格，泛型 T 指表格数据类型
    */
-  render?: TNode<{ type: RenderType; row: T; rowIndex: number; col: BaseTableCol<T>; colIndex: number  }>;
+  render?: TNode<{ type: RenderType; row: T; rowIndex: number; col: BaseTableCol<T>; colIndex: number }>;
   /**
    * 自定义表头渲染，优先级高于 render
    */
@@ -180,9 +180,9 @@ export interface BaseTableCol<T extends DataType = DataType> {
    * 列宽
    */
   width?: string | number;
-};
+}
 
-export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omit<TdBaseTableProps<T>, 'columns'> {
+export interface TdPrimaryTableProps<T extends DataType = DataType> extends Omit<TdBaseTableProps<T>, 'columns'> {
   /**
    * 异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `loading-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容
    */
@@ -285,7 +285,7 @@ export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omi
    * 排序发生变化时触发。其中 sortBy 表示当前排序的字段，sortType 表示排序的方式，currentDataSource 表示 sorter 排序后的结果，col 表示列配置。sort 值类型为数组时表示多字段排序
    */
   onSortChange?: (sort: TableSort, options: SortOptions<T>) => void;
-};
+}
 
 export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTableCol {
   /**
@@ -299,7 +299,7 @@ export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTabl
   /**
    * 是否禁用行选中，colKey 值为 row-select 时，配置有效
    */
-  disabled?: (options: {row: T; rowIndex: number }) => boolean;
+  disabled?: (options: { row: T; rowIndex: number }) => boolean;
   /**
    * 过滤规则，支持多选(multiple)、单选(single)、输入框(input)三种形式。
    */
@@ -307,7 +307,7 @@ export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTabl
   /**
    * 自定义表头或单元格，泛型 T 指表格数据类型
    */
-  render?: TNode<{ type: 'cell' | 'title'; row: T; rowIndex: number; col: PrimaryTableCol<T>; colIndex: number  }>;
+  render?: TNode<{ type: 'cell' | 'title'; row: T; rowIndex: number; col: PrimaryTableCol<T>; colIndex: number }>;
   /**
    * 该列是否支持排序。值为 true 表示该列支持排序；值类型为函数，表示对本地数据 `data` 进行排序。泛型 T 指表格数据类型
    * @default false
@@ -327,17 +327,35 @@ export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTabl
    * @default single
    */
   type?: 'single' | 'multiple';
-};
+}
 
-export interface RowspanColspan { colspan: number; rowspan: number };
+export interface RowspanColspan {
+  colspan: number;
+  rowspan: number;
+}
 
-export interface RowspanAndColspanParams<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number };
+export interface RowspanAndColspanParams<T> {
+  row: T;
+  col: BaseTableCol;
+  rowIndex: number;
+  colIndex: number;
+}
 
-export interface RowEventContext<T> { row: T; index: number; e: MouseEvent<HTMLDivElement> };
+export interface RowEventContext<T> {
+  row: T;
+  index: number;
+  e: MouseEvent<HTMLDivElement>;
+}
 
 export type DataType = { [key: string]: any };
 
-export interface CellData<T> { type: 'th' | 'td'; row: T; col: BaseTableCol; rowIndex: number; colIndex: number };
+export interface CellData<T> {
+  type: 'th' | 'td';
+  row: T;
+  col: BaseTableCol;
+  rowIndex: number;
+  colIndex: number;
+}
 
 export type RenderType = 'cell' | 'title';
 
@@ -347,25 +365,54 @@ export type FilterItemValue = string | number | Array<string | number>;
 
 export type TableSort = SortInfo | Array<SortInfo>;
 
-export interface SortInfo { sortBy: string; descending: boolean };
+export interface SortInfo {
+  sortBy: string;
+  descending: boolean;
+}
 
-export interface TableChangeData { sorter?: TableSort; filter?: FilterValue; pagination?: PaginationProps };
+export interface TableChangeData {
+  sorter?: TableSort;
+  filter?: FilterValue;
+  pagination?: PaginationProps;
+}
 
-export interface TableChangeContext<T> { trigger: TableChangeTrigger; currentData?: T };
+export interface TableChangeContext<T> {
+  trigger: TableChangeTrigger;
+  currentData?: T;
+}
 
 export type TableChangeTrigger = 'filter' | 'sorter' | 'pagination';
 
-export interface DragSortContext<T> { currentIndex: number; current: T; targetIndex: number; target: T };
+export interface DragSortContext<T> {
+  currentIndex: number;
+  current: T;
+  targetIndex: number;
+  target: T;
+}
 
-export interface ExpandOptions<T> { expandedRowData: Array<T> };
+export interface ExpandOptions<T> {
+  expandedRowData: Array<T>;
+}
 
-export interface SelectOptions<T> { selectedRowData: Array<T> };
+export interface SelectOptions<T> {
+  selectedRowData: Array<T>;
+}
 
-export interface SortOptions<T> { currentDataSource?: Array<T>; col: PrimaryTableCol };
+export interface SortOptions<T> {
+  currentDataSource?: Array<T>;
+  col: PrimaryTableCol;
+}
 
-export type CheckProps<T> = CheckboxProps | RadioProps | ((options: { row: T; rowIndex: number }) => CheckboxProps | RadioProps);
+export type CheckProps<T> =
+  | CheckboxProps
+  | RadioProps
+  | ((options: { row: T; rowIndex: number }) => CheckboxProps | RadioProps);
 
-export interface Filter { type: FilterType; list?: Array<OptionData>; props: FilterProps };
+export interface Filter {
+  type: FilterType;
+  list?: Array<OptionData>;
+  props: FilterProps;
+}
 
 export type FilterType = 'input' | 'single' | 'multiple';
 

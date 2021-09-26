@@ -1,10 +1,12 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-09-16 23:24:46
  * */
 
-import { MouseEvent } from 'react';
 import { TNode } from '../../common';
+import { MouseEvent, DragEvent } from 'react';
 
 export interface TdUploadProps {
   /**
@@ -57,7 +59,7 @@ export interface TdUploadProps {
    */
   format?: (file: File) => UploadFile;
   /**
-   * 用于文件上传后格式化响应数据，error 用于显示错误提示；url 用于上传文件/图片地址
+   * 用于格式化文件上传后的响应数据。error 用于显示错误提示；url 用于上传文件/图片地址
    */
   formatResponse?: (response: any) => ResponseType;
   /**
@@ -90,6 +92,10 @@ export interface TdUploadProps {
    */
   placeholder?: string;
   /**
+   * 图片文件大小限制，单位 Byte
+   */
+  sizeLimit?: number;
+  /**
    * 组件风格。custom 表示完全自定义风格；file 表示默认文件上传风格；file-input 表示输入框形式的文件上传；file-flow 表示文件批量上传；image 表示默认图片上传风格；image-flow 表示图片批量上传
    * @default file
    */
@@ -111,15 +117,15 @@ export interface TdUploadProps {
   /**
    * 已上传文件列表发生变化时触发
    */
-  onChange?: (value: Array<UploadFile>, context: ChangeContext) => void;
+  onChange?: (value: Array<UploadFile>, context: UploadChangeContext) => void;
   /**
    * 进入拖拽区域时触发
    */
-  onDragenter?: (context: { e: DragEvent }) => void;
+  onDragenter?: (context: { e: DragEvent<Element> }) => void;
   /**
    * 拖拽结束时触发
    */
-  onDragleave?: (context: { e: DragEvent }) => void;
+  onDragleave?: (context: { e: DragEvent<Element> }) => void;
   /**
    * 上传失败后触发
    */
@@ -133,9 +139,9 @@ export interface TdUploadProps {
    */
   onProgress?: (options: ProgressContext) => void;
   /**
-   * 上传失败后触发
+   * 移除文件时触发
    */
-  onRemove?: (context: RemoveContext) => void;
+  onRemove?: (context: UploadRemoveContext) => void;
   /**
    * 上传成功后触发
    */
@@ -192,7 +198,7 @@ export interface TriggerContext {
   uploadingFile?: UploadFile | Array<UploadFile>;
 }
 
-export interface ChangeContext {
+export interface UploadChangeContext {
   e?: MouseEvent<HTMLDivElement> | ProgressEvent;
   response?: any;
   trigger: string;
@@ -206,10 +212,10 @@ export interface ProgressContext {
   percent: number;
 }
 
-export interface RemoveContext {
+export interface UploadRemoveContext {
   index?: number;
   file?: UploadFile;
-  e: MouseEvent<HTMLDivElement>;
+  e: MouseEvent<HTMLDivElement | SVGElement>;
 }
 
 export interface SuccessContext {
