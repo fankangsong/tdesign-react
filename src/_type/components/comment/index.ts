@@ -2,11 +2,11 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-14 11:26:08
+ * updated at 2021-09-27 18:18:51
  * */
 
 import { AvatarProps } from '../../../avatar';
-import { TNode, TElement } from '../../common';
+import { TNode } from '../../common';
 
 export interface TdCommentProps {
   /**
@@ -30,12 +30,11 @@ export interface TdCommentProps {
    */
   datetime?: TNode;
   /**
-   * 回复列表
+   * 引用
    */
-  reply?: TElement;
+  quote?: TNode;
   /**
-   * 评论风格，共两种：主评论 和 引用
-   * @default comment
+   * 回复
    */
-  theme?: 'comment' | 'quote';
+  reply?: TNode;
 }
