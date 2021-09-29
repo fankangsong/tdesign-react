@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-29 15:22:46
+ * updated at 2021-09-29 16:53:33
  * */
 
 import { ButtonProps } from '../../../button';
@@ -97,7 +97,7 @@ export interface TdPopconfirmProps {
 
 export interface PopconfirmVisibleChangeContext {
   trigger?: TriggerSource;
-  e?: MouseEvent<HTMLDivElement>;
+  e?: MouseEvent<HTMLDivElement | HTMLButtonElement>;
 }
 
 export type TriggerSource = 'cancel' | 'confirm' | 'document' | 'trigger-element-click';
