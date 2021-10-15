@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-23 18:43:36
+ * updated at 2021-10-08 15:31:34
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -205,6 +205,10 @@ export interface FormInstance {
    */
   getFieldValue?: (field: string) => unknown;
   /**
+   * 重置表单，与点击 reset 按钮效果相同
+   */
+  reset?: () => void;
+  /**
    * 设置多组字段状态
    */
   setFields?: (fields: FieldData[]) => void;
@@ -212,6 +216,10 @@ export interface FormInstance {
    * 设置表单字段值
    */
   setFieldsValue?: (field: FieldOption) => void;
+  /**
+   * 提交表单，与点击 submit 按钮效果相同
+   */
+  submit?: () => void;
   /**
    * 校验
    */

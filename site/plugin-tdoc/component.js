@@ -7,7 +7,8 @@ export default (mdSegment, demoDefsStr, demoCodesDefsStr) => {
     import Prismjs from 'prismjs';
     import 'prismjs/components/prism-bash.js';
     import 'prismjs/components/prism-javascript.js';
-    import '@/site/src/prism-theme.css';
+    import '@common/site/src/styles/prism-theme.less';
+    import '@common/site/src/styles/prism-theme-dark.less';
     ${demoDefsStr}
     ${demoCodesDefsStr}
 
