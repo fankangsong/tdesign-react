@@ -5,7 +5,6 @@
  * updated at 2021-09-27 18:18:51
  * */
 
-import { AvatarProps } from '../../../avatar';
 import { TNode } from '../../common';
 
 export interface TdCommentProps {
@@ -20,7 +19,7 @@ export interface TdCommentProps {
   /**
    * 头像
    */
-  avatar?: AvatarProps | TNode;
+  avatar?: string | TNode;
   /**
    * 内容
    */
