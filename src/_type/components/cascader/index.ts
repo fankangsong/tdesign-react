@@ -1,13 +1,15 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-06-02 17:34:44
+ * updated at 2021-10-19 19:05:05
  * */
 
-import { FocusEvent } from 'react';
 import { CheckboxProps } from '../../../checkbox';
 import { PopupProps } from '../../../popup';
 import { TreeNodeModel } from '../tree/index';
-import { TNode, TreeOptionData, SizeEnum } from '../../common';
+import { TNode, TElement, TreeOptionData, SizeEnum } from '../../common';
+import { FocusEvent } from 'react';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
   /**
@@ -25,6 +27,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   clearable?: boolean;
   /**
+   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义
+   */
+  collapsedItems?: TElement;
+  /**
    * 是否禁用组件
    * @default false
    */
@@ -33,7 +39,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 无匹配选项时的内容
    * @default '暂无数据'
    */
-  empty?: string | TNode;
+  empty?: TNode;
   /**
    * 是否可搜索
    * @default false
@@ -57,6 +63,11 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * @default 0
    */
   max?: number;
+  /**
+   * 最小折叠数量，用于多选情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠
+   * @default 0
+   */
+  minCollapsedNum?: number;
   /**
    * 是否允许多选
    * @default false
@@ -109,7 +120,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => void;
+  onBlur?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 选中值发生变化时触发。TreeNodeModel 从树组件中导出
    */
@@ -117,7 +128,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 获得焦点时触发
    */
-  onFocus?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => void;
+  onFocus?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent<HTMLDivElement> }) => void;
   /**
    * 多选模式下，选中数据被移除时触发
    */
