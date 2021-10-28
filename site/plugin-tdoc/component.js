@@ -76,7 +76,11 @@ export default (mdSegment, demoDefsStr, demoCodesDefsStr) => {
               <>
                 <td-doc-tabs ref={tdDocTabs} tab={tab}></td-doc-tabs>
                 <div style={isShow('demo')} name="DEMO">
-                  ${mdSegment.demoMd.replace(/class=/g, 'className=').replace(/tabindex/g, 'tabIndex')}
+                  ${
+                    mdSegment.demoMd
+                      .replace(/class=/g, 'className=')
+                      .replace(/tabindex/g, 'tabIndex')
+                  }
                   <td-contributors ref={tdContributors}></td-contributors>
                 </div>
                 <div style={isShow('api')} name="API" dangerouslySetInnerHTML={{ __html: \`${mdSegment.apiMd}\` }}></div>
