@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-16 19:09:42
+ * updated at 2021-11-02 10:44:50
  * */
 
 import { PaginationProps, PageInfo } from '../../../pagination';
@@ -207,6 +207,11 @@ export interface TdPrimaryTableProps<T extends DataType = DataType> extends Omit
    */
   defaultExpandedRowKeys?: Array<string | number>;
   /**
+   * 用于控制是否显示「展开图标列」，值为 false 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容，示例：`(h, { index }) => index === 0 ? false : <icon class='custom-icon' />`。expandedRow 存在时，该参数有效
+   * @default true
+   */
+  expandIcon?: TNode<ExpandArrowRenderParams<T>>;
+  /**
    * 是否允许点击行展开
    */
   expandOnRowClick?: boolean;
@@ -235,11 +240,6 @@ export interface TdPrimaryTableProps<T extends DataType = DataType> extends Omit
    * 选中的行，控制属性，非受控属性
    */
   defaultSelectedRowKeys?: Array<string | number>;
-  /**
-   * 用于控制是否显示展开图标，支持自定义图标
-   * @default true
-   */
-  showExpandArrow?: TNode;
   /**
    * 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序
    */
@@ -314,7 +314,7 @@ export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTabl
    */
   sorter?: boolean | SorterFun<T>;
   /**
-   * 当前列支持排序的方式
+   * 当前列支持排序的方式，desc 表示当前列只能进行降序排列；asc 表示当前列只能进行升序排列；all 表示当前列既可升序排列，又可以降序排列
    * @default all
    */
   sortType?: SortType;
@@ -358,6 +358,11 @@ export interface CellData<T> {
 }
 
 export type RenderType = 'cell' | 'title';
+
+export interface ExpandArrowRenderParams<T> {
+  row: T;
+  index: number;
+}
 
 export type FilterValue = Record<string, FilterItemValue>;
 
