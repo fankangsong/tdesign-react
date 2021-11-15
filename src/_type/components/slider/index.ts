@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-31 18:56:38
+ * updated at 2021-11-08 11:36:25
  * */
 
 import { InputNumberProps } from '../../../input-number';
@@ -16,12 +16,12 @@ export interface TdSliderProps {
    */
   disabled?: boolean;
   /**
-   * 用于控制数字输入框组件，值为 false 表示不现实数字输入框；值为 true 表示呈现默认数字输入框；值类型为 Object 表示透传属性到数字输入框组件
+   * 用于控制数字输入框组件，值为 false 表示不显示数字输入框；值为 true 表示呈现默认数字输入框；值类型为 Object 表示透传属性到数字输入框组件
    * @default true
    */
   inputNumberProps?: InputNumberProps;
   /**
-   * 滑块当前值文本。值为 true 显示默认文案，值为 false 不显示滑块当前值文本，值为 `${value}%` 则表示组件会根据占位符渲染文案
+   * 滑块当前值文本。值为 true 显示默认文案，值为 false 不显示滑块当前值文本，值为 `\${value}%` 则表示组件会根据占位符渲染文案
    */
   label?: TNode;
   /**
@@ -32,7 +32,7 @@ export interface TdSliderProps {
   /**
    * 刻度标记，示例：[0, 10, 40, 200] 或者 { 10: (val) => val + '%', 50: (h, val) => <button>{val}</button> }
    */
-  marks?: Array<number> | Marks;
+  marks?: Array<number> | SliderMarks;
   /**
    * 滑块范围最大值
    * @default 100
@@ -71,7 +71,7 @@ export interface TdSliderProps {
   onChange?: (value: SliderValue) => void;
 }
 
-export interface Marks {
+export interface SliderMarks {
   [mark: number]: string | TNode<{ value: number }>;
 }
 
