@@ -9,6 +9,7 @@ export default (mdSegment, demoDefsStr, demoCodesDefsStr) => {
     import 'prismjs/components/prism-javascript.js';
     import '@common/site/src/styles/prism-theme.less';
     import '@common/site/src/styles/prism-theme-dark.less';
+    import Codesandbox from '@components/Codesandbox';
     ${demoDefsStr}
     ${demoCodesDefsStr}
 

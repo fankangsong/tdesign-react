@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const demoFiles = import.meta.globEager('../../src/**/_example/*.jsx');
+export const demoFiles = import.meta.globEager('../../../src/**/_example/*.jsx');
 
 const componentNames = [];
 const demoPaths = Object.keys(demoFiles).map((key) => {
