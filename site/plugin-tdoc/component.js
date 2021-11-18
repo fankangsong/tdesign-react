@@ -7,8 +7,8 @@ export default (mdSegment, demoDefsStr, demoCodesDefsStr) => {
     import Prismjs from 'prismjs';
     import 'prismjs/components/prism-bash.js';
     import 'prismjs/components/prism-javascript.js';
-    import '@common/site/src/styles/prism-theme.less';
-    import '@common/site/src/styles/prism-theme-dark.less';
+    import 'tdesign-site-components/lib/styles/prism-theme.less';
+    import 'tdesign-site-components/lib/styles/prism-theme-dark.less';
     import Codesandbox from '@components/Codesandbox';
     ${demoDefsStr}
     ${demoCodesDefsStr}
