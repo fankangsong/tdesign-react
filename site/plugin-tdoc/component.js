@@ -82,7 +82,7 @@ export default (mdSegment, demoDefsStr, demoCodesDefsStr) => {
                       .replace(/class=/g, 'className=')
                       .replace(/tabindex/g, 'tabIndex')
                   }
-                  <td-contributors-gpl ref={tdContributors}></td-contributors-gpl>
+                  <td-contributors ref={tdContributors}></td-contributors>
                 </div>
                 <div style={isShow('api')} name="API" dangerouslySetInnerHTML={{ __html: \`${mdSegment.apiMd}\` }}></div>
                 <div style={isShow('design')} name="DESIGN" dangerouslySetInnerHTML={{ __html: \`${mdSegment.designMd}\` }}></div>
