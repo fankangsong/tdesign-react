@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-23 10:59:52
+ * updated at 2021-11-24 11:15:43
  * */
 
 import { PopupProps } from '../../../popup';
@@ -16,6 +16,10 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    * @default false
    */
   clearable?: boolean;
+  /**
+   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义
+   */
+  collapsedItems?: TNode<{ value: DataOption[]; collapsedSelectedItems: DataOption[]; count: number }>;
   /**
    * 数据
    * @default []
@@ -55,6 +59,11 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    * @default 0
    */
   max?: number;
+  /**
+   * 最小折叠数量，用于多选情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠
+   * @default 0
+   */
+  minCollapsedNum?: number;
   /**
    * 是否允许多选
    * @default false
@@ -119,12 +128,8 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    * 输入值变化时，触发搜索事件。主要用于远程搜索新数据
    */
   onSearch?: (filterWords: string) => void;
-}
+};
 
-export type TreeSelectValue = string | number | Object | Array<TreeSelectValue>;
+export type TreeSelectValue = string | number | object | Array<TreeSelectValue>;
 
-export interface RemoveOptions<T> {
-  value: string | number;
-  data: T;
-  e: MouseEvent<SVGElement | HTMLDivElement>;
-}
+export interface RemoveOptions<T> { value: string | number | object; data: T; e: MouseEvent<SVGElement | HTMLDivElement> };
