@@ -20,8 +20,7 @@ export default (mdSegment, demoDefsStr, demoCodesDefsStr) => {
     export default function TdDoc(props) {
       const tdDocHeader = useRef();
       const tdDocTabs = useRef();
-      const tdContributors = useRef();
-      const { contributors, docType } = props;
+      const { docType } = props;
 
       const isComponent  = ${mdSegment.isComponent};
 
@@ -32,12 +31,10 @@ export default (mdSegment, demoDefsStr, demoCodesDefsStr) => {
 
       useEffect(() => {
         tdDocHeader.current.docType = docType;
-        tdDocHeader.current.contributors = contributors;
         tdDocHeader.current.docInfo = { title: \`${mdSegment.title}\`, desc:  \`${mdSegment.description}\` }
 
         if (isComponent) {
           tdDocHeader.current.issueInfo = {};
-          tdContributors.current.contributors = contributors;
         } else {
           Prismjs.highlightAll();
         }
@@ -82,7 +79,7 @@ export default (mdSegment, demoDefsStr, demoCodesDefsStr) => {
                       .replace(/class=/g, 'className=')
                       .replace(/tabindex/g, 'tabIndex')
                   }
-                  <td-contributors ref={tdContributors}></td-contributors>
+                  <td-contributors platform="web" framework="react" component-name="${mdSegment.componentName}" ></td-contributors>
                 </div>
                 <div style={isShow('api')} name="API" dangerouslySetInnerHTML={{ __html: \`${mdSegment.apiMd}\` }}></div>
                 <div style={isShow('design')} name="DESIGN" dangerouslySetInnerHTML={{ __html: \`${mdSegment.designMd}\` }}></div>
