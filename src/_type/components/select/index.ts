@@ -45,7 +45,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 用来定义 value / label 在 `options` 中对应的字段别名
    */
-  keys?: KeysType;
+  keys?: SelectKeysType;
   /**
    * 是否正在加载数据
    * @default false
@@ -130,7 +130,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 多选模式下，选中数据被移除时触发
    */
-  onRemove?: (options: RemoveContext<SelectOption>) => void;
+  onRemove?: (options: SelectRemoveContext<SelectOption>) => void;
   /**
    * 输入值变化时，触发搜索事件。主要用于远程搜索新数据
    */
@@ -162,7 +162,7 @@ export interface TdOptionGroupProps {
   label?: string;
 }
 
-export interface KeysType {
+export interface SelectKeysType {
   value?: string;
   label?: string;
 }
@@ -173,7 +173,7 @@ export type SelectValue<SelectOption extends Options = Options> =
   | SelectOption
   | Array<SelectValue<SelectOption>>;
 
-export interface RemoveContext<T> {
+export interface SelectRemoveContext<T> {
   value: string | number;
   data: T;
   e: MouseEvent<HTMLDivElement>;
