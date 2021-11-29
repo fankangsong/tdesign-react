@@ -26,6 +26,11 @@ export interface TdCalendarProps {
    */
   controllerConfig?: boolean | CalendarController;
   /**
+   * 小于 10 的日期，是否使用 '0' 填充。默认表现为 `01` `02`，值为 false 表现为 `1` `2` `9`
+   * @default false
+   */
+  fillWithZero?: boolean;
+  /**
    * 用于设置第一列显示周几，仅在日历展示维度为月份时（mode = month）有效
    * @default 1
    */
@@ -87,7 +92,7 @@ export interface TdCalendarProps {
    * 右上角控件组选中值有变化的时候触发
    */
   onControllerChange?: (options: ControllerOptions) => void;
-};
+}
 
 export interface CalendarController {
   /**
@@ -115,7 +120,7 @@ export interface CalendarController {
    * 日历年份控制器
    */
   year?: { visible?: boolean; selectProps?: SelectProps };
-};
+}
 
 export interface CalendarCell extends ControllerOptions {
   /**
@@ -143,12 +148,19 @@ export interface CalendarCell extends ControllerOptions {
    * 日期在本月的第几周（日历展示维度是“月”时有值）
    */
   weekOrder?: number;
-};
+}
 
 export type CalendarValue = string | Date;
 
-export interface CalendarWeek { day: WeekDay };
+export interface CalendarWeek {
+  day: WeekDay;
+}
 
 export type WeekDay = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
-export interface ControllerOptions { filterDate: Date; formattedFilterDate: string; mode: string; isShowWeekend: boolean };
+export interface ControllerOptions {
+  filterDate: Date;
+  formattedFilterDate: string;
+  mode: string;
+  isShowWeekend: boolean;
+}
