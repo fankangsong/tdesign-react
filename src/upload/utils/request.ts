@@ -40,7 +40,7 @@ export default function request({
       if (event.total > 0) {
         percent = Math.round((event.loaded / event.total) * 100);
       }
-      onProgress({ e: event, percent, file });
+      onProgress({ e: event, percent, file, type: 'real' });
     };
   }
 

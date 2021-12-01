@@ -44,7 +44,19 @@ export interface TdPopupProps {
    * 浮层出现位置
    * @default top
    */
-  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
+  placement?:
+    | 'top'
+    | 'left'
+    | 'right'
+    | 'bottom'
+    | 'top-left'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-right'
+    | 'left-top'
+    | 'left-bottom'
+    | 'right-top'
+    | 'right-bottom';
   /**
    * 是否显示浮层箭头
    * @default false
@@ -77,10 +89,20 @@ export interface TdPopupProps {
    * 当浮层隐藏或显示时触发
    */
   onVisibleChange?: (visible: boolean, context: PopupVisibleChangeContext) => void;
-};
+}
 
-export interface PopupVisibleChangeContext { e?: PopupTriggerEvent; trigger?: PopupTriggerSource };
+export interface PopupVisibleChangeContext {
+  e?: PopupTriggerEvent;
+  trigger?: PopupTriggerSource;
+}
 
 export type PopupTriggerEvent = MouseEvent<HTMLDivElement> | FocusEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>;
 
-export type PopupTriggerSource = 'document' | 'trigger-element-click' | 'trigger-element-hover' | 'trigger-element-blur' | 'trigger-element-focus' | 'context-menu' | 'keydown-esc';
+export type PopupTriggerSource =
+  | 'document'
+  | 'trigger-element-click'
+  | 'trigger-element-hover'
+  | 'trigger-element-blur'
+  | 'trigger-element-focus'
+  | 'context-menu'
+  | 'keydown-esc';

@@ -66,7 +66,7 @@ export interface TdMenuProps {
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-};
+}
 
 export interface TdHeadMenuProps {
   /**
@@ -111,7 +111,7 @@ export interface TdHeadMenuProps {
    * 展开的菜单项发生变化时触发
    */
   onExpand?: (value: Array<MenuValue>) => void;
-};
+}
 
 export interface TdSubmenuProps {
   /**
@@ -138,7 +138,7 @@ export interface TdSubmenuProps {
    * 菜单项唯一标识
    */
   value?: MenuValue;
-};
+}
 
 export interface TdMenuItemProps {
   /**
@@ -174,13 +174,13 @@ export interface TdMenuItemProps {
    * 点击时触发
    */
   onClick?: (context: { e: MouseEvent<HTMLElement> }) => void;
-};
+}
 
 export interface TdMenuGroupProps {
   /**
    * 菜单组标题
    */
   title?: TNode;
-};
+}
 
 export type MenuValue = string | number;
