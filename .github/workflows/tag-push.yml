@@ -10,8 +10,10 @@ jobs:
     if: github.event.ref_type == 'tag'
     steps:
       - uses: actions/install-dep@main
-      - run: echo 'github.ref_name is ${{ github.ref_name }}'
-      - run: npm run site:staging
+      - run: |
+          echo "github.ref_name is ${{ github.ref_name }}"
+          echo "github is ${{ github }}"
+          npm run site:staging
       - name: upload surge service
         id: deploy
         run: |
