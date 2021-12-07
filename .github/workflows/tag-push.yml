@@ -10,8 +10,14 @@ jobs:
     if: github.event.ref_type == 'tag'
     steps:
       - run: echo "ref_name is ${{ github.ref_name }}."
-      - uses: actions/install-dep@main
-      - run: npm run site:staging
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
+        shell: bash
+      - name: build site
+        run: npm run site:staging
       - name: upload surge service
         id: deploy
         run: |
