@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { TdSliderProps } from './type';
 import useConfig from '../_util/useConfig';
 import useDefault from '../_util/useDefault';
-import { numberToPencent } from './utils/handleNumber';
+import { numberToPercent } from './utils/handleNumber';
 import { StyledProps, TNode } from '../common';
 import InputNumber from '../input-number/InputNumber';
 import SliderHandleButton from './SliderHandleButton';
@@ -191,7 +191,7 @@ const Slider = forwardRef<HTMLDivElement, SliderProps>(
     return (
       <div
         style={{ ...style }}
-        className={classNames(`${classPrefix}-slider-contianer`, {
+        className={classNames(`${classPrefix}-slider-container`, {
           'is-vertical': isVertical,
         })}
         ref={ref}
@@ -200,23 +200,24 @@ const Slider = forwardRef<HTMLDivElement, SliderProps>(
           ref={sliderRef}
           className={classNames(className, `${classPrefix}-slider`, {
             [`${classPrefix}-is-disabled`]: disabled,
-            [`${classPrefix}-slider-vertical`]: isVertical,
+            [`${classPrefix}-slider--vertical`]: isVertical,
             [`${classPrefix}-slider--with-input`]: inputNumberProps,
           })}
           onClick={onSliderChange}
         >
           <div className={classNames(`${classPrefix}-slider__rail`)}>
             <div
-              style={{ [startDirection]: numberToPencent(start), [sizeKey]: numberToPencent(width) }}
+              style={{ [startDirection]: numberToPercent(start), [sizeKey]: numberToPercent(width) }}
               className={classNames(`${classPrefix}-slider__track`)}
             ></div>
-            {range ? createHandleButton(LEFT_NODE, { [startDirection]: numberToPencent(start) }) : null}
-            {createHandleButton(RIGHT_NODE, { [startDirection]: numberToPencent(end) })}
+            {range ? createHandleButton(LEFT_NODE, { [startDirection]: numberToPercent(start) }) : null}
+            {range && <div className={classNames(`${classPrefix}-slider__center-liner`)} />}
+            {createHandleButton(RIGHT_NODE, { [startDirection]: numberToPercent(end) })}
             <div className={classNames(`${classPrefix}-slider__step`)}>
               {renderDots.map(({ position, value }) => (
                 <div
                   key={value}
-                  style={{ [stepDirection]: numberToPencent(position) }}
+                  style={{ [stepDirection]: numberToPercent(position) }}
                   className={classNames(`${classPrefix}-slider__stop`)}
                 ></div>
               ))}
@@ -226,7 +227,7 @@ const Slider = forwardRef<HTMLDivElement, SliderProps>(
                 <div
                   key={value}
                   onClick={(event) => handleClickMarks(event, value)}
-                  style={{ [stepDirection]: numberToPencent(position) }}
+                  style={{ [stepDirection]: numberToPercent(position) }}
                   className={classNames(`${classPrefix}-slider__mark-text`)}
                 >
                   {label}
@@ -236,7 +237,7 @@ const Slider = forwardRef<HTMLDivElement, SliderProps>(
           </div>
         </div>
         {inputNumberProps ? (
-          <div className={classNames(`${classPrefix}-slider-input-container`)}>
+          <div className={classNames(`${classPrefix}-slider__input-container`)}>
             {range && createInput(LEFT_NODE)}
             {createInput(RIGHT_NODE)}
           </div>
