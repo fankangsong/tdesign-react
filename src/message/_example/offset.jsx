@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Message, Input } from "tdesign-react";
+import { Button, MessagePlugin, Input } from "tdesign-react";
 
 export default function () {
   const [offsetX, setOffsetX] = useState(0);
@@ -30,7 +30,7 @@ export default function () {
       <div className="tdesign-demo-block-row">
         <Button
           onClick={() => {
-            Message.info({
+            MessagePlugin.info({
               content: "用户表示普通操作信息提示",
               placement: 'center',
               offset: [Number(offsetX), Number(offsetY)],
@@ -41,7 +41,7 @@ export default function () {
         </Button>
         <Button
           onClick={() => {
-            Message.info({
+            MessagePlugin.info({
               content: "用户表示普通操作信息提示",
               placement: "top",
               offset: [Number(offsetX), Number(offsetY)],
@@ -52,7 +52,7 @@ export default function () {
         </Button>
         <Button
           onClick={() => {
-            Message.info({
+            MessagePlugin.info({
               content: "用户表示普通操作信息提示",
               placement: "left",
               offset: [Number(offsetX), Number(offsetY)],
@@ -63,7 +63,7 @@ export default function () {
         </Button>
         <Button
           onClick={() => {
-            Message.info({
+            MessagePlugin.info({
               content: "用户表示普通操作信息提示",
               placement: "right",
               offset: [Number(offsetX), Number(offsetY)],
@@ -74,7 +74,7 @@ export default function () {
         </Button>
         <Button
           onClick={() => {
-            Message.info({
+            MessagePlugin.info({
               content: "用户表示普通操作信息提示",
               placement: "bottom",
               offset: [Number(offsetX), Number(offsetY)],
@@ -85,7 +85,7 @@ export default function () {
         </Button>
         <Button
           onClick={() => {
-            Message.info({
+            MessagePlugin.info({
               content: "用户表示普通操作信息提示",
               placement: "top-left",
               offset: [Number(offsetX), Number(offsetY)],
@@ -96,7 +96,7 @@ export default function () {
         </Button>
         <Button
           onClick={() => {
-            Message.info({
+            MessagePlugin.info({
               content: "用户表示普通操作信息提示",
               placement: "top-right",
               offset: [Number(offsetX), Number(offsetY)],
@@ -107,7 +107,7 @@ export default function () {
         </Button>
         <Button
           onClick={() => {
-            Message.info({
+            MessagePlugin.info({
               content: "用户表示普通操作信息提示",
               placement: "bottom-left",
               offset: [Number(offsetX), Number(offsetY)],
@@ -118,7 +118,7 @@ export default function () {
         </Button>
         <Button
           onClick={() => {
-            Message.info({
+            MessagePlugin.info({
               content: "用户表示普通操作信息提示",
               placement: "bottom-right",
               offset: [Number(offsetX), Number(offsetY)],
